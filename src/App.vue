@@ -1,23 +1,41 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+  <v-app>
+    <v-toolbar app flat :clipped-left="clipped">
+      <v-toolbar-items>
+        <v-btn flat>
+          <img src="@/assets/logo.png" alt="Home" height="38px" width="38px">
+        </v-btn>
+      </v-toolbar-items>
+      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-btn flat>Sign In</v-btn>
+        <v-btn flat>Register</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+    <v-content>
+      <HelloWorld/>
+    </v-content>
+    <v-footer :fixed="fixed" app>
+      <span>&copy; 2017</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
+import HelloWorld from './components/HelloWorld'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    HelloWorld
+  },
+  data () {
+    return {
+      clipped: false,
+      fixed: false,
+      title: 'Black Lotus Valley'
+    }
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
