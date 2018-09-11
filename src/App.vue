@@ -8,13 +8,10 @@
       </v-toolbar-items>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-btn flat>Sign In</v-btn>
-        <v-btn flat>Register</v-btn>
-      </v-toolbar-items>
+      <Auth/>
     </v-toolbar>
     <v-content>
-      <HelloWorld/>
+      <Home/>
     </v-content>
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
@@ -23,12 +20,13 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Auth from './components/Auth'
+import Home from './components/Home'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Auth, Home
   },
   data () {
     return {
