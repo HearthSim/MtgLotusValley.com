@@ -5,6 +5,21 @@
         <description>Most recent updates changes.</description>
         <language>en</language>
         <item>
+            <title>Arena Tracker 1.0 rc3</title>
+            <description>
+              <![CDATA[
+              <style type="text/css">* { font-family: Arial, Helvetica, sans-serif; }</style>
+              <ul>
+              <li>Publish deck as public in website</li>
+              <li>Add tooltip in overlay's buttons</li>
+              </ul>
+              ]]>
+            </description>
+            <pubDate>Sat, 15 Sep 2018</pubDate>
+            <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.0rc3/Lotus.Tracker.1.0rc3.exe" 
+                    sparkle:version="1.0 rc3" length="24215" type="application/x-msdownload"/>
+        </item>
+        <item>
             <title>Arena Tracker 1.0 rc2</title>
             <description>
               <![CDATA[
