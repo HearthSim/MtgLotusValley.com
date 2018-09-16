@@ -1,7 +1,6 @@
 <template>
-  <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
+    <v-layout row align-center>
+      <v-flex xs9 color="white">
         <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
         <blockquote>
           &#8220;First, solve the problem. Then, write the code.&#8221;
@@ -11,14 +10,43 @@
             </small>
           </footer>
         </blockquote>
-      </v-layout>
-    </v-slide-y-transition>
-  </v-container>
+      </v-flex>
+      <v-flex xs3>
+        <Deck :cards="deckOfDayCards" :name="deckOfDayName"/>
+      </v-flex>
+    </v-layout>
 </template>
 
 <script>
+import { axios } from "../main";
+import Deck from "./internals/Deck";
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    Deck
+  },
+  created () {
+    this.getDeckOfDay()
+  },
+  data () {
+    return {
+      deckOfDayCards: {},
+      deckOfDayName: ""
+    }
+  },
+  methods: {
+    getDeckOfDay: function () {
+      axios.get('/stats/deckOfDay')
+      .then(res => {
+        this.deckOfDayCards = res.data.cards;
+        this.deckOfDayName = res.data.name;
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    }
+  }
 }
 </script>
 

@@ -15,6 +15,7 @@ import {
   VIcon,
   VGrid,
   VToolbar,
+  VTooltip,
   transitions
 } from 'vuetify'
 import 'vuetify/src/stylus/app.styl'
@@ -35,6 +36,7 @@ Vue.use(Vuetify, {
     VIcon,
     VGrid,
     VToolbar,
+    VTooltip,
     transitions
   },
 })

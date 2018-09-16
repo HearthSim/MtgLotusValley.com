@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "keyrune": "^3.2.5",
+    "mana-font": "^1.4.1",
     "vue": "^2.5.17",
     "vuetify": "^1.0.19"
   },

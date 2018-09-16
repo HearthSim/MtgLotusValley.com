@@ -47,7 +47,7 @@ import { axios } from "../main";
 
 export default {
   name: 'Auth',
-  created() {
+  created () {
       const tokenDate = new Date(localStorage.getItem("expiresIn"))
       const date = new Date()
       if (date < tokenDate) {
