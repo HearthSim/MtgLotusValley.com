@@ -51,10 +51,12 @@ export default {
       const tokenDate = new Date(localStorage.getItem("expiresIn"))
       const date = new Date()
       if (date < tokenDate) {
-        let userEmail = localStorage.getItem("email")
-        userEmail = userEmail.substring(0, userEmail.indexOf('@'))
-        this.loggedUserName = userEmail.charAt(0).toUpperCase() + userEmail.slice(1);
-        this.logged = true
+        this.showLoggedInfo()
+      } else {
+        const refreshToken = localStorage.getItem("refreshToken")
+        if (refreshToken !== undefined && refreshToken !== "") {
+          this.refreshUserToken(refreshToken)
+        }
       }
   },
   data () {
@@ -97,12 +99,35 @@ export default {
         const date = new Date()
         date.setSeconds(date.getSeconds() + Number.parseInt(res.data.expiresIn))
         localStorage.setItem("expiresIn", date.toString())
+        this.showLoggedInfo()
       })
       .catch(error => {
         this.showSignError = true
         this.showSignLoading = false
         console.log(error);
       })
+    },
+    refreshUserToken: function (refreshToken) {
+      axios.post('/refreshtoken', {
+        refresh_token: refreshToken
+      })
+      .then(res => {
+        localStorage.setItem("id_token", res.data.idToken)
+        localStorage.setItem("refresh_token", res.data.refreshToken)
+        const date = new Date()
+        date.setSeconds(date.getSeconds() + Number.parseInt(res.data.expiresIn))
+        localStorage.setItem("expires_in", date.toString())
+        this.showLoggedInfo()
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    },
+    showLoggedInfo: function () {
+      const userEmail = localStorage.getItem("email")
+      const userName = userEmail.substring(0, userEmail.indexOf('@'))
+      this.loggedUserName = userName.charAt(0).toUpperCase() + userName.slice(1);
+      this.logged = true
     },
     signedMenuClick: function (index) {
       console.log(index)
