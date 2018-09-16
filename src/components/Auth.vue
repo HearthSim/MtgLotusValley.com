@@ -74,6 +74,7 @@ export default {
       },
       showPassword: false,
       signedMenuItems: [
+        { title: 'My Collection' },
         { title: 'My Decks' },
         { title: 'Logout' }
       ]
@@ -92,7 +93,7 @@ export default {
         this.signInDialog = false
         this.showSignLoading = false
         const userEmail = res.data.email
-        loggedUserName = userEmail.substring(0, userEmail.indexOf('@'))
+        this.loggedUserName = userEmail.substring(0, userEmail.indexOf('@'))
         localStorage.setItem("email", userEmail);
         localStorage.setItem("idToken", res.data.idToken)
         localStorage.setItem("refreshToken", res.data.refreshToken)
@@ -112,11 +113,11 @@ export default {
         refresh_token: refreshToken
       })
       .then(res => {
-        localStorage.setItem("id_token", res.data.idToken)
-        localStorage.setItem("refresh_token", res.data.refreshToken)
+        localStorage.setItem("idToken", res.data.id_token)
+        localStorage.setItem("refreshToken", res.data.refresh_token)
         const date = new Date()
-        date.setSeconds(date.getSeconds() + Number.parseInt(res.data.expiresIn))
-        localStorage.setItem("expires_in", date.toString())
+        date.setSeconds(date.getSeconds() + Number.parseInt(res.data.expires_in))
+        localStorage.setItem("expiresIn", date.toString())
         this.showLoggedInfo()
       })
       .catch(error => {
@@ -131,6 +132,16 @@ export default {
     },
     signedMenuClick: function (index) {
       console.log(index)
+      if (index == 2) {
+        this.logout()
+      }
+    },
+    logout: function () {
+      localStorage.removeItem("idToken")
+      localStorage.removeItem("refreshToken")
+      localStorage.removeItem("expiresIn")
+      this.loggedUserName = "";
+      this.logged = false
     }
   }
 }
