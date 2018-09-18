@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style>
-.ms-cost {
-  font-size: .8em;
+.ss {
+  margin-bottom: 0.2em;
 }
 </style>

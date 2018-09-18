@@ -1,6 +1,6 @@
 <template>
-  <v-tooltip right>
-    <a slot="activator" target="_blank" 
+  <v-tooltip left lazy color="white">
+    <a class='body-1' slot="activator" target="_blank" 
        :href="'http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=' + card.multiverseid">
       {{ card.name }}
     </a>
@@ -25,8 +25,6 @@ export default {
 <style>
 a {
   color: #337ab7;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 14px;
   text-decoration: none;
 }
 </style>

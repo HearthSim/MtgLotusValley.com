@@ -15,9 +15,9 @@
               </ul>
               ]]>
             </description>
-            <pubDate>Sat, 15 Sep 2018</pubDate>
+            <pubDate>Sat, 17 Sep 2018</pubDate>
             <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.0rc3/Lotus.Tracker.1.0rc3.exe" 
-                    sparkle:version="1.0 rc3" length="24215" type="application/x-msdownload"/>
+                    sparkle:version="1.0rc3" length="24240" type="application/x-msdownload"/>
         </item>
         <item>
             <title>Arena Tracker 1.0 rc2</title>
@@ -37,7 +37,7 @@
             </description>
             <pubDate>Sat, 08 Sep 2018</pubDate>
             <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.0rc2/Lotus.Tracker.1.0rc2.exe" 
-                    sparkle:version="1.0 rc2" length="24215" type="application/x-msdownload"/>
+                    sparkle:version="1.0rc2" length="24215" type="application/x-msdownload"/>
         </item>
         <item>
             <title>Arena Tracker 1.0 rc1</title>
@@ -56,7 +56,7 @@
             </description>
             <pubDate>Sat, 25 Aug 2018</pubDate>
             <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.0rc1/Lotus.Tracker.1.0rc1.exe" 
-                    sparkle:version="1.0 rc1" length="23647" type="application/x-msdownload"/>
+                    sparkle:version="1.0rc1" length="23647" type="application/x-msdownload"/>
         </item>
         <item>
             <title>Arena Tracker 1.0 alpha</title>
@@ -87,7 +87,7 @@
             </description>
             <pubDate>Wed, 01 Aug 2018</pubDate>
             <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v0.1/Lotus.Tracker.exe" 
-                    sparkle:version="1.0 alpha" length="23680" type="application/x-msdownload"/>
+                    sparkle:version="1.0alpha" length="23680" type="application/x-msdownload"/>
         </item>
     </channel>
 </rss>

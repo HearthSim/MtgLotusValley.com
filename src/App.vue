@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar app flat :clipped-left="clipped">
+    <v-toolbar app dark :clipped-left="clipped">
       <v-toolbar-items>
         <v-btn flat>
           <img src="@/assets/logo.png" alt="Home" height="38px" width="38px">

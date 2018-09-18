@@ -1,7 +1,8 @@
 <template>
     <v-layout row align-center>
-      <v-flex xs9 color="white">
-        <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
+      <v-flex xs3>
+      </v-flex>
+      <v-flex xs6>
         <blockquote>
           &#8220;First, solve the problem. Then, write the code.&#8221;
           <footer>
@@ -12,7 +13,10 @@
         </blockquote>
       </v-flex>
       <v-flex xs3>
-        <Deck :cards="deckOfDayCards" :name="deckOfDayName"/>
+        <div class='mt-5'>
+          <span class='title'>Deck of Day</span>
+          <Deck :cards="deckOfDayCards" :name="deckOfDayName"/>
+        </div>
       </v-flex>
     </v-layout>
 </template>
@@ -37,13 +41,13 @@ export default {
   },
   methods: {
     getDeckOfDay: function () {
-      axios.get('/stats/deckOfDay')
+      axios.get('/stats/deckOfDay?date=2018-09-15')
       .then(res => {
-        this.deckOfDayCards = res.data.cards;
-        this.deckOfDayName = res.data.name;
+        this.deckOfDayCards = res.data.cards
+        this.deckOfDayName = res.data.name
       })
       .catch(error => {
-        console.log(error);
+        console.log(error)
       })
     }
   }
