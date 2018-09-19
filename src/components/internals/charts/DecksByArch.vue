@@ -1,11 +1,18 @@
 <template>
-  <canvas id="decksByArch-chart"/>
+  <div id="canvas-container">
+    <canvas id="decksByArch-chart"/>
+  </div>
 </template>
 
 <script>
 import { axios } from "../../../main";
 import Chart from 'chart.js';
 
+const barColors = [
+  '#FFB74D',
+  '#FF8A65'
+  ];
+  
 export default {
   props: {
     dateMin: {
@@ -24,7 +31,13 @@ export default {
   mounted() {
     axios.get('/stats/decksByArch?dateMin=' + this.dateMin + '&dateMax=' + this.dateMax)
       .then(res => {
-        this.createGraph(this.archLabels(res.data), this.archValues(res.data))
+        const colors = []
+        while (colors.length < Object.keys(res.data).length) {
+          barColors.forEach(color => {
+            colors.push(color)
+          })
+        }
+        this.createGraph(this.archLabels(res.data), this.archValues(res.data), colors)
       })
       .catch(error => {
         console.log(error)
@@ -47,34 +60,44 @@ export default {
       });
       return values
     },
-    createGraph: function(labels, data) {
+    createGraph: function(labels, data, barColors) {
       const ctx = document.getElementById('decksByArch-chart');
-      const myChart = new Chart(ctx, {
+      ctx.height = labels.length * 12;
+      const color = Chart.helpers.color;
+      const chart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
           labels: labels,
           datasets: [
             {
-              label: 'Decks samples',
               data: data,
-              backgroundColor: [ 'rgba(71, 183,132,.5)' ],
-              borderColor: [ '#47b784' ],
-              borderWidth: 0
+              backgroundColor: barColors,
+              borderColor: barColors,
+              borderWidth: 1
             }
           ]
         },
         options: {
           responsive: true,
-          lineTension: 1,
+          maintainAspectRatio: true,
           scales: {
             xAxes: [{
-              stacked: true,
+              stacked: false,
               ticks: {
-                beginAtZero: true,
-                padding: 25,
+                beginAtZero: true
               }
+            }],
+            yAxes: [{
+              barPercentage: 0.7
             }]
-          }
+          },
+					legend: {
+						display: false,
+					},
+					title: {
+						display: true,
+						text: 'Deck by Archetype'
+					}
         }
       });
     }
@@ -82,3 +105,11 @@ export default {
 }
 
 </script>
+
+<style>
+  #canvas-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

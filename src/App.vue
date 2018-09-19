@@ -6,8 +6,8 @@
           <img src="@/assets/logo.png" alt="Home" height="38px" width="38px">
         </v-btn>
       </v-toolbar-items>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
+      <v-toolbar-title v-text="title" class="hidden-xs-only"/>
+      <v-spacer/>
       <Auth/>
     </v-toolbar>
     <v-content>
