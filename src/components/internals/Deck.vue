@@ -28,6 +28,16 @@ export default {
   components: {
     DeckCard, DeckGroup
   },
+  props: {
+    cards: {
+      type: Object,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    }
+  },
   computed: {
     cardsGrouped: function () {
       const cardsArray = []
@@ -78,18 +88,7 @@ export default {
     planeswalkers: function () {
       return this.cardsGrouped.filter(card => card.type.includes('Planeswalker'))
     }
-  },
-  props: {
-    cards: {
-      type: Object,
-      required: true
-    },
-    name: {
-      type: String,
-      required: true
-    }
-  },
-  methods: {}
+  }
 }
 </script>
 

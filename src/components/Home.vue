@@ -3,14 +3,7 @@
       <v-flex xs3>
       </v-flex>
       <v-flex xs6>
-        <blockquote>
-          &#8220;First, solve the problem. Then, write the code.&#8221;
-          <footer>
-            <small>
-              <em>&mdash;John Johnson</em>
-            </small>
-          </footer>
-        </blockquote>
+        <DecksByArch :dateMin="'2018-09-01'" :dateMax="'2018-09-18'"/>
       </v-flex>
       <v-flex xs3>
         <div class='mt-5'>
@@ -24,11 +17,12 @@
 <script>
 import { axios } from "../main";
 import Deck from "./internals/Deck";
+import DecksByArch from "./internals/charts/DecksByArch";
 
 export default {
   name: 'Home',
   components: {
-    Deck
+    Deck, DecksByArch
   },
   created () {
     this.getDeckOfDay()

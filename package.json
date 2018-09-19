@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "chart.js": "^2.7.2",
     "keyrune": "^3.2.5",
     "mana-font": "^1.4.1",
     "vue": "^2.5.17",

@@ -4,7 +4,7 @@ import Vue from 'vue'
 
 import './plugins/vuetify'
 
-const testing = false
+const testing = true
 
 const axios = require('axios');
 axios.defaults.headers.post['Content-Type'] = 'application/json'
