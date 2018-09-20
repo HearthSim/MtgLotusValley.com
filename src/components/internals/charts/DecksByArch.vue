@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import { axios } from "../../../main";
-import Chart from 'chart.js';
+import { axios } from '../../../main'
+import Chart from 'chart.js'
 
 const barColors = [
   '#FFB74D',
   '#FF8A65'
-  ];
-  
+]
+
 export default {
   props: {
     dateMin: {
@@ -28,7 +28,7 @@ export default {
     return {
     }
   },
-  mounted() {
+  mounted () {
     axios.get('/stats/decksByArch?dateMin=' + this.dateMin + '&dateMax=' + this.dateMax)
       .then(res => {
         const colors = []
@@ -44,26 +44,25 @@ export default {
       })
   },
   methods: {
-    archLabels: function(data) {
+    archLabels: function (data) {
       const keys = Object.keys(data)
-      var index = keys.indexOf('');
+      var index = keys.indexOf('')
       if (index > -1) {
-        keys.splice(index, 1);
+        keys.splice(index, 1)
       }
       keys.sort()
       return keys
     },
-    archValues: function(data) {
+    archValues: function (data) {
       const values = []
       this.archLabels(data).forEach(arch => {
         values.push(data[arch])
-      });
+      })
       return values
     },
-    createGraph: function(labels, data, barColors) {
-      const ctx = document.getElementById('decksByArch-chart');
-      ctx.height = labels.length * 12;
-      const color = Chart.helpers.color;
+    createGraph: function (labels, data, barColors) {
+      const ctx = document.getElementById('decksByArch-chart')
+      ctx.height = labels.length * 12
       const chart = new Chart(ctx, {
         type: 'horizontalBar',
         data: {
@@ -91,19 +90,18 @@ export default {
               barPercentage: 0.7
             }]
           },
-					legend: {
-						display: false,
-					},
-					title: {
-						display: true,
-						text: 'Deck by Archetype'
-					}
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'Deck by Archetype'
+          }
         }
-      });
+      })
     }
   }
 }
-
 </script>
 
 <style>

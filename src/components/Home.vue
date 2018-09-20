@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import { axios } from "../main";
-import Deck from "./internals/Deck";
-import DecksByArch from "./internals/charts/DecksByArch";
+import { axios } from '../main'
+import Deck from './internals/Deck'
+import DecksByArch from './internals/charts/DecksByArch'
 
 export default {
   name: 'Home',
@@ -30,7 +30,7 @@ export default {
   data () {
     return {
       deckOfDayCards: {},
-      deckOfDayName: ""
+      deckOfDayName: ''
     }
   },
   methods: {

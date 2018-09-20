@@ -1,12 +1,16 @@
-import '@babel/polyfill'
-import App from './App.vue'
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import App from './App'
+import router from './router'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 
-import './plugins/vuetify'
+Vue.use(Vuetify)
 
 const testing = false
 
-const axios = require('axios');
+const axios = require('axios')
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 axios.defaults.baseURL = testing ? 'http://localhost:5000/api'
@@ -14,8 +18,12 @@ axios.defaults.baseURL = testing ? 'http://localhost:5000/api'
 
 Vue.config.productionTip = false
 
+/* eslint-disable no-new */
 new Vue({
-  render: h => h(App)
-}).$mount('#app')
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})
 
 export { axios }

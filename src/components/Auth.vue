@@ -43,21 +43,21 @@
 </template>
 
 <script>
-import { axios } from "../main";
+import { axios } from '../main'
 
 export default {
   name: 'Auth',
   created () {
-      const tokenDate = new Date(localStorage.getItem("expiresIn"))
-      const date = new Date()
-      if (date < tokenDate) {
-        this.showLoggedInfo()
-      } else {
-        const refreshToken = localStorage.getItem("refreshToken")
-        if (refreshToken !== undefined && refreshToken !== "") {
-          this.refreshUserToken(refreshToken)
-        }
+    const tokenDate = new Date(localStorage.getItem('expiresIn'))
+    const date = new Date()
+    if (date < tokenDate) {
+      this.showLoggedInfo()
+    } else {
+      const refreshToken = localStorage.getItem('refreshToken')
+      if (refreshToken !== undefined && refreshToken !== '') {
+        this.refreshUserToken(refreshToken)
       }
+    }
   },
   data () {
     return {
@@ -94,18 +94,18 @@ export default {
         this.showSignLoading = false
         const userEmail = res.data.email
         this.loggedUserName = userEmail.substring(0, userEmail.indexOf('@'))
-        localStorage.setItem("email", userEmail);
-        localStorage.setItem("idToken", res.data.idToken)
-        localStorage.setItem("refreshToken", res.data.refreshToken)
+        localStorage.setItem('email', userEmail)
+        localStorage.setItem('idToken', res.data.idToken)
+        localStorage.setItem('refreshToken', res.data.refreshToken)
         const date = new Date()
         date.setSeconds(date.getSeconds() + Number.parseInt(res.data.expiresIn))
-        localStorage.setItem("expiresIn", date.toString())
+        localStorage.setItem('expiresIn', date.toString())
         this.showLoggedInfo()
       })
       .catch(error => {
         this.showSignError = true
         this.showSignLoading = false
-        console.log(error);
+        console.log(error)
       })
     },
     refreshUserToken: function (refreshToken) {
@@ -113,41 +113,41 @@ export default {
         refresh_token: refreshToken
       })
       .then(res => {
-        localStorage.setItem("idToken", res.data.id_token)
-        localStorage.setItem("refreshToken", res.data.refresh_token)
+        localStorage.setItem('idToken', res.data.id_token)
+        localStorage.setItem('refreshToken', res.data.refresh_token)
         const date = new Date()
         date.setSeconds(date.getSeconds() + Number.parseInt(res.data.expires_in))
-        localStorage.setItem("expiresIn", date.toString())
+        localStorage.setItem('expiresIn', date.toString())
         this.showLoggedInfo()
       })
       .catch(error => {
-        console.log(error);
+        console.log(error)
       })
     },
     showLoggedInfo: function () {
-      const userEmail = localStorage.getItem("email")
+      const userEmail = localStorage.getItem('email')
       const userName = userEmail.substring(0, userEmail.indexOf('@'))
-      this.loggedUserName = userName.charAt(0).toUpperCase() + userName.slice(1);
+      this.loggedUserName = userName.charAt(0).toUpperCase() + userName.slice(1)
       this.logged = true
     },
     signedMenuClick: function (index) {
       console.log(index)
-      if (index == 2) {
+      if (index === 2) {
         this.logout()
       }
     },
     logout: function () {
-      localStorage.removeItem("idToken")
-      localStorage.removeItem("refreshToken")
-      localStorage.removeItem("expiresIn")
-      this.loggedUserName = "";
+      localStorage.removeItem('idToken')
+      localStorage.removeItem('refreshToken')
+      localStorage.removeItem('expiresIn')
+      this.loggedUserName = ''
       this.logged = false
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>
