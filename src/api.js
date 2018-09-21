@@ -1,11 +1,63 @@
 import Vue from 'vue'
 
 const testing = true
+let isRefreshingToken = false
+let subscribers = []
 
 const axios = require('axios')
 axios.defaults.baseURL = testing ? 'http://localhost:5000/api'
                                  : 'https://blacklotusvalley-ca867.firebaseapp.com/api'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
+
+axios.interceptors.request.use(
+  config => {
+    if (config.headers.Authorization === 'required') {
+      const token = localStorage.getItem('idToken')
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`
+      }
+    }
+    return config
+  },
+  error => Promise.reject(error)
+)
+
+axios.interceptors.response.use(undefined, err => {
+  const { config, response: { status, data } } = err
+  const originalRequest = config
+  if (status === 401 && data.error === 'TOKEN_EXPIRED') {
+    if (!isRefreshingToken) {
+      console.log('Token expired. Refreshing...')
+      isRefreshingToken = true
+      refreshUserToken(localStorage.getItem('refreshToken'))
+        .then(res => {
+          isRefreshingToken = false
+          updateUserToken(res.data)
+          onUserTokenRefreshed(res.data.id_token)
+          subscribers = []
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+    const requestSubscribers = new Promise(resolve => {
+      subscribeUserTokenRefresh(token => {
+        originalRequest.headers.Authorization = `Bearer ${token}`
+        resolve(axios(originalRequest))
+      })
+    })
+    return requestSubscribers
+  }
+  return Promise.reject(err)
+})
+
+function subscribeUserTokenRefresh (cb) {
+  subscribers.push(cb)
+}
+
+function onUserTokenRefreshed (token) {
+  subscribers.map(cb => cb(token))
+}
 
 function refreshUserToken (refreshToken) {
   return axios.post('/refreshtoken', {
@@ -68,13 +120,12 @@ export default {
     })
   },
   getUserCollection () {
-    const currentUser = Vue.prototype.$currentUser
     return axios.get('/users/collection', {
       headers: {
-        Authorization: 'Bearer ' + currentUser.token
+        Authorization: 'required'
       },
       params: {
-        userId: currentUser.id
+        userId: Vue.prototype.$currentUser.id
       }
     })
   }
