@@ -2,8 +2,8 @@
   <v-toolbar-items>
     <v-btn v-if="!logged" flat @click="signInDialog = true">Sign In</v-btn>
     <v-btn v-if="!logged" flat>Register</v-btn>
-    <v-menu bottom transition="slide-y-transition">
-      <v-btn v-if="logged" flat slot="activator">
+    <v-menu v-if="logged" bottom transition="slide-y-transition">
+      <v-btn flat slot="activator">
           {{ loggedUserName }}
       </v-btn>
       <v-list>
@@ -48,10 +48,10 @@ export default {
     const tokenDate = new Date(localStorage.getItem('expiresIn'))
     const date = new Date()
     if (date < tokenDate) {
-      this.showLoggedInfo()
+      this.setUserAsLogged()
     } else {
       const refreshToken = localStorage.getItem('refreshToken')
-      if (refreshToken !== undefined && refreshToken !== '') {
+      if (refreshToken !== undefined && refreshToken !== null && refreshToken !== '') {
         this.refreshUserToken(refreshToken)
       }
     }
@@ -94,9 +94,8 @@ export default {
         .then(res => {
           this.signInDialog = false
           this.showSignLoading = false
-          this.saveUserToken(res.data)
-          this.showLoggedInfo()
-          this.loggedUserName = res.data.email.substring(0, res.data.email.indexOf('@'))
+          this.$api.saveUserToken(res.data)
+          this.setUserAsLogged()
         })
         .catch(error => {
           this.showSignError = true
@@ -105,47 +104,24 @@ export default {
         })
     },
     refreshUserToken: function (refreshToken) {
-      this.$api.refreshToken(refreshToken)
+      this.$api.refreshUserToken(refreshToken)
         .then(res => {
-          this.updateUserToken(res.data)
-          this.showLoggedInfo()
+          this.$api.updateUserToken(res.data)
+          this.setUserAsLogged()
         })
         .catch(error => {
           console.log(error)
         })
     },
-    saveUserToken: function (data) {
-      localStorage.setItem('localId', data.localId)
-      localStorage.setItem('email', data.email)
-      localStorage.setItem('idToken', data.idToken)
-      localStorage.setItem('refreshToken', data.refreshToken)
-      const date = new Date()
-      date.setSeconds(date.getSeconds() + Number.parseInt(data.expiresIn))
-      localStorage.setItem('expiresIn', date.toString())
-    },
-    updateUserToken: function (data) {
-      localStorage.setItem('idToken', data.id_token)
-      localStorage.setItem('refreshToken', data.refresh_token)
-      const date = new Date()
-      date.setSeconds(date.getSeconds() + Number.parseInt(data.expires_in))
-      localStorage.setItem('expiresIn', date.toString())
-    },
-    deleteUserToken: function () {
-      localStorage.removeItem('localId')
-      localStorage.removeItem('idToken')
-      localStorage.removeItem('refreshToken')
-      localStorage.removeItem('expiresIn')
-    },
-    showLoggedInfo: function () {
+    setUserAsLogged: function () {
       const userEmail = localStorage.getItem('email')
       const userName = userEmail.substring(0, userEmail.indexOf('@'))
       this.loggedUserName = userName.charAt(0).toUpperCase() + userName.slice(1)
       this.logged = true
       this.$currentUser['id'] = localStorage.getItem('localId')
-      this.$currentUser['token'] = localStorage.getItem('idToken')
     },
     logout: function () {
-      this.deleteUserToken()
+      this.$api.deleteUserToken()
       this.loggedUserName = ''
       this.logged = false
     }
