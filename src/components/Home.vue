@@ -1,11 +1,11 @@
 <template>
     <v-layout row align-center>
-      <v-flex hidden-sm-and-down md3 xl2>
+      <v-flex hidden-sm-and-down md3 lg2 xl3>
       </v-flex>
-      <v-flex           xs12 sm8 md6 xl8>
+      <v-flex           xs12 sm8 md6 lg7 xl6>
         <DecksByArch :dateMin="'2018-09-01'" :dateMax="'2018-09-18'"/>
       </v-flex>
-      <v-flex hidden-xs-only sm4 md3 xl2>
+      <v-flex hidden-xs-only sm4 md3 lg3 xl3>
         <div class='mt-5'>
           <span class='title'>Deck of Day</span>
           <Deck :cards="deckOfDayCards" :name="deckOfDayName"/>
@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { axios } from '../main'
 import Deck from './internals/Deck'
 import DecksByArch from './internals/charts/DecksByArch'
 
@@ -25,17 +24,7 @@ export default {
     Deck, DecksByArch
   },
   created () {
-    this.getDeckOfDay()
-  },
-  data () {
-    return {
-      deckOfDayCards: {},
-      deckOfDayName: ''
-    }
-  },
-  methods: {
-    getDeckOfDay: function () {
-      axios.get('/stats/deckOfDay?date=2018-09-15')
+    this.$api.getDeckOfDay('2018-09-15')
       .then(res => {
         this.deckOfDayCards = res.data.cards
         this.deckOfDayName = res.data.name
@@ -43,6 +32,11 @@ export default {
       .catch(error => {
         console.log(error)
       })
+  },
+  data () {
+    return {
+      deckOfDayCards: {},
+      deckOfDayName: ''
     }
   }
 }

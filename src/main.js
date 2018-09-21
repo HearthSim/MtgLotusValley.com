@@ -5,18 +5,13 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import api from '@/api'
 
 Vue.use(Vuetify)
-
-const testing = false
-
-const axios = require('axios')
-axios.defaults.headers.post['Content-Type'] = 'application/json'
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
-axios.defaults.baseURL = testing ? 'http://localhost:5000/api'
-                                 : 'https://blacklotusvalley-ca867.firebaseapp.com/api'
-
 Vue.config.productionTip = false
+
+Vue.prototype.$api = api
+Vue.prototype.$currentUser = {}
 
 /* eslint-disable no-new */
 new Vue({
@@ -25,5 +20,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-
-export { axios }

@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { axios } from '../../../main'
 import Chart from 'chart.js'
 
 const barColors = [
@@ -29,7 +28,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('/stats/decksByArch?dateMin=' + this.dateMin + '&dateMax=' + this.dateMax)
+    this.$api.getDecksByArch(this.dateMin, this.dateMax)
       .then(res => {
         const colors = []
         while (colors.length < Object.keys(res.data).length) {
@@ -63,7 +62,7 @@ export default {
     createGraph: function (labels, data, barColors) {
       const ctx = document.getElementById('decksByArch-chart')
       ctx.height = labels.length * 12
-      const chart = new Chart(ctx, {
+      new Chart(ctx, { // eslint-disable-line no-new
         type: 'horizontalBar',
         data: {
           labels: labels,
