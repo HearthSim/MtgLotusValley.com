@@ -4,7 +4,7 @@
       {{ card.qtd }}
     </td>
     <td id='card_name'>
-      <Card :card='card'/>
+      <Card :card='card' :asText="true"/>
     <td>
     <td id='card_cost'>
       <ManaSymbols :cardid='card.id' :cost='card.manaCost'/>

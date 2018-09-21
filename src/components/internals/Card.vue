@@ -1,12 +1,13 @@
 <template>
-  <v-tooltip left lazy color="white">
-    <a class='body-1' slot="activator" target="_blank" 
-       :href="'http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=' + card.multiverseid">
-      {{ card.name }}
-    </a>
-    <img :src="'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' + card.multiverseid + '&type=card'" 
-      alt="Loading..."/>
-  </v-tooltip>
+  <div>
+    <img v-if="!asText" :src="cardImageUrl()" :alt="card.name"/>
+    <v-tooltip v-if="asText" left lazy color="white">
+      <a class='body-1' slot="activator" target="_blank" :href="cardLink()">
+        {{ card.name }}
+      </a>
+      <img :src="cardImageUrl()" alt="Loading..."/>
+    </v-tooltip>
+  </div>
 </template>
 
 <script>
@@ -16,9 +17,21 @@ export default {
     card: {
       type: Object,
       required: true
+    },
+    asText: {
+      type: Boolean,
+      default: false,
+      required: false
     }
   },
-  methods: {}
+  methods: {
+    cardImageUrl: function () {
+      return 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' + this.card.multiverseid + '&type=card'
+    },
+    cardLink: function () {
+      return 'http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=' + this.card.multiverseid
+    }
+  }
 }
 </script>
 

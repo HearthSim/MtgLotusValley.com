@@ -38,4 +38,15 @@ export default {
       }
     })
   },
+  getUserCollection () {
+    const currentUser = Vue.prototype.$currentUser
+    return axios.get('/users/collection', {
+      headers: {
+        Authorization: 'Bearer ' + currentUser.token
+      },
+      params: {
+        userId: currentUser.id
+      }
+    })
+  }
 }
