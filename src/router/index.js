@@ -29,9 +29,9 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  const currentUser = Vue.prototype.$currentUser
+  const currentUserId = localStorage.getItem('localId')
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  const hasValidUser = currentUser !== undefined && currentUser.id !== undefined
+  const hasValidUser = currentUserId !== undefined
   if (requiresAuth && !hasValidUser) {
     next('/')
   } else {

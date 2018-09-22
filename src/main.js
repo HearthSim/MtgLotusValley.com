@@ -11,7 +11,6 @@ Vue.use(Vuetify)
 Vue.config.productionTip = false
 
 Vue.prototype.$api = api
-Vue.prototype.$currentUser = {}
 
 /* eslint-disable no-new */
 new Vue({

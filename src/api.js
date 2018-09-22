@@ -1,6 +1,5 @@
-import Vue from 'vue'
 
-const testing = true
+const testing = false
 let isRefreshingToken = false
 let subscribers = []
 
@@ -119,13 +118,22 @@ export default {
       }
     })
   },
+  getCards (page) {
+    return axios.get('/cards', {
+      params: {
+        pageNumber: page,
+        pageSize: 18,
+        fields: 'name,multiverseid'
+      }
+    })
+  },
   getUserCollection () {
     return axios.get('/users/collection', {
       headers: {
         Authorization: 'required'
       },
       params: {
-        userId: Vue.prototype.$currentUser.id
+        userId: localStorage.getItem('localId')
       }
     })
   }

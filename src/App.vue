@@ -3,7 +3,9 @@
     <v-toolbar app dark :clipped-left="clipped">
       <v-toolbar-items>
         <v-btn flat>
-          <img src="@/assets/logo.png" alt="Home" height="38px" width="38px">
+          <router-link to="/">
+            <img src="@/assets/logo.png" alt="Home" height="38px" width="38px">
+          </router-link>
         </v-btn>
       </v-toolbar-items>
       <v-toolbar-title v-text="title" class="hidden-xs-only"/>

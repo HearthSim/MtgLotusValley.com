@@ -81,7 +81,7 @@ export default {
     signedMenuClick: function (index) {
       console.log(index)
       switch (index) {
-        case 0: this.$router.replace('collection')
+        case 0: this.$router.replace('collection?page=1')
           break
         case 2: this.logout()
           break
@@ -118,7 +118,6 @@ export default {
       const userName = userEmail.substring(0, userEmail.indexOf('@'))
       this.loggedUserName = userName.charAt(0).toUpperCase() + userName.slice(1)
       this.logged = true
-      this.$currentUser['id'] = localStorage.getItem('localId')
     },
     logout: function () {
       this.$api.deleteUserToken()
