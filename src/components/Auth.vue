@@ -51,7 +51,7 @@ export default {
       this.setUserAsLogged()
     } else {
       const refreshToken = localStorage.getItem('refreshToken')
-      if (refreshToken !== undefined && refreshToken !== null && refreshToken !== '') {
+      if (refreshToken) {
         this.refreshUserToken(refreshToken)
       }
     }
@@ -79,7 +79,6 @@ export default {
   },
   methods: {
     signedMenuClick: function (index) {
-      console.log(index)
       switch (index) {
         case 0: this.$router.replace('collection?page=1')
           break

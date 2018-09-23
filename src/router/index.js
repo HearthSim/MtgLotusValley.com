@@ -31,8 +31,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const currentUserId = localStorage.getItem('localId')
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  const hasValidUser = currentUserId !== undefined
-  if (requiresAuth && !hasValidUser) {
+  if (requiresAuth && !currentUserId) {
     next('/')
   } else {
     next()

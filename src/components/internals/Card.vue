@@ -1,7 +1,14 @@
 <template>
   <div>
     <v-tooltip left lazy color="white">
-      <img v-if="!asText" :src="cardImageUrl()" :alt="name" width="100%" slot="activator"/>
+      <a v-if="!asText" target="_blank" :href="cardLink()" slot="activator">
+        <div id="card">
+          <img :src="cardImageUrl()" :class="qtd === 0 ? 'grayscale' : ''" :alt="name" width="100%"/>
+          <div id="cardQtd" v-if="qtd > 0">
+            {{ qtd }}
+          </div>
+        </div>
+      </a>
       <a v-if="asText" class='body-1' target="_blank" :href="cardLink()" slot="activator">
         {{ name }}
       </a>
@@ -26,6 +33,11 @@ export default {
       type: Boolean,
       default: false,
       required: false
+    },
+    qtd: {
+      type: Number,
+      default: 0,
+      required: false
     }
   },
   methods: {
@@ -40,8 +52,24 @@ export default {
 </script>
 
 <style>
-a {
-  color: #337ab7;
-  text-decoration: none;
-}
+  a {
+    color: #337ab7;
+    text-decoration: none;
+  }
+  .grayscale {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
+  #cardQtd {
+    border: 2px double darkgray;
+	  border-radius: 6px;
+    background-color : lightgray;
+    font-size: 11px;
+    padding-left: 6px;
+    padding-right: 6px;
+    position: absolute;
+    left: -5px;
+    bottom: 0px;
+    width: fit-content;
+  }
 </style>

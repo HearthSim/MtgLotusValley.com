@@ -118,12 +118,12 @@ export default {
       }
     })
   },
-  getCards (page) {
+  getCards (page, pageSize) {
     return axios.get('/cards', {
       params: {
         pageNumber: page,
-        pageSize: 18,
-        fields: 'name,multiverseid'
+        pageSize: pageSize,
+        fields: 'name,mtgaid,multiverseid'
       }
     })
   },
