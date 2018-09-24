@@ -1,11 +1,19 @@
 <template>
     <v-layout row fill-height>
-      <v-flex hidden-xs-only sm2>
+      <v-flex sm2>
       </v-flex>
       <v-flex           xs12 sm8>
-        <v-layout class='mt-2' row align-center justify-space-between>
+        <CardFilter class="mt-3"/>
+        <v-container id="cards" class='mt-1' grid-list-md fluid fill-height>
+          <v-layout row wrap>
+            <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
+              <Card :name='card.name' :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
+            </v-flex>
+          </v-layout>
+        </v-container>
+        <v-layout row align-center justify-space-between>
           <v-flex xs3 sm3 md1 offset-md5 lg4 offset-lg4 class="text-xs-center">
-            <v-progress-circular v-if="!isLoading" color="deep-orange" :width="2" :size="25" :indeterminate="true"/>
+            <v-progress-circular v-if="isLoading" color="deep-orange" :width="2" :size="25" :indeterminate="true"/>
           </v-flex>
           <v-flex xs9 sm9            md6            lg4 class="text-xs-right">
             <div id="pages">
@@ -22,14 +30,6 @@
             </div>
           </v-flex>
         </v-layout>
-        <v-container id="cards" grid-list-md fluid fill-height>
-          <v-layout row wrap>
-            <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
-              <Card :name='card.name' :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
-            </v-flex>
-          </v-layout>
-        </v-container>
-        <v-spacer/>
       </v-flex>
       <v-flex hidden-xs-only sm2>
       </v-flex>
@@ -38,11 +38,12 @@
 
 <script>
 import Card from './internals/Card'
+import CardFilter from './internals/CardFilter'
 
 export default {
   name: 'UserCollection',
   components: {
-    Card
+    Card, CardFilter
   },
   created () {
     this.getCards(this.currentPage)
@@ -80,7 +81,7 @@ export default {
     },
     getCards: function (page) {
       this.isLoading = true
-      const pageSize = 18
+      const pageSize = 12
       this.$api.getCards(page, pageSize)
         .then(res => {
           this.currentPageCards = res.data.data
@@ -105,11 +106,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  #cards {
+    padding: 12px;
+  }
   #pages button {
     min-width: 32px;
     margin: 0;
-  }
-  #cards {
-    padding: 12px;
   }
 </style>

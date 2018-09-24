@@ -44,7 +44,7 @@
 
 export default {
   name: 'Auth',
-  created () {
+  mounted () {
     const tokenDate = new Date(localStorage.getItem('expiresIn'))
     const date = new Date()
     if (date < tokenDate) {
