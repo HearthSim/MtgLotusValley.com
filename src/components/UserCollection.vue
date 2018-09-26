@@ -1,10 +1,14 @@
 <template>
+  <div>
+    <v-text-field class="pl-2 pr-2" label="Search" v-model="searchQuery"
+      solo single-line hide-details clearable />
+    <CardFilter class="mt-3" ref="cardFilter"/>
+    <v-btn color="white" @click="updateFilters()">Apply</v-btn>
     <v-layout row fill-height>
       <v-flex sm2>
       </v-flex>
       <v-flex           xs12 sm8>
-        <CardFilter class="mt-3"/>
-        <v-container id="cards" class='mt-1' grid-list-md fluid fill-height>
+        <v-container id="cards" class='mt-1' grid-list-md fluid>
           <v-layout row wrap>
             <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
               <Card :name='card.name' :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
@@ -34,6 +38,7 @@
       <v-flex hidden-xs-only sm2>
       </v-flex>
     </v-layout>
+  </div>
 </template>
 
 <script>
@@ -45,12 +50,19 @@ export default {
   components: {
     Card, CardFilter
   },
-  created () {
-    this.getCards(this.currentPage)
+  mounted () {
+    this.$refs.cardFilter.activeColors = this.activeColors.split(',')
+    this.$refs.cardFilter.activeTypes = this.activeTypes.split(',')
+    this.$refs.cardFilter.activeSets = this.activeSets.split(',')
+    this.getCards()
   },
   data () {
     return {
       currentPage: parseInt(this.$route.query.page),
+      activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,c,g,m,r,u,w',
+      activeTypes: this.$route.query.types !== undefined ? this.$route.query.types : 'a,c,e,i,l,p,s',
+      activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : 'AER,AKH,DOM,HOU,KLD,M19,RIX,XLN',
+      searchQuery: this.$route.query.query,
       currentPageCards: {},
       isLoading: false,
       totalPages: 0,
@@ -64,7 +76,7 @@ export default {
         query: { page: page }
       })
       this.currentPage = page
-      this.getCards(page)
+      this.getCards()
     },
     getPages () {
       let firstPage = this.currentPage
@@ -79,10 +91,11 @@ export default {
       }
       return [...Array(5).keys()].map(i => firstPage + i)
     },
-    getCards: function (page) {
+    getCards: function () {
       this.isLoading = true
       const pageSize = 12
-      this.$api.getCards(page, pageSize)
+      this.$api.getCards(this.currentPage, pageSize, this.searchQuery,
+        this.activeColors, this.activeTypes, this.activeSets)
         .then(res => {
           this.currentPageCards = res.data.data
           this.totalPages = res.data.totalPages
@@ -99,6 +112,22 @@ export default {
           this.isLoading = false
           this.userCollection = res.data
         })
+    },
+    updateFilters () {
+      this.activeColors = this.$refs.cardFilter.activeColors.sort().join()
+      this.activeTypes = this.$refs.cardFilter.activeTypes.sort().join()
+      this.activeSets = this.$refs.cardFilter.activeSets.sort().join()
+      this.$router.push({
+        path: 'collection',
+        query: {
+          page: this.currentPage,
+          query: this.searchQuery,
+          colors: this.activeColors,
+          types: this.activeTypes,
+          sets: this.activeSets
+        }
+      })
+      this.getCards()
     }
   }
 }
@@ -106,6 +135,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .v-input {
+    display: inline-block;
+    max-width: 240px;
+  }
   #cards {
     padding: 12px;
   }

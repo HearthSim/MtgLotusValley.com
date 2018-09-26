@@ -4,9 +4,9 @@
       <a v-if="!asText" target="_blank" :href="cardLink()" slot="activator">
         <div id="card">
           <img :src="cardImageUrl()" :class="qtd === 0 ? 'grayscale' : ''" :alt="name" width="100%"/>
-          <div id="cardQtd" v-if="qtd > 0">
+          <v-card id="cardQtd" class="elevation-2" v-if="qtd > 0">
             {{ qtd }}
-          </div>
+          </v-card>
         </div>
       </a>
       <a v-if="asText" class='body-1' target="_blank" :href="cardLink()" slot="activator">
@@ -63,11 +63,11 @@ export default {
   #cardQtd {
     border: 2px double darkgray;
 	  border-radius: 6px;
-    background-color : lightgray;
     font-size: 11px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
     position: absolute;
+    background: lightgray;
     left: -5px;
     bottom: 0px;
     width: fit-content;

@@ -1,36 +1,27 @@
 <template>
-  <v-card class="pt-2 pl-2 pr-2 pb-2">
-    <div id="colors">
-      <img src="@/assets/mana_white.png" alt="White"/>
-      <img src="@/assets/mana_blue.png" alt="Blue"/>
-      <img src="@/assets/mana_black.png" alt="Black"/>
-      <img src="@/assets/mana_red.png" alt="Red"/>
-      <img src="@/assets/mana_green.png" alt="Green"/>
-      <img src="@/assets/mana_gold.png" alt="Gold"/>
-      <img src="@/assets/mana_colorless.png" alt="Colorless"/>
-    </div>
-    <div id="types" class="pl-2 pr-2">
-      <img src="@/assets/type_land.png" alt="Lands"/>
-      <img src="@/assets/type_creature.png" alt="Creatures"/>
-      <img src="@/assets/type_instant.png" alt="Instants"/>
-      <img src="@/assets/type_sorcery.png" alt="Sorceries"/>
-      <img src="@/assets/type_enchantment.png" alt="Enchantments"/>
-      <img src="@/assets/type_artifact.png" alt="Artifacts"/>
-      <img src="@/assets/type_planeswalker.png" alt="Planeswalkers"/>
-    </div>
-    <div id="sets" class="pl-2 pr-2">
-      <v-menu bottom transition="slide-y-transition">
-        <strong flat slot="activator">
-            Sets
-        </strong>
-        <v-list>
-          <v-list-tile v-for="(set) in sets" :key="set.code" @click="setClick(set.code)">
-            <img class="set" :src="require(`@/assets/set_${set.code}.png`)" :alt="set.name"/>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
-    </div>
-  </v-card>
+  <div id="filters" class="ml-2 mr-2">
+    <v-card id="colors" class="pt-2 pl-2 pr-2 pb-2">
+      <v-tooltip v-for="color in colors" :key="color.code" top open-delay=1000>
+        <img :class="!activeColors.includes(color.code) ? 'grayscale' : ''" slot="activator"
+          :src="require(`@/assets/mana_${color.code}.png`)" @click="colorClick(color.code)"/>
+        {{ color.desc }}
+      </v-tooltip>
+    </v-card>
+    <v-card class="pt-2 pl-2 pr-2 pb-2">
+      <v-tooltip v-for="type in types" :key="type.code" top open-delay=1000>
+        <img :class="!activeTypes.includes(type.code) ? 'grayscale' : ''" slot="activator"
+          :src="require(`@/assets/type_${type.code}.png`)" @click="typeClick(type.code)"/>
+        {{ type.desc }}
+      </v-tooltip>
+    </v-card>
+    <v-card class="pt-2 pl-2 pr-2 pb-2">
+      <v-tooltip v-for="(set) in sets" :key="set.code" top open-delay=1000>
+        <img class="set" :class="!activeSets.includes(set.code) ? 'grayscale' : ''" slot="activator"
+          :src="require(`@/assets/set_${set.code}.png`)" @click="setClick(set.code)"/>
+        {{ set.name }}
+      </v-tooltip>
+    </v-card>
+  </div>
 </template>
 
 <script>
@@ -38,16 +29,33 @@
 export default {
   name: 'CardFilter',
   mounted () {
-    
   },
   data () {
     return {
       activeColors: [],
       activeTypes: [],
       activeSets: [],
+      colors: [
+        {code: 'w', desc: 'White'},
+        {code: 'u', desc: 'Blue'},
+        {code: 'b', desc: 'Black'},
+        {code: 'r', desc: 'Red'},
+        {code: 'g', desc: 'Green'},
+        {code: 'm', desc: 'Multicolor'},
+        {code: 'c', desc: 'Colorless'}
+      ],
+      types: [
+        {code: 'l', desc: 'Lands'},
+        {code: 'c', desc: 'Creatures'},
+        {code: 'i', desc: 'Instants'},
+        {code: 's', desc: 'Sorceries'},
+        {code: 'e', desc: 'Enchantments'},
+        {code: 'a', desc: 'Artifacts'},
+        {code: 'p', desc: 'Planeswalkers'}
+      ],
       sets: [
         {code: 'M19', name: 'Core Set 2019'},
-        {code: 'DAR', name: 'Dominaria'},
+        {code: 'DOM', name: 'Dominaria'},
         {code: 'RIX', name: 'Rivals of Ixalan'},
         {code: 'XLN', name: 'Ixalan'},
         {code: 'HOU', name: 'Hour of Devastation'},
@@ -58,8 +66,21 @@ export default {
     }
   },
   methods: {
-    setClick: function (code) {
-      
+    colorClick (name) {
+      this.toogleItem(this.activeColors, name)
+    },
+    typeClick (name) {
+      this.toogleItem(this.activeTypes, name)
+    },
+    setClick (code) {
+      this.toogleItem(this.activeSets, code)
+    },
+    toogleItem (array, item) {
+      if (array.includes(item)) {
+        array.splice(array.indexOf(item), 1)
+      } else {
+        array.push(item)
+      }
     }
   }
 }
@@ -67,28 +88,30 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #colors, #types {
-    border: solid 1px lightgray;
-    border-radius: 8px;
-    height: 36px;
+  #filters {
     display: inline-block;
-    text-align: center;
   }
-  #sets {
+  .v-card {
     border: solid 1px lightgray;
     border-radius: 8px;
-    height: 36px;
-    text-align: center;
+    height: 48px;
+    align-items: baseline;
+    display: inline-block;
   }
-  #colors img, #types img {
+  #colors img {
+    border-bottom: 1px orange solid;
+    border-radius: 8px;
+  }
+  img {
     padding: 3px;
     height: 100%;
     vertical-align: sub;
   }
-  .set {
-    height: 24px;
-  }
-  #colors img:hover, #types img:hover {
+  img:hover {
     background: lightgray
+  }
+  .grayscale {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
   }
 </style>
