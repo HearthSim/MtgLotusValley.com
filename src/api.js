@@ -140,5 +140,13 @@ export default {
         userId: localStorage.getItem('localId')
       }
     })
+  },
+  getPublicDecks (page, pageSize) {
+    return axios.get('/decks/published', {
+      params: {
+        pageNumber: page,
+        pageSize: pageSize
+      }
+    })
   }
 }

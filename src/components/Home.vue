@@ -3,6 +3,7 @@
       <v-flex hidden-sm-and-down md3 lg2 xl3>
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>
+        <PublicDecks class="mt-2" />
         <DecksByArch :dateMin="'2018-09-01'" :dateMax="'2018-09-18'"/>
       </v-flex>
       <v-flex hidden-xs-only sm4 md3 lg3 xl3>
@@ -17,11 +18,12 @@
 <script>
 import Deck from './internals/Deck'
 import DecksByArch from './internals/charts/DecksByArch'
+import PublicDecks from './internals/PublicDecks'
 
 export default {
   name: 'Home',
   components: {
-    Deck, DecksByArch
+    Deck, DecksByArch, PublicDecks
   },
   created () {
     this.$api.getDeckOfDay('2018-09-15')
