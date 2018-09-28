@@ -17,7 +17,7 @@
       <v-card>
         <v-card-text>
           <v-text-field flat label="Email" v-model="email"/>
-          <v-text-field flat label="Password" v-model="password" 
+          <v-text-field flat label="Password" v-model="password" @keyup.native.enter="onSignInEnter"
             :append-icon="showPassword ? 'visibility_off' : 'visibility'"
             @click:append="showPassword = !showPassword"
             :rules="[passwordRules.required, passwordRules.min]"

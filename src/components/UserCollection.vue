@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-text-field class="pl-2 pr-2" label="Search" v-model="searchQuery"
+    <v-text-field class="pl-2 pr-2" label="Search" v-model="searchQuery" @keyup.native.enter="updateFilters"
       solo single-line hide-details clearable />
     <CardFilter class="mt-3" ref="cardFilter"/>
     <v-btn color="white" @click="updateFilters()">Apply</v-btn>
@@ -89,7 +89,8 @@ export default {
       } else if (this.currentPage > 1) {
         firstPage -= 2
       }
-      return [...Array(5).keys()].map(i => firstPage + i)
+      const max = this.totalPages < 5 ? this.totalPages : 5
+      return [...Array(max).keys()].map(i => firstPage + i)
     },
     getCards: function () {
       this.isLoading = true
