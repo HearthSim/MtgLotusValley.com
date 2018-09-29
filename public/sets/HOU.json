@@ -1,0 +1,4582 @@
+[
+	{
+		"number": "1",
+		"name": "Act of Heroism",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/1.jpg?1517813031",
+		"multiverseid": 430690,
+		"mtgaid": 65479
+	},
+	{
+		"number": "2",
+		"name": "Adorned Pouncer",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Cat",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/2.jpg?1517813031",
+		"multiverseid": 430691,
+		"mtgaid": 65481
+	},
+	{
+		"number": "3",
+		"name": "Angel of Condemnation",
+		"cmc": 4,
+		"manaCost": "{2}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Angel",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/3.jpg?1517813031",
+		"multiverseid": 430692,
+		"mtgaid": 65483
+	},
+	{
+		"number": "4",
+		"name": "Angel of the God-Pharaoh",
+		"cmc": 6,
+		"manaCost": "{4}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Angel",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/4.jpg?1517813031",
+		"multiverseid": 430693,
+		"mtgaid": 65485
+	},
+	{
+		"number": "5",
+		"name": "Aven of Enduring Hope",
+		"cmc": 5,
+		"manaCost": "{4}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Bird Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/5.jpg?1517813031",
+		"multiverseid": 430694,
+		"mtgaid": 65487
+	},
+	{
+		"number": "6",
+		"name": "Crested Sunmare",
+		"cmc": 5,
+		"manaCost": "{3}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Creature — Horse",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/6.jpg?1517813031",
+		"multiverseid": 430695,
+		"mtgaid": 65489
+	},
+	{
+		"number": "7",
+		"name": "Dauntless Aven",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Bird Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/7.jpg?1517813031",
+		"multiverseid": 430696,
+		"mtgaid": 65491
+	},
+	{
+		"number": "8",
+		"name": "Desert's Hold",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/8.jpg?1517813031",
+		"multiverseid": 430697,
+		"mtgaid": 65493
+	},
+	{
+		"number": "9",
+		"name": "Disposal Mummy",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Jackal",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/9.jpg?1517813031",
+		"multiverseid": 430698,
+		"mtgaid": 65957
+	},
+	{
+		"number": "10",
+		"name": "Djeru, With Eyes Open",
+		"cmc": 5,
+		"manaCost": "{3}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Legendary Creature — Human Warrior",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/10.jpg?1517813031",
+		"multiverseid": 430699,
+		"mtgaid": 65495
+	},
+	{
+		"number": "11",
+		"name": "Djeru's Renunciation",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/11.jpg?1517813031",
+		"multiverseid": 430700,
+		"mtgaid": 65497
+	},
+	{
+		"number": "12",
+		"name": "Dutiful Servants",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/12.jpg?1517813031",
+		"multiverseid": 430701,
+		"mtgaid": 65499
+	},
+	{
+		"number": "13",
+		"name": "Gideon's Defeat",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/13.jpg?1517813031",
+		"multiverseid": 430702,
+		"mtgaid": 65503
+	},
+	{
+		"number": "14",
+		"name": "God-Pharaoh's Faithful",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/14.jpg?1517813031",
+		"multiverseid": 430703,
+		"mtgaid": 65505
+	},
+	{
+		"number": "15",
+		"name": "Hour of Revelation",
+		"cmc": 6,
+		"manaCost": "{3}{W}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/15.jpg?1517813031",
+		"multiverseid": 430704,
+		"mtgaid": 65507
+	},
+	{
+		"number": "16",
+		"name": "Mummy Paramount",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/16.jpg?1517813031",
+		"multiverseid": 430705,
+		"mtgaid": 65509
+	},
+	{
+		"number": "17",
+		"name": "Oketra's Avenger",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/17.jpg?1517813031",
+		"multiverseid": 430706,
+		"mtgaid": 65511
+	},
+	{
+		"number": "18",
+		"name": "Oketra's Last Mercy",
+		"cmc": 3,
+		"manaCost": "{1}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/18.jpg?1517813031",
+		"multiverseid": 430707,
+		"mtgaid": 65513
+	},
+	{
+		"number": "19",
+		"name": "Overwhelming Splendor",
+		"cmc": 8,
+		"manaCost": "{6}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Enchantment — Aura Curse",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/19.jpg?1517813031",
+		"multiverseid": 430708,
+		"mtgaid": 65515
+	},
+	{
+		"number": "20",
+		"name": "Sandblast",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/20.jpg?1517813031",
+		"multiverseid": 430709,
+		"mtgaid": 65517
+	},
+	{
+		"number": "21",
+		"name": "Saving Grace",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/21.jpg?1517813031",
+		"multiverseid": 430710,
+		"mtgaid": 65519
+	},
+	{
+		"number": "22",
+		"name": "Solemnity",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/22.jpg?1517813031",
+		"multiverseid": 430711,
+		"mtgaid": 65521
+	},
+	{
+		"number": "23",
+		"name": "Solitary Camel",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Camel",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/23.jpg?1517813031",
+		"multiverseid": 430712,
+		"mtgaid": 65523
+	},
+	{
+		"number": "24",
+		"name": "Steadfast Sentinel",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/24.jpg?1517813031",
+		"multiverseid": 430713,
+		"mtgaid": 65525
+	},
+	{
+		"number": "25",
+		"name": "Steward of Solidarity",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/25.jpg?1517813031",
+		"multiverseid": 430714,
+		"mtgaid": 65527
+	},
+	{
+		"number": "26",
+		"name": "Sunscourge Champion",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/26.jpg?1517813031",
+		"multiverseid": 430715,
+		"mtgaid": 65529
+	},
+	{
+		"number": "27",
+		"name": "Unconventional Tactics",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/27.jpg?1517813031",
+		"multiverseid": 430716,
+		"mtgaid": 65531
+	},
+	{
+		"number": "28",
+		"name": "Vizier of the True",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/28.jpg?1517813031",
+		"multiverseid": 430717,
+		"mtgaid": 65533
+	},
+	{
+		"number": "29",
+		"name": "Aerial Guide",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Drake",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/29.jpg?1517813031",
+		"multiverseid": 430718,
+		"mtgaid": 65535
+	},
+	{
+		"number": "30",
+		"name": "Aven Reedstalker",
+		"cmc": 4,
+		"manaCost": "{3}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Bird Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/30.jpg?1517813031",
+		"multiverseid": 430719,
+		"mtgaid": 65537
+	},
+	{
+		"number": "31",
+		"name": "Champion of Wits",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Naga Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/31.jpg?1517813031",
+		"multiverseid": 430720,
+		"mtgaid": 65539
+	},
+	{
+		"number": "32",
+		"name": "Countervailing Winds",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/32.jpg?1517813031",
+		"multiverseid": 430721,
+		"mtgaid": 65541
+	},
+	{
+		"number": "33",
+		"name": "Cunning Survivor",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/33.jpg?1517813031",
+		"multiverseid": 430722,
+		"mtgaid": 65543
+	},
+	{
+		"number": "34",
+		"name": "Eternal of Harsh Truths",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Zombie Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/34.jpg?1517813031",
+		"multiverseid": 430723,
+		"mtgaid": 65545
+	},
+	{
+		"number": "35",
+		"name": "Fraying Sanity",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Enchantment — Aura Curse",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/35.jpg?1517813031",
+		"multiverseid": 430724,
+		"mtgaid": 65547
+	},
+	{
+		"number": "36",
+		"name": "Hour of Eternity",
+		"cmc": 3,
+		"manaCost": "{X}{X}{U}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/36.jpg?1517813031",
+		"multiverseid": 430725,
+		"mtgaid": 65549
+	},
+	{
+		"number": "37",
+		"name": "Imaginary Threats",
+		"cmc": 4,
+		"manaCost": "{2}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/37.jpg?1517813031",
+		"multiverseid": 430726,
+		"mtgaid": 65551
+	},
+	{
+		"number": "38",
+		"name": "Jace's Defeat",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/38.jpg?1517813031",
+		"multiverseid": 430727,
+		"mtgaid": 65553
+	},
+	{
+		"number": "39",
+		"name": "Kefnet's Last Word",
+		"cmc": 4,
+		"manaCost": "{2}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/39.jpg?1517813031",
+		"multiverseid": 430728,
+		"mtgaid": 65555
+	},
+	{
+		"number": "40",
+		"name": "Nimble Obstructionist",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Bird Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/40.jpg?1517813031",
+		"multiverseid": 430729,
+		"mtgaid": 65557
+	},
+	{
+		"number": "41",
+		"name": "Ominous Sphinx",
+		"cmc": 5,
+		"manaCost": "{3}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Sphinx",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/41.jpg?1517813031",
+		"multiverseid": 430730,
+		"mtgaid": 65559
+	},
+	{
+		"number": "42",
+		"name": "Proven Combatant",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/42.jpg?1517813031",
+		"multiverseid": 430731,
+		"mtgaid": 65561
+	},
+	{
+		"number": "43",
+		"name": "Riddleform",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/43.jpg?1517813031",
+		"multiverseid": 430732,
+		"mtgaid": 65563
+	},
+	{
+		"number": "44",
+		"name": "Seer of the Last Tomorrow",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Naga Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/44.jpg?1517813031",
+		"multiverseid": 430733,
+		"mtgaid": 65565
+	},
+	{
+		"number": "45",
+		"name": "Sinuous Striker",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Naga Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/45.jpg?1517813031",
+		"multiverseid": 430734,
+		"mtgaid": 65567
+	},
+	{
+		"number": "46",
+		"name": "Spellweaver Eternal",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Naga Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/46.jpg?1517813031",
+		"multiverseid": 430735,
+		"mtgaid": 65569
+	},
+	{
+		"number": "47",
+		"name": "Strategic Planning",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/47.jpg?1517813031",
+		"multiverseid": 430736,
+		"mtgaid": 65571
+	},
+	{
+		"number": "48",
+		"name": "Striped Riverwinder",
+		"cmc": 7,
+		"manaCost": "{6}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Serpent",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/48.jpg?1517813031",
+		"multiverseid": 430737,
+		"mtgaid": 65573
+	},
+	{
+		"number": "49",
+		"name": "Supreme Will",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/49.jpg?1517813031",
+		"multiverseid": 430738,
+		"mtgaid": 65575
+	},
+	{
+		"number": "50",
+		"name": "Swarm Intelligence",
+		"cmc": 7,
+		"manaCost": "{6}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/50.jpg?1517813031",
+		"multiverseid": 430739,
+		"mtgaid": 65577
+	},
+	{
+		"number": "51",
+		"name": "Tragic Lesson",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/51.jpg?1517813031",
+		"multiverseid": 430740,
+		"mtgaid": 65579
+	},
+	{
+		"number": "52",
+		"name": "Unesh, Criosphinx Sovereign",
+		"cmc": 6,
+		"manaCost": "{4}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — Sphinx",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/52.jpg?1517813031",
+		"multiverseid": 430741,
+		"mtgaid": 65581
+	},
+	{
+		"number": "53",
+		"name": "Unquenchable Thirst",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/53.jpg?1517813031",
+		"multiverseid": 430742,
+		"mtgaid": 65583
+	},
+	{
+		"number": "54",
+		"name": "Unsummon",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/54.jpg?1517813031",
+		"multiverseid": 430743,
+		"mtgaid": 65585
+	},
+	{
+		"number": "55",
+		"name": "Vizier of the Anointed",
+		"cmc": 4,
+		"manaCost": "{3}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/55.jpg?1517813031",
+		"multiverseid": 430744,
+		"mtgaid": 65587
+	},
+	{
+		"number": "56",
+		"name": "Accursed Horde",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Zombie",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/56.jpg?1517813031",
+		"multiverseid": 430745,
+		"mtgaid": 65589
+	},
+	{
+		"number": "57",
+		"name": "Ammit Eternal",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Zombie Crocodile Demon",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/57.jpg?1517813031",
+		"multiverseid": 430746,
+		"mtgaid": 65591
+	},
+	{
+		"number": "58",
+		"name": "Apocalypse Demon",
+		"cmc": 6,
+		"manaCost": "{4}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Demon",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/58.jpg?1517813031",
+		"multiverseid": 430747,
+		"mtgaid": 65595
+	},
+	{
+		"number": "59",
+		"name": "Banewhip Punisher",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/59.jpg?1517813031",
+		"multiverseid": 430748,
+		"mtgaid": 65593
+	},
+	{
+		"number": "60",
+		"name": "Bontu's Last Reckoning",
+		"cmc": 3,
+		"manaCost": "{1}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/60.jpg?1517813031",
+		"multiverseid": 430749,
+		"mtgaid": 65597
+	},
+	{
+		"number": "61",
+		"name": "Carrion Screecher",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Bird",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/61.jpg?1517813031",
+		"multiverseid": 430750,
+		"mtgaid": 65599
+	},
+	{
+		"number": "62",
+		"name": "Doomfall",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/62.jpg?1517813031",
+		"multiverseid": 430751,
+		"mtgaid": 65601
+	},
+	{
+		"number": "63",
+		"name": "Dreamstealer",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/63.jpg?1517813031",
+		"multiverseid": 430752,
+		"mtgaid": 65603
+	},
+	{
+		"number": "64",
+		"name": "Grisly Survivor",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Minotaur Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/64.jpg?1517813031",
+		"multiverseid": 430753,
+		"mtgaid": 65605
+	},
+	{
+		"number": "65",
+		"name": "Hour of Glory",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/65.jpg?1517813031",
+		"multiverseid": 430754,
+		"mtgaid": 65607
+	},
+	{
+		"number": "66",
+		"name": "Khenra Eternal",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Jackal Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/66.jpg?1517813031",
+		"multiverseid": 430755,
+		"mtgaid": 65609
+	},
+	{
+		"number": "67",
+		"name": "Lethal Sting",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/67.jpg?1517813031",
+		"multiverseid": 430756,
+		"mtgaid": 65611
+	},
+	{
+		"number": "68",
+		"name": "Liliana's Defeat",
+		"cmc": 1,
+		"manaCost": "{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/68.jpg?1517813031",
+		"multiverseid": 430757,
+		"mtgaid": 65613
+	},
+	{
+		"number": "69",
+		"name": "Lurching Rotbeast",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Beast",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/69.jpg?1517813031",
+		"multiverseid": 430758,
+		"mtgaid": 65615
+	},
+	{
+		"number": "70",
+		"name": "Marauding Boneslasher",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Minotaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/70.jpg?1517813031",
+		"multiverseid": 430759,
+		"mtgaid": 65617
+	},
+	{
+		"number": "71",
+		"name": "Merciless Eternal",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Zombie Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/71.jpg?1517813031",
+		"multiverseid": 430760,
+		"mtgaid": 65619
+	},
+	{
+		"number": "72",
+		"name": "Moaning Wall",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Wall",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/72.jpg?1517813031",
+		"multiverseid": 430761,
+		"mtgaid": 65621
+	},
+	{
+		"number": "73",
+		"name": "Razaketh, the Foulblooded",
+		"cmc": 8,
+		"manaCost": "{5}{B}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — Demon",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/73.jpg?1517813031",
+		"multiverseid": 430762,
+		"mtgaid": 65623
+	},
+	{
+		"number": "74",
+		"name": "Razaketh's Rite",
+		"cmc": 5,
+		"manaCost": "{3}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/74.jpg?1517813031",
+		"multiverseid": 430763,
+		"mtgaid": 65625
+	},
+	{
+		"number": "75",
+		"name": "Ruin Rat",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Rat",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/75.jpg?1517813031",
+		"multiverseid": 430764,
+		"mtgaid": 65627
+	},
+	{
+		"number": "76",
+		"name": "Scrounger of Souls",
+		"cmc": 5,
+		"manaCost": "{4}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Horror",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/76.jpg?1517813031",
+		"multiverseid": 430765,
+		"mtgaid": 65629
+	},
+	{
+		"number": "77",
+		"name": "Torment of Hailfire",
+		"cmc": 2,
+		"manaCost": "{X}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/77.jpg?1517813031",
+		"multiverseid": 430766,
+		"mtgaid": 65631
+	},
+	{
+		"number": "78",
+		"name": "Torment of Scarabs",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment — Aura Curse",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/78.jpg?1517813031",
+		"multiverseid": 430767,
+		"mtgaid": 65633
+	},
+	{
+		"number": "79",
+		"name": "Torment of Venom",
+		"cmc": 4,
+		"manaCost": "{2}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/79.jpg?1517813031",
+		"multiverseid": 430768,
+		"mtgaid": 65635
+	},
+	{
+		"number": "80",
+		"name": "Vile Manifestation",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Horror",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/80.jpg?1517813031",
+		"multiverseid": 430769,
+		"mtgaid": 65637
+	},
+	{
+		"number": "81",
+		"name": "Without Weakness",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/81.jpg?1517813031",
+		"multiverseid": 430770,
+		"mtgaid": 65639
+	},
+	{
+		"number": "82",
+		"name": "Wretched Camel",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Camel",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/82.jpg?1517813031",
+		"multiverseid": 430771,
+		"mtgaid": 65641
+	},
+	{
+		"number": "83",
+		"name": "Abrade",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/83.jpg?1517813031",
+		"multiverseid": 430772,
+		"mtgaid": 65643
+	},
+	{
+		"number": "84",
+		"name": "Blur of Blades",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/84.jpg?1517813031",
+		"multiverseid": 430773,
+		"mtgaid": 65645
+	},
+	{
+		"number": "85",
+		"name": "Burning-Fist Minotaur",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Minotaur Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/85.jpg?1517813031",
+		"multiverseid": 430774,
+		"mtgaid": 65647
+	},
+	{
+		"number": "86",
+		"name": "Chandra's Defeat",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/86.jpg?1517813031",
+		"multiverseid": 430775,
+		"mtgaid": 65649
+	},
+	{
+		"number": "87",
+		"name": "Chaos Maw",
+		"cmc": 7,
+		"manaCost": "{5}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Hellion",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/87.jpg?1517813031",
+		"multiverseid": 430776,
+		"mtgaid": 65651
+	},
+	{
+		"number": "88",
+		"name": "Crash Through",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/88.jpg?1517813031",
+		"multiverseid": 430777,
+		"mtgaid": 65653
+	},
+	{
+		"number": "89",
+		"name": "Defiant Khenra",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Jackal Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/89.jpg?1517813031",
+		"multiverseid": 430778,
+		"mtgaid": 65655
+	},
+	{
+		"number": "90",
+		"name": "Earthshaker Khenra",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Jackal Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/90.jpg?1517813031",
+		"multiverseid": 430779,
+		"mtgaid": 65657
+	},
+	{
+		"number": "91",
+		"name": "Fervent Paincaster",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/91.jpg?1517813031",
+		"multiverseid": 430780,
+		"mtgaid": 65659
+	},
+	{
+		"number": "92",
+		"name": "Firebrand Archer",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Archer",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/92.jpg?1517813031",
+		"multiverseid": 430781,
+		"mtgaid": 65661
+	},
+	{
+		"number": "93",
+		"name": "Frontline Devastator",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Minotaur Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/93.jpg?1517813031",
+		"multiverseid": 430782,
+		"mtgaid": 65663
+	},
+	{
+		"number": "94",
+		"name": "Gilded Cerodon",
+		"cmc": 5,
+		"manaCost": "{4}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Beast",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/94.jpg?1517813031",
+		"multiverseid": 430783,
+		"mtgaid": 65693
+	},
+	{
+		"number": "95",
+		"name": "Granitic Titan",
+		"cmc": 6,
+		"manaCost": "{4}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Elemental",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/95.jpg?1517813031",
+		"multiverseid": 430784,
+		"mtgaid": 65691
+	},
+	{
+		"number": "96",
+		"name": "Hazoret's Undying Fury",
+		"cmc": 6,
+		"manaCost": "{4}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/96.jpg?1517813031",
+		"multiverseid": 430785,
+		"mtgaid": 65667
+	},
+	{
+		"number": "97",
+		"name": "Hour of Devastation",
+		"cmc": 5,
+		"manaCost": "{3}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/97.jpg?1517813031",
+		"multiverseid": 430786,
+		"mtgaid": 65669
+	},
+	{
+		"number": "98",
+		"name": "Imminent Doom",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/98.jpg?1517813031",
+		"multiverseid": 430787,
+		"mtgaid": 65671
+	},
+	{
+		"number": "99",
+		"name": "Inferno Jet",
+		"cmc": 6,
+		"manaCost": "{5}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/99.jpg?1517813031",
+		"multiverseid": 430788,
+		"mtgaid": 65673
+	},
+	{
+		"number": "100",
+		"name": "Khenra Scrapper",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Jackal Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/100.jpg?1517813031",
+		"multiverseid": 430789,
+		"mtgaid": 65675
+	},
+	{
+		"number": "101",
+		"name": "Kindled Fury",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/101.jpg?1517813031",
+		"multiverseid": 430790,
+		"mtgaid": 65677
+	},
+	{
+		"number": "102",
+		"name": "Magmaroth",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Elemental",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/102.jpg?1517813031",
+		"multiverseid": 430791,
+		"mtgaid": 65679
+	},
+	{
+		"number": "103",
+		"name": "Manticore Eternal",
+		"cmc": 5,
+		"manaCost": "{3}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Zombie Manticore",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/103.jpg?1517813031",
+		"multiverseid": 430792,
+		"mtgaid": 65681
+	},
+	{
+		"number": "104",
+		"name": "Neheb, the Eternal",
+		"cmc": 5,
+		"manaCost": "{3}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — Zombie Minotaur Warrior",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/104.jpg?1517813031",
+		"multiverseid": 430793,
+		"mtgaid": 65683
+	},
+	{
+		"number": "105",
+		"name": "Open Fire",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/105.jpg?1517813031",
+		"multiverseid": 430794,
+		"mtgaid": 65685
+	},
+	{
+		"number": "106",
+		"name": "Puncturing Blow",
+		"cmc": 4,
+		"manaCost": "{2}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/106.jpg?1517813031",
+		"multiverseid": 430795,
+		"mtgaid": 65687
+	},
+	{
+		"number": "107",
+		"name": "Sand Strangler",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Beast",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/107.jpg?1517813031",
+		"multiverseid": 430796,
+		"mtgaid": 65689
+	},
+	{
+		"number": "108",
+		"name": "Thorned Moloch",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Lizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/108.jpg?1517813031",
+		"multiverseid": 430797,
+		"mtgaid": 65665
+	},
+	{
+		"number": "109",
+		"name": "Wildfire Eternal",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Zombie Jackal Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/109.jpg?1517813031",
+		"multiverseid": 430798,
+		"mtgaid": 65695
+	},
+	{
+		"number": "110",
+		"name": "Ambuscade",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/110.jpg?1517813031",
+		"multiverseid": 430799,
+		"mtgaid": 65697
+	},
+	{
+		"number": "111",
+		"name": "Beneath the Sands",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/111.jpg?1517813031",
+		"multiverseid": 430800,
+		"mtgaid": 65699
+	},
+	{
+		"number": "112",
+		"name": "Bitterbow Sharpshooters",
+		"cmc": 5,
+		"manaCost": "{4}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Jackal Archer",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/112.jpg?1517813031",
+		"multiverseid": 430801,
+		"mtgaid": 65701
+	},
+	{
+		"number": "113",
+		"name": "Devotee of Strength",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Naga Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/113.jpg?1517813031",
+		"multiverseid": 430802,
+		"mtgaid": 65703
+	},
+	{
+		"number": "114",
+		"name": "Dune Diviner",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Naga Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/114.jpg?1517813031",
+		"multiverseid": 430803,
+		"mtgaid": 65705
+	},
+	{
+		"number": "115",
+		"name": "Feral Prowler",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Cat",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/115.jpg?1517813031",
+		"multiverseid": 430804,
+		"mtgaid": 65707
+	},
+	{
+		"number": "116",
+		"name": "Frilled Sandwalla",
+		"cmc": 1,
+		"manaCost": "{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Lizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/116.jpg?1517813031",
+		"multiverseid": 430805,
+		"mtgaid": 65709
+	},
+	{
+		"number": "117",
+		"name": "Gift of Strength",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/117.jpg?1517813031",
+		"multiverseid": 430806,
+		"mtgaid": 65711
+	},
+	{
+		"number": "118",
+		"name": "Harrier Naga",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Naga Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/118.jpg?1517813031",
+		"multiverseid": 430807,
+		"mtgaid": 65713
+	},
+	{
+		"number": "119",
+		"name": "Hope Tender",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Druid",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/119.jpg?1517813031",
+		"multiverseid": 430808,
+		"mtgaid": 65717
+	},
+	{
+		"number": "120",
+		"name": "Hour of Promise",
+		"cmc": 5,
+		"manaCost": "{4}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/120.jpg?1517813031",
+		"multiverseid": 430809,
+		"mtgaid": 65715
+	},
+	{
+		"number": "121",
+		"name": "Life Goes On",
+		"cmc": 1,
+		"manaCost": "{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/121.jpg?1517813031",
+		"multiverseid": 430810,
+		"mtgaid": 65719
+	},
+	{
+		"number": "122",
+		"name": "Majestic Myriarch",
+		"cmc": 5,
+		"manaCost": "{4}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Creature — Chimera",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/122.jpg?1517813031",
+		"multiverseid": 430811,
+		"mtgaid": 65721
+	},
+	{
+		"number": "123",
+		"name": "Nissa's Defeat",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/123.jpg?1517813031",
+		"multiverseid": 430812,
+		"mtgaid": 65723
+	},
+	{
+		"number": "124",
+		"name": "Oasis Ritualist",
+		"cmc": 4,
+		"manaCost": "{3}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Naga Druid",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/124.jpg?1517813031",
+		"multiverseid": 430813,
+		"mtgaid": 65725
+	},
+	{
+		"number": "125",
+		"name": "Overcome",
+		"cmc": 5,
+		"manaCost": "{3}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/125.jpg?1517813031",
+		"multiverseid": 430814,
+		"mtgaid": 65727
+	},
+	{
+		"number": "126",
+		"name": "Pride Sovereign",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G",
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Cat",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/126.jpg?1517813031",
+		"multiverseid": 430815,
+		"mtgaid": 65729
+	},
+	{
+		"number": "127",
+		"name": "Quarry Beetle",
+		"cmc": 5,
+		"manaCost": "{4}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Insect",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/127.jpg?1517813031",
+		"multiverseid": 430816,
+		"mtgaid": 65731
+	},
+	{
+		"number": "128",
+		"name": "Rampaging Hippo",
+		"cmc": 6,
+		"manaCost": "{4}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Hippo",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/128.jpg?1517813031",
+		"multiverseid": 430817,
+		"mtgaid": 65733
+	},
+	{
+		"number": "129",
+		"name": "Ramunap Excavator",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Naga Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/129.jpg?1517813031",
+		"multiverseid": 430818,
+		"mtgaid": 65735
+	},
+	{
+		"number": "130",
+		"name": "Ramunap Hydra",
+		"cmc": 4,
+		"manaCost": "{3}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Snake Hydra",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/130.jpg?1517813031",
+		"multiverseid": 430819,
+		"mtgaid": 65737
+	},
+	{
+		"number": "131",
+		"name": "Resilient Khenra",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Jackal Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/131.jpg?1517813031",
+		"multiverseid": 430820,
+		"mtgaid": 65739
+	},
+	{
+		"number": "132",
+		"name": "Rhonas's Last Stand",
+		"cmc": 2,
+		"manaCost": "{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/132.jpg?1517813031",
+		"multiverseid": 430821,
+		"mtgaid": 65741
+	},
+	{
+		"number": "133",
+		"name": "Rhonas's Stalwart",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/133.jpg?1517813031",
+		"multiverseid": 430822,
+		"mtgaid": 65743
+	},
+	{
+		"number": "134",
+		"name": "Sidewinder Naga",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Naga Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/134.jpg?1517813031",
+		"multiverseid": 430823,
+		"mtgaid": 65745
+	},
+	{
+		"number": "135",
+		"name": "Sifter Wurm",
+		"cmc": 7,
+		"manaCost": "{5}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Wurm",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/135.jpg?1517813031",
+		"multiverseid": 430824,
+		"mtgaid": 65747
+	},
+	{
+		"number": "136",
+		"name": "Tenacious Hunter",
+		"cmc": 4,
+		"manaCost": "{2}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Crocodile",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/136.jpg?1517813031",
+		"multiverseid": 430825,
+		"mtgaid": 65749
+	},
+	{
+		"number": "137",
+		"name": "Uncage the Menagerie",
+		"cmc": 2,
+		"manaCost": "{X}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/137.jpg?1517813031",
+		"multiverseid": 430826,
+		"mtgaid": 65751
+	},
+	{
+		"number": "138",
+		"name": "Bloodwater Entity",
+		"cmc": 3,
+		"manaCost": "{1}{U}{R}",
+		"colors": [
+			"R",
+			"U"
+		],
+		"color_identity": [
+			"R",
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Elemental",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/138.jpg?1517813031",
+		"multiverseid": 430827,
+		"mtgaid": 65753
+	},
+	{
+		"number": "139",
+		"name": "The Locust God",
+		"cmc": 6,
+		"manaCost": "{4}{U}{R}",
+		"colors": [
+			"R",
+			"U"
+		],
+		"color_identity": [
+			"R",
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — God",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/139.jpg?1517813031",
+		"multiverseid": 430828,
+		"mtgaid": 65757
+	},
+	{
+		"number": "140",
+		"name": "Nicol Bolas, God-Pharaoh",
+		"cmc": 7,
+		"manaCost": "{4}{U}{B}{R}",
+		"colors": [
+			"B",
+			"R",
+			"U"
+		],
+		"color_identity": [
+			"B",
+			"R",
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Planeswalker — Bolas",
+		"types": [
+			"Legendary",
+			"Planeswalker"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/140.jpg?1517813031",
+		"multiverseid": 430829,
+		"mtgaid": 65759
+	},
+	{
+		"number": "141",
+		"name": "Obelisk Spider",
+		"cmc": 3,
+		"manaCost": "{1}{B}{G}",
+		"colors": [
+			"B",
+			"G"
+		],
+		"color_identity": [
+			"B",
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Spider",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/141.jpg?1517813031",
+		"multiverseid": 430830,
+		"mtgaid": 65761
+	},
+	{
+		"number": "142",
+		"name": "Resolute Survivors",
+		"cmc": 3,
+		"manaCost": "{1}{R}{W}",
+		"colors": [
+			"R",
+			"W"
+		],
+		"color_identity": [
+			"R",
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/142.jpg?1517813031",
+		"multiverseid": 430831,
+		"mtgaid": 65763
+	},
+	{
+		"number": "143",
+		"name": "River Hoopoe",
+		"cmc": 2,
+		"manaCost": "{G}{U}",
+		"colors": [
+			"G",
+			"U"
+		],
+		"color_identity": [
+			"G",
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Bird",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/143.jpg?1517813031",
+		"multiverseid": 430832,
+		"mtgaid": 65765
+	},
+	{
+		"number": "144",
+		"name": "Samut, the Tested",
+		"cmc": 4,
+		"manaCost": "{2}{R}{G}",
+		"colors": [
+			"G",
+			"R"
+		],
+		"color_identity": [
+			"G",
+			"R"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Planeswalker — Samut",
+		"types": [
+			"Legendary",
+			"Planeswalker"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/144.jpg?1517813031",
+		"multiverseid": 430833,
+		"mtgaid": 65767
+	},
+	{
+		"number": "145",
+		"name": "The Scarab God",
+		"cmc": 5,
+		"manaCost": "{3}{U}{B}",
+		"colors": [
+			"B",
+			"U"
+		],
+		"color_identity": [
+			"B",
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — God",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/145.jpg?1517813031",
+		"multiverseid": 430834,
+		"mtgaid": 65769
+	},
+	{
+		"number": "146",
+		"name": "The Scorpion God",
+		"cmc": 5,
+		"manaCost": "{3}{B}{R}",
+		"colors": [
+			"B",
+			"R"
+		],
+		"color_identity": [
+			"B",
+			"R"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — God",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/146.jpg?1517813031",
+		"multiverseid": 430835,
+		"mtgaid": 65755
+	},
+	{
+		"number": "147",
+		"name": "Unraveling Mummy",
+		"cmc": 3,
+		"manaCost": "{1}{W}{B}",
+		"colors": [
+			"B",
+			"W"
+		],
+		"color_identity": [
+			"B",
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Zombie",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/147.jpg?1517813031",
+		"multiverseid": 430836,
+		"mtgaid": 65771
+	},
+	{
+		"number": "148a",
+		"name": "Farm",
+		"cmc": 6,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"U",
+			"W"
+		],
+		"color_identity": [
+			"U",
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/148a.jpg?1517813031",
+		"multiverseid": 430837,
+		"mtgaid": 65775
+	},
+	{
+		"number": "148b",
+		"name": "Market",
+		"cmc": 6,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U",
+			"W"
+		],
+		"color_identity": [
+			"U",
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/148a.jpg?1517813031",
+		"multiverseid": 430837,
+		"mtgaid": 65777
+	},
+	{
+		"number": "149a",
+		"name": "Consign",
+		"cmc": 7,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"B",
+			"U"
+		],
+		"color_identity": [
+			"B",
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/149a.jpg?1517813031",
+		"multiverseid": 430838,
+		"mtgaid": 65781
+	},
+	{
+		"number": "149b",
+		"name": "Oblivion",
+		"cmc": 7,
+		"manaCost": "{4}{B}",
+		"colors": [
+			"B",
+			"U"
+		],
+		"color_identity": [
+			"B",
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/149a.jpg?1517813031",
+		"multiverseid": 430838,
+		"mtgaid": 65783
+	},
+	{
+		"number": "150a",
+		"name": "Claim",
+		"cmc": 3,
+		"manaCost": "{B}",
+		"colors": [
+			"B",
+			"R"
+		],
+		"color_identity": [
+			"B",
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/150a.jpg?1517813031",
+		"multiverseid": 430839,
+		"mtgaid": 65787
+	},
+	{
+		"number": "150b",
+		"name": "Fame",
+		"cmc": 3,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"B",
+			"R"
+		],
+		"color_identity": [
+			"B",
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/150a.jpg?1517813031",
+		"multiverseid": 430839,
+		"mtgaid": 65789
+	},
+	{
+		"number": "151a",
+		"name": "Struggle",
+		"cmc": 5,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"G",
+			"R"
+		],
+		"color_identity": [
+			"G",
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/151a.jpg?1517813031",
+		"multiverseid": 430840,
+		"mtgaid": 65793
+	},
+	{
+		"number": "151b",
+		"name": "Survive",
+		"cmc": 5,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G",
+			"R"
+		],
+		"color_identity": [
+			"G",
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/151a.jpg?1517813031",
+		"multiverseid": 430840,
+		"mtgaid": 65795
+	},
+	{
+		"number": "152a",
+		"name": "Appeal",
+		"cmc": 3,
+		"manaCost": "{G}",
+		"colors": [
+			"G",
+			"W"
+		],
+		"color_identity": [
+			"G",
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/152a.jpg?1517813031",
+		"multiverseid": 430841,
+		"mtgaid": 65799
+	},
+	{
+		"number": "152b",
+		"name": "Authority",
+		"cmc": 3,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"G",
+			"W"
+		],
+		"color_identity": [
+			"G",
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/152a.jpg?1517813031",
+		"multiverseid": 430841,
+		"mtgaid": 65801
+	},
+	{
+		"number": "153a",
+		"name": "Leave",
+		"cmc": 6,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"R",
+			"W"
+		],
+		"color_identity": [
+			"R",
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/153a.jpg?1525704240",
+		"multiverseid": 430842,
+		"mtgaid": 65805
+	},
+	{
+		"number": "153b",
+		"name": "Chance",
+		"cmc": 6,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R",
+			"W"
+		],
+		"color_identity": [
+			"R",
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/153a.jpg?1525704240",
+		"multiverseid": 430842,
+		"mtgaid": 65807
+	},
+	{
+		"number": "154a",
+		"name": "Reason",
+		"cmc": 6,
+		"manaCost": "{U}",
+		"colors": [
+			"G",
+			"U"
+		],
+		"color_identity": [
+			"G",
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/154a.jpg?1517813031",
+		"multiverseid": 430843,
+		"mtgaid": 65811
+	},
+	{
+		"number": "154b",
+		"name": "Believe",
+		"cmc": 6,
+		"manaCost": "{4}{G}",
+		"colors": [
+			"G",
+			"U"
+		],
+		"color_identity": [
+			"G",
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/154a.jpg?1517813031",
+		"multiverseid": 430843,
+		"mtgaid": 65813
+	},
+	{
+		"number": "155a",
+		"name": "Grind",
+		"cmc": 6,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B",
+			"W"
+		],
+		"color_identity": [
+			"B",
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/155a.jpg?1517813031",
+		"multiverseid": 430844,
+		"mtgaid": 65817
+	},
+	{
+		"number": "155b",
+		"name": "Dust",
+		"cmc": 6,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"B",
+			"W"
+		],
+		"color_identity": [
+			"B",
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/155a.jpg?1517813031",
+		"multiverseid": 430844,
+		"mtgaid": 65819
+	},
+	{
+		"number": "156a",
+		"name": "Refuse",
+		"cmc": 7,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R",
+			"U"
+		],
+		"color_identity": [
+			"R",
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/156a.jpg?1517813031",
+		"multiverseid": 430845,
+		"mtgaid": 65823
+	},
+	{
+		"number": "156b",
+		"name": "Cooperate",
+		"cmc": 7,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"R",
+			"U"
+		],
+		"color_identity": [
+			"R",
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/156a.jpg?1517813031",
+		"multiverseid": 430845,
+		"mtgaid": 65825
+	},
+	{
+		"number": "157a",
+		"name": "Driven",
+		"cmc": 4,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"B",
+			"G"
+		],
+		"color_identity": [
+			"B",
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/157a.jpg?1517813031",
+		"multiverseid": 430846,
+		"mtgaid": 65829
+	},
+	{
+		"number": "157b",
+		"name": "Despair",
+		"cmc": 4,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B",
+			"G"
+		],
+		"color_identity": [
+			"B",
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "split",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/157a.jpg?1517813031",
+		"multiverseid": 430846,
+		"mtgaid": 65831
+	},
+	{
+		"number": "158",
+		"name": "Abandoned Sarcophagus",
+		"cmc": 3,
+		"manaCost": "{3}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/158.jpg?1517813031",
+		"multiverseid": 430847,
+		"mtgaid": 65833
+	},
+	{
+		"number": "159",
+		"name": "Crook of Condemnation",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/159.jpg?1517813031",
+		"multiverseid": 430848,
+		"mtgaid": 65835
+	},
+	{
+		"number": "160",
+		"name": "Dagger of the Worthy",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Artifact — Equipment",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/160.jpg?1517813031",
+		"multiverseid": 430849,
+		"mtgaid": 65837
+	},
+	{
+		"number": "161",
+		"name": "God-Pharaoh's Gift",
+		"cmc": 7,
+		"manaCost": "{7}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/161.jpg?1517813031",
+		"multiverseid": 430850,
+		"mtgaid": 65839
+	},
+	{
+		"number": "162",
+		"name": "Graven Abomination",
+		"cmc": 3,
+		"manaCost": "{3}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Artifact Creature — Horror",
+		"types": [
+			"Artifact",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/162.jpg?1517813031",
+		"multiverseid": 430851,
+		"mtgaid": 65841
+	},
+	{
+		"number": "163",
+		"name": "Hollow One",
+		"cmc": 5,
+		"manaCost": "{5}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Artifact Creature — Golem",
+		"types": [
+			"Artifact",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/163.jpg?1517813031",
+		"multiverseid": 430852,
+		"mtgaid": 65843
+	},
+	{
+		"number": "164",
+		"name": "Manalith",
+		"cmc": 3,
+		"manaCost": "{3}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/164.jpg?1517813031",
+		"multiverseid": 430853,
+		"mtgaid": 65845
+	},
+	{
+		"number": "165",
+		"name": "Mirage Mirror",
+		"cmc": 3,
+		"manaCost": "{3}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/165.jpg?1517813031",
+		"multiverseid": 430854,
+		"mtgaid": 65847
+	},
+	{
+		"number": "166",
+		"name": "Sunset Pyramid",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/166.jpg?1517813031",
+		"multiverseid": 430855,
+		"mtgaid": 65849
+	},
+	{
+		"number": "167",
+		"name": "Traveler's Amulet",
+		"cmc": 1,
+		"manaCost": "{1}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/167.jpg?1517813031",
+		"multiverseid": 430856,
+		"mtgaid": 65851
+	},
+	{
+		"number": "168",
+		"name": "Wall of Forgotten Pharaohs",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Artifact Creature — Wall",
+		"types": [
+			"Artifact",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/168.jpg?1517813031",
+		"multiverseid": 430857,
+		"mtgaid": 65853
+	},
+	{
+		"number": "169",
+		"name": "Crypt of the Eternals",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B",
+			"R",
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/169.jpg?1517813031",
+		"multiverseid": 430858,
+		"mtgaid": 65959
+	},
+	{
+		"number": "170",
+		"name": "Desert of the Fervent",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/170.jpg?1517813031",
+		"multiverseid": 430859,
+		"mtgaid": 65857
+	},
+	{
+		"number": "171",
+		"name": "Desert of the Glorified",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/171.jpg?1517813031",
+		"multiverseid": 430860,
+		"mtgaid": 65859
+	},
+	{
+		"number": "172",
+		"name": "Desert of the Indomitable",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/172.jpg?1517813031",
+		"multiverseid": 430861,
+		"mtgaid": 65861
+	},
+	{
+		"number": "173",
+		"name": "Desert of the Mindful",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/173.jpg?1517813031",
+		"multiverseid": 430862,
+		"mtgaid": 65863
+	},
+	{
+		"number": "174",
+		"name": "Desert of the True",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/174.jpg?1517813031",
+		"multiverseid": 430863,
+		"mtgaid": 65865
+	},
+	{
+		"number": "175",
+		"name": "Dunes of the Dead",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/175.jpg?1517813031",
+		"multiverseid": 430864,
+		"mtgaid": 65867
+	},
+	{
+		"number": "176",
+		"name": "Endless Sands",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/176.jpg?1517813031",
+		"multiverseid": 430865,
+		"mtgaid": 65869
+	},
+	{
+		"number": "177",
+		"name": "Hashep Oasis",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/177.jpg?1517813031",
+		"multiverseid": 430866,
+		"mtgaid": 65871
+	},
+	{
+		"number": "178",
+		"name": "Hostile Desert",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/178.jpg?1517813031",
+		"multiverseid": 430867,
+		"mtgaid": 65873
+	},
+	{
+		"number": "179",
+		"name": "Ifnir Deadlands",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/179.jpg?1517813031",
+		"multiverseid": 430868,
+		"mtgaid": 65875
+	},
+	{
+		"number": "180",
+		"name": "Ipnu Rivulet",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/180.jpg?1517813031",
+		"multiverseid": 430869,
+		"mtgaid": 65877
+	},
+	{
+		"number": "181",
+		"name": "Ramunap Ruins",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/181.jpg?1525952805",
+		"multiverseid": 430870,
+		"mtgaid": 65879
+	},
+	{
+		"number": "182",
+		"name": "Scavenger Grounds",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/182.jpg?1517813031",
+		"multiverseid": 430871,
+		"mtgaid": 65881
+	},
+	{
+		"number": "183",
+		"name": "Shefet Dunes",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/183.jpg?1517813031",
+		"multiverseid": 430872,
+		"mtgaid": 65883
+	},
+	{
+		"number": "184",
+		"name": "Survivors' Encampment",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land — Desert",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/184.jpg?1517813031",
+		"multiverseid": 430873,
+		"mtgaid": 65885
+	},
+	{
+		"number": "185",
+		"name": "Plains",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Plains",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/185.jpg?1517813031",
+		"multiverseid": 430874,
+		"mtgaid": 65887
+	},
+	{
+		"number": "186",
+		"name": "Island",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Island",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/186.jpg?1517813031",
+		"multiverseid": 430875,
+		"mtgaid": 65889
+	},
+	{
+		"number": "187",
+		"name": "Swamp",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Swamp",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/187.jpg?1517813031",
+		"multiverseid": 430876,
+		"mtgaid": 65891
+	},
+	{
+		"number": "188",
+		"name": "Mountain",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Mountain",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/188.jpg?1517813031",
+		"multiverseid": 430877,
+		"mtgaid": 65893
+	},
+	{
+		"number": "189",
+		"name": "Forest",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Forest",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/189.jpg?1517813031",
+		"multiverseid": 430878,
+		"mtgaid": 65895
+	},
+	{
+		"number": "190",
+		"name": "Plains",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Plains",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/190.jpg?1517813031",
+		"multiverseid": 430879,
+		"mtgaid": 65897
+	},
+	{
+		"number": "191",
+		"name": "Plains",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Plains",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/191.jpg?1517813031",
+		"multiverseid": 430880,
+		"mtgaid": 65899
+	},
+	{
+		"number": "192",
+		"name": "Island",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Island",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/192.jpg?1517813031",
+		"multiverseid": 430881,
+		"mtgaid": 65901
+	},
+	{
+		"number": "193",
+		"name": "Island",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Island",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/193.jpg?1517813031",
+		"multiverseid": 430882,
+		"mtgaid": 65903
+	},
+	{
+		"number": "194",
+		"name": "Swamp",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Swamp",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/194.jpg?1517813031",
+		"multiverseid": 430883,
+		"mtgaid": 65905
+	},
+	{
+		"number": "195",
+		"name": "Swamp",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Swamp",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/195.jpg?1517813031",
+		"multiverseid": 430884,
+		"mtgaid": 65907
+	},
+	{
+		"number": "196",
+		"name": "Mountain",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Mountain",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/196.jpg?1517813031",
+		"multiverseid": 430885,
+		"mtgaid": 65909
+	},
+	{
+		"number": "197",
+		"name": "Mountain",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Mountain",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/197.jpg?1517813031",
+		"multiverseid": 430886,
+		"mtgaid": 65911
+	},
+	{
+		"number": "198",
+		"name": "Forest",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Forest",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/198.jpg?1517813031",
+		"multiverseid": 430887,
+		"mtgaid": 65913
+	},
+	{
+		"number": "199",
+		"name": "Forest",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Forest",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/199.jpg?1517813031",
+		"multiverseid": 430888,
+		"mtgaid": 65915
+	},
+	{
+		"number": "200",
+		"name": "Nissa, Genesis Mage",
+		"cmc": 7,
+		"manaCost": "{5}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Planeswalker — Nissa",
+		"types": [
+			"Legendary",
+			"Planeswalker"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/200.jpg?1517813031",
+		"multiverseid": 432879,
+		"mtgaid": 65937
+	},
+	{
+		"number": "201",
+		"name": "Avid Reclaimer",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G",
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Druid",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/201.jpg?1517813031",
+		"multiverseid": 432880,
+		"mtgaid": 65939
+	},
+	{
+		"number": "202",
+		"name": "Brambleweft Behemoth",
+		"cmc": 6,
+		"manaCost": "{4}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Elemental",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/202.jpg?1517813031",
+		"multiverseid": 432881,
+		"mtgaid": 65941
+	},
+	{
+		"number": "203",
+		"name": "Nissa's Encouragement",
+		"cmc": 5,
+		"manaCost": "{4}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/203.jpg?1517813031",
+		"multiverseid": 432882,
+		"mtgaid": 65943
+	},
+	{
+		"number": "204",
+		"name": "Woodland Stream",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G",
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/204.jpg?1517813031",
+		"multiverseid": 432883,
+		"mtgaid": 65945
+	},
+	{
+		"number": "205",
+		"name": "Nicol Bolas, the Deceiver",
+		"cmc": 8,
+		"manaCost": "{5}{U}{B}{R}",
+		"colors": [
+			"B",
+			"R",
+			"U"
+		],
+		"color_identity": [
+			"B",
+			"R",
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Planeswalker — Bolas",
+		"types": [
+			"Legendary",
+			"Planeswalker"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/205.jpg?1517813031",
+		"multiverseid": 432884,
+		"mtgaid": 65947
+	},
+	{
+		"number": "206",
+		"name": "Wasp of the Bitter End",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Insect Horror",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/206.jpg?1517813031",
+		"multiverseid": 432885,
+		"mtgaid": 65949
+	},
+	{
+		"number": "207",
+		"name": "Zealot of the God-Pharaoh",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Minotaur Archer",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/207.jpg?1517813031",
+		"multiverseid": 432886,
+		"mtgaid": 65951
+	},
+	{
+		"number": "208",
+		"name": "Visage of Bolas",
+		"cmc": 4,
+		"manaCost": "{4}",
+		"colors": [],
+		"color_identity": [
+			"B",
+			"R",
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/208.jpg?1517813031",
+		"multiverseid": 432887,
+		"mtgaid": 65953
+	},
+	{
+		"number": "209",
+		"name": "Cinder Barrens",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B",
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/hou/209.jpg?1517813031",
+		"multiverseid": 432888,
+		"mtgaid": 65955
+	}
+]

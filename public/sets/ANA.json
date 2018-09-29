@@ -1,0 +1,782 @@
+[
+	{
+		"number": "1",
+		"name": "Angelic Reward",
+		"cmc": 5,
+		"manaCost": "{3}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/1.jpg?1534333793",
+		"mtgaid": 69108
+	},
+	{
+		"number": "2",
+		"name": "Blinding Radiance",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/2.jpg?1531792527",
+		"mtgaid": 68766
+	},
+	{
+		"number": "3",
+		"name": "Confront the Assault",
+		"cmc": 5,
+		"manaCost": "{4}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/3.jpg?1531792098",
+		"mtgaid": 68786
+	},
+	{
+		"number": "5",
+		"name": "Inspiring Commander",
+		"cmc": 6,
+		"manaCost": "{4}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/5.jpg?1531792039",
+		"mtgaid": 69110
+	},
+	{
+		"number": "6",
+		"name": "Knight's Pledge",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/6.jpg?1534333804",
+		"mtgaid": 68788
+	},
+	{
+		"number": "7",
+		"name": "Loxodon Line Breaker",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Elephant Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/7.jpg?1531792110",
+		"mtgaid": 68789
+	},
+	{
+		"number": "8",
+		"name": "Sanctuary Cat",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Cat",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/8.jpg?1531839465",
+		"mtgaid": 68804
+	},
+	{
+		"number": "9",
+		"name": "Serra Angel",
+		"cmc": 5,
+		"manaCost": "{3}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Angel",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/9.jpg?1531792691",
+		"mtgaid": 68793
+	},
+	{
+		"number": "10",
+		"name": "Shrine Keeper",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/10.jpg?1531792052",
+		"mtgaid": 69111
+	},
+	{
+		"number": "11",
+		"name": "Spiritual Guardian",
+		"cmc": 5,
+		"manaCost": "{3}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Spirit",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/11.jpg?1531792072",
+		"mtgaid": 68767
+	},
+	{
+		"number": "12",
+		"name": "Tactical Advantage",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/12.jpg?1531792083",
+		"mtgaid": 68769
+	},
+	{
+		"number": "13",
+		"name": "Take Vengeance",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/13.jpg?1531792725",
+		"mtgaid": 68787
+	},
+	{
+		"number": "14",
+		"name": "Divination",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/14.jpg?1531792765",
+		"mtgaid": 68800
+	},
+	{
+		"number": "16",
+		"name": "Overflowing Insight",
+		"cmc": 7,
+		"manaCost": "{4}{U}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/16.jpg?1531792826",
+		"mtgaid": 68796
+	},
+	{
+		"number": "17",
+		"name": "River's Favor",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/17.jpg?1531792856",
+		"mtgaid": 69112
+	},
+	{
+		"number": "18",
+		"name": "Shorecomber Crab",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Crab",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/18.jpg?1531792882",
+		"mtgaid": 68772
+	},
+	{
+		"number": "19",
+		"name": "Titanic Pelagosaur",
+		"cmc": 5,
+		"manaCost": "{3}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/19.jpg?1531792929",
+		"mtgaid": 69113
+	},
+	{
+		"number": "22",
+		"name": "Waterknot",
+		"cmc": 3,
+		"manaCost": "{1}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/22.jpg?1531792964",
+		"mtgaid": 68792
+	},
+	{
+		"number": "23",
+		"name": "Zephyr Gull",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Bird",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/23.jpg?1531793193",
+		"mtgaid": 68776
+	},
+	{
+		"number": "24",
+		"name": "Altar's Reap",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/24.jpg?1534333774",
+		"mtgaid": 68806
+	},
+	{
+		"number": "25",
+		"name": "Ambition's Cost",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/25.jpg?1531793115",
+		"mtgaid": 68798
+	},
+	{
+		"number": "26",
+		"name": "Cruel Cut",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/26.jpg?1531793154",
+		"mtgaid": 69115
+	},
+	{
+		"number": "29",
+		"name": "Miasmic Mummy",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Zombie Jackal",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/29.jpg?1531793020",
+		"mtgaid": 68795
+	},
+	{
+		"number": "31",
+		"name": "Nimble Pilferer",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Rogue",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/31.jpg?1531793364",
+		"mtgaid": 69116
+	},
+	{
+		"number": "33",
+		"name": "Renegade Demon",
+		"cmc": 5,
+		"manaCost": "{3}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Demon",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/33.jpg?1534333817",
+		"mtgaid": 68803
+	},
+	{
+		"number": "34",
+		"name": "Rise from the Grave",
+		"cmc": 5,
+		"manaCost": "{4}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/34.jpg?1531793319",
+		"mtgaid": 68791
+	},
+	{
+		"number": "35",
+		"name": "Soulhunter Rakshasa",
+		"cmc": 5,
+		"manaCost": "{3}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Cat Demon",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/35.jpg?1531793306",
+		"mtgaid": 68782
+	},
+	{
+		"number": "36",
+		"name": "Chaos Maw",
+		"cmc": 7,
+		"manaCost": "{5}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Hellion",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/36.jpg?1531793263",
+		"mtgaid": 68794
+	},
+	{
+		"number": "37",
+		"name": "Doublecast",
+		"cmc": 2,
+		"manaCost": "{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/37.jpg?1531793245",
+		"mtgaid": 68814
+	},
+	{
+		"number": "39",
+		"name": "Goblin Bruiser",
+		"cmc": 3,
+		"manaCost": "{1}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Goblin Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/39.jpg?1531793435",
+		"mtgaid": 68773
+	},
+	{
+		"number": "40",
+		"name": "Goblin Gang Leader",
+		"cmc": 4,
+		"manaCost": "{2}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Goblin Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/40.jpg?1531793478",
+		"mtgaid": 69117
+	},
+	{
+		"number": "41",
+		"name": "Goblin Grenade",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/41.jpg?1531793505",
+		"mtgaid": 68802
+	},
+	{
+		"number": "42",
+		"name": "Ogre Painbringer",
+		"cmc": 5,
+		"manaCost": "{3}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Ogre",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/42.jpg?1531793537",
+		"mtgaid": 69118
+	},
+	{
+		"number": "43",
+		"name": "Raging Goblin",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Goblin Berserker",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/43.jpg?1531793558",
+		"mtgaid": 68784
+	},
+	{
+		"number": "44",
+		"name": "Seismic Rupture",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/44.jpg?1531793576",
+		"mtgaid": 68811
+	},
+	{
+		"number": "45",
+		"name": "Volcanic Dragon",
+		"cmc": 6,
+		"manaCost": "{4}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dragon",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/45.jpg?1531793592",
+		"mtgaid": 68790
+	},
+	{
+		"number": "46",
+		"name": "Feral Roar",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/46.jpg?1531793640",
+		"mtgaid": 68771
+	},
+	{
+		"number": "47",
+		"name": "Rumbling Baloth",
+		"cmc": 4,
+		"manaCost": "{2}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Beast",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/47.jpg?1531793663",
+		"mtgaid": 68801
+	},
+	{
+		"number": "48",
+		"name": "Treetop Warden",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Elf Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/mtga/48.jpg?1531792063",
+		"mtgaid": 69119
+	}
+]

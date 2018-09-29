@@ -1,0 +1,6199 @@
+[
+	{
+		"number": "1",
+		"name": "Adanto Vanguard",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Vampire Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/1.jpg?1527427467",
+		"multiverseid": 435152,
+		"mtgaid": 65961
+	},
+	{
+		"number": "2",
+		"name": "Ashes of the Abhorrent",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/2.jpg?1527427483",
+		"multiverseid": 435153,
+		"mtgaid": 65963
+	},
+	{
+		"number": "3",
+		"name": "Axis of Mortality",
+		"cmc": 6,
+		"manaCost": "{4}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/3.jpg?1527427496",
+		"multiverseid": 435154,
+		"mtgaid": 65965
+	},
+	{
+		"number": "4",
+		"name": "Bellowing Aegisaur",
+		"cmc": 6,
+		"manaCost": "{5}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/4.jpg?1527427510",
+		"multiverseid": 435155,
+		"mtgaid": 65967
+	},
+	{
+		"number": "5",
+		"name": "Bishop of Rebirth",
+		"cmc": 5,
+		"manaCost": "{3}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Vampire Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/5.jpg?1527427524",
+		"multiverseid": 435156,
+		"mtgaid": 65969
+	},
+	{
+		"number": "6",
+		"name": "Bishop's Soldier",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Vampire Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/6.jpg?1527427542",
+		"multiverseid": 435157,
+		"mtgaid": 65971
+	},
+	{
+		"number": "7",
+		"name": "Bright Reprisal",
+		"cmc": 5,
+		"manaCost": "{4}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/7.jpg?1527427558",
+		"multiverseid": 435158,
+		"mtgaid": 65973
+	},
+	{
+		"number": "8",
+		"name": "Demystify",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/8.jpg?1527427570",
+		"multiverseid": 435159,
+		"mtgaid": 65975
+	},
+	{
+		"number": "9",
+		"name": "Duskborne Skymarcher",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Vampire Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/9.jpg?1527427584",
+		"multiverseid": 435160,
+		"mtgaid": 65977
+	},
+	{
+		"number": "10",
+		"name": "Emissary of Sunrise",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/10.jpg?1527427597",
+		"multiverseid": 435161,
+		"mtgaid": 65979
+	},
+	{
+		"number": "11",
+		"name": "Encampment Keeper",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Hound",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/11.jpg?1527427615",
+		"multiverseid": 435162,
+		"mtgaid": 65981
+	},
+	{
+		"number": "12",
+		"name": "Glorifier of Dusk",
+		"cmc": 5,
+		"manaCost": "{3}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Vampire Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/12.jpg?1527427628",
+		"multiverseid": 435163,
+		"mtgaid": 65983
+	},
+	{
+		"number": "13",
+		"name": "Goring Ceratops",
+		"cmc": 7,
+		"manaCost": "{5}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/13.jpg?1527427647",
+		"multiverseid": 435164,
+		"mtgaid": 65985
+	},
+	{
+		"number": "14",
+		"name": "Imperial Aerosaur",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/14.jpg?1527427662",
+		"multiverseid": 435165,
+		"mtgaid": 65987
+	},
+	{
+		"number": "15",
+		"name": "Imperial Lancer",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Knight",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/15.jpg?1527427677",
+		"multiverseid": 435166,
+		"mtgaid": 65989
+	},
+	{
+		"number": "16",
+		"name": "Inspiring Cleric",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Vampire Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/16.jpg?1527427691",
+		"multiverseid": 435167,
+		"mtgaid": 65991
+	},
+	{
+		"number": "17",
+		"name": "Ixalan's Binding",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/17.jpg?1527427704",
+		"multiverseid": 435168,
+		"mtgaid": 65993
+	},
+	{
+		"number": "18",
+		"name": "Kinjalli's Caller",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/18.jpg?1527427716",
+		"multiverseid": 435169,
+		"mtgaid": 65995
+	},
+	{
+		"number": "19",
+		"name": "Kinjalli's Sunwing",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/19.jpg?1527427732",
+		"multiverseid": 435170,
+		"mtgaid": 65997
+	},
+	{
+		"number": "20",
+		"name": "Legion Conquistador",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Vampire Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/20.jpg?1527427750",
+		"multiverseid": 435171,
+		"mtgaid": 65999
+	},
+	{
+		"number": "21",
+		"name": "Legion's Judgment",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/21.jpg?1527427762",
+		"multiverseid": 435172,
+		"mtgaid": 66001
+	},
+	{
+		"number": "22a",
+		"name": "Legion's Landing",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Enchantment",
+		"types": [
+			"Legendary",
+			"Enchantment"
+		],
+		"multiverseid": 435173,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/22a.jpg?1527427791",
+		"mtgaid": 66003
+	},
+	{
+		"number": "22b",
+		"name": "Adanto, the First Fort",
+		"cmc": 1,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Land",
+		"types": [
+			"Legendary",
+			"Land"
+		],
+		"multiverseid": 435174,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/22b.jpg?1527427791",
+		"mtgaid": 66005
+	},
+	{
+		"number": "23",
+		"name": "Looming Altisaur",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/23.jpg?1527427807",
+		"multiverseid": 435175,
+		"mtgaid": 66007
+	},
+	{
+		"number": "24",
+		"name": "Mavren Fein, Dusk Apostle",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Legendary Creature — Vampire Cleric",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/24.jpg?1527427824",
+		"multiverseid": 435176,
+		"mtgaid": 66009
+	},
+	{
+		"number": "25",
+		"name": "Paladin of the Bloodstained",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Vampire Knight",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/25.jpg?1527427839",
+		"multiverseid": 435177,
+		"mtgaid": 66011
+	},
+	{
+		"number": "26",
+		"name": "Pious Interdiction",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/26.jpg?1527427850",
+		"multiverseid": 435178,
+		"mtgaid": 66013
+	},
+	{
+		"number": "27",
+		"name": "Priest of the Wakening Sun",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/27.jpg?1527427865",
+		"multiverseid": 435179,
+		"mtgaid": 66015
+	},
+	{
+		"number": "28",
+		"name": "Pterodon Knight",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Knight",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/28.jpg?1527427878",
+		"multiverseid": 435180,
+		"mtgaid": 66017
+	},
+	{
+		"number": "29",
+		"name": "Queen's Commission",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/29.jpg?1527427891",
+		"multiverseid": 435181,
+		"mtgaid": 66019
+	},
+	{
+		"number": "30",
+		"name": "Rallying Roar",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/30.jpg?1527427906",
+		"multiverseid": 435182,
+		"mtgaid": 66021
+	},
+	{
+		"number": "31",
+		"name": "Raptor Companion",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/31.jpg?1527427917",
+		"multiverseid": 435183,
+		"mtgaid": 66023
+	},
+	{
+		"number": "32",
+		"name": "Ritual of Rejuvenation",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/32.jpg?1527427928",
+		"multiverseid": 435184,
+		"mtgaid": 66025
+	},
+	{
+		"number": "33",
+		"name": "Sanguine Sacrament",
+		"cmc": 2,
+		"manaCost": "{X}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/33.jpg?1527427944",
+		"multiverseid": 435185,
+		"mtgaid": 66027
+	},
+	{
+		"number": "34",
+		"name": "Settle the Wreckage",
+		"cmc": 4,
+		"manaCost": "{2}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/34.jpg?1527427957",
+		"multiverseid": 435186,
+		"mtgaid": 66029
+	},
+	{
+		"number": "35",
+		"name": "Sheltering Light",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/35.jpg?1527427969",
+		"multiverseid": 435187,
+		"mtgaid": 66031
+	},
+	{
+		"number": "36",
+		"name": "Shining Aerosaur",
+		"cmc": 5,
+		"manaCost": "{4}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/36.jpg?1527427982",
+		"multiverseid": 435188,
+		"mtgaid": 66033
+	},
+	{
+		"number": "37",
+		"name": "Skyblade of the Legion",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Vampire Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/37.jpg?1527427999",
+		"multiverseid": 435189,
+		"mtgaid": 66035
+	},
+	{
+		"number": "38",
+		"name": "Slash of Talons",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/38.jpg?1527428013",
+		"multiverseid": 435190,
+		"mtgaid": 66037
+	},
+	{
+		"number": "39",
+		"name": "Steadfast Armasaur",
+		"cmc": 4,
+		"manaCost": "{3}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/39.jpg?1527428026",
+		"multiverseid": 435191,
+		"mtgaid": 66039
+	},
+	{
+		"number": "40",
+		"name": "Sunrise Seeker",
+		"cmc": 5,
+		"manaCost": "{4}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Scout",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/40.jpg?1527428038",
+		"multiverseid": 435192,
+		"mtgaid": 66041
+	},
+	{
+		"number": "41",
+		"name": "Territorial Hammerskull",
+		"cmc": 3,
+		"manaCost": "{2}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/41.jpg?1527428056",
+		"multiverseid": 435193,
+		"mtgaid": 66043
+	},
+	{
+		"number": "42",
+		"name": "Tocatli Honor Guard",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/42.jpg?1527428068",
+		"multiverseid": 435194,
+		"mtgaid": 66045
+	},
+	{
+		"number": "43",
+		"name": "Vampire's Zeal",
+		"cmc": 1,
+		"manaCost": "{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/43.jpg?1527428080",
+		"multiverseid": 435195,
+		"mtgaid": 66047
+	},
+	{
+		"number": "44",
+		"name": "Wakening Sun's Avatar",
+		"cmc": 8,
+		"manaCost": "{5}{W}{W}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Creature — Dinosaur Avatar",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/44.jpg?1527428093",
+		"multiverseid": 435196,
+		"mtgaid": 66049
+	},
+	{
+		"number": "45",
+		"name": "Air Elemental",
+		"cmc": 5,
+		"manaCost": "{3}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Elemental",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/45.jpg?1527428107",
+		"multiverseid": 435197,
+		"mtgaid": 66051
+	},
+	{
+		"number": "46",
+		"name": "Arcane Adaptation",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/46.jpg?1527428123",
+		"multiverseid": 435198,
+		"mtgaid": 66053
+	},
+	{
+		"number": "47",
+		"name": "Cancel",
+		"cmc": 3,
+		"manaCost": "{1}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/47.jpg?1527428137",
+		"multiverseid": 435199,
+		"mtgaid": 66055
+	},
+	{
+		"number": "48",
+		"name": "Chart a Course",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/48.jpg?1527428151",
+		"multiverseid": 435200,
+		"mtgaid": 66057
+	},
+	{
+		"number": "49",
+		"name": "Daring Saboteur",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/49.jpg?1527428164",
+		"multiverseid": 435201,
+		"mtgaid": 66059
+	},
+	{
+		"number": "50",
+		"name": "Deadeye Quartermaster",
+		"cmc": 4,
+		"manaCost": "{3}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/50.jpg?1527428179",
+		"multiverseid": 435202,
+		"mtgaid": 66061
+	},
+	{
+		"number": "51",
+		"name": "Deeproot Waters",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/51.jpg?1527428192",
+		"multiverseid": 435203,
+		"mtgaid": 66063
+	},
+	{
+		"number": "52",
+		"name": "Depths of Desire",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/52.jpg?1527428208",
+		"multiverseid": 435204,
+		"mtgaid": 66065
+	},
+	{
+		"number": "53",
+		"name": "Dive Down",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/53.jpg?1527428220",
+		"multiverseid": 435205,
+		"mtgaid": 66067
+	},
+	{
+		"number": "54",
+		"name": "Dreamcaller Siren",
+		"cmc": 4,
+		"manaCost": "{2}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Siren Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/54.jpg?1527428234",
+		"multiverseid": 435206,
+		"mtgaid": 66069
+	},
+	{
+		"number": "55",
+		"name": "Entrancing Melody",
+		"cmc": 2,
+		"manaCost": "{X}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/55.jpg?1527428248",
+		"multiverseid": 435207,
+		"mtgaid": 66071
+	},
+	{
+		"number": "56",
+		"name": "Favorable Winds",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/56.jpg?1527428261",
+		"multiverseid": 435208,
+		"mtgaid": 66073
+	},
+	{
+		"number": "57",
+		"name": "Fleet Swallower",
+		"cmc": 7,
+		"manaCost": "{5}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Fish",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/57.jpg?1527428279",
+		"multiverseid": 435209,
+		"mtgaid": 66075
+	},
+	{
+		"number": "58",
+		"name": "Headwater Sentries",
+		"cmc": 4,
+		"manaCost": "{3}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Merfolk Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/58.jpg?1527428291",
+		"multiverseid": 435210,
+		"mtgaid": 66077
+	},
+	{
+		"number": "59",
+		"name": "Herald of Secret Streams",
+		"cmc": 4,
+		"manaCost": "{3}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Merfolk Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/59.jpg?1527428304",
+		"multiverseid": 435211,
+		"mtgaid": 66079
+	},
+	{
+		"number": "60",
+		"name": "Jace, Cunning Castaway",
+		"cmc": 3,
+		"manaCost": "{1}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Planeswalker — Jace",
+		"types": [
+			"Legendary",
+			"Planeswalker"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/60.jpg?1527428317",
+		"multiverseid": 435212,
+		"mtgaid": 66081
+	},
+	{
+		"number": "61",
+		"name": "Kopala, Warden of Waves",
+		"cmc": 3,
+		"manaCost": "{1}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Legendary Creature — Merfolk Wizard",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/61.jpg?1527428330",
+		"multiverseid": 435213,
+		"mtgaid": 66083
+	},
+	{
+		"number": "62",
+		"name": "Lookout's Dispersal",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/62.jpg?1527428342",
+		"multiverseid": 435214,
+		"mtgaid": 66085
+	},
+	{
+		"number": "63",
+		"name": "Navigator's Ruin",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/63.jpg?1527428355",
+		"multiverseid": 435215,
+		"mtgaid": 66087
+	},
+	{
+		"number": "64",
+		"name": "One With the Wind",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/64.jpg?1527428370",
+		"multiverseid": 435216,
+		"mtgaid": 66089
+	},
+	{
+		"number": "65",
+		"name": "Opt",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/65.jpg?1527428386",
+		"multiverseid": 435217,
+		"mtgaid": 66091
+	},
+	{
+		"number": "66",
+		"name": "Overflowing Insight",
+		"cmc": 7,
+		"manaCost": "{4}{U}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/66.jpg?1527428399",
+		"multiverseid": 435218,
+		"mtgaid": 66093
+	},
+	{
+		"number": "67",
+		"name": "Perilous Voyage",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/67.jpg?1527428411",
+		"multiverseid": 435219,
+		"mtgaid": 66095
+	},
+	{
+		"number": "68",
+		"name": "Pirate's Prize",
+		"cmc": 4,
+		"manaCost": "{3}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/68.jpg?1527428423",
+		"multiverseid": 435220,
+		"mtgaid": 66097
+	},
+	{
+		"number": "69",
+		"name": "Prosperous Pirates",
+		"cmc": 5,
+		"manaCost": "{4}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/69.jpg?1527428437",
+		"multiverseid": 435221,
+		"mtgaid": 66099
+	},
+	{
+		"number": "70",
+		"name": "River Sneak",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Merfolk Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/70.jpg?1527428449",
+		"multiverseid": 435222,
+		"mtgaid": 66101
+	},
+	{
+		"number": "71",
+		"name": "River's Rebuke",
+		"cmc": 6,
+		"manaCost": "{4}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/71.jpg?1527428461",
+		"multiverseid": 435223,
+		"mtgaid": 66103
+	},
+	{
+		"number": "72",
+		"name": "Run Aground",
+		"cmc": 4,
+		"manaCost": "{3}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/72.jpg?1527428476",
+		"multiverseid": 435224,
+		"mtgaid": 66105
+	},
+	{
+		"number": "73",
+		"name": "Sailor of Means",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/73.jpg?1527428488",
+		"multiverseid": 435225,
+		"mtgaid": 66107
+	},
+	{
+		"number": "74a",
+		"name": "Search for Azcanta",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Enchantment",
+		"types": [
+			"Legendary",
+			"Enchantment"
+		],
+		"multiverseid": 435226,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/74a.jpg?1527428520",
+		"mtgaid": 66109
+	},
+	{
+		"number": "74b",
+		"name": "Azcanta, the Sunken Ruin",
+		"cmc": 2,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Land",
+		"types": [
+			"Legendary",
+			"Land"
+		],
+		"multiverseid": 435227,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/74b.jpg?1527428520",
+		"mtgaid": 66111
+	},
+	{
+		"number": "75",
+		"name": "Shaper Apprentice",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Merfolk Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/75.jpg?1527428535",
+		"multiverseid": 435228,
+		"mtgaid": 66113
+	},
+	{
+		"number": "76",
+		"name": "Shipwreck Looter",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/76.jpg?1527428549",
+		"multiverseid": 435229,
+		"mtgaid": 66115
+	},
+	{
+		"number": "77",
+		"name": "Shore Keeper",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Trilobite",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/77.jpg?1527428561",
+		"multiverseid": 435230,
+		"mtgaid": 66117
+	},
+	{
+		"number": "78",
+		"name": "Siren Lookout",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Siren Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/78.jpg?1527428574",
+		"multiverseid": 435231,
+		"mtgaid": 66119
+	},
+	{
+		"number": "79",
+		"name": "Siren Stormtamer",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Siren Pirate Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/79.jpg?1527428588",
+		"multiverseid": 435232,
+		"mtgaid": 66121
+	},
+	{
+		"number": "80",
+		"name": "Siren's Ruse",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/80.jpg?1527428611",
+		"multiverseid": 435233,
+		"mtgaid": 66123
+	},
+	{
+		"number": "81",
+		"name": "Spell Pierce",
+		"cmc": 1,
+		"manaCost": "{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/81.jpg?1527428633",
+		"multiverseid": 435234,
+		"mtgaid": 66125
+	},
+	{
+		"number": "82",
+		"name": "Spell Swindle",
+		"cmc": 5,
+		"manaCost": "{3}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/82.jpg?1527428654",
+		"multiverseid": 435235,
+		"mtgaid": 66127
+	},
+	{
+		"number": "83",
+		"name": "Storm Fleet Aerialist",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/83.jpg?1527428678",
+		"multiverseid": 435236,
+		"mtgaid": 66129
+	},
+	{
+		"number": "84",
+		"name": "Storm Fleet Spy",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/84.jpg?1527428695",
+		"multiverseid": 435237,
+		"mtgaid": 66131
+	},
+	{
+		"number": "85",
+		"name": "Storm Sculptor",
+		"cmc": 4,
+		"manaCost": "{3}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Merfolk Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/85.jpg?1527428717",
+		"multiverseid": 435238,
+		"mtgaid": 66133
+	},
+	{
+		"number": "86",
+		"name": "Tempest Caller",
+		"cmc": 4,
+		"manaCost": "{2}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Merfolk Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/86.jpg?1527428733",
+		"multiverseid": 435239,
+		"mtgaid": 66135
+	},
+	{
+		"number": "87",
+		"name": "Watertrap Weaver",
+		"cmc": 3,
+		"manaCost": "{2}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Merfolk Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/87.jpg?1527428746",
+		"multiverseid": 435240,
+		"mtgaid": 66137
+	},
+	{
+		"number": "88",
+		"name": "Wind Strider",
+		"cmc": 5,
+		"manaCost": "{4}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Merfolk Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/88.jpg?1527428759",
+		"multiverseid": 435241,
+		"mtgaid": 66139
+	},
+	{
+		"number": "89",
+		"name": "Anointed Deacon",
+		"cmc": 5,
+		"manaCost": "{4}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Vampire Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/89.jpg?1527428773",
+		"multiverseid": 435242,
+		"mtgaid": 66141
+	},
+	{
+		"number": "90a",
+		"name": "Arguel's Blood Fast",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Enchantment",
+		"types": [
+			"Legendary",
+			"Enchantment"
+		],
+		"multiverseid": 435243,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/90a.jpg?1527428806",
+		"mtgaid": 66143
+	},
+	{
+		"number": "90b",
+		"name": "Temple of Aclazotz",
+		"cmc": 2,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Land",
+		"types": [
+			"Legendary",
+			"Land"
+		],
+		"multiverseid": 435244,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/90b.jpg?1527428806",
+		"mtgaid": 66145
+	},
+	{
+		"number": "91",
+		"name": "Bishop of the Bloodstained",
+		"cmc": 5,
+		"manaCost": "{3}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Vampire Cleric",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/91.jpg?1527428823",
+		"multiverseid": 435245,
+		"mtgaid": 66147
+	},
+	{
+		"number": "92",
+		"name": "Blight Keeper",
+		"cmc": 1,
+		"manaCost": "{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Bat Imp",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/92.jpg?1527428835",
+		"multiverseid": 435246,
+		"mtgaid": 66149
+	},
+	{
+		"number": "93",
+		"name": "Bloodcrazed Paladin",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Vampire Knight",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/93.jpg?1535332848",
+		"multiverseid": 435247,
+		"mtgaid": 66151
+	},
+	{
+		"number": "94",
+		"name": "Boneyard Parley",
+		"cmc": 7,
+		"manaCost": "{5}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/94.jpg?1527428866",
+		"multiverseid": 435248,
+		"mtgaid": 66153
+	},
+	{
+		"number": "95",
+		"name": "Contract Killing",
+		"cmc": 5,
+		"manaCost": "{3}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/95.jpg?1527428880",
+		"multiverseid": 435249,
+		"mtgaid": 66155
+	},
+	{
+		"number": "96",
+		"name": "Costly Plunder",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/96.jpg?1527428894",
+		"multiverseid": 435250,
+		"mtgaid": 66157
+	},
+	{
+		"number": "97",
+		"name": "Dark Nourishment",
+		"cmc": 5,
+		"manaCost": "{4}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/97.jpg?1527428908",
+		"multiverseid": 435251,
+		"mtgaid": 66159
+	},
+	{
+		"number": "98",
+		"name": "Deadeye Tormentor",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/98.jpg?1527428923",
+		"multiverseid": 435252,
+		"mtgaid": 66161
+	},
+	{
+		"number": "99",
+		"name": "Deadeye Tracker",
+		"cmc": 1,
+		"manaCost": "{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/99.jpg?1527428937",
+		"multiverseid": 435253,
+		"mtgaid": 66163
+	},
+	{
+		"number": "100",
+		"name": "Deathless Ancient",
+		"cmc": 6,
+		"manaCost": "{4}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Vampire Knight",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/100.jpg?1527428951",
+		"multiverseid": 435254,
+		"mtgaid": 66165
+	},
+	{
+		"number": "101",
+		"name": "Desperate Castaways",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/101.jpg?1527428971",
+		"multiverseid": 435255,
+		"mtgaid": 66167
+	},
+	{
+		"number": "102",
+		"name": "Dire Fleet Hoarder",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/102.jpg?1527428984",
+		"multiverseid": 435256,
+		"mtgaid": 66169
+	},
+	{
+		"number": "103",
+		"name": "Dire Fleet Interloper",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/103.jpg?1527428998",
+		"multiverseid": 435257,
+		"mtgaid": 66171
+	},
+	{
+		"number": "104",
+		"name": "Dire Fleet Ravager",
+		"cmc": 5,
+		"manaCost": "{3}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Creature — Orc Pirate Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/104.jpg?1527429011",
+		"multiverseid": 435258,
+		"mtgaid": 66173
+	},
+	{
+		"number": "105",
+		"name": "Duress",
+		"cmc": 1,
+		"manaCost": "{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/105.jpg?1527429026",
+		"multiverseid": 435259,
+		"mtgaid": 66175
+	},
+	{
+		"number": "106",
+		"name": "Fathom Fleet Captain",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/106.jpg?1527429041",
+		"multiverseid": 435260,
+		"mtgaid": 66177
+	},
+	{
+		"number": "107",
+		"name": "Fathom Fleet Cutthroat",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/107.jpg?1527429056",
+		"multiverseid": 435261,
+		"mtgaid": 66179
+	},
+	{
+		"number": "108",
+		"name": "Grim Captain's Call",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/108.jpg?1527429072",
+		"multiverseid": 435262,
+		"mtgaid": 66181
+	},
+	{
+		"number": "109",
+		"name": "Heartless Pillage",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/109.jpg?1527429083",
+		"multiverseid": 435263,
+		"mtgaid": 66183
+	},
+	{
+		"number": "110",
+		"name": "Kitesail Freebooter",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/110.jpg?1527429096",
+		"multiverseid": 435264,
+		"mtgaid": 66185
+	},
+	{
+		"number": "111",
+		"name": "Lurking Chupacabra",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Beast Horror",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/111.jpg?1527429111",
+		"multiverseid": 435265,
+		"mtgaid": 66187
+	},
+	{
+		"number": "112",
+		"name": "March of the Drowned",
+		"cmc": 1,
+		"manaCost": "{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/112.jpg?1527429127",
+		"multiverseid": 435266,
+		"mtgaid": 66189
+	},
+	{
+		"number": "113",
+		"name": "Mark of the Vampire",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/113.jpg?1527429145",
+		"multiverseid": 435267,
+		"mtgaid": 66191
+	},
+	{
+		"number": "114",
+		"name": "Queen's Agent",
+		"cmc": 6,
+		"manaCost": "{5}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Vampire Scout",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/114.jpg?1527429161",
+		"multiverseid": 435268,
+		"mtgaid": 66193
+	},
+	{
+		"number": "115",
+		"name": "Queen's Bay Soldier",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Vampire Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/115.jpg?1527429174",
+		"multiverseid": 435269,
+		"mtgaid": 66195
+	},
+	{
+		"number": "116",
+		"name": "Raiders' Wake",
+		"cmc": 4,
+		"manaCost": "{3}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/116.jpg?1527429187",
+		"multiverseid": 435270,
+		"mtgaid": 66197
+	},
+	{
+		"number": "117",
+		"name": "Revel in Riches",
+		"cmc": 5,
+		"manaCost": "{4}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/117.jpg?1527429199",
+		"multiverseid": 435271,
+		"mtgaid": 66199
+	},
+	{
+		"number": "118",
+		"name": "Ruin Raider",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Orc Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/118.jpg?1527429210",
+		"multiverseid": 435272,
+		"mtgaid": 66201
+	},
+	{
+		"number": "119",
+		"name": "Ruthless Knave",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Orc Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/119.jpg?1527429223",
+		"multiverseid": 435273,
+		"mtgaid": 66203
+	},
+	{
+		"number": "120",
+		"name": "Sanctum Seeker",
+		"cmc": 4,
+		"manaCost": "{2}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Vampire Knight",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/120.jpg?1527429240",
+		"multiverseid": 435274,
+		"mtgaid": 66205
+	},
+	{
+		"number": "121",
+		"name": "Seekers' Squire",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Scout",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/121.jpg?1527429256",
+		"multiverseid": 435275,
+		"mtgaid": 66207
+	},
+	{
+		"number": "122",
+		"name": "Skittering Heartstopper",
+		"cmc": 1,
+		"manaCost": "{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Insect",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/122.jpg?1527429269",
+		"multiverseid": 435276,
+		"mtgaid": 66209
+	},
+	{
+		"number": "123",
+		"name": "Skulduggery",
+		"cmc": 1,
+		"manaCost": "{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/123.jpg?1527429279",
+		"multiverseid": 435277,
+		"mtgaid": 66211
+	},
+	{
+		"number": "124",
+		"name": "Skymarch Bloodletter",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Vampire Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/124.jpg?1527429291",
+		"multiverseid": 435278,
+		"mtgaid": 66213
+	},
+	{
+		"number": "125",
+		"name": "Spreading Rot",
+		"cmc": 5,
+		"manaCost": "{4}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/125.jpg?1527429304",
+		"multiverseid": 435279,
+		"mtgaid": 66215
+	},
+	{
+		"number": "126",
+		"name": "Sword-Point Diplomacy",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/126.jpg?1527429315",
+		"multiverseid": 435280,
+		"mtgaid": 66217
+	},
+	{
+		"number": "127",
+		"name": "Vanquish the Weak",
+		"cmc": 3,
+		"manaCost": "{2}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/127.jpg?1527429331",
+		"multiverseid": 435281,
+		"mtgaid": 66219
+	},
+	{
+		"number": "128",
+		"name": "Vicious Conquistador",
+		"cmc": 1,
+		"manaCost": "{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Vampire Soldier",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/128.jpg?1527429344",
+		"multiverseid": 435282,
+		"mtgaid": 66221
+	},
+	{
+		"number": "129",
+		"name": "Vraska's Contempt",
+		"cmc": 4,
+		"manaCost": "{2}{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/129.jpg?1527429358",
+		"multiverseid": 435283,
+		"mtgaid": 66223
+	},
+	{
+		"number": "130",
+		"name": "Walk the Plank",
+		"cmc": 2,
+		"manaCost": "{B}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/130.jpg?1527429373",
+		"multiverseid": 435284,
+		"mtgaid": 66225
+	},
+	{
+		"number": "131",
+		"name": "Wanted Scoundrels",
+		"cmc": 2,
+		"manaCost": "{1}{B}",
+		"colors": [
+			"B"
+		],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/131.jpg?1527429386",
+		"multiverseid": 435285,
+		"mtgaid": 66227
+	},
+	{
+		"number": "132",
+		"name": "Angrath's Marauders",
+		"cmc": 7,
+		"manaCost": "{5}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/132.jpg?1527429400",
+		"multiverseid": 435286,
+		"mtgaid": 66229
+	},
+	{
+		"number": "133",
+		"name": "Bonded Horncrest",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/133.jpg?1527429416",
+		"multiverseid": 435287,
+		"mtgaid": 66231
+	},
+	{
+		"number": "134",
+		"name": "Brazen Buccaneers",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/134.jpg?1527429430",
+		"multiverseid": 435288,
+		"mtgaid": 66233
+	},
+	{
+		"number": "135",
+		"name": "Burning Sun's Avatar",
+		"cmc": 6,
+		"manaCost": "{3}{R}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dinosaur Avatar",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/135.jpg?1527429445",
+		"multiverseid": 435289,
+		"mtgaid": 66235
+	},
+	{
+		"number": "136",
+		"name": "Captain Lannery Storm",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Legendary Creature — Human Pirate",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/136.jpg?1527429461",
+		"multiverseid": 435290,
+		"mtgaid": 66237
+	},
+	{
+		"number": "137",
+		"name": "Captivating Crew",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/137.jpg?1527429474",
+		"multiverseid": 435291,
+		"mtgaid": 66239
+	},
+	{
+		"number": "138",
+		"name": "Charging Monstrosaur",
+		"cmc": 5,
+		"manaCost": "{4}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/138.jpg?1527429486",
+		"multiverseid": 435292,
+		"mtgaid": 66241
+	},
+	{
+		"number": "139",
+		"name": "Demolish",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/139.jpg?1527429501",
+		"multiverseid": 435293,
+		"mtgaid": 66243
+	},
+	{
+		"number": "140",
+		"name": "Dinosaur Stampede",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/140.jpg?1527429513",
+		"multiverseid": 435294,
+		"mtgaid": 66245
+	},
+	{
+		"number": "141",
+		"name": "Dual Shot",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/141.jpg?1527429526",
+		"multiverseid": 435295,
+		"mtgaid": 66247
+	},
+	{
+		"number": "142",
+		"name": "Fathom Fleet Firebrand",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/142.jpg?1527429540",
+		"multiverseid": 435296,
+		"mtgaid": 66249
+	},
+	{
+		"number": "143",
+		"name": "Fiery Cannonade",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/143.jpg?1527429554",
+		"multiverseid": 435297,
+		"mtgaid": 66251
+	},
+	{
+		"number": "144",
+		"name": "Fire Shrine Keeper",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Elemental",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/144.jpg?1527429568",
+		"multiverseid": 435298,
+		"mtgaid": 66253
+	},
+	{
+		"number": "145",
+		"name": "Firecannon Blast",
+		"cmc": 3,
+		"manaCost": "{1}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/145.jpg?1527429579",
+		"multiverseid": 435299,
+		"mtgaid": 66255
+	},
+	{
+		"number": "146",
+		"name": "Frenzied Raptor",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/146.jpg?1527429598",
+		"multiverseid": 435300,
+		"mtgaid": 66257
+	},
+	{
+		"number": "147",
+		"name": "Headstrong Brute",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Orc Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/147.jpg?1527429611",
+		"multiverseid": 435301,
+		"mtgaid": 66259
+	},
+	{
+		"number": "148",
+		"name": "Hijack",
+		"cmc": 3,
+		"manaCost": "{1}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/148.jpg?1527429626",
+		"multiverseid": 435302,
+		"mtgaid": 66261
+	},
+	{
+		"number": "149",
+		"name": "Lightning Strike",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/149.jpg?1527429641",
+		"multiverseid": 435303,
+		"mtgaid": 66263
+	},
+	{
+		"number": "150",
+		"name": "Lightning-Rig Crew",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Goblin Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/150.jpg?1527429657",
+		"multiverseid": 435304,
+		"mtgaid": 66265
+	},
+	{
+		"number": "151",
+		"name": "Makeshift Munitions",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/151.jpg?1527429674",
+		"multiverseid": 435305,
+		"mtgaid": 66267
+	},
+	{
+		"number": "152",
+		"name": "Nest Robber",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/152.jpg?1527429690",
+		"multiverseid": 435306,
+		"mtgaid": 66269
+	},
+	{
+		"number": "153",
+		"name": "Otepec Huntmaster",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Shaman",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/153.jpg?1527429704",
+		"multiverseid": 435307,
+		"mtgaid": 66271
+	},
+	{
+		"number": "154",
+		"name": "Rampaging Ferocidon",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/154.jpg?1527429722",
+		"multiverseid": 435308,
+		"mtgaid": 66273
+	},
+	{
+		"number": "155",
+		"name": "Raptor Hatchling",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/155.jpg?1527429735",
+		"multiverseid": 435309,
+		"mtgaid": 66275
+	},
+	{
+		"number": "156",
+		"name": "Repeating Barrage",
+		"cmc": 3,
+		"manaCost": "{1}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/156.jpg?1527429759",
+		"multiverseid": 435310,
+		"mtgaid": 66277
+	},
+	{
+		"number": "157",
+		"name": "Rigging Runner",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Goblin Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/157.jpg?1527429775",
+		"multiverseid": 435311,
+		"mtgaid": 66279
+	},
+	{
+		"number": "158",
+		"name": "Rile",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/158.jpg?1527429794",
+		"multiverseid": 435312,
+		"mtgaid": 66281
+	},
+	{
+		"number": "159",
+		"name": "Rowdy Crew",
+		"cmc": 4,
+		"manaCost": "{2}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/159.jpg?1527429812",
+		"multiverseid": 435313,
+		"mtgaid": 66283
+	},
+	{
+		"number": "160",
+		"name": "Rummaging Goblin",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Goblin Rogue",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/160.jpg?1527429845",
+		"multiverseid": 435314,
+		"mtgaid": 66285
+	},
+	{
+		"number": "161",
+		"name": "Star of Extinction",
+		"cmc": 7,
+		"manaCost": "{5}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/161.jpg?1527429864",
+		"multiverseid": 435315,
+		"mtgaid": 66287
+	},
+	{
+		"number": "162",
+		"name": "Storm Fleet Arsonist",
+		"cmc": 5,
+		"manaCost": "{4}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Orc Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/162.jpg?1527429883",
+		"multiverseid": 435316,
+		"mtgaid": 66289
+	},
+	{
+		"number": "163",
+		"name": "Storm Fleet Pyromancer",
+		"cmc": 5,
+		"manaCost": "{4}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Pirate Wizard",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/163.jpg?1527429896",
+		"multiverseid": 435317,
+		"mtgaid": 66291
+	},
+	{
+		"number": "164",
+		"name": "Sun-Crowned Hunters",
+		"cmc": 6,
+		"manaCost": "{4}{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/164.jpg?1527429911",
+		"multiverseid": 435318,
+		"mtgaid": 66293
+	},
+	{
+		"number": "165",
+		"name": "Sunbird's Invocation",
+		"cmc": 6,
+		"manaCost": "{5}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/165.jpg?1527429924",
+		"multiverseid": 435319,
+		"mtgaid": 66295
+	},
+	{
+		"number": "166",
+		"name": "Sure Strike",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/166.jpg?1527429942",
+		"multiverseid": 435320,
+		"mtgaid": 66297
+	},
+	{
+		"number": "167",
+		"name": "Swashbuckling",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/167.jpg?1527429958",
+		"multiverseid": 435321,
+		"mtgaid": 66299
+	},
+	{
+		"number": "168",
+		"name": "Thrash of Raptors",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/168.jpg?1527429975",
+		"multiverseid": 435322,
+		"mtgaid": 66301
+	},
+	{
+		"number": "169",
+		"name": "Tilonalli's Knight",
+		"cmc": 2,
+		"manaCost": "{1}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Knight",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/169.jpg?1527430004",
+		"multiverseid": 435323,
+		"mtgaid": 66303
+	},
+	{
+		"number": "170",
+		"name": "Tilonalli's Skinshifter",
+		"cmc": 3,
+		"manaCost": "{2}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Shaman",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/170.jpg?1527430019",
+		"multiverseid": 435324,
+		"mtgaid": 66305
+	},
+	{
+		"number": "171",
+		"name": "Trove of Temptation",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/171.jpg?1527430035",
+		"multiverseid": 435325,
+		"mtgaid": 66307
+	},
+	{
+		"number": "172",
+		"name": "Unfriendly Fire",
+		"cmc": 5,
+		"manaCost": "{4}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/172.jpg?1527430055",
+		"multiverseid": 435326,
+		"mtgaid": 66309
+	},
+	{
+		"number": "173a",
+		"name": "Vance's Blasting Cannons",
+		"cmc": 4,
+		"manaCost": "{3}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Enchantment",
+		"types": [
+			"Legendary",
+			"Enchantment"
+		],
+		"multiverseid": 435327,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/173a.jpg?1527430090",
+		"mtgaid": 66311
+	},
+	{
+		"number": "173b",
+		"name": "Spitfire Bastion",
+		"cmc": 4,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Land",
+		"types": [
+			"Legendary",
+			"Land"
+		],
+		"multiverseid": 435328,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/173b.jpg?1527430090",
+		"mtgaid": 66313
+	},
+	{
+		"number": "174",
+		"name": "Wily Goblin",
+		"cmc": 2,
+		"manaCost": "{R}{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Goblin Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/174.jpg?1527430113",
+		"multiverseid": 435329,
+		"mtgaid": 66315
+	},
+	{
+		"number": "175",
+		"name": "Ancient Brontodon",
+		"cmc": 8,
+		"manaCost": "{6}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/175.jpg?1527430126",
+		"multiverseid": 435330,
+		"mtgaid": 66317
+	},
+	{
+		"number": "176",
+		"name": "Atzocan Archer",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Archer",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/176.jpg?1527430142",
+		"multiverseid": 435331,
+		"mtgaid": 66319
+	},
+	{
+		"number": "177",
+		"name": "Blinding Fog",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/177.jpg?1527430157",
+		"multiverseid": 435332,
+		"mtgaid": 66321
+	},
+	{
+		"number": "178",
+		"name": "Blossom Dryad",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dryad",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/178.jpg?1527430170",
+		"multiverseid": 435333,
+		"mtgaid": 66323
+	},
+	{
+		"number": "179",
+		"name": "Carnage Tyrant",
+		"cmc": 6,
+		"manaCost": "{4}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/179.jpg?1527430183",
+		"multiverseid": 435334,
+		"mtgaid": 66325
+	},
+	{
+		"number": "180",
+		"name": "Colossal Dreadmaw",
+		"cmc": 6,
+		"manaCost": "{4}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/180.jpg?1527430202",
+		"multiverseid": 435335,
+		"mtgaid": 66327
+	},
+	{
+		"number": "181",
+		"name": "Commune with Dinosaurs",
+		"cmc": 1,
+		"manaCost": "{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/181.jpg?1527430214",
+		"multiverseid": 435336,
+		"mtgaid": 66329
+	},
+	{
+		"number": "182",
+		"name": "Crash the Ramparts",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/182.jpg?1527430234",
+		"multiverseid": 435337,
+		"mtgaid": 66331
+	},
+	{
+		"number": "183",
+		"name": "Crushing Canopy",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/183.jpg?1527430248",
+		"multiverseid": 435338,
+		"mtgaid": 66333
+	},
+	{
+		"number": "184",
+		"name": "Deathgorge Scavenger",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/184.jpg?1527430260",
+		"multiverseid": 435339,
+		"mtgaid": 66335
+	},
+	{
+		"number": "185",
+		"name": "Deeproot Champion",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Merfolk Shaman",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/185.jpg?1527430274",
+		"multiverseid": 435340,
+		"mtgaid": 66337
+	},
+	{
+		"number": "186",
+		"name": "Deeproot Warrior",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Merfolk Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/186.jpg?1527430287",
+		"multiverseid": 435341,
+		"mtgaid": 66339
+	},
+	{
+		"number": "187",
+		"name": "Drover of the Mighty",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Druid",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/187.jpg?1527430307",
+		"multiverseid": 435342,
+		"mtgaid": 66341
+	},
+	{
+		"number": "188",
+		"name": "Emergent Growth",
+		"cmc": 4,
+		"manaCost": "{3}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/188.jpg?1527430327",
+		"multiverseid": 435343,
+		"mtgaid": 66343
+	},
+	{
+		"number": "189",
+		"name": "Emperor's Vanguard",
+		"cmc": 4,
+		"manaCost": "{3}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Scout",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/189.jpg?1527430348",
+		"multiverseid": 435344,
+		"mtgaid": 66345
+	},
+	{
+		"number": "190",
+		"name": "Grazing Whiptail",
+		"cmc": 4,
+		"manaCost": "{2}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/190.jpg?1527430368",
+		"multiverseid": 435345,
+		"mtgaid": 66347
+	},
+	{
+		"number": "191a",
+		"name": "Growing Rites of Itlimoc",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Enchantment",
+		"types": [
+			"Legendary",
+			"Enchantment"
+		],
+		"multiverseid": 435346,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/191a.jpg?1527430399",
+		"mtgaid": 66349
+	},
+	{
+		"number": "191b",
+		"name": "Itlimoc, Cradle of the Sun",
+		"cmc": 3,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Legendary Land",
+		"types": [
+			"Legendary",
+			"Land"
+		],
+		"multiverseid": 435347,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/191b.jpg?1527430399",
+		"mtgaid": 66351
+	},
+	{
+		"number": "192",
+		"name": "Ixalli's Diviner",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Druid",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/192.jpg?1527430420",
+		"multiverseid": 435348,
+		"mtgaid": 66353
+	},
+	{
+		"number": "193",
+		"name": "Ixalli's Keeper",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Human Shaman",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/193.jpg?1527430437",
+		"multiverseid": 435349,
+		"mtgaid": 66355
+	},
+	{
+		"number": "194",
+		"name": "Jade Guardian",
+		"cmc": 4,
+		"manaCost": "{3}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Merfolk Shaman",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/194.jpg?1527430450",
+		"multiverseid": 435350,
+		"mtgaid": 66357
+	},
+	{
+		"number": "195",
+		"name": "Jungle Delver",
+		"cmc": 1,
+		"manaCost": "{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Merfolk Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/195.jpg?1527430470",
+		"multiverseid": 435351,
+		"mtgaid": 66359
+	},
+	{
+		"number": "196",
+		"name": "Kumena's Speaker",
+		"cmc": 1,
+		"manaCost": "{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Merfolk Shaman",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/196.jpg?1527430483",
+		"multiverseid": 435352,
+		"mtgaid": 66361
+	},
+	{
+		"number": "197",
+		"name": "Merfolk Branchwalker",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Merfolk Scout",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/197.jpg?1527430496",
+		"multiverseid": 435353,
+		"mtgaid": 66363
+	},
+	{
+		"number": "198",
+		"name": "New Horizons",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/198.jpg?1527430510",
+		"multiverseid": 435354,
+		"mtgaid": 66365
+	},
+	{
+		"number": "199",
+		"name": "Old-Growth Dryads",
+		"cmc": 1,
+		"manaCost": "{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dryad",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/199.jpg?1527430523",
+		"multiverseid": 435355,
+		"mtgaid": 66367
+	},
+	{
+		"number": "200",
+		"name": "Pounce",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/200.jpg?1527430540",
+		"multiverseid": 435356,
+		"mtgaid": 66369
+	},
+	{
+		"number": "201",
+		"name": "Ranging Raptors",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/201.jpg?1527430554",
+		"multiverseid": 435357,
+		"mtgaid": 66371
+	},
+	{
+		"number": "202",
+		"name": "Ravenous Daggertooth",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/202.jpg?1527430566",
+		"multiverseid": 435358,
+		"mtgaid": 66373
+	},
+	{
+		"number": "203",
+		"name": "Ripjaw Raptor",
+		"cmc": 4,
+		"manaCost": "{2}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/203.jpg?1527430582",
+		"multiverseid": 435359,
+		"mtgaid": 66375
+	},
+	{
+		"number": "204",
+		"name": "River Heralds' Boon",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/204.jpg?1527430598",
+		"multiverseid": 435360,
+		"mtgaid": 66377
+	},
+	{
+		"number": "205",
+		"name": "Savage Stomp",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/205.jpg?1527430618",
+		"multiverseid": 435361,
+		"mtgaid": 66379
+	},
+	{
+		"number": "206",
+		"name": "Shapers' Sanctuary",
+		"cmc": 1,
+		"manaCost": "{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Enchantment",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/206.jpg?1527430630",
+		"multiverseid": 435362,
+		"mtgaid": 66381
+	},
+	{
+		"number": "207",
+		"name": "Slice in Twain",
+		"cmc": 4,
+		"manaCost": "{2}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/207.jpg?1527430647",
+		"multiverseid": 435363,
+		"mtgaid": 66383
+	},
+	{
+		"number": "208",
+		"name": "Snapping Sailback",
+		"cmc": 5,
+		"manaCost": "{4}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/208.jpg?1527430662",
+		"multiverseid": 435364,
+		"mtgaid": 66385
+	},
+	{
+		"number": "209",
+		"name": "Spike-Tailed Ceratops",
+		"cmc": 5,
+		"manaCost": "{4}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/209.jpg?1527430675",
+		"multiverseid": 435365,
+		"mtgaid": 66387
+	},
+	{
+		"number": "210",
+		"name": "Thundering Spineback",
+		"cmc": 7,
+		"manaCost": "{5}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/210.jpg?1527430693",
+		"multiverseid": 435366,
+		"mtgaid": 66389
+	},
+	{
+		"number": "211",
+		"name": "Tishana's Wayfinder",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Merfolk Scout",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/211.jpg?1527430710",
+		"multiverseid": 435367,
+		"mtgaid": 66391
+	},
+	{
+		"number": "212",
+		"name": "Verdant Rebirth",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/212.jpg?1527430729",
+		"multiverseid": 435368,
+		"mtgaid": 66393
+	},
+	{
+		"number": "213",
+		"name": "Verdant Sun's Avatar",
+		"cmc": 7,
+		"manaCost": "{5}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dinosaur Avatar",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/213.jpg?1527430742",
+		"multiverseid": 435369,
+		"mtgaid": 66395
+	},
+	{
+		"number": "214",
+		"name": "Vineshaper Mystic",
+		"cmc": 3,
+		"manaCost": "{2}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Merfolk Shaman",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/214.jpg?1527430754",
+		"multiverseid": 435370,
+		"mtgaid": 66397
+	},
+	{
+		"number": "215",
+		"name": "Waker of the Wilds",
+		"cmc": 4,
+		"manaCost": "{2}{G}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Merfolk Shaman",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/215.jpg?1527430771",
+		"multiverseid": 435371,
+		"mtgaid": 66399
+	},
+	{
+		"number": "216",
+		"name": "Wildgrowth Walker",
+		"cmc": 2,
+		"manaCost": "{1}{G}",
+		"colors": [
+			"G"
+		],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Elemental",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/216.jpg?1527430784",
+		"multiverseid": 435372,
+		"mtgaid": 66401
+	},
+	{
+		"number": "217",
+		"name": "Admiral Beckett Brass",
+		"cmc": 4,
+		"manaCost": "{1}{U}{B}{R}",
+		"colors": [
+			"B",
+			"R",
+			"U"
+		],
+		"color_identity": [
+			"B",
+			"R",
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — Human Pirate",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/217.jpg?1527430800",
+		"multiverseid": 435373,
+		"mtgaid": 66403
+	},
+	{
+		"number": "218",
+		"name": "Belligerent Brontodon",
+		"cmc": 7,
+		"manaCost": "{5}{G}{W}",
+		"colors": [
+			"G",
+			"W"
+		],
+		"color_identity": [
+			"G",
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/218.jpg?1527430813",
+		"multiverseid": 435374,
+		"mtgaid": 66405
+	},
+	{
+		"number": "219",
+		"name": "Call to the Feast",
+		"cmc": 4,
+		"manaCost": "{2}{W}{B}",
+		"colors": [
+			"B",
+			"W"
+		],
+		"color_identity": [
+			"B",
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/219.jpg?1527430825",
+		"multiverseid": 435375,
+		"mtgaid": 66407
+	},
+	{
+		"number": "220",
+		"name": "Deadeye Plunderers",
+		"cmc": 5,
+		"manaCost": "{3}{U}{B}",
+		"colors": [
+			"B",
+			"U"
+		],
+		"color_identity": [
+			"B",
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/220.jpg?1527430842",
+		"multiverseid": 435376,
+		"mtgaid": 66409
+	},
+	{
+		"number": "221",
+		"name": "Dire Fleet Captain",
+		"cmc": 2,
+		"manaCost": "{B}{R}",
+		"colors": [
+			"B",
+			"R"
+		],
+		"color_identity": [
+			"B",
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Orc Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/221.jpg?1527430855",
+		"multiverseid": 435377,
+		"mtgaid": 66411
+	},
+	{
+		"number": "222",
+		"name": "Gishath, Sun's Avatar",
+		"cmc": 8,
+		"manaCost": "{5}{R}{G}{W}",
+		"colors": [
+			"G",
+			"R",
+			"W"
+		],
+		"color_identity": [
+			"G",
+			"R",
+			"W"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — Dinosaur Avatar",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/222.jpg?1527430869",
+		"multiverseid": 435378,
+		"mtgaid": 66413
+	},
+	{
+		"number": "223",
+		"name": "Hostage Taker",
+		"cmc": 4,
+		"manaCost": "{2}{U}{B}",
+		"colors": [
+			"B",
+			"U"
+		],
+		"color_identity": [
+			"B",
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/223.jpg?1527430883",
+		"multiverseid": 435379,
+		"mtgaid": 66415
+	},
+	{
+		"number": "224",
+		"name": "Huatli, Warrior Poet",
+		"cmc": 5,
+		"manaCost": "{3}{R}{W}",
+		"colors": [
+			"R",
+			"W"
+		],
+		"color_identity": [
+			"R",
+			"W"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Planeswalker — Huatli",
+		"types": [
+			"Legendary",
+			"Planeswalker"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/224.jpg?1527430898",
+		"multiverseid": 435380,
+		"mtgaid": 66417
+	},
+	{
+		"number": "225",
+		"name": "Marauding Looter",
+		"cmc": 4,
+		"manaCost": "{2}{U}{R}",
+		"colors": [
+			"R",
+			"U"
+		],
+		"color_identity": [
+			"R",
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Human Pirate",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/225.jpg?1527430910",
+		"multiverseid": 435381,
+		"mtgaid": 66419
+	},
+	{
+		"number": "226",
+		"name": "Raging Swordtooth",
+		"cmc": 5,
+		"manaCost": "{3}{R}{G}",
+		"colors": [
+			"G",
+			"R"
+		],
+		"color_identity": [
+			"G",
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/226.jpg?1527430923",
+		"multiverseid": 435382,
+		"mtgaid": 66421
+	},
+	{
+		"number": "227",
+		"name": "Regisaur Alpha",
+		"cmc": 5,
+		"manaCost": "{3}{R}{G}",
+		"colors": [
+			"G",
+			"R"
+		],
+		"color_identity": [
+			"G",
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/227.jpg?1527430942",
+		"multiverseid": 435383,
+		"mtgaid": 66423
+	},
+	{
+		"number": "228",
+		"name": "Shapers of Nature",
+		"cmc": 3,
+		"manaCost": "{1}{G}{U}",
+		"colors": [
+			"G",
+			"U"
+		],
+		"color_identity": [
+			"G",
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Merfolk Shaman",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/228.jpg?1527430959",
+		"multiverseid": 435384,
+		"mtgaid": 66425
+	},
+	{
+		"number": "229",
+		"name": "Sky Terror",
+		"cmc": 2,
+		"manaCost": "{R}{W}",
+		"colors": [
+			"R",
+			"W"
+		],
+		"color_identity": [
+			"R",
+			"W"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/229.jpg?1527430973",
+		"multiverseid": 435385,
+		"mtgaid": 66427
+	},
+	{
+		"number": "230",
+		"name": "Tishana, Voice of Thunder",
+		"cmc": 7,
+		"manaCost": "{5}{G}{U}",
+		"colors": [
+			"G",
+			"U"
+		],
+		"color_identity": [
+			"G",
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — Merfolk Shaman",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/230.jpg?1527430987",
+		"multiverseid": 435386,
+		"mtgaid": 66429
+	},
+	{
+		"number": "231",
+		"name": "Vona, Butcher of Magan",
+		"cmc": 5,
+		"manaCost": "{3}{W}{B}",
+		"colors": [
+			"B",
+			"W"
+		],
+		"color_identity": [
+			"B",
+			"W"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Creature — Vampire Knight",
+		"types": [
+			"Legendary",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/231.jpg?1527431002",
+		"multiverseid": 435387,
+		"mtgaid": 66431
+	},
+	{
+		"number": "232",
+		"name": "Vraska, Relic Seeker",
+		"cmc": 6,
+		"manaCost": "{4}{B}{G}",
+		"colors": [
+			"B",
+			"G"
+		],
+		"color_identity": [
+			"B",
+			"G"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Planeswalker — Vraska",
+		"types": [
+			"Legendary",
+			"Planeswalker"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/232.jpg?1527431015",
+		"multiverseid": 435388,
+		"mtgaid": 66433
+	},
+	{
+		"number": "233",
+		"name": "Cobbled Wings",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Artifact — Equipment",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/233.jpg?1527431027",
+		"multiverseid": 435389,
+		"mtgaid": 66435
+	},
+	{
+		"number": "234a",
+		"name": "Conqueror's Galleon",
+		"cmc": 4,
+		"manaCost": "{4}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Artifact — Vehicle",
+		"types": [
+			"Artifact"
+		],
+		"multiverseid": 435390,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/234a.jpg?1527431057",
+		"mtgaid": 66437
+	},
+	{
+		"number": "234b",
+		"name": "Conqueror's Foothold",
+		"cmc": 4,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"multiverseid": 435391,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/234b.jpg?1527431057",
+		"mtgaid": 66439
+	},
+	{
+		"number": "235a",
+		"name": "Dowsing Dagger",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Artifact — Equipment",
+		"types": [
+			"Artifact"
+		],
+		"multiverseid": 435392,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/235a.jpg?1527431099",
+		"mtgaid": 66441
+	},
+	{
+		"number": "235b",
+		"name": "Lost Vale",
+		"cmc": 2,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"multiverseid": 435393,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/235b.jpg?1527431099",
+		"mtgaid": 66443
+	},
+	{
+		"number": "236",
+		"name": "Dusk Legion Dreadnought",
+		"cmc": 5,
+		"manaCost": "{5}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Artifact — Vehicle",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/236.jpg?1527431120",
+		"multiverseid": 435394,
+		"mtgaid": 66445
+	},
+	{
+		"number": "237",
+		"name": "Elaborate Firecannon",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/237.jpg?1527431132",
+		"multiverseid": 435395,
+		"mtgaid": 66447
+	},
+	{
+		"number": "238",
+		"name": "Fell Flagship",
+		"cmc": 3,
+		"manaCost": "{3}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Artifact — Vehicle",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/238.jpg?1527431149",
+		"multiverseid": 435396,
+		"mtgaid": 66449
+	},
+	{
+		"number": "239",
+		"name": "Gilded Sentinel",
+		"cmc": 4,
+		"manaCost": "{4}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Artifact Creature — Golem",
+		"types": [
+			"Artifact",
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/239.jpg?1527431162",
+		"multiverseid": 435397,
+		"mtgaid": 66451
+	},
+	{
+		"number": "240",
+		"name": "Hierophant's Chalice",
+		"cmc": 3,
+		"manaCost": "{3}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/240.jpg?1527431174",
+		"multiverseid": 435398,
+		"mtgaid": 66453
+	},
+	{
+		"number": "241",
+		"name": "Pillar of Origins",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/241.jpg?1527431187",
+		"multiverseid": 435399,
+		"mtgaid": 66455
+	},
+	{
+		"number": "242",
+		"name": "Pirate's Cutlass",
+		"cmc": 3,
+		"manaCost": "{3}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Artifact — Equipment",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/242.jpg?1527431203",
+		"multiverseid": 435400,
+		"mtgaid": 66457
+	},
+	{
+		"number": "243a",
+		"name": "Primal Amulet",
+		"cmc": 4,
+		"manaCost": "{4}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"multiverseid": 435401,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/243a.jpg?1527431234",
+		"mtgaid": 66459
+	},
+	{
+		"number": "243b",
+		"name": "Primal Wellspring",
+		"cmc": 4,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"multiverseid": 435402,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/243b.jpg?1527431234",
+		"mtgaid": 66461
+	},
+	{
+		"number": "244",
+		"name": "Prying Blade",
+		"cmc": 1,
+		"manaCost": "{1}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Artifact — Equipment",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/244.jpg?1527431252",
+		"multiverseid": 435403,
+		"mtgaid": 66463
+	},
+	{
+		"number": "245",
+		"name": "Sentinel Totem",
+		"cmc": 1,
+		"manaCost": "{1}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/245.jpg?1527431265",
+		"multiverseid": 435404,
+		"mtgaid": 66465
+	},
+	{
+		"number": "246",
+		"name": "Shadowed Caravel",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Artifact — Vehicle",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/246.jpg?1527431282",
+		"multiverseid": 435405,
+		"mtgaid": 66467
+	},
+	{
+		"number": "247",
+		"name": "Sleek Schooner",
+		"cmc": 3,
+		"manaCost": "{3}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Artifact — Vehicle",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/247.jpg?1527431294",
+		"multiverseid": 435406,
+		"mtgaid": 66469
+	},
+	{
+		"number": "248",
+		"name": "Sorcerous Spyglass",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/248.jpg?1527431310",
+		"multiverseid": 435407,
+		"mtgaid": 66471
+	},
+	{
+		"number": "249a",
+		"name": "Thaumatic Compass",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"multiverseid": 435408,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/249a.jpg?1527431340",
+		"mtgaid": 66473
+	},
+	{
+		"number": "249b",
+		"name": "Spires of Orazca",
+		"cmc": 2,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"multiverseid": 435409,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/249b.jpg?1527431340",
+		"mtgaid": 66475
+	},
+	{
+		"number": "250a",
+		"name": "Treasure Map",
+		"cmc": 2,
+		"manaCost": "{2}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"multiverseid": 435410,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/250a.jpg?1527431365",
+		"mtgaid": 66477
+	},
+	{
+		"number": "250b",
+		"name": "Treasure Cove",
+		"cmc": 2,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "transform",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"multiverseid": 435411,
+		"image": "https://img.scryfall.com/cards/normal/en/xln/250b.jpg?1527431365",
+		"mtgaid": 66479
+	},
+	{
+		"number": "251",
+		"name": "Vanquisher's Banner",
+		"cmc": 5,
+		"manaCost": "{5}",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Artifact",
+		"types": [
+			"Artifact"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/251.jpg?1527431384",
+		"multiverseid": 435412,
+		"mtgaid": 66481
+	},
+	{
+		"number": "252",
+		"name": "Dragonskull Summit",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B",
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/252.jpg?1527431403",
+		"multiverseid": 435413,
+		"mtgaid": 66483
+	},
+	{
+		"number": "253",
+		"name": "Drowned Catacomb",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B",
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/253.jpg?1527431423",
+		"multiverseid": 435414,
+		"mtgaid": 66485
+	},
+	{
+		"number": "254",
+		"name": "Field of Ruin",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/254.jpg?1527431443",
+		"multiverseid": 435415,
+		"mtgaid": 66487
+	},
+	{
+		"number": "255",
+		"name": "Glacial Fortress",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U",
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/255.jpg?1527431458",
+		"multiverseid": 435416,
+		"mtgaid": 66489
+	},
+	{
+		"number": "256",
+		"name": "Rootbound Crag",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G",
+			"R"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/256.jpg?1527431473",
+		"multiverseid": 435417,
+		"mtgaid": 66491
+	},
+	{
+		"number": "257",
+		"name": "Sunpetal Grove",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G",
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/257.jpg?1527431487",
+		"multiverseid": 435418,
+		"mtgaid": 66493
+	},
+	{
+		"number": "258",
+		"name": "Unclaimed Territory",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/258.jpg?1527431498",
+		"multiverseid": 435419,
+		"mtgaid": 66495
+	},
+	{
+		"number": "259",
+		"name": "Unknown Shores",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/259.jpg?1527431509",
+		"multiverseid": 435420,
+		"mtgaid": 66497
+	},
+	{
+		"number": "260",
+		"name": "Plains",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Plains",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/260.jpg?1527431524",
+		"multiverseid": 435421,
+		"mtgaid": 66499
+	},
+	{
+		"number": "261",
+		"name": "Plains",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Plains",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/261.jpg?1527431540",
+		"multiverseid": 435422,
+		"mtgaid": 66501
+	},
+	{
+		"number": "262",
+		"name": "Plains",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Plains",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/262.jpg?1527431556",
+		"multiverseid": 435423,
+		"mtgaid": 66503
+	},
+	{
+		"number": "263",
+		"name": "Plains",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Plains",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/263.jpg?1527431569",
+		"multiverseid": 435424,
+		"mtgaid": 66505
+	},
+	{
+		"number": "264",
+		"name": "Island",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Island",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/264.jpg?1527431586",
+		"multiverseid": 435425,
+		"mtgaid": 66507
+	},
+	{
+		"number": "265",
+		"name": "Island",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Island",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/265.jpg?1527431601",
+		"multiverseid": 435426,
+		"mtgaid": 66509
+	},
+	{
+		"number": "266",
+		"name": "Island",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Island",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/266.jpg?1527431614",
+		"multiverseid": 435427,
+		"mtgaid": 66511
+	},
+	{
+		"number": "267",
+		"name": "Island",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Island",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/267.jpg?1527431630",
+		"multiverseid": 435428,
+		"mtgaid": 66513
+	},
+	{
+		"number": "268",
+		"name": "Swamp",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Swamp",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/268.jpg?1527431644",
+		"multiverseid": 435429,
+		"mtgaid": 66515
+	},
+	{
+		"number": "269",
+		"name": "Swamp",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Swamp",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/269.jpg?1527431656",
+		"multiverseid": 435430,
+		"mtgaid": 66517
+	},
+	{
+		"number": "270",
+		"name": "Swamp",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Swamp",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/270.jpg?1527431681",
+		"multiverseid": 435431,
+		"mtgaid": 66519
+	},
+	{
+		"number": "271",
+		"name": "Swamp",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"B"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Swamp",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/271.jpg?1527431694",
+		"multiverseid": 435432,
+		"mtgaid": 66521
+	},
+	{
+		"number": "272",
+		"name": "Mountain",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Mountain",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/272.jpg?1527431712",
+		"multiverseid": 435433,
+		"mtgaid": 66523
+	},
+	{
+		"number": "273",
+		"name": "Mountain",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Mountain",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/273.jpg?1527431734",
+		"multiverseid": 435434,
+		"mtgaid": 66525
+	},
+	{
+		"number": "274",
+		"name": "Mountain",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Mountain",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/274.jpg?1527431752",
+		"multiverseid": 435435,
+		"mtgaid": 66527
+	},
+	{
+		"number": "275",
+		"name": "Mountain",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Mountain",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/275.jpg?1527431767",
+		"multiverseid": 435436,
+		"mtgaid": 66529
+	},
+	{
+		"number": "276",
+		"name": "Forest",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Forest",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/276.jpg?1527431779",
+		"multiverseid": 435437,
+		"mtgaid": 66531
+	},
+	{
+		"number": "277",
+		"name": "Forest",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Forest",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/277.jpg?1527431791",
+		"multiverseid": 435438,
+		"mtgaid": 66533
+	},
+	{
+		"number": "278",
+		"name": "Forest",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Forest",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/278.jpg?1527431807",
+		"multiverseid": 435439,
+		"mtgaid": 66535
+	},
+	{
+		"number": "279",
+		"name": "Forest",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Basic Land — Forest",
+		"types": [
+			"Basic",
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/279.jpg?1527431818",
+		"multiverseid": 435440,
+		"mtgaid": 66537
+	},
+	{
+		"number": "280",
+		"name": "Jace, Ingenious Mind-Mage",
+		"cmc": 6,
+		"manaCost": "{4}{U}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Planeswalker — Jace",
+		"types": [
+			"Legendary",
+			"Planeswalker"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/280.jpg?1527431834",
+		"multiverseid": 435441,
+		"mtgaid": 66541
+	},
+	{
+		"number": "281",
+		"name": "Castaway's Despair",
+		"cmc": 4,
+		"manaCost": "{3}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Enchantment — Aura",
+		"types": [
+			"Enchantment"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/281.jpg?1527431851",
+		"multiverseid": 435442,
+		"mtgaid": 66543
+	},
+	{
+		"number": "282",
+		"name": "Grasping Current",
+		"cmc": 5,
+		"manaCost": "{4}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Sorcery",
+		"types": [
+			"Sorcery"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/282.jpg?1527431867",
+		"multiverseid": 435443,
+		"mtgaid": 66545
+	},
+	{
+		"number": "283",
+		"name": "Jace's Sentinel",
+		"cmc": 2,
+		"manaCost": "{1}{U}",
+		"colors": [
+			"U"
+		],
+		"color_identity": [
+			"U"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Creature — Merfolk Warrior",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/283.jpg?1527431882",
+		"multiverseid": 435444,
+		"mtgaid": 66547
+	},
+	{
+		"number": "284",
+		"name": "Woodland Stream",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"G",
+			"U"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/284.jpg?1527431900",
+		"multiverseid": 435445,
+		"mtgaid": 66549
+	},
+	{
+		"number": "285",
+		"name": "Huatli, Dinosaur Knight",
+		"cmc": 6,
+		"manaCost": "{4}{R}{W}",
+		"colors": [
+			"R",
+			"W"
+		],
+		"color_identity": [
+			"R",
+			"W"
+		],
+		"rarity": "mythic",
+		"layout": "normal",
+		"type": "Legendary Planeswalker — Huatli",
+		"types": [
+			"Legendary",
+			"Planeswalker"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/285.jpg?1527431915",
+		"multiverseid": 435446,
+		"mtgaid": 66551
+	},
+	{
+		"number": "286",
+		"name": "Huatli's Snubhorn",
+		"cmc": 2,
+		"manaCost": "{1}{W}",
+		"colors": [
+			"W"
+		],
+		"color_identity": [
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/286.jpg?1527431931",
+		"multiverseid": 435447,
+		"mtgaid": 66553
+	},
+	{
+		"number": "287",
+		"name": "Huatli's Spurring",
+		"cmc": 1,
+		"manaCost": "{R}",
+		"colors": [
+			"R"
+		],
+		"color_identity": [
+			"R"
+		],
+		"rarity": "uncommon",
+		"layout": "normal",
+		"type": "Instant",
+		"types": [
+			"Instant"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/287.jpg?1527431948",
+		"multiverseid": 435448,
+		"mtgaid": 66555
+	},
+	{
+		"number": "288",
+		"name": "Sun-Blessed Mount",
+		"cmc": 5,
+		"manaCost": "{3}{R}{W}",
+		"colors": [
+			"R",
+			"W"
+		],
+		"color_identity": [
+			"R",
+			"W"
+		],
+		"rarity": "rare",
+		"layout": "normal",
+		"type": "Creature — Dinosaur",
+		"types": [
+			"Creature"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/288.jpg?1527431963",
+		"multiverseid": 435449,
+		"mtgaid": 66557
+	},
+	{
+		"number": "289",
+		"name": "Stone Quarry",
+		"cmc": 0,
+		"manaCost": "",
+		"colors": [],
+		"color_identity": [
+			"R",
+			"W"
+		],
+		"rarity": "common",
+		"layout": "normal",
+		"type": "Land",
+		"types": [
+			"Land"
+		],
+		"image": "https://img.scryfall.com/cards/normal/en/xln/289.jpg?1527431980",
+		"multiverseid": 435450,
+		"mtgaid": 66559
+	}
+]
