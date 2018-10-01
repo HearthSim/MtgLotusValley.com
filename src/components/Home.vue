@@ -4,7 +4,7 @@
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>
         <PublicDecks class="mt-2" />
-        <DecksByArch :dateMin="'2018-09-01'" :dateMax="'2018-09-18'"/>
+        <DecksByArch :dateMin="getMonthFirstDay()" :dateMax="getYesterday()"/>
       </v-flex>
       <v-flex hidden-xs-only sm4 md3 lg3 xl3>
         <div class='mt-5'>
@@ -26,19 +26,36 @@ export default {
     Deck, DecksByArch, PublicDecks
   },
   created () {
-    this.$api.getDeckOfDay('2018-09-15')
-      .then(res => {
-        this.deckOfDayCards = res.data.cards
-        this.deckOfDayName = res.data.name
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    this.requestDeckOfDay()
   },
   data () {
     return {
       deckOfDayCards: {},
       deckOfDayName: ''
+    }
+  },
+  methods: {
+    getMonthFirstDay: function () {
+      const date = new Date()
+      const month = date.getUTCMonth() + (date.getUTCDate() === 1 ? 0 : 1)
+      return date.getUTCFullYear() + '-' + `0${month}`.slice(-2) + '-01'
+    },
+    getYesterday: function () {
+      const date = new Date()
+      date.setDate(date.getDate() - 1)
+      return date.getUTCFullYear() + '-' +
+          (`0${date.getUTCMonth() + 1}`).slice(-2) + '-' +
+          (`0${date.getUTCDate()}`).slice(-2)
+    },
+    requestDeckOfDay: function () {
+      this.$api.getDeckOfDay(this.getYesterday())
+        .then(res => {
+          this.deckOfDayCards = res.data.cards
+          this.deckOfDayName = res.data.name
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }

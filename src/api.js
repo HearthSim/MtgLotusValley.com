@@ -127,7 +127,7 @@ export default {
         colors: colors,
         types: types,
         sets: sets,
-        fields: 'name,mtgaid,multiverseid'
+        fields: 'name,mtgaid,multiverseid,imageUrl'
       }
     })
   },

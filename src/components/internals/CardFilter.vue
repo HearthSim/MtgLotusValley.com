@@ -52,14 +52,13 @@ export default {
         {code: 'p', desc: 'Planeswalkers'}
       ],
       sets: [
-        {code: 'M19', name: 'Core Set 2019'},
-        {code: 'DOM', name: 'Dominaria'},
-        {code: 'RIX', name: 'Rivals of Ixalan'},
+        {code: 'ANA', name: 'New Player Experience'},
         {code: 'XLN', name: 'Ixalan'},
-        {code: 'HOU', name: 'Hour of Devastation'},
-        {code: 'AKH', name: 'Amonkhet'},
-        {code: 'AER', name: 'Aether Revolt'},
-        {code: 'KLD', name: 'Kaladesh'}
+        {code: 'RIX', name: 'Rivals of Ixalan'},
+        {code: 'DAR', name: 'Dominaria'},
+        {code: 'M19', name: 'Core Set 2019'},
+        {code: 'GRN', name: 'Guilds of Ravnica'},
+        {code: 'MED', name: 'Mythic Edition'}
       ]
     }
   },

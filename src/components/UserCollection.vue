@@ -11,7 +11,7 @@
         <v-container id="cards" class='mt-1' grid-list-md fluid>
           <v-layout row wrap>
             <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
-              <Card :name='card.name' :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
+              <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
             </v-flex>
           </v-layout>
         </v-container>
@@ -61,7 +61,7 @@ export default {
       currentPage: parseInt(this.$route.query.page),
       activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,c,g,m,r,u,w',
       activeTypes: this.$route.query.types !== undefined ? this.$route.query.types : 'a,c,e,i,l,p,s',
-      activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : 'AER,AKH,DOM,HOU,KLD,M19,RIX,XLN',
+      activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : 'ANA,XLN,RIX,DAR,M19,GRN,MED',
       searchQuery: this.$route.query.query,
       currentPageCards: {},
       isLoading: false,
@@ -70,7 +70,7 @@ export default {
     }
   },
   methods: {
-    goToPage (page) {
+    goToPage: function (page) {
       this.$router.push({
         path: 'collection',
         query: { page: page }
@@ -78,7 +78,7 @@ export default {
       this.currentPage = page
       this.getCards()
     },
-    getPages () {
+    getPages: function () {
       let firstPage = this.currentPage
       if (this.currentPage === 2) {
         firstPage -= 1

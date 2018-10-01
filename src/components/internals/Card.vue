@@ -3,7 +3,7 @@
     <v-tooltip left lazy color="white">
       <a v-if="!asText" target="_blank" :href="cardLink()" slot="activator">
         <div id="card">
-          <img :src="cardImageUrl()" :class="qtd === 0 ? 'grayscale' : ''" :alt="name" width="100%"/>
+          <img :src="imageUrl" :class="qtd === 0 ? 'grayscale' : ''" :alt="name" width="100%"/>
           <v-card id="cardQtd" class="elevation-2" v-if="qtd > 0">
             {{ qtd }}
           </v-card>
@@ -12,7 +12,7 @@
       <a v-if="asText" class='body-1' target="_blank" :href="cardLink()" slot="activator">
         {{ name }}
       </a>
-      <img :src="cardImageUrl()" alt="Loading..."/>
+      <img :src="imageUrl" alt="Loading..." width="250px"/>
     </v-tooltip>
   </div>
 </template>
@@ -22,6 +22,10 @@
 export default {
   props: {
     name: {
+      type: String,
+      required: true
+    },
+    imageUrl: {
       type: String,
       required: true
     },
@@ -41,11 +45,11 @@ export default {
     }
   },
   methods: {
-    cardImageUrl: function () {
-      return 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=' + this.multiverseid + '&type=card'
-    },
     cardLink: function () {
-      return 'http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=' + this.multiverseid
+      if (this.multiverseid === 0) {
+        return `http://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[${this.name}]`
+      }
+      return `http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=${this.multiverseid}`
     }
   }
 }

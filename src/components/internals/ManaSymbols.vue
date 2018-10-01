@@ -13,7 +13,7 @@
 export default {
   computed: {
     manaSymbols: function () {
-      if (this.cost === undefined) {
+      if (this.cost === undefined || this.cost === '') {
         return {}
       }
       const manaCost = this.cost.substring(1, this.cost.length - 1)
