@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import Card from '@/components/internals/Card'
-import CardFilter from '@/components/internals/CardFilter'
+import Card from '@/components/mtg/Card'
+import CardFilter from '@/components/CardFilter'
 
 export default {
   name: 'UserCollection',

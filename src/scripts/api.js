@@ -1,5 +1,5 @@
 
-const testing = false
+const testing = true
 let isRefreshingToken = false
 let subscribers = []
 

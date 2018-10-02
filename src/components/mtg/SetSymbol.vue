@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Utils from '@/utils'
+import Utils from '@/scripts/utils'
 
 export default {
   computed: {

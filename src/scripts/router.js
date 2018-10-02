@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import PublicDeck from '@/components/PublicDeck'
-import UserCollection from '@/components/UserCollection'
+import Home from '@/pages/Home'
+import PublicDeck from '@/pages/PublicDeck'
+import UserCollection from '@/pages/UserCollection'
 
 Vue.use(Router)
 

@@ -4,7 +4,7 @@
       <v-toolbar-items>
         <v-btn flat>
           <router-link to="/">
-            <img src="@/assets/logo.png" alt="Home" height="38px" width="38px">
+            <img src="@/assets/logo.png" alt="Logo" height="38px" width="38px">
           </router-link>
         </v-btn>
       </v-toolbar-items>
@@ -22,15 +22,14 @@
 </template>
 
 <script>
-import Auth from './components/Auth'
-import Home from './components/Home'
+import Auth from '@/components/Auth'
 import 'mana-font/css/mana.min.css'
 import 'keyrune/css/keyrune.min.css'
 
 export default {
   name: 'App',
   components: {
-    Auth, Home
+    Auth
   },
   data () {
     return {

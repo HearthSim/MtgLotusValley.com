@@ -32,7 +32,6 @@ export default {
       required: true
     }
   },
-  methods: {}
 }
 </script>
 
@@ -49,5 +48,6 @@ table #card_cost {
 }
 table #card_set {
   text-align: center;
+  padding-right: 8px;
 }
 </style>
