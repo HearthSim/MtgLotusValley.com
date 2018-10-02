@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import Deck from './internals/Deck'
-import DecksByArch from './internals/charts/DecksByArch'
-import PublicDecks from './internals/PublicDecks'
+import Deck from '@/components/internals/Deck'
+import DecksByArch from '@/components/internals/charts/DecksByArch'
+import PublicDecks from '@/components/internals/PublicDecks'
 
 export default {
   name: 'Home',

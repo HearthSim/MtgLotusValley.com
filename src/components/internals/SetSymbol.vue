@@ -1,10 +1,11 @@
 <template>
   <div>
-    <i v-bind:title="set" v-bind:class="'ss ss-' + setLowerCase + ' ss-' + rarityLowerCase"></i>
+    <i v-bind:title="setTitle" v-bind:class="'ss ss-' + setLowerCase + ' ss-' + rarityLowerCase"></i>
   </div>
 </template>
 
 <script>
+import Utils from '@/utils'
 
 export default {
   computed: {
@@ -12,7 +13,17 @@ export default {
       return this.rarity.toLowerCase()
     },
     setLowerCase: function () {
-      return this.set.toLowerCase()
+      return this.set === 'DAR' ? 'dom' : this.set.toLowerCase()
+    },
+    setTitle: function () {
+      const setCode = this.set
+      let setHint = setCode
+      Utils.sets.forEach(set => {
+        if (set.code === setCode) {
+          setHint = set.name
+        }
+      })
+      return setHint
     }
   },
   props: {

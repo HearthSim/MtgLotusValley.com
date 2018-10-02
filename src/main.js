@@ -12,6 +12,12 @@ Vue.config.productionTip = false
 
 Vue.prototype.$api = api
 
+Vue.prototype.$isUserLogged = function () {
+  const tokenDate = new Date(localStorage.getItem('expiresIn'))
+  const date = new Date()
+  return date < tokenDate
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

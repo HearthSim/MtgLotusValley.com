@@ -45,9 +45,7 @@
 export default {
   name: 'Auth',
   mounted () {
-    const tokenDate = new Date(localStorage.getItem('expiresIn'))
-    const date = new Date()
-    if (date < tokenDate) {
+    if (this.$isUserLogged()) {
       this.setUserAsLogged()
     } else {
       const refreshToken = localStorage.getItem('refreshToken')
