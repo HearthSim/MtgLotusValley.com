@@ -69,7 +69,7 @@ export default {
     },
     spells: function () {
       return this.cardsGrouped.filter(card => {
-        return card.type.includes('Instant') && card.type.includes('Sorcery')
+        return card.type.includes('Instant') || card.type.includes('Sorcery')
       })
     },
     enchantments: function () {

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import PublicDeck from '@/components/PublicDeck'
 import UserCollection from '@/components/UserCollection'
 
 Vue.use(Router)
@@ -20,6 +21,11 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/decks/:alias',
+      name: 'PublicDeck',
+      component: PublicDeck
     },
     {
       path: '*',

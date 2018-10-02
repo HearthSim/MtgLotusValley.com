@@ -148,5 +148,12 @@ export default {
         pageSize: pageSize
       }
     })
+  },
+  getPublicDeck (alias) {
+    return axios.get('/decks/published', {
+      params: {
+        alias: escape(alias)
+      }
+    })
   }
 }

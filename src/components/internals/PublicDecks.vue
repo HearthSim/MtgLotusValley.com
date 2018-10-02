@@ -1,13 +1,14 @@
 <template>
   <v-card id="decks">
-    <div id="deck" v-for="deck in currentDecks" :key="deck.id"
-      :class="`mt-1 ml-1 mr-1 mb-1 cover-${deck.colors}`">
-      <strong class="white--text">{{ deck.name }}</strong>
-      <div id="mana">
-        <img v-for="color in deck.colors.split('')" :key="color"
-          :src="require(`@/assets/mana/${color}.png`)"/>
+    <router-link v-for="deck in currentDecks" :key="deck.alias" :to="`/decks/${deck.alias}`">
+      <div id="deck" :class="`mt-1 ml-1 mr-1 mb-1 cover-${deck.colors}`">
+        <strong class="white--text">{{ deck.name }}</strong>
+        <div id="mana">
+          <img v-for="color in deck.colors.split('')" :key="color"
+            :src="require(`@/assets/mana/${color}.png`)"/>
+        </div>
       </div>
-    </div>
+    </router-link>
   </v-card>
 </template>
 
