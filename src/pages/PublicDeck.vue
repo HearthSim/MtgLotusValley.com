@@ -30,6 +30,7 @@ export default {
       deckCards: {},
       deckName: '',
       isLoading: false,
+      userCollection: {}
     }
   },
   methods: {
@@ -40,11 +41,22 @@ export default {
           this.isLoading = false
           this.deckCards = res.data.cards
           this.deckName = res.data.name
+          if (this.$isUserLogged()) {
+            this.getUserCollection()
+          }
         })
         .catch(error => {
           console.log(error)
         })
     },
+    getUserCollection: function () {
+      this.isLoading = false
+      this.$api.getUserCollection()
+        .then(res => {
+          this.isLoading = false
+          this.userCollection = res.data
+        })
+    }
   }
 }
 </script>

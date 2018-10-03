@@ -12,6 +12,12 @@
     <td id='card_set'>
       <SetSymbol :set='card.set' :rarity='card.rarity'/>
     </td>
+    <td id='card_missing' v-if="missingQtd > 0" :title="`You need ${missingQtd} ${card.rarity} wildcards`">
+      <div>
+        {{ missingQtd }}
+        <img :src="require(`@/assets/wildcards/${card.rarity}.png`)"/>
+      </div>
+    </td>
   </tr>
 </template>
 
@@ -32,6 +38,18 @@ export default {
       required: true
     }
   },
+  data () {
+    return {
+      missingQtd: 0
+    }
+  },
+  methods: {
+    updateMissingValue: function (owned) {
+      if (!this.card.type.includes('Basic Land')) {
+        this.missingQtd = this.card.qtd - owned
+      }
+    }
+  }
 }
 </script>
 
@@ -48,6 +66,13 @@ table #card_cost {
 }
 table #card_set {
   text-align: center;
-  padding-right: 8px;
+  padding-right: 12px;
+}
+table #card_missing div {
+  text-align: center;
+}
+table #card_missing img {
+  width: 12px;
+  transform: translateY(20%);
 }
 </style>

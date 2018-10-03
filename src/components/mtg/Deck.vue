@@ -37,6 +37,10 @@ export default {
       type: String,
       required: true
     },
+    userCollection: {
+      type: Object,
+      required: false
+    }
   },
   computed: {
     cardsGrouped: function () {
@@ -89,6 +93,19 @@ export default {
       return this.cardsGrouped.filter(card => card.type.includes('Planeswalker'))
     }
   },
+  watch: {
+    userCollection: function (value) {
+      Object.keys(this.cards).forEach(cardId => {
+        const cardComponent = this.$refs[cardId]
+        if (cardComponent !== undefined && cardComponent.length > 0) {
+          const owned = value[cardId] !== undefined ? value[cardId] : 0
+          cardComponent[0].updateMissingValue(owned)
+        } else {
+          console.log(`Card component not found for ${cardId}`)
+        }
+      })
+    }
+  }
 }
 </script>
 
