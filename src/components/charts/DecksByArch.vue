@@ -13,6 +13,7 @@ const barColors = [
 ]
 
 export default {
+  name: 'DecksByArch',
   props: {
     dateMin: {
       type: String,
@@ -21,10 +22,6 @@ export default {
     dateMax: {
       type: String,
       required: true
-    }
-  },
-  data () {
-    return {
     }
   },
   mounted () {

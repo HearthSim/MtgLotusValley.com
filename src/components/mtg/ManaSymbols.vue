@@ -17,7 +17,7 @@ export default {
         return {}
       }
       const manaCost = this.cost.substring(1, this.cost.length - 1)
-      return manaCost.toLowerCase().split('}{')
+      return manaCost.toLowerCase().replace(new RegExp('/', 'g'), '').split('}{')
     }
   },
   props: {

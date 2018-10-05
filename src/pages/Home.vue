@@ -1,5 +1,5 @@
 <template>
-    <v-layout row align-center>
+    <v-layout row>
       <v-flex hidden-sm-and-down md3 lg2 xl3>
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>

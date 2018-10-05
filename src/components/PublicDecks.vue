@@ -1,11 +1,19 @@
 <template>
   <v-card id="decks">
     <router-link v-for="deck in currentDecks" :key="deck.alias" :to="`/decks/${deck.alias}`">
-      <div id="deck" :class="`mt-1 ml-1 mr-1 mb-1 cover-${deck.colors}`">
-        <strong class="white--text">{{ deck.name }}</strong>
-        <div id="mana">
-          <img v-for="color in deck.colors.split('')" :key="color"
-            :src="require(`@/assets/mana/${color}.png`)"/>
+      <div class="deck">
+        <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-${deck.colors}`">
+          <!-- Line 1 -->
+          <v-flex class="line line1" sm12>
+            <strong class="white--text">{{ deck.name }}</strong>
+          </v-flex>
+          <!-- Line 2 -->
+          <v-flex class="line line2" sm12>
+            <div id="mana">
+            <img v-for="color in deck.colors.split('')" :key="color"
+              :src="require(`@/assets/mana/${color}.png`)"/>
+            </div>
+          </v-flex>
         </div>
       </div>
     </router-link>
@@ -21,32 +29,7 @@ export default {
   data () {
     return {
       currentPage: 1,
-      currentDecks: {},
-      covers: {
-        'b': require('@/assets/decks/b.jpg'),
-        'bg': require('@/assets/decks/bg.jpg'),
-        'br': require('@/assets/decks/br.jpg'),
-        'brg': require('@/assets/decks/brg.jpg'),
-        'c': require('@/assets/decks/c.jpg'),
-        'default': require('@/assets/decks/default.jpg'),
-        'g': require('@/assets/decks/g.jpg'),
-        'gu': require('@/assets/decks/gu.jpg'),
-        'gw': require('@/assets/decks/gw.jpg'),
-        'gwu': require('@/assets/decks/gwu.jpg'),
-        'm': require('@/assets/decks/m.jpg'),
-        'r': require('@/assets/decks/r.jpg'),
-        'rg': require('@/assets/decks/rg.jpg'),
-        'rgw': require('@/assets/decks/rgw.jpg'),
-        'rw': require('@/assets/decks/rw.jpg'),
-        'u': require('@/assets/decks/u.jpg'),
-        'ub': require('@/assets/decks/ub.jpg'),
-        'ubr': require('@/assets/decks/ubr.jpg'),
-        'ur': require('@/assets/decks/ur.jpg'),
-        'w': require('@/assets/decks/w.jpg'),
-        'wb': require('@/assets/decks/wb.jpg'),
-        'wu': require('@/assets/decks/wu.jpg'),
-        'wub': require('@/assets/decks/wub.jpg')
-      }
+      currentDecks: {}
     }
   },
   methods: {
@@ -68,15 +51,42 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #decks {
-    display: flex;
+    height: 80px;
+    display: inline-flex;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
-  #deck {
-    height: 50px;
+  .deck {
+    height: 75px;
     width: 200px;
+    float: left;
+    overflow-y: hidden;
+  }
+  .deck:hover {
+    transform: scale(1.05);
+  }
+  .cover {
+    background-size: cover;
+    background-position: center;
+    height: 70px;
+    border-radius: 5px;
+  }
+  #mana {
+    margin-left: 10px;
   }
   #mana img {
     height: 20px;
     width: 20px;
+  }
+  .line {
+    text-align: start;
+  }
+  .line1 strong {
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  .line2 {
+    margin-top: 4px;
   }
   .cover-b { background-image: url('~@/assets/decks/b.jpg') }
   .cover-bg { background-image: url('~@/assets/decks/bg.jpg') }
