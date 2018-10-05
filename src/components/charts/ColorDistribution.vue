@@ -88,6 +88,7 @@ export default {
   watch: {
     cards: function () {
       const ctx = document.getElementById('colorDistribution-chart')
+      ctx.height = 250
       new Chart(ctx, { // eslint-disable-line no-new
         type: 'pie',
         data: {

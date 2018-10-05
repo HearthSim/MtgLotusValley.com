@@ -28,7 +28,6 @@
 import Utils from '@/scripts/utils'
 
 export default {
-  name: 'CardFilter',
   data () {
     return {
       activeColors: [],
