@@ -9,15 +9,17 @@
         <div class='mt-5'>
           <Deck :cards="deckCards" :name="deckName" :userCollection="userCollection"/>
         </div>
+        <ManaCurve class='mt-5' :manaCurve="deckManaCurve"/>
       </v-flex>
     </v-layout>
 </template>
 
 <script>
 import Deck from '@/components/mtg/Deck'
+import ManaCurve from '@/components/charts/ManaCurve'
 
 export default {
-  name: 'Home',
+  name: 'PublicDeck',
   components: {
     Deck
   },
@@ -29,6 +31,7 @@ export default {
       deckAlias: this.$route.params.alias,
       deckCards: {},
       deckName: '',
+      deckManaCurve: {},
       isLoading: false,
       userCollection: {}
     }
@@ -41,6 +44,7 @@ export default {
           this.isLoading = false
           this.deckCards = res.data.cards
           this.deckName = res.data.name
+          this.deckManaCurve = res.data.manaCurve
           if (this.$isUserLogged()) {
             this.getUserCollection()
           }
