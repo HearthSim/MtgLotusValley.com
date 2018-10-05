@@ -3,8 +3,25 @@
       <v-flex hidden-sm-and-down md3 lg2 xl3>
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>
-        <Deck class="deck" :cards="deckCards" :name="deckName" 
-          :twoColumns="true" :userCollection="userCollection"/>
+        <div class="mt-5">
+          <span class='title'>{{ deckName }}</span>
+          <Deck class="deck mt-3" :cards="deckCards" 
+            :twoColumns="true" :userCollection="userCollection"/>
+          <v-layout row class="mt-2">
+            <v-spacer/>
+            <v-dialog v-model="deckExportDialogVisible" width="250">
+              <v-btn flat small color="primary" v-on:click="exportDeck()" slot="activator">Export to MTGArena</v-btn>
+              <v-card>
+                <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="primary" flat="flat" @click="deckExportDialogVisible = false">OK</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-layout>
+          <SampleHand class="mt-2" :cards="deckCards"/>
+        </div>
       </v-flex>
       <v-flex id="rSide" hidden-xs-only sm4 md3 lg3 xl3>
         <div class="mt-5">
@@ -23,12 +40,13 @@
 </template>
 
 <script>
-import ColorDistribution from '@/components/charts/ColorDistribution'
 import Deck from '@/components/mtg/Deck'
 import WildCardsCost from '@/components/mtg/WildCardsCost'
 import ColorDistribution from '@/components/charts/ColorDistribution'
 import TypeDistribution from '@/components/charts/TypeDistribution'
 import ManaCurve from '@/components/charts/ManaCurve'
+import SampleHand from '@/components/SampleHand'
+import Utils from '@/scripts/utils'
 
 export default {
   name: 'PublicDeck',
@@ -48,6 +66,7 @@ export default {
       deckWCMissingCost: {},
       isLoading: false,
       userCollection: {},
+      deckExportDialogVisible: false
     }
   },
   methods: {
@@ -115,7 +134,17 @@ export default {
         'common': wcMissingCost['common']
       }
     },
+    exportDeck: function () {
+      let data = ''
+      const cardsByType = Utils.groupCardsByType(this.deckCards)
+      Object.keys(cardsByType).forEach(type => {
+        const cards = cardsByType[type]
+        Object.keys(cards).forEach(mtgaId => {
+          const card = cards[mtgaId]
+          data += `${card.qtd} ${card.name} (${card.set}) ${card.number}\n`
         })
+      })
+      Utils.copyStringToClipboard(data)
     }
   }
 }

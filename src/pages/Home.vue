@@ -9,7 +9,7 @@
       <v-flex hidden-xs-only sm4 md3 lg3 xl3>
         <div class='mt-5'>
           <span class='title'>Deck of Day</span>
-          <Deck :cards="deckOfDayCards" :name="deckOfDayName"/>
+          <Deck class="mt-2" :cards="deckOfDayCards" :name="deckOfDayName"/>
         </div>
       </v-flex>
     </v-layout>

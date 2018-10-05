@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class='deck mt-2'>
+    <div class='deck'>
       <span class='body-2'>{{ name }}</span>
       <table>
         <DeckGroup v-if='lands.length > 0'         v-bind:groupSize="lands.length"           groupName="Lands" />
@@ -35,7 +35,7 @@ export default {
     },
     name: {
       type: String,
-      required: true
+      required: false
     },
     userCollection: {
       type: Object,
