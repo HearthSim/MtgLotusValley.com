@@ -1,27 +1,27 @@
 <template>
-    <v-layout row align-center>
+    <v-layout row>
       <v-flex hidden-sm-and-down md3 lg2 xl3>
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>
-        
+        <Deck class="deck" :cards="deckCards" :name="deckName" 
+          :twoColumns="true" :userCollection="userCollection"/>
       </v-flex>
       <v-flex hidden-xs-only sm4 md3 lg3 xl3>
-        <div class='mt-5'>
-          <Deck :cards="deckCards" :name="deckName" :userCollection="userCollection"/>
-        </div>
         <ManaCurve class='mt-5' :manaCurve="deckManaCurve"/>
+        <ColorDistribution class='mt-5' :cards="deckCards"/>
       </v-flex>
     </v-layout>
 </template>
 
 <script>
+import ColorDistribution from '@/components/charts/ColorDistribution'
 import Deck from '@/components/mtg/Deck'
 import ManaCurve from '@/components/charts/ManaCurve'
 
 export default {
   name: 'PublicDeck',
   components: {
-    Deck
+    ColorDistribution, Deck, ManaCurve
   },
   created () {
     this.requestDeck()
