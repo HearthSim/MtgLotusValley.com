@@ -13,7 +13,7 @@
       <SetSymbol :set='card.set' :rarity='card.rarity'/>
     </td>
     <td id='card_missing' v-if="missingQtd > 0" :title="`You need ${missingQtd} ${card.rarity} wildcards`">
-      <div>
+      <div class="red--text">
         {{ missingQtd }}
         <img :src="require(`@/assets/wildcards/${card.rarity}.png`)"/>
       </div>

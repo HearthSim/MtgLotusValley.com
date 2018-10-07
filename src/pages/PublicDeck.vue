@@ -27,12 +27,13 @@
             :twoColumns="true" :userCollection="userCollection"/>
           <v-layout row class="mt-2">
             <v-spacer/>
-            <v-dialog v-model="deckExportDialogVisible" width="250">
-              <v-btn flat small color="primary" v-on:click="exportDeck()" slot="activator">Export to MTGArena</v-btn>
+            <v-dialog id="btExport" v-model="deckExportDialogVisible" width="250">
+              <v-btn flat small color="primary" v-on:click="exportDeck()" 
+                slot="activator">Export to MTGArena</v-btn>
               <v-card>
                 <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
                 <v-card-actions>
-                  <v-spacer></v-spacer>
+                  <v-spacer/>
                   <v-btn color="primary" flat="flat" @click="deckExportDialogVisible = false">OK</v-btn>
                 </v-card-actions>
               </v-card>
@@ -111,10 +112,12 @@ export default {
       const wcCost = {}
       Object.keys(this.deckCards).forEach(mtgaid => {
         const card = this.deckCards[mtgaid]
-        if (wcCost[card.rarity] === undefined) {
-          wcCost[card.rarity] = card.qtd
-        } else {
-          wcCost[card.rarity] += card.qtd
+        if (!card.type.includes('Basic Land')) {
+          if (wcCost[card.rarity] === undefined) {
+            wcCost[card.rarity] = card.qtd
+          } else {
+            wcCost[card.rarity] += card.qtd
+          }
         }
       })
       return {
@@ -130,7 +133,7 @@ export default {
         const card = this.deckCards[mtgaId]
         const qtdOwned = this.userCollection[mtgaId] !== undefined ? this.userCollection[mtgaId] : 0
         const missingQtd = card.qtd - qtdOwned
-        if (missingQtd > 0) {
+        if (!card.type.includes('Basic Land') && missingQtd > 0) {
           if (wcMissingCost[card.rarity] === undefined) {
             wcMissingCost[card.rarity] = missingQtd
           } else {
@@ -138,11 +141,12 @@ export default {
           }
         }
       })
+      console.log(wcMissingCost)
       return {
-        'mythic': wcMissingCost['mythic'],
-        'rare': wcMissingCost['rare'],
-        'uncommon': wcMissingCost['uncommon'],
-        'common': wcMissingCost['common']
+        'mythic': wcMissingCost['mythic'] !== undefined ? wcMissingCost['mythic'] : 0,
+        'rare': wcMissingCost['rare'] !== undefined ? wcMissingCost['rare'] : 0,
+        'uncommon': wcMissingCost['uncommon'] !== undefined ? wcMissingCost['uncommon'] : 0,
+        'common': wcMissingCost['common'] !== undefined ? wcMissingCost['common'] : 0
       }
     },
     exportDeck: function () {
@@ -172,6 +176,8 @@ export default {
     height: 40px;
     transform: translateY(20px);
   }
+  #btExport {
+    padding-right: 3%;
   }
   #rSide > div {
     margin: auto;
