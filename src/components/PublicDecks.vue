@@ -1,22 +1,36 @@
 <template>
   <v-card id="decks">
-    <router-link v-for="deck in currentDecks" :key="deck.alias" :to="`/decks/${deck.alias}`">
-      <div class="deck">
-        <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-${deck.colors}`">
-          <!-- Line 1 -->
-          <v-flex class="line line1" sm12>
-            <strong class="white--text">{{ deck.name }}</strong>
-          </v-flex>
-          <!-- Line 2 -->
-          <v-flex class="line line2" sm12>
-            <div id="mana">
-            <img v-for="color in deck.colors.split('')" :key="color"
-              :src="require(`@/assets/mana/${color}.png`)"/>
-            </div>
-          </v-flex>
+    <v-layout row>
+      <v-flex>
+        <div class="btArrow" v-on:click="scrollLeft()">
+          <v-icon>keyboard_arrow_left</v-icon>
         </div>
-      </div>
-    </router-link>
+      </v-flex>
+      <v-flex class="scroll" ref="scrollView">
+        <router-link v-for="deck in currentDecks" :key="deck.alias" :to="`/decks/${deck.alias}`">
+          <div class="deck">
+            <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-${deck.colors}`">
+              <!-- Line 1 -->
+              <v-flex class="line line1" sm12>
+                <strong class="white--text">{{ deck.name }}</strong>
+              </v-flex>
+              <!-- Line 2 -->
+              <v-flex class="line line2" sm12>
+                <div id="mana">
+                <img v-for="color in deck.colors.split('')" :key="color"
+                  :src="require(`@/assets/mana/${color}.png`)"/>
+                </div>
+              </v-flex>
+            </div>
+          </div>
+        </router-link>
+      </v-flex>
+      <v-flex>
+        <div class="btArrow" v-on:click="scrollRight()">
+          <v-icon>keyboard_arrow_right</v-icon>
+        </div>
+      </v-flex>
+    </v-layout>
   </v-card>
 </template>
 
@@ -42,6 +56,18 @@ export default {
           this.isLoading = false
           console.log(error)
         })
+    },
+    scrollLeft: function () {
+      this.$refs.scrollView.scrollBy({
+        left: -200,
+        behavior: 'smooth'
+      })
+    },
+    scrollRight: function () {
+      this.$refs.scrollView.scrollBy({
+        left: 200,
+        behavior: 'smooth'
+      })
     }
   }
 }
@@ -51,8 +77,9 @@ export default {
 <style scoped>
   #decks {
     height: 80px;
+    width: 100%;
     display: inline-flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
   }
   .deck {
@@ -63,6 +90,28 @@ export default {
   }
   .deck:hover {
     transform: scale(1.05);
+  }
+  .btArrow {
+    height: 100px;
+  }
+  .btArrow:hover {
+    background-color: #DDDDDDAA;
+  }
+  .btArrow > i {
+    transform: translateY(30px);
+  }
+  .scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .scroll::-webkit-scrollbar {
+    display: none; 
+  }
+  .scroll > a {
+    flex: 0 0 auto; 
   }
   .cover {
     background-size: cover;
