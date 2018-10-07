@@ -107,7 +107,7 @@ export default {
           responsive: false,
           maintainAspectRatio: true,
           legend: {
-            display: false
+            display: true
           },
           title: {
             text: 'Color Distribution',

@@ -1,11 +1,29 @@
 <template>
+  <div>
+    <v-layout row nowrap  class="pt-2 pb-2">
+      <v-flex sm2/>
+      <v-flex sm2>
+        <div id="deckTitle">
+          <span class='title'>{{ deckName }}</span>
+        </div>
+      </v-flex>
+      <v-flex sm4/>
+      <v-flex sm2 v-if="$isUserLogged()">
+        <span class='subheading'>Cost to build:</span>
+        <WildCardsCost class="mt-1" :cost="deckWCMissingCost"/>
+      </v-flex>
+      <v-flex sm2>
+        <span class='subheading'>Total deck cost:</span>
+        <WildCardsCost class="mt-1" :cost="deckWCCost"/>
+      </v-flex>
+    </v-layout>
+    <v-divider/>
     <v-layout row>
       <v-flex hidden-sm-and-down md3 lg2 xl3>
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>
-        <div class="mt-5">
-          <span class='title'>{{ deckName }}</span>
-          <Deck class="deck mt-3" :cards="deckCards" 
+        <div>
+          <Deck class="deck mt-5" :cards="deckCards" 
             :twoColumns="true" :userCollection="userCollection"/>
           <v-layout row class="mt-2">
             <v-spacer/>
@@ -23,20 +41,13 @@
           <SampleHand class="mt-2" :cards="deckCards"/>
         </div>
       </v-flex>
-      <v-flex id="rSide" hidden-xs-only sm4 md3 lg3 xl3>
-        <div class="mt-5">
-          <span class='subheading'>Total deck cost:</span>
-          <WildCardsCost class="mt-1" :cost="deckWCCost"/>
-        </div>
-        <div v-if="$isUserLogged()" class="mt-3">
-          <span class='subheading'>Deck cost to build:</span>
-          <WildCardsCost class="mt-1" :cost="deckWCMissingCost"/>
-        </div>
+      <v-flex id="rSide" hidden-xs-only sm4 md3 lg3 xl3 class="mb-3">
         <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
         <TypeDistribution class='mt-4' :cards="deckCards"/>
         <ColorDistribution class='mt-4' :cards="deckCards"/>
       </v-flex>
     </v-layout>
+  </div>
 </template>
 
 <script>
@@ -154,6 +165,13 @@ export default {
 <style scoped>
   .deck {
     column-count: 2;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  #deckTitle {
+    height: 40px;
+    transform: translateY(20px);
+  }
   }
   #rSide > div {
     margin: auto;
