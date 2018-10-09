@@ -118,6 +118,15 @@ export default {
       }
     })
   },
+  getDecksByColors (dateMin, dateMax, onlyBasics) {
+    return axios.get('/stats/decksByColors', {
+      params: {
+        dateMin: dateMin,
+        dateMax: dateMax,
+        onlyBasics: onlyBasics
+      }
+    })
+  },
   getCards (page, pageSize, query, colors, types, sets) {
     return axios.get('/cards', {
       params: {

@@ -1,10 +1,15 @@
 <template>
   <div>
-    <v-layout row nowrap  class="pt-2 pb-2">
+    <v-layout row nowrap class="pt-2 pb-2">
       <v-flex sm2/>
       <v-flex sm2>
         <div id="deckTitle">
+          <div id="mana" class="mt-2">
+            <img v-for="color in deckColors.split('')" :key="color"
+              :src="require(`@/assets/mana/${color}.png`)"/>
+          </div>
           <span class='title'>{{ deckName }}</span>
+          <span class='subheading'> - {{ deckArch }}</span>
         </div>
       </v-flex>
       <v-flex sm4/>
@@ -44,8 +49,8 @@
       </v-flex>
       <v-flex id="rSide" hidden-xs-only sm4 md3 lg3 xl3 class="mb-3">
         <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
+        <CardsColorDistribution class='mt-4' :cards="deckCards"/>
         <TypeDistribution class='mt-4' :cards="deckCards"/>
-        <ColorDistribution class='mt-4' :cards="deckCards"/>
       </v-flex>
     </v-layout>
   </div>
@@ -54,7 +59,7 @@
 <script>
 import Deck from '@/components/mtg/Deck'
 import WildCardsCost from '@/components/mtg/WildCardsCost'
-import ColorDistribution from '@/components/charts/ColorDistribution'
+import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
 import TypeDistribution from '@/components/charts/TypeDistribution'
 import ManaCurve from '@/components/charts/ManaCurve'
 import SampleHand from '@/components/SampleHand'
@@ -63,7 +68,7 @@ import Utils from '@/scripts/utils'
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, SampleHand, ManaCurve, WildCardsCost, ColorDistribution, TypeDistribution
+    Deck, SampleHand, ManaCurve, WildCardsCost, CardsColorDistribution, TypeDistribution
   },
   created () {
     this.requestDeck()
@@ -73,6 +78,8 @@ export default {
       deckAlias: this.$route.params.alias,
       deckCards: {},
       deckName: '',
+      deckArch: '',
+      deckColors: '',
       deckManaCurve: {},
       deckWCCost: {},
       deckWCMissingCost: {},
@@ -89,6 +96,8 @@ export default {
           this.isLoading = false
           this.deckCards = res.data.cards
           this.deckName = res.data.name
+          this.deckArch = res.data.arch
+          this.deckColors = res.data.colors
           this.deckManaCurve = res.data.manaCurve
           this.deckWCCost = this.getDeckWCCost()
           if (this.$isUserLogged()) {
@@ -173,8 +182,9 @@ export default {
     padding-right: 3%;
   }
   #deckTitle {
-    height: 40px;
+    min-height: 40px;
     transform: translateY(20px);
+    display: inline;
   }
   #btExport {
     padding-right: 3%;
@@ -182,5 +192,9 @@ export default {
   #rSide > div {
     margin: auto;
     width: fit-content;
+  }
+  #mana img {
+    height: 20px;
+    width: 20px;
   }
 </style>
