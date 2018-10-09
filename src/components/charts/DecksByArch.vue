@@ -45,6 +45,10 @@ export default {
       if (index > -1) {
         keys.splice(index, 1)
       }
+      index = keys.indexOf('Unknown')
+      if (index > -1) {
+        keys.splice(index, 1)
+      }
       keys.sort()
       return keys
     },
@@ -57,7 +61,7 @@ export default {
     },
     createGraph: function (labels, data, barColors) {
       const ctx = document.getElementById('decksByArch-chart')
-      ctx.height = labels.length * 12
+      ctx.height = labels.length * 25
       new Chart(ctx, { // eslint-disable-line no-new
         type: 'horizontalBar',
         data: {

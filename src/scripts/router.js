@@ -35,6 +35,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  document.title = 'Black Lotus Valley'
   const currentUserId = localStorage.getItem('localId')
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   if (requiresAuth && !currentUserId) {

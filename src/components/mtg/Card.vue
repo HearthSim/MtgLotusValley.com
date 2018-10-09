@@ -68,7 +68,7 @@ export default {
   #cardQtd {
     border: 2px double darkgray;
 	  border-radius: 6px;
-    font-size: 11px;
+    font-size: 11pt;
     padding-left: 5px;
     padding-right: 5px;
     position: absolute;

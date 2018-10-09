@@ -42,6 +42,6 @@ export default {
 
 <style>
 .ss {
-  margin-bottom: 0.2em;
+  transform: translateY(-3px);
 }
 </style>

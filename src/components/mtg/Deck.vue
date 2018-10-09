@@ -112,7 +112,7 @@ export default {
 <style>
 .deck {
   overflow-x: auto;
-  font-size: 14px;
+  font-size: 11pt;
 }
 table {
   margin: auto;
