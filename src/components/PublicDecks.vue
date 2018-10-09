@@ -11,16 +11,23 @@
           <div class="deck">
             <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-${deck.colors}`">
               <!-- Line 1 -->
-              <v-flex class="line line1" sm12>
-                <strong class="white--text">{{ deck.name }}</strong>
-              </v-flex>
+              <v-layout class="line line1" row nowrap>
+                <v-flex sm12>
+                  <div class="pt-1">
+                    <strong class="white--text">{{ deck.name }}</strong>
+                  </div>
+                </v-flex>
+              </v-layout>
               <!-- Line 2 -->
-              <v-flex class="line line2" sm12>
-                <div id="mana">
-                <img v-for="color in deck.colors.split('')" :key="color"
-                  :src="require(`@/assets/mana/${color}.png`)"/>
-                </div>
-              </v-flex>
+              <v-layout class="line line2" row nowrap>
+                <v-flex sm6>
+                  <div id="mana" class="mt-2">
+                    <img v-for="color in deck.colors.split('')" :key="color"
+                      :src="require(`@/assets/mana/${color}.png`)"/>
+                  </div>
+                </v-flex>
+                <v-flex sm6/>
+              </v-layout>
             </div>
           </div>
         </router-link>
@@ -118,6 +125,7 @@ export default {
     background-position: center;
     height: 70px;
     border-radius: 5px;
+    overflow: hidden;
   }
   #mana {
     margin-left: 10px;
@@ -129,12 +137,16 @@ export default {
   .line {
     text-align: start;
   }
+  .line1 {
+    height: 25px;
+  }
   .line1 strong {
     margin-top: 5px;
     margin-left: 10px;
   }
   .line2 {
     margin-top: 4px;
+    height: 45px;
   }
   .cover-b { background-image: url('~@/assets/decks/b.jpg') }
   .cover-bg { background-image: url('~@/assets/decks/bg.jpg') }

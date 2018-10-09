@@ -9,7 +9,6 @@ import Chart from 'chart.js'
 import Utils from '@/scripts/utils'
 
 export default {
-  name: 'TypeDistribution',
   props: {
     cards: {
       type: Object,
@@ -94,5 +93,9 @@ export default {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+  }
+  #canvas-container canvas {
+    width: 100%;
+    height: 100%;
   }
 </style>
