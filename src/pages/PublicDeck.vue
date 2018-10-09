@@ -15,11 +15,11 @@
       <v-flex sm4/>
       <v-flex sm2 v-if="$isUserLogged()">
         <span class='subheading'>Cost to build:</span>
-        <WildCardsCost class="mt-1" :cost="deckWCMissingCost"/>
+        <WildcardsCost class="mt-1" :cost="deckWCMissingCost"/>
       </v-flex>
       <v-flex sm2>
         <span class='subheading'>Total deck cost:</span>
-        <WildCardsCost class="mt-1" :cost="deckWCCost"/>
+        <WildcardsCost class="mt-1" :cost="deckWCCost"/>
       </v-flex>
     </v-layout>
     <v-divider/>
@@ -58,7 +58,7 @@
 
 <script>
 import Deck from '@/components/mtg/Deck'
-import WildCardsCost from '@/components/mtg/WildCardsCost'
+import WildcardsCost from '@/components/mtg/WildcardsCost'
 import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
 import TypeDistribution from '@/components/charts/TypeDistribution'
 import ManaCurve from '@/components/charts/ManaCurve'
@@ -68,7 +68,7 @@ import Utils from '@/scripts/utils'
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, SampleHand, ManaCurve, WildCardsCost, CardsColorDistribution, TypeDistribution
+    Deck, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
   },
   created () {
     this.requestDeck()

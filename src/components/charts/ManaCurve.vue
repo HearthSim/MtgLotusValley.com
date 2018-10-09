@@ -8,7 +8,6 @@
 import Chart from 'chart.js'
 
 export default {
-  name: 'ManaCurve',
   props: {
     manaCurve: {
       type: Object,

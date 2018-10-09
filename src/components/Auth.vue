@@ -1,6 +1,6 @@
 <template>
   <v-toolbar-items>
-    <WildCardsCost class="mt-1 mr-2" :cost="userWildcards"/>
+    <WildcardsCost class="mt-1 mr-2" :cost="userWildcards"/>
     <v-btn v-if="!logged" flat @click="signInDialog = true">Sign In</v-btn>
     <v-btn v-if="!logged" flat>Register</v-btn>
     <v-menu v-if="logged" bottom transition="slide-y-transition">
@@ -42,12 +42,12 @@
 </template>
 
 <script>
-import WildCardsCost from '@/components/mtg/WildCardsCost'
+import WildcardsCost from '@/components/mtg/WildcardsCost'
 
 export default {
   name: 'Auth',
   components: {
-    WildCardsCost
+    WildcardsCost
   },
   mounted () {
     if (this.$isUserLogged()) {

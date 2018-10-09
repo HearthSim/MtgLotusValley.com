@@ -12,21 +12,28 @@
             <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-${deck.colors}`">
               <!-- Line 1 -->
               <v-layout class="line line1" row nowrap>
-                <v-flex sm12>
-                  <div class="pt-1">
+                <v-flex>
+                  <div class="mt-2">
                     <strong class="white--text">{{ deck.name }}</strong>
                   </div>
                 </v-flex>
-              </v-layout>
-              <!-- Line 2 -->
-              <v-layout class="line line2" row nowrap>
-                <v-flex sm6>
+                <v-spacer/>
+                <v-flex>
                   <div id="mana" class="mt-2">
                     <img v-for="color in deck.colors.split('')" :key="color"
                       :src="require(`@/assets/mana/${color}.png`)"/>
                   </div>
                 </v-flex>
-                <v-flex sm6/>
+              </v-layout>
+              <!-- Line 2 -->
+              <v-layout class="line line2" row nowrap>
+                <v-flex>
+                  <WildcardsCost class="mt-1 mr-2" :cost="deck.wildcardCost" :small="true"/>
+                </v-flex>
+                <v-spacer/>
+                <v-flex>
+                  <ManaCurveCompact class="manaCurve mt-1" :manaCurve="deck.manaCurve"/>
+                </v-flex>
               </v-layout>
             </div>
           </div>
@@ -42,7 +49,13 @@
 </template>
 
 <script>
+import ManaCurveCompact from '@/components/ManaCurveCompact'
+import WildcardsCost from '@/components/mtg/WildcardsCost'
+
 export default {
+  components: {
+    ManaCurveCompact, WildcardsCost
+  },
   mounted () {
     this.getDecks()
   },
@@ -128,17 +141,22 @@ export default {
     overflow: hidden;
   }
   #mana {
-    margin-left: 10px;
+    margin-right: 8px;
+    float: right;
   }
   #mana img {
     height: 20px;
     width: 20px;
   }
+  .manaCurve {
+    float: right;
+    margin-right: 4px;
+  }
   .line {
     text-align: start;
   }
   .line1 {
-    height: 25px;
+    height: 35px;
   }
   .line1 strong {
     margin-top: 5px;
@@ -146,7 +164,10 @@ export default {
   }
   .line2 {
     margin-top: 4px;
-    height: 45px;
+    height: 35px;
+  }
+  .line #wildcards {
+    color: white;
   }
   .cover-b { background-image: url('~@/assets/decks/b.jpg') }
   .cover-bg { background-image: url('~@/assets/decks/bg.jpg') }
