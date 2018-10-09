@@ -150,6 +150,16 @@ export default {
       }
     })
   },
+  getUserExtras () {
+    return axios.get('/users/extras', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: {
+        userId: localStorage.getItem('localId')
+      }
+    })
+  },
   getPublicDecks (page, pageSize) {
     return axios.get('/decks/published', {
       params: {

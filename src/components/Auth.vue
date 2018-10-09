@@ -1,5 +1,6 @@
 <template>
   <v-toolbar-items>
+    <WildCardsCost class="mt-1 mr-2" :cost="userWildcards"/>
     <v-btn v-if="!logged" flat @click="signInDialog = true">Sign In</v-btn>
     <v-btn v-if="!logged" flat>Register</v-btn>
     <v-menu v-if="logged" bottom transition="slide-y-transition">
@@ -41,9 +42,13 @@
 </template>
 
 <script>
+import WildCardsCost from '@/components/mtg/WildCardsCost'
 
 export default {
   name: 'Auth',
+  components: {
+    WildCardsCost
+  },
   mounted () {
     if (this.$isUserLogged()) {
       this.setUserAsLogged()
@@ -72,7 +77,8 @@ export default {
         { title: 'My Collection' },
         { title: 'My Decks' },
         { title: 'Logout' }
-      ]
+      ],
+      userWildcards: {}
     }
   },
   methods: {
@@ -115,11 +121,26 @@ export default {
       const userName = userEmail.substring(0, userEmail.indexOf('@'))
       this.loggedUserName = userName.charAt(0).toUpperCase() + userName.slice(1)
       this.logged = true
+      this.getUserWildcards()
     },
     logout: function () {
       this.$api.deleteUserToken()
       this.loggedUserName = ''
       this.logged = false
+    },
+    getUserWildcards: function () {
+      this.$api.getUserExtras(this.deckAlias)
+        .then(res => {
+          this.userWildcards = {
+            'mythic': res.data['wcMythic'],
+            'rare': res.data['wcRare'],
+            'uncommon': res.data['wcUncommon'],
+            'common': res.data['wcCommon']
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }
