@@ -1,12 +1,16 @@
 <template>
-    <v-layout row>
-      <v-flex hidden-sm-and-down md3 lg2 xl3>
+    <v-layout row wrap>
+      <v-flex xs12 sm12 md3 lg2 xl3>
+          <div class="mt-3">
+            <span class='subheading'>Current Events</span>
+          </div>
+        <Events class="mt-2 ml-3 mr-3 mb-2"/>
       </v-flex>
-      <v-flex           xs12 sm8 md6 lg7 xl6>
+      <v-flex xs12 sm8 md6 lg7 xl6>
         <PublicDecks class="mt-2" />
         <DecksByArch :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)"/>
       </v-flex>
-      <v-flex hidden-xs-only sm4 md3 lg3 xl3>
+      <v-flex xs12 sm4 md3 lg3 xl3>
         <div class='mt-4'>
           <DecksColorDistribution :colors="decksByColorsBasics"/>
           <div class="mt-5">
@@ -23,11 +27,12 @@ import Deck from '@/components/mtg/Deck'
 import DecksByArch from '@/components/charts/DecksByArch'
 import DecksColorDistribution from '@/components/charts/DecksColorDistribution'
 import PublicDecks from '@/components/PublicDecks'
+import Events from '@/components/Events'
 
 export default {
   name: 'Home',
   components: {
-    Deck, DecksByArch, PublicDecks, DecksColorDistribution
+    Deck, DecksByArch, Events, PublicDecks, DecksColorDistribution
   },
   created () {
     this.requestDeckOfDay()

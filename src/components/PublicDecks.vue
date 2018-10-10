@@ -161,6 +161,7 @@ export default {
   .line1 strong {
     margin-top: 5px;
     margin-left: 10px;
+    font-size: 12pt;
   }
   .line2 {
     margin-top: 4px;

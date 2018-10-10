@@ -174,5 +174,12 @@ export default {
         alias: escape(alias)
       }
     })
+  },
+  getEvents (alias) {
+    return axios.get('/events', {
+      params: {
+        onlyRunning: true
+      }
+    })
   }
 }
