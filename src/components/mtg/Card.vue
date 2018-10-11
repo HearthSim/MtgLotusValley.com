@@ -1,7 +1,8 @@
 <template>
-  <div id="card">
+  <div id="card" :class="`${highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'}`">
     <a v-if="!asText" target="_blank" :href="cardLink()" slot="activator">
-      <img id="fullImage" :src="imageUrl" :class="qtd === 0 ? 'grayscale' : ''" :alt="name" width="100%"/>
+      <img :class="`${qtd === 0 ? 'grayscale' : ''}`"
+         :src="imageUrl" :alt="name" width="100%"/>
       <v-card id="cardQtd" class="elevation-2" v-if="qtd > 0">
         {{ qtd }}
       </v-card>
@@ -40,6 +41,11 @@ export default {
       type: Number,
       default: 0,
       required: false
+    },
+    highScaleOnHover: {
+      type: Boolean,
+      default: false,
+      required: false
     }
   },
   methods: {
@@ -62,8 +68,13 @@ export default {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
   }
-  #fullImage:hover {
-    transform: scale(2.0);
+  .defaultHoverScale:hover {
+    transform: scale(1.2);
+    transition-duration: .5s;
+  }
+  .highHoverScale:hover {
+    transform: scale(1.7);
+    transition-duration: .5s;
   }
   #cardQtd {
     border: 2px double darkgray;
@@ -71,10 +82,8 @@ export default {
     font-size: 11pt;
     padding-left: 5px;
     padding-right: 5px;
-    position: absolute;
     background: lightgray;
-    left: -5px;
-    bottom: 0px;
+    transform: translateX(-5px) translateY(-25px);
     width: fit-content;
   }
 </style>

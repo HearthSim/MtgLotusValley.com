@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-text-field class="pl-2 pr-2" label="Search" v-model="searchQuery" @keyup.native.enter="updateFilters"
+    <v-text-field id="filterSearch" class="pl-2 pr-2" label="Search" v-model="searchQuery" @keyup.native.enter="updateFilters"
       solo single-line hide-details clearable />
     <CardFilter class="mt-3" ref="cardFilter"/>
-    <v-btn color="white" @click="updateFilters()">Apply</v-btn>
+    <v-btn id="filterApply" color="white" @click="updateFilters()">Apply</v-btn>
     <v-layout row fill-height>
       <v-flex sm2>
       </v-flex>
@@ -146,5 +146,11 @@ export default {
   #pages button {
     min-width: 32px;
     margin: 0;
+  }
+  #filterSearch {
+    transform: translateY(-5px);
+  }
+  #filterApply {
+    transform: translateY(-8px);
   }
 </style>

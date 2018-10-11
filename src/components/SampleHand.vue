@@ -7,7 +7,8 @@
     </v-layout>
     <div id="cards" class="mt-1">
       <div v-for="(card, index) in sampleCards" :key="index">
-        <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid' :qtd="-1"/>
+        <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid' 
+          :qtd="-1" :highScaleOnHover="true"/>
       </div>
     </div>
   </div>

@@ -26,7 +26,8 @@ export default {
     colorsLabels: function () {
       const data = []
       Object.keys(this.colors).forEach(color => {
-        data.push(color.toUpperCase())
+        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
+        data.push(colorObj.desc)
       })
       return data
     },
