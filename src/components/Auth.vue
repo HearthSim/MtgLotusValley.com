@@ -2,7 +2,7 @@
   <v-toolbar-items>
     <WildcardsCost class="mt-1 mr-2" :cost="userWildcards"/>
     <v-btn v-if="!logged" flat @click="signInDialog = true">Sign In</v-btn>
-    <v-btn v-if="!logged" flat>Register</v-btn>
+    <v-btn v-if="!logged" flat @click="signUpDialog = true">Register</v-btn>
     <v-menu v-if="logged" bottom transition="slide-y-transition">
       <v-btn flat slot="activator">
           {{ loggedUserName }}
@@ -24,16 +24,54 @@
             :rules="[passwordRules.required, passwordRules.min]"
             :type="showPassword ? 'text' : 'password'"/>
         </v-card-text>
-        <p class="text-md-center red--text darken-1" v-if="showSignError">Invalid credentials</p>
+        <p class="text-md-center red--text darken-1" v-if="showSignError">{{ errorMsg }}</p>
+        <p class="text-md-center" v-if="showSignLoading">
+          <v-progress-circular :indeterminate="true"/>
+        </p>
+        <v-divider/>
+        <v-card-actions>
+          <div id="recoverPassLink">
+            <a @click="onRecoverPassClick">Recover password</a>
+          </div>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" flat :disabled="showSignLoading" @click="onSignInEnter">Enter</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="recoverPasswordDialog" width="250">
+      <v-card>
+        <v-card-text class='subheading'>Recover instruction send to your email.</v-card-text>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn color="primary" flat="flat" @click="recoverPasswordDialog = false">OK</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="signUpDialog" width="300">
+      <v-card>
+        <v-card-text>
+          <v-text-field flat label="Email" v-model="email"/>
+          <v-text-field flat label="Password" v-model="password"
+            :append-icon="showPassword ? 'visibility_off' : 'visibility'"
+            @click:append="showPassword = !showPassword"
+            :rules="[passwordRules.required, passwordRules.min]"
+            :type="showPassword ? 'text' : 'password'"/>
+          <v-text-field flat label="Confirm Password" v-model="confirmPassword" @keyup.native.enter="onSignUpEnter"
+            :append-icon="showPassword ? 'visibility_off' : 'visibility'"
+            @click:append="showPassword = !showPassword"
+            :rules="[passwordRules.required, passwordRules.min]"
+            :type="showPassword ? 'text' : 'password'"/>
+        </v-card-text>
+        <p class="text-md-center red--text darken-1" v-if="showSignError">{{ errorMsg }}</p>
         <p class="text-md-center" v-if="showSignLoading">
           <v-progress-circular :indeterminate="true"/>
         </p>
         <v-divider/>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" flat :disabled="showSignLoading" @click="onSignInEnter">
-            Enter
-          </v-btn>
+          <v-btn color="primary" flat :disabled="showSignLoading" @click="onSignUpEnter">Register</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -64,10 +102,14 @@ export default {
       logged: false,
       loggedUserName: false,
       signInDialog: false,
+      signUpDialog: false,
+      recoverPasswordDialog: false,
       showSignError: false,
       showSignLoading: false,
+      errorMsg: '',
       email: '',
       password: '',
+      confirmPassword: '',
       passwordRules: {
         required: value => !!value || 'Required.',
         min: v => (v != null && v.length >= 6) || 'Min 6 characters'
@@ -91,6 +133,16 @@ export default {
       }
     },
     onSignInEnter: function () {
+      if (this.email === '') {
+        this.errorMsg = 'Please enter your email'
+        this.showSignError = true
+        return
+      }
+      if (this.password === '') {
+        this.errorMsg = 'Please enter your password'
+        this.showSignError = true
+        return
+      }
       this.showSignError = false
       this.showSignLoading = true
       this.$api.login(this.email, this.password)
@@ -101,9 +153,54 @@ export default {
           this.setUserAsLogged()
         })
         .catch(error => {
+          console.log(error)
+          this.errorMsg = 'Invalid credentials'
           this.showSignError = true
           this.showSignLoading = false
-          console.log(error)
+        })
+    },
+    onSignUpEnter: function () {
+      if (this.email === '') {
+        this.errorMsg = 'Please enter your email'
+        this.showSignError = true
+        return
+      }
+      if (this.password === '') {
+        this.errorMsg = 'Please enter your password'
+        this.showSignError = true
+        return
+      }
+      if (this.password.length < 6) {
+        this.errorMsg = 'Please enter a password with at least 6 characters'
+        this.showSignError = true
+        return
+      }
+      if (this.password !== this.confirmPassword) {
+        this.errorMsg = 'Password and Confirm don`t match'
+        this.showSignError = true
+        return
+      }
+      this.showSignError = false
+      this.showSignLoading = true
+      this.$api.register(this.email, this.password)
+        .then(res => {
+          this.signUpDialog = false
+          this.showSignLoading = false
+          this.$api.saveUserToken(res.data)
+          this.setUserAsLogged()
+        })
+        .catch(error => {
+          console.log(error.response)
+          const errorReason = error.response.data.error.message
+          if (errorReason === 'EMAIL_EXISTS') {
+            this.errorMsg = 'Email already in use. Try do login.'
+          } else if (errorReason === 'INVALID_PASSWORD') {
+            this.errorMsg = 'Invalid password.'
+          } else if (errorReason === 'WEAK_PASSWORD') {
+            this.errorMsg = 'Password should be at least 6 characters.'
+          }
+          this.showSignError = true
+          this.showSignLoading = false
         })
     },
     refreshUserToken: function (refreshToken) {
@@ -128,9 +225,34 @@ export default {
       this.loggedUserName = ''
       this.logged = false
     },
+    onRecoverPassClick: function () {
+      if (this.email === '') {
+        this.errorMsg = 'Please enter your email'
+        this.showSignError = true
+        return
+      }
+      this.showSignError = false
+      this.showSignLoading = true
+      this.$api.recoverpassword(this.email)
+        .then(res => {
+          this.showSignLoading = false
+          this.signInDialog = false
+          this.recoverPasswordDialog = true
+        })
+        .catch(error => {
+          this.errorMsg = 'Error. Please try again'
+          this.showSignError = true
+          this.showSignLoading = false
+          console.log(error)
+        })
+    },
     getUserWildcards: function () {
       this.$api.getUserExtras(this.deckAlias)
         .then(res => {
+          if (res.data === '') {
+            this.userWildcards = {}
+            return
+          }
           this.userWildcards = {
             'mythic': res.data['wcMythic'],
             'rare': res.data['wcRare'],
@@ -148,5 +270,7 @@ export default {
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped>
-
+#recoverPassLink {
+  margin-left: 10px;
+}
 </style>

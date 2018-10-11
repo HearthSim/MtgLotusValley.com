@@ -94,11 +94,21 @@ export default {
   saveUserToken,
   updateUserToken,
   deleteUserToken,
-  login (username, password) {
+  login (email, password) {
     return axios.post('/signin', {
-      email: username,
-      password: password,
-      returnSecureToken: true
+      email: email,
+      password: password
+    })
+  },
+  register (email, password) {
+    return axios.post('/signup', {
+      email: email,
+      password: password
+    })
+  },
+  recoverpassword (email) {
+    return axios.post('/recoverpassword', {
+      email: email
     })
   },
   getDeckOfDay: function (date) {
