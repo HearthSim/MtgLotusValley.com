@@ -4,9 +4,25 @@ import Vue from 'vue'
 import App from '@/components/App'
 import api from '@/scripts/api'
 import router from '@/scripts/router'
+
+import VueAnalytics from 'vue-analytics'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
+const isProduction = process.env.NODE_ENV === 'production'
+
+Vue.use(VueAnalytics, {
+  id: 'UA-127301117-1',
+  router,
+  autoTracking: {
+    exception: true,
+    screenview: true
+  },
+  debug: {
+    enabled: !isProduction,
+    sendHitTask: isProduction
+  }
+})
 Vue.use(Vuetify)
 Vue.config.productionTip = false
 

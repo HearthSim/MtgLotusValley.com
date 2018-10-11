@@ -20,6 +20,7 @@
     "keyrune": "^3.2.5",
     "mana-font": "^1.4.1",
     "vue": "^2.5.2",
+    "vue-analytics": "^5.16.0",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.0"
   },
