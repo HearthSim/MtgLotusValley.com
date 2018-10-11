@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import DeckCard from './DeckCard'
-import DeckGroup from './DeckGroup'
+import DeckCard from '@/components/mtg/DeckCard'
+import DeckGroup from '@/components/mtg/DeckGroup'
 
 export default {
   components: {

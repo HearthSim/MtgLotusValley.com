@@ -127,6 +127,14 @@ export default {
       }
     })
   },
+  getMostPlayedCards (dateMin, dateMax) {
+    return axios.get('/stats/mostPlayedCards', {
+      params: {
+        dateMin: dateMin,
+        dateMax: dateMax
+      }
+    })
+  },
   getCards (page, pageSize, query, colors, types, sets) {
     return axios.get('/cards', {
       params: {

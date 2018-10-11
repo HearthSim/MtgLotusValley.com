@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import Card from './Card'
-import ManaSymbols from './ManaSymbols'
-import SetSymbol from './SetSymbol'
+import Card from '@/components/mtg/Card'
+import ManaSymbols from '@/components/mtg/ManaSymbols'
+import SetSymbol from '@/components/mtg/SetSymbol'
 
 export default {
   components: {

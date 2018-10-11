@@ -7,14 +7,20 @@
         <Events class="mt-2 ml-3 mr-3 mb-2"/>
       </v-flex>
       <v-flex xs12 sm8 md6 lg7 xl6>
-        <PublicDecks class="mt-2" />
-        <DecksByArch :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)"/>
+        <div class="mt-3">
+          <span class='subheading'>Latest published Decks</span>
+        </div>
+        <PublicDecks class="mt-1" />
+        <v-layout class="mt-4 ml-2 mr-2" row nowrap>
+          <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCards"/>
+          <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)"/>
+        </v-layout>
       </v-flex>
       <v-flex xs12 sm4 md3 lg3 xl3>
-        <div class='mt-4'>
+        <div class='mt-3'>
           <DecksColorDistribution :colors="decksByColorsBasics"/>
           <div class="mt-5">
-            <span class='title'>Deck of Day</span>
+            <span class='subheading'>Deck of Day</span>
           </div>
           <Deck class="mt-1 mb-4" :cards="deckOfDayCards" :name="deckOfDayName"/>
         </div>
@@ -28,21 +34,24 @@ import DecksByArch from '@/components/charts/DecksByArch'
 import DecksColorDistribution from '@/components/charts/DecksColorDistribution'
 import PublicDecks from '@/components/PublicDecks'
 import Events from '@/components/Events'
+import MostPlayedCards from '@/components/MostPlayedCards'
 
 export default {
   name: 'Home',
   components: {
-    Deck, DecksByArch, Events, PublicDecks, DecksColorDistribution
+    Deck, DecksByArch, Events, PublicDecks, DecksColorDistribution, MostPlayedCards
   },
   created () {
     this.requestDeckOfDay()
     this.requestDeckByColorsBasics()
+    this.requestMostPlayedCards()
   },
   data () {
     return {
       deckOfDayCards: {},
       deckOfDayName: '',
-      decksByColorsBasics: {}
+      decksByColorsBasics: {},
+      mostPlayedCards: {}
     }
   },
   methods: {
@@ -62,7 +71,7 @@ export default {
       this.$api.getDeckOfDay(this.getDaysAgo(1))
         .then(res => {
           this.deckOfDayCards = res.data.cards
-          this.deckOfDayName = res.data.name
+          this.deckOfDayName = `${res.data.name} | ${res.data.wins}-${res.data.losses} (${res.data.winRate}%)`
         })
         .catch(error => {
           console.log(error)
@@ -72,6 +81,15 @@ export default {
       this.$api.getDecksByColors(this.getDaysAgo(8), this.getDaysAgo(1), true)
         .then(res => {
           this.decksByColorsBasics = res.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    requestMostPlayedCards: function () {
+      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1))
+        .then(res => {
+          this.mostPlayedCards = res.data
         })
         .catch(error => {
           console.log(error)
@@ -96,5 +114,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.mostPlayedCards {
+  min-width: 280px;
 }
 </style>

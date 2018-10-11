@@ -81,7 +81,7 @@ export default {
     vertical-align: sub;
   }
   img:hover {
-    background: lightgray
+    background: lightgray;
   }
   .grayscale {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
