@@ -1,17 +1,19 @@
 <template>
-  <div id="card" :class="`${highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'}`">
-    <a v-if="!asText" target="_blank" :href="cardLink()" slot="activator">
-      <img :class="`${qtd === 0 ? 'grayscale' : ''}`"
-         :src="imageUrl" :alt="name" width="100%"/>
-      <v-card id="cardQtd" class="elevation-2" v-if="qtd > 0">
-        {{ qtd }}
-      </v-card>
-    </a>
+  <div id="card">
+    <div v-if="!asText" :class="`${highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'}`">
+      <a target="_blank" :href="cardLink()">
+        <img :class="`${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
+          v-lazy="imageUrl" width="100%"/>
+        <v-card id="cardQtd" class="elevation-2" v-if="qtd > 0">
+          {{ qtd }}
+        </v-card>
+      </a>
+    </div>
     <v-tooltip v-if="asText" left lazy color="white">
       <a class='body-1' target="_blank" :href="cardLink()" slot="activator">
         {{ name }}
       </a>
-      <img :src="imageUrl" alt="Loading..." width="250px"/>
+      <img v-lazy="imageUrl" alt="Loading..." width="250px" />
     </v-tooltip>
   </div>
 </template>

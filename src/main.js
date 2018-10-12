@@ -6,6 +6,7 @@ import api from '@/scripts/api'
 import router from '@/scripts/router'
 
 import VueAnalytics from 'vue-analytics'
+import VueLazyload from 'vue-lazyload'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
@@ -22,6 +23,10 @@ Vue.use(VueAnalytics, {
     enabled: !isProduction,
     sendHitTask: isProduction
   }
+})
+Vue.use(VueLazyload, {
+  loading: require('@/assets/card.png'),
+  attempt: 1
 })
 Vue.use(Vuetify)
 Vue.config.productionTip = false

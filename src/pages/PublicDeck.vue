@@ -150,7 +150,6 @@ export default {
           }
         }
       })
-      console.log(wcMissingCost)
       return {
         'mythic': wcMissingCost['mythic'] !== undefined ? wcMissingCost['mythic'] : 0,
         'rare': wcMissingCost['rare'] !== undefined ? wcMissingCost['rare'] : 0,

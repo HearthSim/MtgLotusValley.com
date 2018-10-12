@@ -3,7 +3,7 @@
     <span class='subheading'>Sample Hand</span>
     <v-layout>
       <v-spacer/>
-      <a class="mr-1" v-on:click="generateSampleHand()">Generate new hand</a>
+      <a class="mr-1" v-on:click="regenerateSampleHand()">Generate new hand</a>
     </v-layout>
     <div id="cards" class="mt-1">
       <div v-for="(card, index) in sampleCards" :key="index">
@@ -39,19 +39,22 @@ export default {
         .sort((a, b) => a[0] - b[0])
         .map(a => a[1])
     },
-    generateSampleHand: function () {
+    regenerateSampleHand: function () {
       this.sampleCards = []
+      setTimeout(() => {
+        this.generateSampleHand()
+      }, 100)
+    },
+    generateSampleHand: function () {
       const shuffleCardsPool = this.shuffleArray(this.cardsPool)
       const cardsDrawIndex = []
-      const cardsDraw = []
-      while (cardsDraw.length < 7) {
-        const indexChoosed = Math.floor(Math.random() * shuffleCardsPool.length) + 1
+      while (this.sampleCards.length < 7) {
+        const indexChoosed = Math.floor(Math.random() * shuffleCardsPool.length - 1) + 1
         if (!cardsDrawIndex.includes(indexChoosed)) {
           cardsDrawIndex.push(indexChoosed)
-          cardsDraw.push(shuffleCardsPool[indexChoosed])
+          this.sampleCards.push(shuffleCardsPool[indexChoosed])
         }
       }
-      this.sampleCards = cardsDraw
     }
   },
   watch: {

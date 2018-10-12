@@ -37,6 +37,6 @@ span {
   font-size: .8em;
 }
 .ms-cost {
-  margin-bottom: 0.4em;
+  transform: translateY(-3px);
 }
 </style>
