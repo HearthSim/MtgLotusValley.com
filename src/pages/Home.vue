@@ -1,12 +1,12 @@
 <template>
     <v-layout row wrap>
-      <v-flex xs12 sm12 md3 lg2 xl3>
+      <v-flex xs12 sm12 md3 lg3 xl3>
           <div class="mt-3">
             <span class='subheading'>Current Events</span>
           </div>
         <Events class="mt-2 ml-3 mr-3 mb-2"/>
       </v-flex>
-      <v-flex xs12 sm8 md6 lg7 xl6>
+      <v-flex xs12 sm8 md6 lg6 xl6>
         <div class="mt-3">
           <span class='subheading'>Latest published Decks</span>
         </div>

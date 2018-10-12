@@ -38,6 +38,17 @@
             </div>
           </div>
         </router-link>
+        <router-link v-if="decksLoaded" :to="'/decks'">
+          <div class="deck">
+            <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-default`">
+              <v-layout class="line showMore" row nowrap>
+                <div>
+                  <strong class="white--text">More Decks</strong>
+                </div>
+              </v-layout>
+            </div>
+          </div>
+        </router-link>
       </v-flex>
       <v-flex>
         <div class="btArrow" v-on:click="scrollRight()">
@@ -62,15 +73,17 @@ export default {
   data () {
     return {
       currentPage: 1,
-      currentDecks: {}
+      currentDecks: {},
+      decksLoaded: false
     }
   },
   methods: {
     getDecks: function () {
-      const pageSize = 5
+      const pageSize = 10
       this.$api.getPublicDecks(this.currentPage, pageSize)
         .then(res => {
           this.currentDecks = res.data
+          this.decksLoaded = true
         })
         .catch(error => {
           this.isLoading = false
@@ -110,6 +123,14 @@ export default {
   }
   .deck:hover {
     transform: scale(1.05);
+  }
+  .showMore {
+    height: 100%;
+    align-items: center;
+  }
+  .showMore > div {
+    width: 100%;
+    text-align: center;
   }
   .btArrow {
     height: 100px;
