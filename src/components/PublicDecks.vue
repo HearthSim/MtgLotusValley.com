@@ -14,7 +14,9 @@
               <v-layout class="line line1" row nowrap>
                 <v-flex>
                   <div class="mt-2">
-                    <strong class="white--text">{{ deck.name }}</strong>
+                    <span>
+                      <strong class="white--text">{{ deck.name }}</strong>
+                    </span>
                   </div>
                 </v-flex>
                 <v-spacer/>
@@ -163,6 +165,7 @@ export default {
   }
   #mana {
     margin-right: 8px;
+    white-space: nowrap;
     float: right;
   }
   #mana img {
@@ -179,6 +182,13 @@ export default {
   .line1 {
     height: 35px;
   }
+  .line1 span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 120px;
+    display: block;
+    overflow: hidden;
+  }
   .line1 strong {
     margin-top: 5px;
     margin-left: 10px;
@@ -190,28 +200,32 @@ export default {
   }
   .line #wildcards {
     color: white;
-  }
-  .cover-b { background-image: url('~@/assets/decks/b.jpg') }
+  } 
   .cover-bg { background-image: url('~@/assets/decks/bg.jpg') }
   .cover-br { background-image: url('~@/assets/decks/br.jpg') }
   .cover-brg { background-image: url('~@/assets/decks/brg.jpg') }
   .cover-c { background-image: url('~@/assets/decks/c.jpg') }
   .cover-default { background-image: url('~@/assets/decks/default.jpg') }
   .cover-g { background-image: url('~@/assets/decks/g.jpg') }
-  .cover-gu { background-image: url('~@/assets/decks/gu.jpg') }
-  .cover-gw { background-image: url('~@/assets/decks/gw.jpg') }
-  .cover-gwu { background-image: url('~@/assets/decks/gwu.jpg') }
   .cover-m { background-image: url('~@/assets/decks/m.jpg') }
   .cover-r { background-image: url('~@/assets/decks/r.jpg') }
   .cover-rg { background-image: url('~@/assets/decks/rg.jpg') }
-  .cover-rgw { background-image: url('~@/assets/decks/rgw.jpg') }
-  .cover-rw { background-image: url('~@/assets/decks/rw.jpg') }
   .cover-u { background-image: url('~@/assets/decks/u.jpg') }
   .cover-ub { background-image: url('~@/assets/decks/ub.jpg') }
+  .cover-ubg { background-image: url('~@/assets/decks/ubg.jpg') }
   .cover-ubr { background-image: url('~@/assets/decks/ubr.jpg') }
+  .cover-ug { background-image: url('~@/assets/decks/ug.jpg') }
   .cover-ur { background-image: url('~@/assets/decks/ur.jpg') }
+  .cover-urg { background-image: url('~@/assets/decks/urg.jpg') }
   .cover-w { background-image: url('~@/assets/decks/w.jpg') }
   .cover-wb { background-image: url('~@/assets/decks/wb.jpg') }
+  .cover-wbg { background-image: url('~@/assets/decks/wbg.jpg') }
+  .cover-wbr { background-image: url('~@/assets/decks/wbr.jpg') }
+  .cover-wg { background-image: url('~@/assets/decks/wg.jpg') }
+  .cover-wr { background-image: url('~@/assets/decks/wr.jpg') }
+  .cover-wrg { background-image: url('~@/assets/decks/wrg.jpg') }
   .cover-wu { background-image: url('~@/assets/decks/wu.jpg') }
   .cover-wub { background-image: url('~@/assets/decks/wub.jpg') }
+  .cover-wug { background-image: url('~@/assets/decks/wug.jpg') }
+  .cover-wur { background-image: url('~@/assets/decks/wur.jpg') }
 </style>

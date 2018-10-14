@@ -1,20 +1,25 @@
 <template>
     <v-layout row wrap>
       <v-flex xs12 sm12 md3 lg3 xl3>
-          <div class="mt-3">
-            <span class='subheading'>Current Events</span>
-          </div>
+        <div class="mt-3">
+          <span class='subheading'>Current Events</span>
+        </div>
         <Events class="mt-2 ml-3 mr-3 mb-2"/>
       </v-flex>
       <v-flex xs12 sm8 md6 lg6 xl6>
-        <div class="mt-3">
+        <div class="mt-3 ta-l">
           <span class='subheading'>Latest published Decks</span>
         </div>
         <PublicDecks class="mt-1" />
-        <v-layout class="mt-4 ml-2 mr-2" row nowrap>
-          <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCards"/>
-          <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)"/>
-        </v-layout>
+        <div class="mt-3 ta-l">
+          <span class='subheading'>Constructed</span>
+        </div>
+        <v-card>
+          <v-layout class="mt-2 ml-2 mr-2" row nowrap>
+            <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCards"/>
+            <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)"/>
+          </v-layout>
+        </v-card>
       </v-flex>
       <v-flex xs12 sm4 md3 lg3 xl3>
         <div class='mt-3'>
@@ -117,5 +122,8 @@ a {
 }
 .mostPlayedCards {
   min-width: 280px;
+}
+.ta-l {
+  text-align: left;
 }
 </style>
