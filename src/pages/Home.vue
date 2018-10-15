@@ -1,18 +1,24 @@
-<template>
+  <template>
     <v-layout row wrap>
       <v-flex xs12 sm12 md3 lg3 xl3>
         <div class="mt-3">
-          <span class='subheading'>Current Events</span>
+          <span class='body-2 grey--text text--darken-2'>
+            <strong>Current Events</strong>
+          </span>
         </div>
         <Events class="mt-2 ml-3 mr-3 mb-2"/>
       </v-flex>
       <v-flex xs12 sm8 md6 lg6 xl6>
         <div class="mt-3 ta-l">
-          <span class='subheading'>Latest published Decks</span>
+          <span class='body-2 grey--text text--darken-2'>
+            <strong>Latest published Decks</strong>
+          </span>
         </div>
         <PublicDecks class="mt-1" />
         <div class="mt-3 ta-l">
-          <span class='subheading'>Constructed</span>
+          <span class='body-2 grey--text text--darken-2'>
+            <strong>Constructed</strong>
+          </span>
         </div>
         <v-card>
           <v-layout class="mt-2 ml-2 mr-2" row nowrap>

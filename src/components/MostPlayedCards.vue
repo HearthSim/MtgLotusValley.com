@@ -2,7 +2,9 @@
   <div>
     <div class='mostPlayedCards'>
       <div>
-        <span class='body-2'>Most Played Cards (Last 7 days)</span>
+        <span class='caption grey--text text--darken-2'>
+          <strong>Most Played Cards (Last 7 days)</strong>
+        </span>
       </div>
       <table class="mt-1">
         <DeckCard v-for='card in cardsSorted' v-bind:key='card.mtgaId' v-bind:card='card'/>
