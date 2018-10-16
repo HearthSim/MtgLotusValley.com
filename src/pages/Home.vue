@@ -21,9 +21,14 @@
           </span>
         </div>
         <v-card class="mt-2 pt-1 pb-2">
-          <v-layout class="mt-2 ml-2 mr-2" row nowrap>
-            <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCardsConstructed"/>
-            <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)" event="constructed"/>
+          <v-layout class="mt-2 ml-2 mr-2" row wrap>
+            <v-flex xs12 sm6>
+              <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCardsConstructed"/>
+            </v-flex>
+            <v-flex xs12 sm6>
+              <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" 
+                :dateMax="getDaysAgo(1)" eventType="Constructed"/>
+            </v-flex>
           </v-layout>
         </v-card>
         <div class="mt-3 ta-l">
@@ -33,8 +38,13 @@
         </div>
         <v-card class="mt-2 pt-1 pb-2">
           <v-layout class="mt-2 ml-2 mr-2" row nowrap>
-            <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCardsLimited"/>
-            <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)" event="limited"/>
+            <v-flex xs12 sm6>
+              <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCardsLimited"/>
+            </v-flex>
+            <v-flex xs12 sm6>
+              <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" 
+                :dateMax="getDaysAgo(1)" eventType="Limited"/>
+            </v-flex>
           </v-layout>
         </v-card>
       </v-flex>

@@ -1,11 +1,11 @@
 
-const testing = false
+const isProduction = process.env.NODE_ENV === 'production'
 let isRefreshingToken = false
 let subscribers = []
 
 const axios = require('axios')
-axios.defaults.baseURL = testing ? 'http://localhost:5000/api'
-                                 : 'https://blacklotusvalley-ca867.firebaseapp.com/api'
+axios.defaults.baseURL = isProduction ? 'https://blacklotusvalley-ca867.firebaseapp.com/api'
+                                      : 'http://localhost:5000/api'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 axios.interceptors.request.use(

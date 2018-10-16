@@ -22,13 +22,13 @@ export default {
       type: String,
       required: true
     },
-    event: {
+    eventType: {
       type: String,
       required: false
     }
   },
   mounted () {
-    this.$api.getDecksByArch(this.dateMin, this.dateMax, this.event)
+    this.$api.getDecksByArch(this.dateMin, this.dateMax, this.eventType)
       .then(res => {
         const colors = []
         while (colors.length < Object.keys(res.data).length) {
