@@ -1,6 +1,6 @@
 <template>
   <div id="canvas-container">
-    <canvas id="decksByArch-chart"/>
+    <canvas ref="decksByArchchart"/>
   </div>
 </template>
 
@@ -21,10 +21,14 @@ export default {
     dateMax: {
       type: String,
       required: true
+    },
+    event: {
+      type: String,
+      required: false
     }
   },
   mounted () {
-    this.$api.getDecksByArch(this.dateMin, this.dateMax)
+    this.$api.getDecksByArch(this.dateMin, this.dateMax, this.event)
       .then(res => {
         const colors = []
         while (colors.length < Object.keys(res.data).length) {
@@ -60,8 +64,9 @@ export default {
       return values
     },
     createGraph: function (labels, data, barColors) {
-      const ctx = document.getElementById('decksByArch-chart')
-      ctx.height = labels.length * 25
+      const ctx = this.$refs.decksByArchchart
+      ctx.height = 60 + labels.length * 20
+      console.log(labels)
       new Chart(ctx, { // eslint-disable-line no-new
         type: 'horizontalBar',
         data: {

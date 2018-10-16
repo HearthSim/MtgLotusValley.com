@@ -4,12 +4,12 @@
       <a target="_blank" :href="cardLink()">
         <img :class="`${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
           v-lazy="imageUrl" width="100%"/>
-        <v-card id="cardQtd" class="elevation-2" v-if="qtd > 0">
+        <v-card class="cardQtd elevation-2" v-if="qtd > 0">
           {{ qtd }}
         </v-card>
       </a>
     </div>
-    <v-tooltip v-if="asText" left lazy color="white">
+    <v-tooltip v-if="asText" class="textName" left lazy color="white">
       <a class='body-1' target="_blank" :href="cardLink()" slot="activator">
         {{ name }}
       </a>
@@ -78,7 +78,14 @@ export default {
     transform: scale(1.7);
     transition-duration: .5s;
   }
-  #cardQtd {
+  .textName {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 120px;
+    display: block;
+    overflow: hidden;
+  }
+  .cardQtd {
     border: 2px double darkgray;
 	  border-radius: 6px;
     font-size: 11pt;

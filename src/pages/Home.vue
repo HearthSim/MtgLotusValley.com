@@ -14,16 +14,27 @@
             <strong>Latest published Decks</strong>
           </span>
         </div>
-        <PublicDecks class="mt-1" />
+        <PublicDecks class="mt-2" />
         <div class="mt-3 ta-l">
           <span class='body-2 grey--text text--darken-2'>
             <strong>Constructed</strong>
           </span>
         </div>
-        <v-card>
+        <v-card class="mt-2 pt-1 pb-2">
           <v-layout class="mt-2 ml-2 mr-2" row nowrap>
-            <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCards"/>
-            <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)"/>
+            <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCardsConstructed"/>
+            <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)" event="constructed"/>
+          </v-layout>
+        </v-card>
+        <div class="mt-3 ta-l">
+          <span class='body-2 grey--text text--darken-2'>
+            <strong>Limited</strong>
+          </span>
+        </div>
+        <v-card class="mt-2 pt-1 pb-2">
+          <v-layout class="mt-2 ml-2 mr-2" row nowrap>
+            <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCardsLimited"/>
+            <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" :dateMax="getDaysAgo(1)" event="limited"/>
           </v-layout>
         </v-card>
       </v-flex>
@@ -62,7 +73,8 @@ export default {
       deckOfDayCards: {},
       deckOfDayName: '',
       decksByColorsBasics: {},
-      mostPlayedCards: {}
+      mostPlayedCardsConstructed: {},
+      mostPlayedCardsLimited: {}
     }
   },
   methods: {
@@ -98,9 +110,16 @@ export default {
         })
     },
     requestMostPlayedCards: function () {
-      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1))
+      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'constructed', 20)
         .then(res => {
-          this.mostPlayedCards = res.data
+          this.mostPlayedCardsConstructed = res.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'limited', 10)
+        .then(res => {
+          this.mostPlayedCardsLimited = res.data
         })
         .catch(error => {
           console.log(error)

@@ -120,11 +120,12 @@ export default {
       params: params
     })
   },
-  getDecksByArch (dateMin, dateMax) {
+  getDecksByArch (dateMin, dateMax, event) {
     return axios.get('/stats/decksByArch', {
       params: {
         dateMin: dateMin,
-        dateMax: dateMax
+        dateMax: dateMax,
+        event: event
       }
     })
   },
@@ -137,11 +138,13 @@ export default {
       }
     })
   },
-  getMostPlayedCards (dateMin, dateMax) {
+  getMostPlayedCards (dateMin, dateMax, event, size) {
     return axios.get('/stats/mostPlayedCards', {
       params: {
         dateMin: dateMin,
-        dateMax: dateMax
+        dateMax: dateMax,
+        event: event,
+        size: size
       }
     })
   },
