@@ -4,7 +4,7 @@
       {{ card.qtd }}
     </td>
     <td id='card_name'>
-      <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid' asText/>
+      <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid' asText largeName/>
     <td>
     <td id='card_cost'>
       <ManaSymbols :cardid='card.id' :cost='card.manaCost'/>
@@ -36,6 +36,11 @@ export default {
     card: {
       type: Object,
       required: true
+    },
+    largeName: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   data () {

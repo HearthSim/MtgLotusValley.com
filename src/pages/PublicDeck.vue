@@ -28,8 +28,7 @@
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>
         <div>
-          <Deck class="deck mt-5" :cards="deckCards" 
-            :twoColumns="true" :userCollection="userCollection"/>
+          <Deck class="deck mt-5" :cards="deckCards" :userCollection="userCollection" largeName/>
           <v-layout row class="mt-2">
             <v-spacer/>
             <v-dialog id="btExport" v-model="deckExportDialogVisible" width="250">

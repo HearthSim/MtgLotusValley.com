@@ -4,17 +4,17 @@
       <span class='body-2'>{{ name }}</span>
       <table>
         <DeckGroup v-if='lands.length > 0'         v-bind:groupSize="lands.length"           groupName="Lands" />
-        <DeckCard  v-if='lands.length > 0'         v-for='card in lands'         v-bind:key='card.id' v-bind:card='card' :ref="card.id"/>
+        <DeckCard  v-if='lands.length > 0'         v-for='card in lands'         v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
         <DeckGroup v-if='creatures.length > 0'     v-bind:groupSize="creatures.length"       groupName="Creatures" />
-        <DeckCard  v-if='creatures.length > 0'     v-for='card in creatures'     v-bind:key='card.id' v-bind:card='card' :ref="card.id"/>
+        <DeckCard  v-if='creatures.length > 0'     v-for='card in creatures'     v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
         <DeckGroup v-if='spells.length > 0'        v-bind:groupSize="spells.length"          groupName="Spells" />
-        <DeckCard  v-if='spells.length > 0'        v-for='card in spells'        v-bind:key='card.id' v-bind:card='card' :ref="card.id"/>
+        <DeckCard  v-if='spells.length > 0'        v-for='card in spells'        v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
         <DeckGroup v-if='enchantments.length > 0'  v-bind:groupSize="enchantments.length"    groupName="Enchantments" />
-        <DeckCard  v-if='enchantments.length > 0'  v-for='card in enchantments'  v-bind:key='card.id' v-bind:card='card' :ref="card.id"/>
+        <DeckCard  v-if='enchantments.length > 0'  v-for='card in enchantments'  v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
         <DeckGroup v-if='artifacts.length > 0'     v-bind:groupSize="artifacts.length"       groupName="Artifacts" />
-        <DeckCard  v-if='artifacts.length > 0'     v-for='card in artifacts'     v-bind:key='card.id' v-bind:card='card' :ref="card.id"/>
+        <DeckCard  v-if='artifacts.length > 0'     v-for='card in artifacts'     v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
         <DeckGroup v-if='planeswalkers.length > 0' v-bind:groupSize="planeswalkers.length"   groupName="Planeswalkers" />
-        <DeckCard  v-if='planeswalkers.length > 0' v-for='card in planeswalkers' v-bind:key='card.id' v-bind:card='card' :ref="card.id"/>
+        <DeckCard  v-if='planeswalkers.length > 0' v-for='card in planeswalkers' v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
       </table>
     </div>
   </div>
@@ -40,6 +40,11 @@ export default {
     userCollection: {
       type: Object,
       required: false
+    },
+    largeName: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
