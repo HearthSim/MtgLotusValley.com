@@ -28,7 +28,7 @@
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>
         <div>
-          <Deck class="deck mt-5" :cards="deckCards" :userCollection="userCollection" largeName/>
+          <DeckPreview class="deck mt-4" :cards="deckCards" :userCollection="userCollection" largeName/>
           <v-layout row class="mt-2">
             <v-spacer/>
             <v-dialog id="btExport" v-model="deckExportDialogVisible" width="250">
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import Deck from '@/components/mtg/Deck'
+import DeckPreview from '@/components/mtg/DeckPreview'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
 import TypeDistribution from '@/components/charts/TypeDistribution'
@@ -67,7 +67,7 @@ import Utils from '@/scripts/utils'
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
+    DeckPreview, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
   },
   created () {
     this.requestDeck()

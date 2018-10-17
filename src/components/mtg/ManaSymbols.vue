@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div>
-      <span v-for="(mana, index) in manaSymbols" :key="cardid + mana + index">
-        <i v-bind:class="'ms ms-' + mana + ' ms-cost ms-shadow'"></i>
-      </span>
-    </div>
+  <div id="manaSymbol">
+    <span v-for="(mana, index) in manaSymbols" :key="cardid + mana + index">
+      <i v-bind:class="'ms ms-' + mana + ' ms-cost ms-shadow'"></i>
+    </span>
   </div>
 </template>
 
@@ -33,7 +31,7 @@ export default {
 </script>
 
 <style>
-span {
+#manaSymbol span i {
   font-size: .8em;
 }
 .ms-cost {
