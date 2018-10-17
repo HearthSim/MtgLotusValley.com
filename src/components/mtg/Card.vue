@@ -9,7 +9,7 @@
         </v-card>
       </a>
     </div>
-    <v-tooltip v-if="asText" :class="`textName ${largeName ? '' : 'textNameNormal'}`" left lazy>
+    <v-tooltip v-if="asText" :class="`textName ${largeName ? 'textNameLarge' : 'textNameNormal'}`" left lazy>
       <a class='body-1' target="_blank" :href="cardLink()" slot="activator">
         {{ name }}
       </a>
@@ -86,11 +86,14 @@ export default {
   .textName {
     text-overflow: ellipsis;
     white-space: nowrap;
-    display: block;
+    display: inline-flex;/* block; */
     overflow: hidden;
   }
   .textNameNormal {
     max-width: 140px;
+  }
+  .textNameLarge {
+    max-width: 200px;
   }
   .cardQtd {
     border: 2px double darkgray;

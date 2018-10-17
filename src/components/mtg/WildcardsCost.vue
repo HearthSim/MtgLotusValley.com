@@ -33,6 +33,7 @@ export default {
   },
   methods: {
     setCost: function (value) {
+      this.wcCosts.splice(0, this.wcCosts.length)
       Object.keys(value).forEach(rarity => {
         this.wcCosts.push({
           'rarity': rarity,

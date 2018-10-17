@@ -28,22 +28,26 @@
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>
         <div>
-          <DeckPreview class="deck mt-4" :cards="deckCards" :userCollection="userCollection" largeName/>
-          <v-layout row class="mt-2">
+          <v-layout row class="mt-1">
             <v-spacer/>
-            <v-dialog id="btExport" v-model="deckExportDialogVisible" width="250">
+            <v-dialog id="btExport" class="ml-1" v-model="deckExportDialogVisible">
               <v-btn flat small color="primary" v-on:click="exportDeck()" 
                 slot="activator">Export to MTGArena</v-btn>
               <v-card>
                 <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
                 <v-card-actions>
                   <v-spacer/>
-                  <v-btn color="primary" flat="flat" @click="deckExportDialogVisible = false">OK</v-btn>
+                  <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
+            <v-btn color="primary" flat small v-on:click="changeDeckMode()">
+              {{ textMode ? 'Image Mode' : 'Text Mode'}}
+            </v-btn>
           </v-layout>
-          <SampleHand class="mt-2" :cards="deckCards"/>
+          <Deck v-if="textMode" class="deck mt-2" :cards="deckCards" :userCollection="userCollection" :ref="'deckTextMode'" largeName/>
+          <DeckPreview v-if="!textMode" class="deck mt-2" :cards="deckCards" :userCollection="userCollection" :ref="'deckImageMode'"/>
+          <SampleHand class="mt-3" :cards="deckCards"/>
         </div>
       </v-flex>
       <v-flex id="rSide" hidden-xs-only sm4 md3 lg3 xl3 class="mb-3">
@@ -56,6 +60,7 @@
 </template>
 
 <script>
+import Deck from '@/components/mtg/Deck'
 import DeckPreview from '@/components/mtg/DeckPreview'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
@@ -67,7 +72,7 @@ import Utils from '@/scripts/utils'
 export default {
   name: 'PublicDeck',
   components: {
-    DeckPreview, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
+    Deck, DeckPreview, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
   },
   created () {
     this.requestDeck()
@@ -83,6 +88,7 @@ export default {
       deckWCCost: {},
       deckWCMissingCost: {},
       isLoading: false,
+      textMode: false,
       userCollection: {},
       deckExportDialogVisible: false
     }
@@ -155,6 +161,10 @@ export default {
         'uncommon': wcMissingCost['uncommon'] !== undefined ? wcMissingCost['uncommon'] : 0,
         'common': wcMissingCost['common'] !== undefined ? wcMissingCost['common'] : 0
       }
+    },
+    changeDeckMode: function () {
+      this.textMode = !this.textMode
+      this.getUserCollection()
     },
     exportDeck: function () {
       let data = ''

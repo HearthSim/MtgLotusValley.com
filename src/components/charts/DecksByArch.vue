@@ -66,7 +66,6 @@ export default {
     createGraph: function (labels, data, barColors) {
       const ctx = this.$refs.decksByArchchart
       ctx.height = 60 + labels.length * 20
-      console.log(labels)
       new Chart(ctx, { // eslint-disable-line no-new
         type: 'horizontalBar',
         data: {
