@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-text-field id="filterSearch" class="pl-2 pr-2" label="Search" v-model="searchQuery" @keyup.native.enter="updateFilters"
+    <v-text-field id="filterSearch" class="pl-2 pr-2" label="Search" 
+      v-model="searchQuery" @keyup.native.enter="updateFilters"
       solo single-line hide-details clearable />
     <CardFilter class="mt-3" ref="cardFilter"/>
     <v-btn id="filterApply" color="white" @click="updateFilters()">Apply</v-btn>
@@ -11,13 +12,15 @@
         <v-container id="cards" class='mt-1' grid-list-md fluid>
           <v-layout row wrap>
             <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
-              <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
+              <Card :name='card.name' :imageUrl='card.imageUrl' 
+                :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
             </v-flex>
           </v-layout>
         </v-container>
         <v-layout row align-center justify-space-between>
           <v-flex xs3 sm3 md1 offset-md5 lg4 offset-lg4 class="text-xs-center">
-            <v-progress-circular v-if="isLoading" color="deep-orange" :width="2" :size="25" :indeterminate="true"/>
+            <v-progress-circular v-if="isLoading" color="deep-orange" 
+              :width="2" :size="25" :indeterminate="true"/>
           </v-flex>
           <v-flex xs9 sm9            md6            lg4 class="text-xs-right">
             <div id="pages">

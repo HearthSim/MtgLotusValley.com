@@ -1,33 +1,31 @@
 <template>
   <div>
-    <v-layout row nowrap class="pt-2 pb-2">
-      <v-flex sm2/>
-      <v-flex sm2>
-        <div id="deckTitle">
-          <div id="mana" class="mt-2">
-            <img v-for="color in deckColors.split('')" :key="color"
-              :src="require(`@/assets/mana/${color}.png`)"/>
-          </div>
-          <span class='title'>{{ deckName }}</span>
-          <span class='subheading'> - {{ deckArch }}</span>
-        </div>
-      </v-flex>
-      <v-flex sm4/>
-      <v-flex sm2 v-if="$isUserLogged()">
-        <span class='subheading'>Cost to build:</span>
-        <WildcardsCost class="mt-1" :cost="deckWCMissingCost"/>
-      </v-flex>
-      <v-flex sm2>
-        <span class='subheading'>Total deck cost:</span>
-        <WildcardsCost class="mt-1" :cost="deckWCCost"/>
-      </v-flex>
-    </v-layout>
-    <v-divider/>
     <v-layout row>
       <v-flex hidden-sm-and-down md3 lg2 xl3>
       </v-flex>
       <v-flex           xs12 sm8 md6 lg7 xl6>
         <div>
+          <v-layout row nowrap class="pt-2 pb-2">
+            <v-flex sm4>
+              <div id="deckTitle">
+                <div id="mana" class="mt-2">
+                  <img v-for="color in deckColors.split('')" :key="color"
+                    :src="require(`@/assets/mana/${color}.png`)"/>
+                </div>
+                <span class='title'>{{ deckName }}</span>
+                <span class='subheading'> - {{ deckArch }}</span>
+              </div>
+            </v-flex>
+            <v-flex sm4 v-if="$isUserLogged()">
+              <span class='subheading'>Cost to build:</span>
+              <WildcardsCost class="mt-1" :cost="deckWCMissingCost"/>
+            </v-flex>
+            <v-flex sm4>
+              <span class='subheading'>Total deck cost:</span>
+              <WildcardsCost class="mt-1" :cost="deckWCCost"/>
+            </v-flex>
+          </v-layout>
+          <v-divider/>
           <v-layout row class="mt-1">
             <v-spacer/>
             <v-dialog id="btExport" class="ml-1" v-model="deckExportDialogVisible">
@@ -51,8 +49,8 @@
         </div>
       </v-flex>
       <v-flex id="rSide" hidden-xs-only sm4 md3 lg3 xl3 class="mb-3">
-        <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
         <CardsColorDistribution class='mt-4' :cards="deckCards"/>
+        <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
         <TypeDistribution class='mt-4' :cards="deckCards"/>
       </v-flex>
     </v-layout>
@@ -110,6 +108,7 @@ export default {
           }
         })
         .catch(error => {
+          this.isLoading = false
           console.log(error)
         })
     },
@@ -120,6 +119,10 @@ export default {
           this.isLoading = false
           this.userCollection = res.data
           this.deckWCMissingCost = this.getDeckWCMissingCost()
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
         })
     },
     getDeckWCCost: function () {
