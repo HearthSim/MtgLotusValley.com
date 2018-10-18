@@ -144,46 +144,47 @@ export default {
 }
 </script>
 
-<style>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
   #deckPreview {
     width: 100%;
   }
-  #deckPreview .types {
+  .types {
     display: flex;
     width: 100%;
   }
-  #deckPreview tr {
+  tr {
     width: 100%;
   }
-  #deckPreview .cardsContainer{
+  .cardsContainer{
     font-size: 11pt;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
   }
-  #deckPreview .cards {
+  .cards {
     padding: 2px;
     flex: 1;
     max-width: 250px;
   }
-  #deckPreview .card {
+  .card {
     display: inline-block;
     position: relative;
   }
-  #deckPreview .card .cardImage {
+  .card .cardImage {
     pointer-events: none;
     display: block;
     position: relative;
     max-width: 100%;
     width: 250px;
   }
-  #deckPreview .card:hover img {
+  .card:hover img {
     z-index: 9999;
   }
-  #deckPreview .card:not(:first-child) {
+  .card:not(:first-child) {
     margin-top: -129%;
   }
-  #deckPreview .wildcard {
+  .wildcard {
     position: absolute;
     top: 0;
     right: 0;

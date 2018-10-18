@@ -13,7 +13,7 @@
         </v-list-tile>
       </v-list>
     </v-menu>
-    
+
     <v-dialog v-model="signInDialog" width="300">
       <v-card>
         <v-card-text>
@@ -126,7 +126,7 @@ export default {
   methods: {
     signedMenuClick: function (index) {
       switch (index) {
-        case 0: this.$router.replace('collection?page=1')
+        case 0: this.$router.replace('/collection?page=1')
           break
         case 2: this.logout()
           break

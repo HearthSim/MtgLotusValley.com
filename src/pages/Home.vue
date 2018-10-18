@@ -14,7 +14,7 @@
             <strong>Latest published Decks</strong>
           </span>
         </div>
-        <PublicDecks class="mt-2" />
+        <LatestDecks class="mt-2" />
         <div class="mt-3 ta-l">
           <span class='body-2 grey--text text--darken-2'>
             <strong>Constructed</strong>
@@ -64,14 +64,14 @@
 import Deck from '@/components/mtg/Deck'
 import DecksByArch from '@/components/charts/DecksByArch'
 import DecksColorDistribution from '@/components/charts/DecksColorDistribution'
-import PublicDecks from '@/components/PublicDecks'
+import LatestDecks from '@/components/LatestDecks'
 import Events from '@/components/Events'
 import MostPlayedCards from '@/components/MostPlayedCards'
 
 export default {
   name: 'Home',
   components: {
-    Deck, DecksByArch, Events, PublicDecks, DecksColorDistribution, MostPlayedCards
+    Deck, DecksByArch, Events, LatestDecks, DecksColorDistribution, MostPlayedCards
   },
   created () {
     this.requestDeckOfDay()

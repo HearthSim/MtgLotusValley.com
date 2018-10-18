@@ -1,8 +1,8 @@
 <template>
-  <div id="card">
+  <div>
     <div v-if="!asText" :class="`${highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'}`">
       <a target="_blank" :href="cardLink()">
-        <img :class="`${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
+        <img :class="`cardBorder ${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
           v-lazy="imageUrl" width="100%"/>
         <v-card class="cardQtd elevation-2" v-if="qtd > 0">
           {{ qtd }}
@@ -13,7 +13,7 @@
       <a class='body-1' target="_blank" :href="cardLink()" slot="activator">
         {{ name }}
       </a>
-      <img v-lazy="imageUrl" alt="Loading..." width="250px" />
+      <img class="cardBorder" v-lazy="imageUrl" alt="Loading..." width="250px" />
     </v-tooltip>
   </div>
 </template>
@@ -66,10 +66,16 @@ export default {
 }
 </script>
 
-<style>
-  #card a {
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  a {
     color: #337ab7;
     text-decoration: none;
+  }
+  .cardBorder {
+    padding: 4px;
+    border-radius: 8px;
+    background-color: #14130e;
   }
   .grayscale {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
