@@ -10,6 +10,8 @@
       </v-toolbar-items>
       <v-toolbar-title v-text="title" class="hidden-xs-only"/>
       <v-spacer/>
+      <v-btn flat @click="onDecksClick()">Decks</v-btn>
+      <v-spacer/>
       <Auth/>
     </v-toolbar>
     <v-content>
@@ -36,6 +38,11 @@ export default {
       clipped: false,
       fixed: false,
       title: 'Black Lotus Valley'
+    }
+  },
+  methods: {
+    onDecksClick: function () {
+      this.$router.replace('/decks')
     }
   }
 }
