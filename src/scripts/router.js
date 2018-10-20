@@ -24,14 +24,14 @@ const router = new Router({
       }
     },
     {
-      path: '/decks',
-      name: 'PublicDecks',
-      component: PublicDecks
-    },
-    {
       path: '/decks/:alias',
       name: 'PublicDeck',
       component: PublicDeck
+    },
+    {
+      path: '/decks',
+      name: 'PublicDecks',
+      component: PublicDecks
     },
     {
       path: '*',

@@ -30,6 +30,7 @@ export default {
       if (this.groupName === 'Enchantments') return 'enchantment'
       if (this.groupName === 'Artifacts') return 'artifact'
       if (this.groupName === 'Planeswalkers') return 'planeswalker'
+      if (this.groupName === 'Sideboard') return 'multiple'
       return ''
     }
   },

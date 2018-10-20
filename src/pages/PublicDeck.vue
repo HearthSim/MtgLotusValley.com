@@ -6,15 +6,15 @@
       <v-flex           xs12 sm8 md6 lg7 xl6>
         <div>
           <v-layout row nowrap class="pt-2 pb-2">
-            <v-flex sm4>
-              <div id="deckTitle">
-                <div id="mana" class="mt-2">
+            <v-flex sm6 class="mt-2">
+              <v-layout id="deckTitle" row nowrap>
+                <div id="mana">
                   <img v-for="color in deckColors.split('')" :key="color"
                     :src="require(`@/assets/mana/${color}.png`)"/>
                 </div>
-                <span class='title'>{{ deckName }}</span>
-                <span class='subheading'> - {{ deckArch }}</span>
-              </div>
+                <span class='title ml-1'>{{ deckName }}</span>
+              </v-layout>
+              <span class='subheading'>{{ deckArch }}</span>
             </v-flex>
             <v-flex sm4 v-if="$isUserLogged()">
               <span class='subheading'>Cost to build:</span>
@@ -43,8 +43,10 @@
               {{ textMode ? 'Image Mode' : 'Text Mode'}}
             </v-btn>
           </v-layout>
-          <Deck v-if="textMode" class="deck mt-2" :cards="deckCards" :userCollection="userCollection" :ref="'deckTextMode'" largeName/>
-          <DeckPreview v-if="!textMode" class="deck mt-2" :cards="deckCards" :userCollection="userCollection" :ref="'deckImageMode'"/>
+          <Deck v-if="textMode" class="deck mt-2" :cards="deckCards" :sideboard="sideboardCards"
+            :userCollection="userCollection" :ref="'deckTextMode'" largeName/>
+          <DeckPreview v-if="!textMode" class="deck mt-2" :cards="deckCards" :sideboard="sideboardCards"
+            :userCollection="userCollection" :ref="'deckImageMode'"/>
           <SampleHand class="mt-3" :cards="deckCards"/>
         </div>
       </v-flex>
@@ -79,6 +81,7 @@ export default {
     return {
       deckAlias: this.$route.params.alias,
       deckCards: {},
+      sideboardCards: {},
       deckName: '',
       deckArch: '',
       deckColors: '',
@@ -86,7 +89,7 @@ export default {
       deckWCCost: {},
       deckWCMissingCost: {},
       isLoading: false,
-      textMode: false,
+      textMode: true,
       userCollection: {},
       deckExportDialogVisible: false
     }
@@ -98,6 +101,7 @@ export default {
         .then(res => {
           this.isLoading = false
           this.deckCards = res.data.cards
+          this.sideboardCards = res.data.sideboard
           this.deckName = res.data.name
           this.deckArch = res.data.arch
           this.deckColors = res.data.colors
@@ -193,9 +197,7 @@ export default {
     padding-right: 3%;
   }
   #deckTitle {
-    min-height: 40px;
-    transform: translateY(20px);
-    display: inline;
+    justify-content: center;
   }
   #btExport {
     padding-right: 3%;

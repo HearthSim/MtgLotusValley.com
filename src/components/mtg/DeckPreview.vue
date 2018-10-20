@@ -4,15 +4,27 @@
       <span class='body-2'>{{ name }}</span>
     </v-flex>
     <v-flex xl12 class="types">
-      <DeckGroup align="center" v-if='lands.length > 0'         v-bind:groupSize="lands.length"           groupName="Lands" />
-      <DeckGroup align="center" v-if='creatures.length > 0'     v-bind:groupSize="creatures.length"       groupName="Creatures" />
-      <DeckGroup align="center" v-if='spells.length > 0'        v-bind:groupSize="spells.length"          groupName="Spells" />
-      <DeckGroup align="center" v-if='enchantments.length > 0'  v-bind:groupSize="enchantments.length"    groupName="Enchantments" />
-      <DeckGroup align="center" v-if='artifacts.length > 0'     v-bind:groupSize="artifacts.length"       groupName="Artifacts" />
-      <DeckGroup align="center" v-if='planeswalkers.length > 0' v-bind:groupSize="planeswalkers.length"   groupName="Planeswalkers" />
+      <DeckGroup align="center" v-if='lands.length > 0'         v-bind:groupSize="lands.length"         groupName="Lands" />
+      <DeckGroup align="center" v-if='creatures.length > 0'     v-bind:groupSize="creatures.length"     groupName="Creatures" />
+      <DeckGroup align="center" v-if='spells.length > 0'        v-bind:groupSize="spells.length"        groupName="Spells" />
+      <DeckGroup align="center" v-if='enchantments.length > 0'  v-bind:groupSize="enchantments.length"  groupName="Enchantments" />
+      <DeckGroup align="center" v-if='artifacts.length > 0'     v-bind:groupSize="artifacts.length"     groupName="Artifacts" />
+      <DeckGroup align="center" v-if='planeswalkers.length > 0' v-bind:groupSize="planeswalkers.length" groupName="Planeswalkers" />
     </v-flex>
-    <v-flex xl12 class="cardsContainer mt-3">
+    <v-flex xl12 class="cardsContainer mt-2">
       <div class="cards" v-for='(cardsPile, pileIndex) in allCards' v-bind:key='`pile${pileIndex}`'>
+        <a class="card" v-for='card in cardsPile' v-bind:key='card.ref' target="_blank" 
+          :href="cardLink(card.multiverseid, card.name)">
+          <img class="cardBorder cardImage" v-lazy="card.imageUrl" alt="Loading..." :ref="card.ref" />
+          <!-- <img class="wildcard" :src="require(`@/assets/wildcards/${card.rarity}.png`)"/> -->
+        </a>
+      </div>
+    </v-flex>
+    <v-flex xl12 class="types mt-2">
+      <DeckGroup align="center" v-if='lands.length > 0' v-bind:groupSize="allSideboard.length" groupName="Sideboard" />
+    </v-flex>
+    <v-flex xl12 class="cardsContainer mt-2">
+      <div class="cards" v-for='(cardsPile, pileIndex) in allSideboard' v-bind:key='`pile${pileIndex}`'>
         <a class="card" v-for='card in cardsPile' v-bind:key='card.ref' target="_blank" 
           :href="cardLink(card.multiverseid, card.name)">
           <img class="cardBorder cardImage" v-lazy="card.imageUrl" alt="Loading..." :ref="card.ref" />
@@ -35,6 +47,10 @@ export default {
       type: Object,
       required: true
     },
+    sideboard: {
+      type: Object,
+      required: false
+    },
     name: {
       type: String,
       required: false
@@ -50,14 +66,13 @@ export default {
         return `http://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[${name}]`
       }
       return `http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=${multiverseid}`
-    }
-  },
-  computed: {
-    cardsGrouped: function () {
+    },
+    groupCards: function (cards) {
       const cardsArray = []
-      Object.keys(this.cards).forEach(mtgaId => {
-        const card = this.cards[mtgaId]
-        card['mtgaId'] = mtgaId
+      console.log(cards)
+      Object.keys(cards).forEach(mtgaId => {
+        const card = cards[mtgaId]
+        card['id'] = mtgaId
         card['itemType'] = 'card'
         for (let i = 0; i < card.qtd; i++) {
           card['ref'] = `card_${mtgaId}_${i + 1}`
@@ -74,7 +89,13 @@ export default {
           return -1
         }
       })
+      console.log(cardsArray)
       return cardsArray
+    }
+  },
+  computed: {
+    cardsGrouped: function () {
+      return this.groupCards(this.cards)
     },
     lands: function () {
       return this.cardsGrouped.filter(card => {
@@ -113,6 +134,17 @@ export default {
       data = data.concat(this.enchantments)
       data = data.concat(this.artifacts)
       data = data.concat(this.planeswalkers)
+      const columns = 4
+      const pileSize = data.length / columns
+      let cards = []
+      for (let i = 0; i < columns; i++) {
+        const index = i * pileSize
+        cards.push(data.slice(index, index + pileSize))
+      }
+      return cards
+    },
+    allSideboard: function () {
+      let data = this.groupCards(this.sideboard)
       const columns = 4
       const pileSize = data.length / columns
       let cards = []
