@@ -9,7 +9,7 @@
         </v-card>
       </a>
     </div>
-    <v-tooltip v-if="asText" :class="`textName ${largeName ? 'textNameLarge' : 'textNameNormal'}`" left lazy>
+    <v-tooltip v-if="asText" :class="`textNoWrap ${largeName ? 'textNameLarge' : 'textNameNormal'}`" left lazy>
       <a class='body-1' target="_blank" :href="cardLink()" slot="activator">
         {{ name }}
       </a>
@@ -88,12 +88,6 @@ export default {
   .highHoverScale:hover {
     transform: scale(1.7);
     transition-duration: .5s;
-  }
-  .textName {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-flex;/* block; */
-    overflow: hidden;
   }
   .textNameNormal {
     max-width: 140px;

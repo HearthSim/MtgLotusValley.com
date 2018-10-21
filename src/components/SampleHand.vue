@@ -1,6 +1,5 @@
 <template>
   <div>
-    <span class='subheading'>Sample Hand</span>
     <v-layout>
       <v-spacer/>
       <a class="mr-1" v-on:click="regenerateSampleHand()">Generate new hand</a>

@@ -41,6 +41,10 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    userCollection: {
+      type: Object,
+      required: false
     }
   },
   data () {
@@ -50,6 +54,14 @@ export default {
   },
   methods: {
     updateMissingValue: function (owned) {
+      if (!this.card.type.includes('Basic Land')) {
+        this.missingQtd = this.card.qtd - owned
+      }
+    }
+  },
+  watch: {
+    userCollection: function (value) {
+      const owned = value[this.card.id] !== undefined ? value[this.card.id] : 0
       if (!this.card.type.includes('Basic Land')) {
         this.missingQtd = this.card.qtd - owned
       }

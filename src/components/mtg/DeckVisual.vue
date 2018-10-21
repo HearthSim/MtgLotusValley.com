@@ -1,0 +1,256 @@
+<template>
+  <v-layout class='deckVisual' row wrap>
+    <v-flex xl12>
+      <span class='body-2'>{{ name }}</span>
+    </v-flex>
+    <v-flex xl12 class="types">
+      <DeckGroup align="center" v-if='lands.length > 0'
+        v-bind:groupSize="lands.length"         groupName="Lands" />
+      <DeckGroup align="center" v-if='creatures.length > 0'
+        v-bind:groupSize="creatures.length"     groupName="Creatures" />
+      <DeckGroup align="center" v-if='spells.length > 0'
+        v-bind:groupSize="spells.length"        groupName="Spells" />
+      <DeckGroup align="center" v-if='enchantments.length > 0'
+        v-bind:groupSize="enchantments.length"  groupName="Enchantments" />
+      <DeckGroup align="center" v-if='artifacts.length > 0'
+        v-bind:groupSize="artifacts.length"     groupName="Artifacts" />
+      <DeckGroup align="center" v-if='planeswalkers.length > 0'
+        v-bind:groupSize="planeswalkers.length" groupName="Planeswalkers" />
+    </v-flex>
+    <v-flex xl12 class="cardsContainer mt-2">
+      <DeckVisualPile class="cards" :cardsPile="cardsPile"
+        v-for='(cardsPile, pileIndex) in allCards' v-bind:key='`main_pile${pileIndex}`'/>
+    </v-flex>
+    <v-flex xl12 class="types mt-2 mb-2" v-if='allCards.length > 0 && allSideboard.length > 0'>
+      <DeckGroup align="center" v-bind:groupSize="allSideboard.length" groupName="Sideboard" />
+    </v-flex>
+    <v-flex xl12 class="cardsContainer" v-if='allSideboard.length > 0'>
+      <DeckVisualPile class="cards" :cardsPile="cardsPile"
+        v-for='(cardsPile, pileIndex) in allSideboard' v-bind:key='`side_pile${pileIndex}`'/>
+    </v-flex>
+  </v-layout>
+</template>
+
+<script>
+import DeckGroup from '@/components/mtg/DeckGroup'
+import DeckVisualPile from '@/components/mtg/DeckVisualPile'
+
+export default {
+  components: {
+    DeckGroup, DeckVisualPile
+  },
+  props: {
+    cards: {
+      type: Object,
+      required: false
+    },
+    sideboard: {
+      type: Object,
+      required: false
+    },
+    name: {
+      type: String,
+      required: false
+    },
+    userCollection: {
+      type: Object,
+      required: false
+    },
+    userCollectionWithoutMainDeck: {
+      type: Object,
+      required: false
+    }
+  },
+  data () {
+    return {
+      allCards: [],
+      allSideboard: []
+    }
+  },
+  computed: {
+    cardsGrouped: function () {
+      if (this.cards === undefined) {
+        return []
+      }
+      return this.groupCards(this.cards, true)
+    },
+    lands: function () {
+      return this.cardsGrouped.filter(card => {
+        return card.type.includes('Land') && !card.type.includes('Creature')
+      })
+    },
+    creatures: function () {
+      return this.cardsGrouped.filter(card => card.type.includes('Creature'))
+    },
+    spells: function () {
+      return this.cardsGrouped.filter(card => {
+        return card.type.includes('Instant') || card.type.includes('Sorcery')
+      })
+    },
+    enchantments: function () {
+      return this.cardsGrouped.filter(card => {
+        return card.type.includes('Enchantment') && !card.type.includes('Creature')
+      })
+    },
+    artifacts: function () {
+      return this.cardsGrouped.filter(card => {
+        return card.type.includes('Artifact') &&
+          !card.type.includes('Creature') &&
+          !card.type.includes('Land') &&
+          !card.type.includes('Enchantment')
+      })
+    },
+    planeswalkers: function () {
+      return this.cardsGrouped.filter(card => card.type.includes('Planeswalker'))
+    }
+  },
+  mounted: function () {
+    const columns = 4
+    let cards = []
+    if (this.cards !== undefined) {
+      let data = []
+      data = data.concat(this.lands)
+      data = data.concat(this.creatures)
+      data = data.concat(this.spells)
+      data = data.concat(this.enchantments)
+      data = data.concat(this.artifacts)
+      data = data.concat(this.planeswalkers)
+      const pileSize = data.length / columns
+      for (let i = 0; i < columns; i++) {
+        const index = i * pileSize
+        cards.push(data.slice(index, index + pileSize))
+      }
+    }
+    this.allCards = cards
+
+    cards = []
+    if (this.sideboard !== undefined) {
+      const data = this.groupCards(this.sideboard, false)
+      const pileSize = data.length / columns
+      for (let i = 0; i < columns; i++) {
+        const index = i * pileSize
+        cards.push(data.slice(index, index + pileSize))
+      }
+    }
+    this.allSideboard = cards
+  },
+  methods: {
+    cardLink: function (multiverseid, name) {
+      if (multiverseid === 0) {
+        return `http://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[${name}]`
+      }
+      return `http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=${multiverseid}`
+    },
+    groupCards: function (cards, mainDeck) {
+      const cardsArray = []
+      Object.keys(cards).forEach(mtgaId => {
+        const card = cards[mtgaId]
+        card['id'] = mtgaId
+        card['itemType'] = 'card'
+        for (let i = 0; i < card.qtd; i++) {
+          if (card.type.includes('Basic Land')) {
+            card['isMissing'] = false
+          } else {
+            card['isMissing'] = this.$isUserLogged()
+          }
+          cardsArray.push(card)
+        }
+      })
+      cardsArray.sort(function (card1, card2) {
+        if (card1.cmc !== card2.cmc) {
+          return card1.cmc - card2.cmc
+        }
+        if (card1.name > card2.name) {
+          return 1
+        } else {
+          return -1
+        }
+      })
+      return cardsArray
+    },
+    updateMissingCards: function (piles, mainDeck, userCollection) {
+      const data = {}
+      Object.assign(data, userCollection)
+      const pilesUpdated = []
+      piles.forEach(cards => {
+        const cardsUpdated = []
+        cards.forEach(card => {
+          const cardUpdated = {}
+          Object.assign(cardUpdated, card)
+          if (!card.type.includes('Basic Land')) {
+            const owned = data[card.id] !== undefined ? data[card.id] : 0
+            cardUpdated['isMissing'] = owned === 0
+            if (owned > 0) {
+              data[card.id] -= 1
+            }
+          }
+          cardsUpdated.push(cardUpdated)
+        })
+        pilesUpdated.push(cardsUpdated)
+      })
+      if (mainDeck) {
+        this.allCards = pilesUpdated
+      } else {
+        this.allSideboard = pilesUpdated
+      }
+      return data
+    }
+  },
+  watch: {
+    userCollection: function (value) {
+      const remainingCollection = this.updateMissingCards(this.allCards, true, value)
+      this.updateMissingCards(this.allSideboard, false, remainingCollection)
+    },
+    userCollectionWithoutMainDeck: function (value) {
+      this.updateMissingCards(this.allSideboard, false, value)
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  .deckVisual {
+    width: 100%;
+  }
+  .types {
+    display: flex;
+    width: 100%;
+  }
+  tr {
+    width: 100%;
+  }
+  .cardsContainer{
+    font-size: 11pt;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .cards {
+    padding: 2px;
+    flex: 1;
+    max-width: 250px;
+  }
+  .wildcard {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 28px;
+    margin-right: -3px;
+    margin-top: -3px;
+  }
+  .cardBorder {
+    padding: 4px;
+    border-radius: 12px;
+    background-color: #14130e;
+  }
+  table {
+    margin: auto;
+    text-align: right;
+    table-layout: fixed;
+    border-spacing: 0;
+  }
+  table td {
+    padding: 0;
+  }
+</style>

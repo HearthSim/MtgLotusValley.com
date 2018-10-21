@@ -3,20 +3,28 @@
     <div class='deck'>
       <span class='body-2'>{{ name }}</span>
       <table>
-        <DeckGroup v-if='lands.length > 0'         v-bind:groupSize="landsQtd"           groupName="Lands" />
-        <DeckCard  v-if='lands.length > 0'         v-for='card in lands'         v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
-        <DeckGroup v-if='creatures.length > 0'     v-bind:groupSize="creaturesQtd"       groupName="Creatures" />
-        <DeckCard  v-if='creatures.length > 0'     v-for='card in creatures'     v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
-        <DeckGroup v-if='spells.length > 0'        v-bind:groupSize="spellsQtd"          groupName="Spells" />
-        <DeckCard  v-if='spells.length > 0'        v-for='card in spells'        v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
-        <DeckGroup v-if='enchantments.length > 0'  v-bind:groupSize="enchantmentsQtd"    groupName="Enchantments" />
-        <DeckCard  v-if='enchantments.length > 0'  v-for='card in enchantments'  v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
-        <DeckGroup v-if='artifacts.length > 0'     v-bind:groupSize="artifactsQtd"       groupName="Artifacts" />
-        <DeckCard  v-if='artifacts.length > 0'     v-for='card in artifacts'     v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
-        <DeckGroup v-if='planeswalkers.length > 0' v-bind:groupSize="planeswalkersQtd"   groupName="Planeswalkers" />
-        <DeckCard  v-if='planeswalkers.length > 0' v-for='card in planeswalkers' v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
-        <DeckGroup v-if='sideCards.length > 0'     v-bind:groupSize="sideboardQtd"       groupName="Sideboard" />
-        <DeckCard  v-if='sideCards.length > 0'     v-for='card in sideCards'     v-bind:key='card.id' v-bind:card='card' :ref="card.id" largeName/>
+        <DeckGroup v-if='lands.length > 0'         v-bind:groupSize="landsQtd"         groupName="Lands" />
+        <DeckCard  v-if='lands.length > 0'         v-for='card in lands'          v-bind:key='card.id'
+          v-bind:card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='creatures.length > 0'     v-bind:groupSize="creaturesQtd"     groupName="Creatures" />
+        <DeckCard  v-if='creatures.length > 0'     v-for='card in creatures'      v-bind:key='card.id'
+          v-bind:card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='spells.length > 0'        v-bind:groupSize="spellsQtd"        groupName="Spells" />
+        <DeckCard  v-if='spells.length > 0'        v-for='card in spells'         v-bind:key='card.id'
+          v-bind:card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='enchantments.length > 0'  v-bind:groupSize="enchantmentsQtd"  groupName="Enchantments" />
+        <DeckCard  v-if='enchantments.length > 0'  v-for='card in enchantments'   v-bind:key='card.id'
+          v-bind:card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='artifacts.length > 0'     v-bind:groupSize="artifactsQtd"     groupName="Artifacts" />
+        <DeckCard  v-if='artifacts.length > 0'     v-for='card in artifacts'      v-bind:key='card.id'
+          v-bind:card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='planeswalkers.length > 0' v-bind:groupSize="planeswalkersQtd" groupName="Planeswalkers" />
+        <DeckCard  v-if='planeswalkers.length > 0' v-for='card in planeswalkers'  v-bind:key='card.id'
+          v-bind:card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='cardsGrouped.lenght > 0 && sideCards.length > 0'
+          v-bind:groupSize="sideboardQtd" groupName="Sideboard" />
+        <DeckCard  v-if='sideCards.length > 0'     v-for='card in sideCards'      v-bind:key='card.id'
+          v-bind:card='card' :userCollection="userCollectionWithoutMainDeck" largeName/>
       </table>
     </div>
   </div>
@@ -33,7 +41,7 @@ export default {
   props: {
     cards: {
       type: Object,
-      required: true
+      required: false
     },
     sideboard: {
       type: Object,
@@ -47,6 +55,10 @@ export default {
       type: Object,
       required: false
     },
+    userCollectionWithoutMainDeck: {
+      type: Object,
+      required: false
+    },
     largeName: {
       type: Boolean,
       required: false,
@@ -55,10 +67,16 @@ export default {
   },
   computed: {
     cardsGrouped: function () {
-      return this.groupCards(this.cards)
+      if (this.cards === undefined) {
+        return []
+      }
+      return this.groupCards(this.cards, true)
     },
     sideCards: function () {
-      return this.groupCards(this.sideboard)
+      if (this.sideboard === undefined) {
+        return []
+      }
+      return this.groupCards(this.sideboard, false)
     },
     lands: function () {
       return this.cardsGrouped.filter(card => {
@@ -112,11 +130,11 @@ export default {
     }
   },
   methods: {
-    groupCards: function (cards) {
+    groupCards: function (cards, mainDeck) {
       const cardsArray = []
-      Object.keys(cards).forEach(cardId => {
-        const card = cards[cardId]
-        card['id'] = cardId
+      Object.keys(cards).forEach(mtgaId => {
+        const card = cards[mtgaId]
+        card['id'] = mtgaId
         card['itemType'] = 'card'
         cardsArray.push(card)
       })
@@ -131,19 +149,6 @@ export default {
         }
       })
       return cardsArray
-    }
-  },
-  watch: {
-    userCollection: function (value) {
-      Object.keys(this.cards).forEach(cardId => {
-        const cardComponent = this.$refs[cardId]
-        if (cardComponent !== undefined && cardComponent.length > 0) {
-          const owned = value[cardId] !== undefined ? value[cardId] : 0
-          cardComponent[0].updateMissingValue(owned)
-        } else {
-          console.log(`Card component not found for ${cardId}`)
-        }
-      })
     }
   }
 }

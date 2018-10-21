@@ -1,67 +1,90 @@
 <template>
-  <div>
-    <v-layout row>
-      <v-flex hidden-sm-and-down md3 lg2 xl3>
+  <v-layout row>
+    <!-- Left -->
+    <v-flex class="" hidden-sm-and-down    md3 lg2 xl3>
+
+      <div :class="`mt-3 ml-3 mr-3 bp-c cover cover-${deckColors} white--text`">
+        <v-layout class="mt-2 ml-2" sm12 row nowrap>
+          <span class="title textNoWrap mr-2">{{ deckName }}</span>
+          <v-spacer/>
+          <div class="mana mr-2">
+            <img v-for="color in deckColors.split('')" :key="color"
+              :src="require(`@/assets/mana/${color}.png`)"/>
+          </div>
+        </v-layout>
+        <v-layout class="mt-2 ml-2" sm12 row nowrap>
+          <span class='subheading'>{{ deckArch }}</span>
+        </v-layout>
+      </div>
+
+      <v-flex class="mt-4">
+        <span class='subheading'>Total deck cost:</span>
+        <WildcardsCost class="mt-1 mr-1" :cost="deckWCCost"/>
       </v-flex>
-      <v-flex           xs12 sm8 md6 lg7 xl6>
-        <div>
-          <v-layout row nowrap class="pt-2 pb-2">
-            <v-flex sm6 class="mt-2">
-              <v-layout id="deckTitle" row nowrap>
-                <div id="mana">
-                  <img v-for="color in deckColors.split('')" :key="color"
-                    :src="require(`@/assets/mana/${color}.png`)"/>
-                </div>
-                <span class='title ml-1'>{{ deckName }}</span>
-              </v-layout>
-              <span class='subheading'>{{ deckArch }}</span>
-            </v-flex>
-            <v-flex sm4 v-if="$isUserLogged()">
-              <span class='subheading'>Cost to build:</span>
-              <WildcardsCost class="mt-1" :cost="deckWCMissingCost"/>
-            </v-flex>
-            <v-flex sm4>
-              <span class='subheading'>Total deck cost:</span>
-              <WildcardsCost class="mt-1" :cost="deckWCCost"/>
-            </v-flex>
-          </v-layout>
-          <v-divider/>
-          <v-layout row class="mt-1">
+
+      <v-flex class="mt-4" v-if="$isUserLogged()">
+        <span class='subheading'>Cost to build:</span>
+        <WildcardsCost class="mt-1 mr-1" :cost="deckWCMissingCost"/>
+      </v-flex>
+
+      <v-divider class="mt-5 ml-3 mr-3"/>
+      <v-btn class="mt-4" color="primary" flat small v-on:click="changeDeckMode()">
+        {{ textMode ? 'Visual Mode' : 'Text Mode'}}
+      </v-btn>
+      <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible">
+        <v-btn flat small color="primary" v-on:click="exportDeck()" 
+          slot="activator">Export to MTGArena</v-btn>
+        <v-card>
+          <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+          <v-card-actions>
             <v-spacer/>
-            <v-dialog id="btExport" class="ml-1" v-model="deckExportDialogVisible">
-              <v-btn flat small color="primary" v-on:click="exportDeck()" 
-                slot="activator">Export to MTGArena</v-btn>
-              <v-card>
-                <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
-                <v-card-actions>
-                  <v-spacer/>
-                  <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-            <v-btn color="primary" flat small v-on:click="changeDeckMode()">
-              {{ textMode ? 'Image Mode' : 'Text Mode'}}
-            </v-btn>
-          </v-layout>
-          <Deck v-if="textMode" class="deck mt-2" :cards="deckCards" :sideboard="sideboardCards"
-            :userCollection="userCollection" :ref="'deckTextMode'" largeName/>
-          <DeckPreview v-if="!textMode" class="deck mt-2" :cards="deckCards" :sideboard="sideboardCards"
-            :userCollection="userCollection" :ref="'deckImageMode'"/>
-          <SampleHand class="mt-3" :cards="deckCards"/>
-        </div>
-      </v-flex>
-      <v-flex id="rSide" hidden-xs-only sm4 md3 lg3 xl3 class="mb-3">
-        <CardsColorDistribution class='mt-4' :cards="deckCards"/>
-        <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
-        <TypeDistribution class='mt-4' :cards="deckCards"/>
-      </v-flex>
-    </v-layout>
-  </div>
+            <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-flex>
+    <!-- Center -->
+    <v-flex xs12 sm8 md6 lg7 xl6>
+      <div>
+        <v-layout row class="mt-4 ml-5">
+          <span class="subheading mt-2">Main Deck</span>
+        </v-layout>
+        <v-divider class="mt-1 ml-5 mr-5"/>
+        <Deck v-if="textMode" class="deck deckContainer mt-4" :cards="deckCards"
+          :userCollection="userCollection" largeName/>
+        <DeckVisual v-if="!textMode" class="deck mt-3" :cards="deckCards"
+          :userCollection="userCollection"/>
+      </div>
+
+      <div v-if="Object.keys(sideboardCards).length > 0">
+        <v-layout row class="mt-4 ml-5">
+          <span class="subheading mt-2">Sideboard</span>
+        </v-layout>
+        <v-divider class="mt-1 ml-5 mr-5"/>
+        <Deck v-if="textMode" class="deck deckContainer mt-4" :sideboard="sideboardCards"
+          :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck" largeName/>
+        <DeckVisual v-if="!textMode" class="deck mt-3" :sideboard="sideboardCards"
+          :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
+      </div>
+        
+      <v-layout row class="mt-4 ml-5">
+        <span class="subheading mt-2">Sample Hand</span>
+      </v-layout>
+      <v-divider class="mt-1 ml-5 mr-5"/>
+      <SampleHand class="mt-3" :cards="deckCards"/>
+    </v-flex>
+    <!-- Right -->
+    <v-flex class="rSide mb-3" hidden-xs-only sm4 md3 lg3 xl3>
+      <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
+      <CardsColorDistribution class='mt-4' :cards="deckCards"/>
+      <TypeDistribution class='mt-4' :cards="deckCards"/>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 import Deck from '@/components/mtg/Deck'
-import DeckPreview from '@/components/mtg/DeckPreview'
+import DeckVisual from '@/components/mtg/DeckVisual'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
 import TypeDistribution from '@/components/charts/TypeDistribution'
@@ -72,7 +95,7 @@ import Utils from '@/scripts/utils'
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, DeckPreview, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
+    Deck, DeckVisual, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
   },
   created () {
     this.requestDeck()
@@ -91,6 +114,7 @@ export default {
       isLoading: false,
       textMode: true,
       userCollection: {},
+      userCollectionWithoutMainDeck: {},
       deckExportDialogVisible: false
     }
   },
@@ -122,12 +146,24 @@ export default {
         .then(res => {
           this.isLoading = false
           this.userCollection = res.data
+          this.userCollectionWithoutMainDeck = this.getUserCollectionWithoudMainDeck()
           this.deckWCMissingCost = this.getDeckWCMissingCost()
         })
         .catch(error => {
           this.isLoading = false
           console.log(error)
         })
+    },
+    getUserCollectionWithoudMainDeck: function () {
+      const data = {}
+      Object.assign(data, this.userCollection)
+      Object.keys(this.deckCards).forEach(mtgaId => {
+        const card = this.deckCards[mtgaId]
+        const owned = data[mtgaId] !== undefined ? data[mtgaId] : 0
+        const qtdWithoutMainDeck = owned - card.qtd
+        data[mtgaId] = qtdWithoutMainDeck > 0 ? qtdWithoutMainDeck : 0
+      })
+      return data
     },
     getDeckWCCost: function () {
       const wcCost = {}
@@ -191,22 +227,29 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @media (min-width: 768px) {
+    .deckContainer {
+      column-count: 2;
+    }
+  }
   .deck {
-    column-count: 2;
     padding-left: 3%;
     padding-right: 3%;
   }
-  #deckTitle {
+  .deckTitle {
     justify-content: center;
   }
-  #btExport {
+  .btExport {
     padding-right: 3%;
   }
-  #rSide > div {
+  .rSide > div {
     margin: auto;
     width: fit-content;
   }
-  #mana img {
+  .mana {
+    white-space: nowrap;
+  }
+  .mana img {
     height: 20px;
     width: 20px;
   }
