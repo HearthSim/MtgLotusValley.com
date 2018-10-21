@@ -31,9 +31,9 @@
       <v-btn class="mt-4" color="primary" flat small v-on:click="changeDeckMode()">
         {{ textMode ? 'Visual Mode' : 'Text Mode'}}
       </v-btn>
-      <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible">
+      <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
         <v-btn flat small color="primary" v-on:click="exportDeck()" 
-          slot="activator">Export to MTGArena</v-btn>
+          slot="activator">Export to Arena</v-btn>
         <v-card>
           <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
           <v-card-actions>
@@ -216,7 +216,18 @@ export default {
         const cards = cardsByType[type]
         Object.keys(cards).forEach(mtgaId => {
           const card = cards[mtgaId]
-          data += `${card.qtd} ${card.name} (${card.set}) ${card.number}\n`
+          let set = card.set
+          let number = card.number
+          if (number === 'GR5' || number === 'GR8') {
+            set = 'GRN'
+          }
+          if (number === 'GR6') {
+            set = 'DAR'
+          }
+          if (number.endsWith('a')) {
+            number = number.replace('a', '')
+          }
+          data += `${card.qtd} ${card.name} (${set}) ${number}\n`
         })
       })
       Utils.copyStringToClipboard(data)
