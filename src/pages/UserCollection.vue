@@ -22,19 +22,9 @@
             <v-progress-circular v-if="isLoading" color="deep-orange" 
               :width="2" :size="25" :indeterminate="true"/>
           </v-flex>
-          <v-flex xs9 sm9            md6            lg4 class="text-xs-right">
-            <div id="pages">
-              <v-btn v-if="currentPage > 1" small flat @click="goToPage(currentPage - 1)">
-                <v-icon>keyboard_arrow_left</v-icon>
-              </v-btn>
-              <v-btn v-for="page in getPages()" :key="page" small flat @click="goToPage(page)">
-                <span v-if="page !== currentPage">{{ page }}</span>
-                <span v-if="page === currentPage" class="deep-orange--text">{{ page }}</span>
-              </v-btn>
-              <v-btn v-if="currentPage < totalPages" small flat @click="goToPage(currentPage + 1)">
-                <v-icon>keyboard_arrow_right</v-icon>
-              </v-btn>
-            </div>
+          <v-flex xs9 sm9            md6            lg4 class="text-xs-right mb-3">
+            <v-pagination v-model="currentPage" @input="goToPage" 
+              :length="totalPages" :total-visible="7"/>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -81,20 +71,6 @@ export default {
       this.currentPage = page
       this.getCards()
     },
-    getPages: function () {
-      let firstPage = this.currentPage
-      if (this.currentPage === 2) {
-        firstPage -= 1
-      } else if (this.currentPage === this.totalPages - 1) {
-        firstPage -= 3
-      } else if (this.currentPage === this.totalPages) {
-        firstPage -= 4
-      } else if (this.currentPage > 1) {
-        firstPage -= 2
-      }
-      const max = this.totalPages < 5 ? this.totalPages : 5
-      return [...Array(max).keys()].map(i => firstPage + i)
-    },
     getCards: function () {
       this.isLoading = true
       const pageSize = 12
@@ -124,7 +100,7 @@ export default {
       this.$router.push({
         path: 'collection',
         query: {
-          page: this.currentPage,
+          page: 1,
           query: this.searchQuery,
           colors: this.activeColors,
           types: this.activeTypes,

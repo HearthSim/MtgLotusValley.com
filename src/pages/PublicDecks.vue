@@ -4,28 +4,33 @@
     </v-flex>
     <v-flex           xs12 sm8 md6 lg8 xl8>
       <v-divider class="mt-3"/>
-      <table class="mt-3">
-        <tr v-for="deck in currentDecks" :key="deck.alias">
-          <td id="columnColors">
+      <v-data-table :headers="headers" :items="currentDecks" hide-actions class="elevation-1">
+        <template slot="items" slot-scope="props">
+          <td>
             <div id="mana" class="mt-2">
-              <img v-for="color in deck.colors.split('')" :key="color"
+              <img v-for="color in props.item.colors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
             </div>
           </td>
-          <td id="columnName">
-            <router-link :to="`/decks/${deck.alias}`">
-              {{deck.name}}
+          <td class="text-xs-left">
+            <router-link :to="`/decks/${props.item.alias}`">
+              {{props.item.name}}
             </router-link>
           </td>
-          <td id="columnArch">{{deck.arch}}</td>
-          <td id="columnCost">
-            <WildcardsCost class="mt-1 mr-2" :cost="deck.wildcardCost" :small="true"/>
+          <td class="text-xs-left">{{props.item.arch}}</td>
+          <td class="text-xs-right">
+            <WildcardsCost class="mt-1 mr-2" :cost="props.item.wildcardCost" :small="true"/>
           </td>
-          <td id="columnCurve">
-            <ManaCurveCompact class="manaCurve mt-1" :manaCurve="deck.manaCurve"/>
+          <td class="text-xs-right">
+            <ManaCurveCompact class="manaCurve mt-1" :manaCurve="props.item.manaCurve"/>
           </td>
-        </tr>
-      </table>
+        </template>
+      </v-data-table>
+      <v-layout row xs9 sm9            md6            lg4 class="text-xs-right mt-2 mb-3">
+        <v-spacer/>
+        <v-pagination v-model="currentPage" @input="goToPage" 
+          :length="totalPages" :total-visible="7"/>
+      </v-layout>
     </v-flex>
     <v-flex hidden-xs-only sm4 md3 lg2 xl2>
     </v-flex>
@@ -46,8 +51,16 @@ export default {
   },
   data () {
     return {
+      headers: [
+        { text: 'Colors', align: 'center', value: 'colors' },
+        { text: 'Name', value: 'name' },
+        { text: 'Archetype', value: 'arch' },
+        { text: 'Total Cost', align: 'center', value: 'total_cost', sortable: false },
+        { text: 'Mana Curve', align: 'center', value: 'mana_curve', sortable: false }
+      ],
       isLoading: false,
       currentPage: 1,
+      totalPages: 0,
       currentDecks: {},
       userCollection: {}
     }
@@ -59,7 +72,8 @@ export default {
       const pageSize = 20
       this.$api.getPublicDecks(this.currentPage, pageSize)
         .then(res => {
-          this.currentDecks = res.data
+          this.currentDecks = res.data.data
+          this.totalPages = res.data.totalPages
           this.getUserCollection()
         })
         .catch(error => {
