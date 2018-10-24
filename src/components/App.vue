@@ -58,7 +58,7 @@ export default {
   color: #2c3e50;
 }
 
-.bp-c { background-position: center }
+.m-auto { margin: auto; }
 
 .textNoWrap {
   text-overflow: ellipsis;
@@ -71,6 +71,7 @@ export default {
   background-size: cover;
   background-position: center;
   height: 70px;
+  max-width: 250px;
   border-radius: 5px;
   overflow: hidden;
 }

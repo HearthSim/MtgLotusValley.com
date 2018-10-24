@@ -3,7 +3,7 @@
     <!-- Left -->
     <v-flex class="" hidden-sm-and-down    md3 lg2 xl3>
 
-      <div :class="`mt-3 ml-3 mr-3 bp-c cover cover-${deckColors} white--text`">
+      <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
         <v-layout class="mt-2 ml-2" sm12 row nowrap>
           <span class="title textNoWrap mr-2">{{ deckName }}</span>
           <v-spacer/>
@@ -28,20 +28,36 @@
       </v-flex>
 
       <v-divider class="mt-5 ml-3 mr-3"/>
-      <v-btn class="mt-4" color="primary" flat small v-on:click="changeDeckMode()">
-        {{ textMode ? 'Visual Mode' : 'Text Mode'}}
-      </v-btn>
-      <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-        <v-btn flat small color="primary" v-on:click="exportDeck()" 
-          slot="activator">Export to Arena</v-btn>
-        <v-card>
-          <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
-          <v-card-actions>
-            <v-spacer/>
-            <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+
+      <v-layout column>
+        <v-btn class="mt-4" color="primary" flat small v-on:click="changeDeckMode()">
+          {{ textMode ? 'Visual Mode' : 'Text Mode'}}
+        </v-btn>
+
+        <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
+          <v-btn flat small color="primary" v-on:click="exportDeckToArena()" 
+            slot="activator">Export to Arena</v-btn>
+          <v-card>
+            <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+            <v-card-actions>
+              <v-spacer/>
+              <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+
+        <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
+          <v-btn flat small color="primary" v-on:click="exportDeckToReading()" 
+            slot="activator">Export to Reading</v-btn>
+          <v-card>
+            <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+            <v-card-actions>
+              <v-spacer/>
+              <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-layout>
     </v-flex>
     <!-- Center -->
     <v-flex xs12 sm8 md6 lg7 xl6>
@@ -209,11 +225,15 @@ export default {
       this.textMode = !this.textMode
       this.getUserCollection()
     },
-    exportDeck: function () {
+    exportDeckToArena: function () {
       let data = ''
       const cardsByType = Utils.groupCardsByType(this.deckCards)
+      cardsByType['Sideboard'] = this.sideboardCards
       Object.keys(cardsByType).forEach(type => {
         const cards = cardsByType[type]
+        if (type === 'Sideboard' && Object.keys(cards).length > 0) {
+          data += '\n'
+        }
         Object.keys(cards).forEach(mtgaId => {
           const card = cards[mtgaId]
           let set = card.set
@@ -229,6 +249,23 @@ export default {
           }
           data += `${card.qtd} ${card.name} (${set}) ${number}\n`
         })
+      })
+      Utils.copyStringToClipboard(data)
+    },
+    exportDeckToReading: function () {
+      let data = ''
+      const cardsByType = Utils.groupCardsByType(this.deckCards)
+      cardsByType['Sideboard'] = this.sideboardCards
+      Object.keys(cardsByType).forEach(type => {
+        const cards = cardsByType[type]
+        if (Object.keys(cards).length > 0) {
+          const qtd = Object.keys(cards).map(mtgaId => cards[mtgaId].qtd).reduce((p, n) => p + n)
+          data += `\n${type} (${qtd})\n`
+          Object.keys(cards).forEach(mtgaId => {
+            const card = cards[mtgaId]
+            data += `${card.qtd} ${card.name}\n`
+          })
+        }
       })
       Utils.copyStringToClipboard(data)
     }
