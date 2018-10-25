@@ -4,9 +4,10 @@
     </v-flex>
     <v-flex           xs12 sm8 md6 lg8 xl8>
       <v-divider class="mt-3"/>
-      <v-data-table :headers="headers" :items="currentDecks" hide-actions class="elevation-1">
+      <v-data-table class="elevation-1" :headers="headers" :items="currentDecks"
+        :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems" hide-actions>
         <template slot="items" slot-scope="props">
-          <td>
+          <td class="text-xs-center">
             <div id="mana" class="mt-2">
               <img v-for="color in props.item.colors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
@@ -21,15 +22,17 @@
           <td class="text-xs-right">
             <WildcardsCost class="mt-1 mr-2" :cost="props.item.wildcardCost" :small="true"/>
           </td>
-          <td class="text-xs-right">
+          <td class="text-xs-center">
             <ManaCurveCompact class="manaCurve mt-1" :manaCurve="props.item.manaCurve"/>
+          </td>
+          <td class="text-xs-center">
+            {{new Date(props.item.date.replace('_', ':')).toLocaleString()}}
           </td>
         </template>
       </v-data-table>
       <v-layout row xs9 sm9            md6            lg4 class="text-xs-right mt-2 mb-3">
         <v-spacer/>
-        <v-pagination v-model="currentPage" @input="goToPage" 
-          :length="totalPages" :total-visible="7"/>
+        <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="7"/>
       </v-layout>
     </v-flex>
     <v-flex hidden-xs-only sm4 md3 lg2 xl2>
@@ -46,9 +49,6 @@ export default {
   components: {
     ManaCurveCompact, WildcardsCost
   },
-  created () {
-    this.requestDecks()
-  },
   data () {
     return {
       headers: [
@@ -56,38 +56,36 @@ export default {
         { text: 'Name', value: 'name' },
         { text: 'Archetype', value: 'arch' },
         { text: 'Total Cost', align: 'center', value: 'total_cost', sortable: false },
-        { text: 'Mana Curve', align: 'center', value: 'mana_curve', sortable: false }
+        { text: 'Mana Curve', align: 'center', value: 'mana_curve', sortable: false },
+        { text: 'Publish Date', align: 'center', value: 'date' }
       ],
       isLoading: false,
-      currentPage: 1,
+      pagination: {},
       totalPages: 0,
-      currentDecks: {},
-      userCollection: {}
+      totalItems: 0,
+      currentDecks: []
     }
+  },
+  mounted () {
+    this.pagination.sortBy = 'date'
+    this.pagination.descending = true
   },
   methods: {
     requestDecks: function () {
       this.isLoading = true
-      this.$api.getPublicDecks()
-      const pageSize = 20
-      this.$api.getPublicDecks(this.currentPage, pageSize)
+      this.pagination.rowsPerPage = 5
+      const { sortBy, descending, page, rowsPerPage } = this.pagination
+      this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending)
         .then(res => {
-          this.currentDecks = res.data.data
-          this.totalPages = res.data.totalPages
-          this.getUserCollection()
+          this.isLoading = false
+          this.currentDecks = res.data
+          const isPageFull = res.data.length === this.pagination.rowsPerPage
+          this.totalPages = isPageFull ? page + 1 : page
+          this.totalItems = (this.pagination.page * this.pagination.rowsPerPage) + res.data.length
         })
         .catch(error => {
           this.isLoading = false
           console.log(error)
-        })
-    },
-    getUserCollection: function () {
-      this.isLoading = false
-      this.$api.getUserCollection()
-        .then(res => {
-          this.isLoading = false
-          this.userCollection = res.data
-          // this.getDeckWCMissingCost()
         })
     },
     getDeckWCCost: function () {
@@ -108,27 +106,14 @@ export default {
         'uncommon': wcCost['uncommon'],
         'common': wcCost['common']
       }
-    },
-    getDeckWCMissingCost: function () {
-      const wcMissingCost = {}
-      Object.keys(this.deckCards).forEach(mtgaId => {
-        const card = this.deckCards[mtgaId]
-        const qtdOwned = this.userCollection[mtgaId] !== undefined ? this.userCollection[mtgaId] : 0
-        const missingQtd = card.qtd - qtdOwned
-        if (!card.type.includes('Basic Land') && missingQtd > 0) {
-          if (wcMissingCost[card.rarity] === undefined) {
-            wcMissingCost[card.rarity] = missingQtd
-          } else {
-            wcMissingCost[card.rarity] += missingQtd
-          }
-        }
-      })
-      return {
-        'mythic': wcMissingCost['mythic'] !== undefined ? wcMissingCost['mythic'] : 0,
-        'rare': wcMissingCost['rare'] !== undefined ? wcMissingCost['rare'] : 0,
-        'uncommon': wcMissingCost['uncommon'] !== undefined ? wcMissingCost['uncommon'] : 0,
-        'common': wcMissingCost['common'] !== undefined ? wcMissingCost['common'] : 0
-      }
+    }
+  },
+  watch: {
+    pagination: {
+      handler () {
+        this.requestDecks()
+      },
+      deep: true
     }
   }
 }
