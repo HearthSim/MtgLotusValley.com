@@ -52,7 +52,7 @@ export default {
   },
   data () {
     return {
-      currentPage: parseInt(this.$route.query.page),
+      currentPage: this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1,
       activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,c,g,m,r,u,w',
       activeTypes: this.$route.query.types !== undefined ? this.$route.query.types : 'a,c,e,i,l,p,s',
       activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : 'ANA,XLN,RIX,DAR,M19,GRN,MED',

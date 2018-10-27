@@ -14,13 +14,19 @@
 import Utils from '@/scripts/utils'
 
 export default {
-  props: [
-    'value'
-  ],
+  props: {
+    simple: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      type: String
+    }
+  },
   data () {
     return {
       activeColors: [],
-      colors: Utils.colors
+      colors: this.simple ? Utils.colors.filter(c => c.code !== 'c' && c.code !== 'm') : Utils.colors
     }
   },
   mounted () {

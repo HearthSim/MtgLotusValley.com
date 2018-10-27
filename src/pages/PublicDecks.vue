@@ -3,6 +3,11 @@
     <v-flex hidden-sm-and-down md3 lg2 xl2>
     </v-flex>
     <v-flex           xs12 sm8 md6 lg8 xl8>
+      <v-layout class="mt-5">
+        <v-spacer/>
+        <ColorFilter v-model="activeColors" simple/>
+        <v-btn id="filterApply" color="white" @click="requestDecks()">Apply</v-btn>
+      </v-layout>
       <v-divider class="mt-3"/>
       <v-data-table class="elevation-1" :headers="headers" :items="currentDecks"
         :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems" hide-actions>
@@ -41,13 +46,14 @@
 </template>
 
 <script>
+import ColorFilter from '@/components/filters/ColorFilter'
 import ManaCurveCompact from '@/components/ManaCurveCompact'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 
 export default {
   name: 'PublicDecks',
   components: {
-    ManaCurveCompact, WildcardsCost
+    ColorFilter, ManaCurveCompact, WildcardsCost
   },
   data () {
     return {
@@ -63,19 +69,28 @@ export default {
       pagination: {},
       totalPages: 0,
       totalItems: 0,
-      currentDecks: []
+      currentDecks: [],
+      activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,g,r,u,w',
     }
   },
   mounted () {
+    this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
     this.pagination.sortBy = 'date'
     this.pagination.descending = true
   },
   methods: {
     requestDecks: function () {
+      this.$router.push({
+        path: 'decks',
+        query: {
+          page: this.pagination.page,
+          colors: this.activeColors
+        }
+      })
       this.isLoading = true
       this.pagination.rowsPerPage = 5
       const { sortBy, descending, page, rowsPerPage } = this.pagination
-      this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending)
+      this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending, this.activeColors)
         .then(res => {
           this.isLoading = false
           this.currentDecks = res.data

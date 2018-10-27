@@ -181,12 +181,13 @@ export default {
       }
     })
   },
-  getPublicDecks (page, pageSize, sortBy, descending) {
+  getPublicDecks (page, pageSize, sortBy, descending, colors) {
     return axios.get('/decks/published', {
       params: {
         pageNumber: page,
         pageSize: pageSize,
-        sortBy: `${descending ? '-' : ''}${sortBy}`
+        sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`,
+        colors: colors
       }
     })
   },

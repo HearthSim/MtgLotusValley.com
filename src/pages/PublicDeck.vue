@@ -3,7 +3,7 @@
     <!-- Left -->
     <v-flex class="" hidden-sm-and-down    md3 lg2 xl3>
 
-      <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
+      <div :class="`ml-2 mt-4 m-auto cover cover-${deckColors} white--text`">
         <v-layout class="mt-2 ml-2" sm12 row nowrap>
           <span class="title textNoWrap mr-2">{{ deckName }}</span>
           <v-spacer/>
