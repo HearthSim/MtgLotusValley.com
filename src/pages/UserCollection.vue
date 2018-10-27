@@ -3,7 +3,9 @@
     <v-text-field id="filterSearch" class="pl-2 pr-2" label="Search" 
       v-model="searchQuery" @keyup.native.enter="updateFilters"
       solo single-line hide-details clearable />
-    <CardFilter class="mt-3" ref="cardFilter"/>
+    <ColorFilter class="mt-3" v-model="activeColors"/>
+    <TypeFilter class="mt-3" v-model="activeTypes"/>
+    <SetFilter class="mt-3" v-model="activeSets"/>
     <v-btn id="filterApply" color="white" @click="updateFilters()">Apply</v-btn>
     <v-layout row fill-height>
       <v-flex sm2>
@@ -36,17 +38,16 @@
 
 <script>
 import Card from '@/components/mtg/Card'
-import CardFilter from '@/components/CardFilter'
+import ColorFilter from '@/components/filters/ColorFilter'
+import TypeFilter from '@/components/filters/TypeFilter'
+import SetFilter from '@/components/filters/SetFilter'
 
 export default {
   name: 'UserCollection',
   components: {
-    Card, CardFilter
+    Card, ColorFilter, TypeFilter, SetFilter
   },
   mounted () {
-    this.$refs.cardFilter.activeColors = this.activeColors.split(',')
-    this.$refs.cardFilter.activeTypes = this.activeTypes.split(',')
-    this.$refs.cardFilter.activeSets = this.activeSets.split(',')
     this.getCards()
   },
   data () {
@@ -94,9 +95,6 @@ export default {
         })
     },
     updateFilters () {
-      this.activeColors = this.$refs.cardFilter.activeColors.sort().join()
-      this.activeTypes = this.$refs.cardFilter.activeTypes.sort().join()
-      this.activeSets = this.$refs.cardFilter.activeSets.sort().join()
       this.$router.push({
         path: 'collection',
         query: {
