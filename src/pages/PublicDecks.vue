@@ -4,8 +4,8 @@
     </v-flex>
     <v-flex           xs12 sm8 md6 lg8 xl8>
       <v-layout class="mt-5">
-        <v-text-field id="filterSearch" class="pl-2 pr-2" label="Search" 
-          v-model="searchQuery" @keyup.native.enter="updateFilters"
+        <v-text-field class="filterSearch pl-2 pr-2" label="Search" 
+          v-model="searchQuery" @keyup.native.enter="requestDecks()"
           solo single-line hide-details clearable />
         <v-spacer/>
         <ColorFilter v-model="activeColors" simple/>
@@ -105,13 +105,15 @@ export default {
         path: 'decks',
         query: {
           page: this.pagination.page,
-          colors: this.activeColors
+          colors: this.activeColors,
+          query: this.searchQuery
         }
       })
       this.isLoading = true
       this.pagination.rowsPerPage = 15
       const { sortBy, descending, page, rowsPerPage } = this.pagination
-      this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending, this.activeColors, true)
+      this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending,
+        this.activeColors, this.searchQuery, true)
         .then(res => {
           this.isLoading = false
           this.currentDecks = res.data
@@ -195,5 +197,8 @@ export default {
   }
   #columnCurve {
     min-width: 100px;
+  }
+  .filterSearch {
+    max-width: 250px;
   }
 </style>
