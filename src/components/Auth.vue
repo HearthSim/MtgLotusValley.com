@@ -80,6 +80,7 @@
 </template>
 
 <script>
+import Utils from '@/scripts/utils'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 
 export default {
@@ -216,7 +217,7 @@ export default {
     setUserAsLogged: function () {
       const userEmail = localStorage.getItem('email')
       const userName = userEmail.substring(0, userEmail.indexOf('@'))
-      this.loggedUserName = userName.charAt(0).toUpperCase() + userName.slice(1)
+      this.loggedUserName = Utils.captalize(userName)
       this.logged = true
       this.getUserWildcards()
     },

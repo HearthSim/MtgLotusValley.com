@@ -27,6 +27,9 @@ export default {
     {code: 'GRN', name: 'Guilds of Ravnica'},
     {code: 'MED', name: 'Mythic Edition'}
   ],
+  captalize: function (value) {
+    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+  },
   copyStringToClipboard: function (str) {
     var el = document.createElement('textarea')
     el.value = str

@@ -2,12 +2,17 @@
   <div id="wildcards">
     <div v-for="wcCost in wcCosts" :key="wcCost.rarity">
       <span :class="small ? 'textSizeSmall' : 'textSizeNormal'">{{ wcCost.qtd }} </span>
-      <img :class="small ? 'imgSizeSmall' : 'imgSizeNormal'" :src="require(`@/assets/wildcards/${wcCost.rarity}.png`)"/>
+      <v-tooltip bottom>
+        <img :class="small ? 'imgSizeSmall' : 'imgSizeNormal'" slot="activator"
+          :src="require(`@/assets/wildcards/${wcCost.rarity}.png`)"/>
+        {{`${captalize(wcCost.rarity)} wildcard`}}
+      </v-tooltip>
     </div>
   </div>
 </template>
 
 <script>
+import Utils from '@/scripts/utils'
 
 export default {
   props: {
@@ -40,6 +45,9 @@ export default {
           'qtd': value[rarity]
         })
       })
+    },
+    captalize (value) {
+      return Utils.captalize(value)
     }
   },
   watch: {
