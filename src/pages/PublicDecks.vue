@@ -1,18 +1,15 @@
 <template>
   <v-layout row class="mb-3">
     <v-flex hidden-sm-and-down md3 lg2 xl2>
+      <v-text-field class="mt-4 pl-3 pr-3" label="Search" 
+        v-model="searchQuery" @keyup.native.enter="requestDecks()"
+        solo single-line hide-details clearable />
+      <ColorFilter class="mt-3" v-model="activeColors" simple/>
+      <v-divider class="mt-3 ml-4 mr-4"/>
+      <v-btn id="filterApply" color="mt-3 white" @click="requestDecks()">Apply</v-btn>
     </v-flex>
     <v-flex           xs12 sm8 md6 lg8 xl8>
-      <v-layout class="mt-5">
-        <v-text-field class="filterSearch pl-2 pr-2" label="Search" 
-          v-model="searchQuery" @keyup.native.enter="requestDecks()"
-          solo single-line hide-details clearable />
-        <v-spacer/>
-        <ColorFilter v-model="activeColors" simple/>
-        <v-btn id="filterApply" color="white" @click="requestDecks()">Apply</v-btn>
-      </v-layout>
-      <v-divider class="mt-3"/>
-      <v-data-table class="elevation-1" :headers="headers" :items="currentDecks"
+      <v-data-table class="mt-4 elevation-1" :headers="headers" :items="currentDecks"
         :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems" hide-actions>
         <template slot="items" slot-scope="props">
           <td class="text-xs-center">
@@ -197,8 +194,5 @@ export default {
   }
   #columnCurve {
     min-width: 100px;
-  }
-  .filterSearch {
-    max-width: 250px;
   }
 </style>

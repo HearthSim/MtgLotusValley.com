@@ -1,35 +1,39 @@
 <template>
   <div>
-    <v-text-field id="filterSearch" class="pl-2 pr-2" label="Search" 
-      v-model="searchQuery" @keyup.native.enter="updateFilters"
-      solo single-line hide-details clearable />
-    <ColorFilter class="mt-3" v-model="activeColors"/>
-    <TypeFilter class="mt-3" v-model="activeTypes"/>
-    <SetFilter class="mt-3" v-model="activeSets"/>
-    <v-btn id="filterApply" color="white" @click="updateFilters()">Apply</v-btn>
     <v-layout row fill-height>
+      <!-- Left -->
       <v-flex sm2>
+        <v-text-field class="mt-4 pl-4 pr-4" label="Search" 
+          v-model="searchQuery" @keyup.native.enter="updateFilters"
+          solo single-line hide-details clearable />
+        <ColorFilter class="mt-3 pl-3 pr-3" v-model="activeColors"/>
+        <TypeFilter class="mt-3 pl-3 pr-3" v-model="activeTypes"/>
+        <SetFilter class="mt-3 pl-3 pr-3" v-model="activeSets"/>
+        <v-divider class="mt-3 ml-4 mr-4"/>
+        <v-btn class="mt-3" color="white" @click="updateFilters()">Apply</v-btn>
       </v-flex>
+      <!-- Center -->
       <v-flex           xs12 sm8>
-        <v-container id="cards" class='mt-1' grid-list-md fluid>
+        <v-container id="cards" class='mt-3' grid-list-md fluid>
           <v-layout row wrap>
             <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
               <Card :name='card.name' :imageUrl='card.imageUrl' 
                 :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
             </v-flex>
+            <v-layout row align-center justify-space-between>
+              <v-flex xs3 sm3 md1 offset-md5 lg2 offset-lg2 class="text-xs-center">
+                <v-progress-circular v-if="isLoading" color="deep-orange" 
+                  :width="2" :size="24" :indeterminate="true"/>
+              </v-flex>
+              <v-flex xs9 sm9            md6            lg6 class="text-xs-right mb-3">
+                <v-pagination v-model="currentPage" @input="goToPage" 
+                  :length="totalPages" :total-visible="7"/>
+              </v-flex>
+            </v-layout>
           </v-layout>
         </v-container>
-        <v-layout row align-center justify-space-between>
-          <v-flex xs3 sm3 md1 offset-md5 lg4 offset-lg4 class="text-xs-center">
-            <v-progress-circular v-if="isLoading" color="deep-orange" 
-              :width="2" :size="24" :indeterminate="true"/>
-          </v-flex>
-          <v-flex xs9 sm9            md6            lg4 class="text-xs-right mb-3">
-            <v-pagination v-model="currentPage" @input="goToPage" 
-              :length="totalPages" :total-visible="7"/>
-          </v-flex>
-        </v-layout>
       </v-flex>
+      <!-- Right -->
       <v-flex hidden-xs-only sm2>
       </v-flex>
     </v-layout>
@@ -123,11 +127,5 @@ export default {
   #pages button {
     min-width: 32px;
     margin: 0;
-  }
-  #filterSearch {
-    transform: translateY(-5px);
-  }
-  #filterApply {
-    transform: translateY(-8px);
   }
 </style>

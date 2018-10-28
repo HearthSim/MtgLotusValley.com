@@ -1,11 +1,16 @@
 <template>
-  <div id="filters" class="ml-2 mr-2">
+  <div class="ml-2 mr-2">
     <v-card class="pt-2 pl-2 pr-2 pb-2">
-      <v-tooltip v-for="type in types" :key="type.code" top open-delay=1000>
-        <img :class="!activeTypes.includes(type.code) ? 'grayscale' : ''" slot="activator"
-          :src="require(`@/assets/types/${type.code}.png`)" @click="typeClick(type.code)"/>
-        {{ type.desc }}
-      </v-tooltip>
+      <div class="text-xs-left body-1">
+        <span class="label pl-1">Types</span>
+      </div>
+      <div class="text-xs-center mt-1">
+        <v-tooltip v-for="type in types" :key="type.code" top open-delay=1000>
+          <img :class="!activeTypes.includes(type.code) ? 'grayscale' : ''" slot="activator"
+            :src="require(`@/assets/types/${type.code}.png`)" @click="typeClick(type.code)"/>
+          {{ type.desc }}
+        </v-tooltip>
+      </div>
     </v-card>
   </div>
 </template>
@@ -49,20 +54,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #filters {
-    display: inline-block;
-  }
   .v-card {
     border: solid 1px lightgray;
     border-radius: 8px;
-    height: 48px;
     align-items: baseline;
     display: inline-block;
   }
   img {
-    padding: 3px;
-    height: 100%;
-    vertical-align: sub;
+    border-radius: 8px;
+    height: 36px;
+    padding: 4px;
   }
   img:hover {
     background: lightgray;
