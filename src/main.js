@@ -10,7 +10,7 @@ import VueLazyload from 'vue-lazyload'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
-const isProduction = process.env.NODE_ENV === 'production'
+// const isProduction = process.env.NODE_ENV === 'production'
 
 Vue.use(VueAnalytics, {
   id: 'UA-127301117-1',
@@ -18,11 +18,11 @@ Vue.use(VueAnalytics, {
   autoTracking: {
     exception: true,
     screenview: true
-  },
-  debug: {
-    enabled: !isProduction,
-    sendHitTask: isProduction
   }
+  // debug: {
+  //   enabled: !isProduction,
+  //   sendHitTask: isProduction
+  // }
 })
 Vue.use(VueLazyload, {
   loading: require('@/assets/card.png'),

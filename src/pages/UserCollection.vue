@@ -22,7 +22,7 @@
         <v-layout row align-center justify-space-between>
           <v-flex xs3 sm3 md1 offset-md5 lg4 offset-lg4 class="text-xs-center">
             <v-progress-circular v-if="isLoading" color="deep-orange" 
-              :width="2" :size="25" :indeterminate="true"/>
+              :width="2" :size="24" :indeterminate="true"/>
           </v-flex>
           <v-flex xs9 sm9            md6            lg4 class="text-xs-right mb-3">
             <v-pagination v-model="currentPage" @input="goToPage" 

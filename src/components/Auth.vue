@@ -26,7 +26,7 @@
         </v-card-text>
         <p class="text-md-center red--text darken-1" v-if="showSignError">{{ errorMsg }}</p>
         <p class="text-md-center" v-if="showSignLoading">
-          <v-progress-circular :indeterminate="true"/>
+          <v-progress-circular color="deep-orange" :indeterminate="true"/>
         </p>
         <v-divider/>
         <v-card-actions>
@@ -66,7 +66,7 @@
         </v-card-text>
         <p class="text-md-center red--text darken-1" v-if="showSignError">{{ errorMsg }}</p>
         <p class="text-md-center" v-if="showSignLoading">
-          <v-progress-circular :indeterminate="true"/>
+          <v-progress-circular color="deep-orange" :indeterminate="true"/>
         </p>
         <v-divider/>
         <v-card-actions>
@@ -150,7 +150,7 @@ export default {
           this.signInDialog = false
           this.showSignLoading = false
           this.$api.saveUserToken(res.data)
-          this.setUserAsLogged()
+          location.reload()
         })
         .catch(error => {
           console.log(error)
@@ -187,7 +187,7 @@ export default {
           this.signUpDialog = false
           this.showSignLoading = false
           this.$api.saveUserToken(res.data)
-          this.setUserAsLogged()
+          location.reload()
         })
         .catch(error => {
           console.log(error.response)
@@ -224,6 +224,7 @@ export default {
       this.$api.deleteUserToken()
       this.loggedUserName = ''
       this.logged = false
+      location.reload()
     },
     onRecoverPassClick: function () {
       if (this.email === '') {
