@@ -4,6 +4,9 @@
     </v-flex>
     <v-flex           xs12 sm8 md6 lg8 xl8>
       <v-layout class="mt-5">
+        <v-text-field id="filterSearch" class="pl-2 pr-2" label="Search" 
+          v-model="searchQuery" @keyup.native.enter="updateFilters"
+          solo single-line hide-details clearable />
         <v-spacer/>
         <ColorFilter v-model="activeColors" simple/>
         <v-btn id="filterApply" color="white" @click="requestDecks()">Apply</v-btn>
@@ -24,14 +27,28 @@
             </router-link>
           </td>
           <td class="text-xs-left">{{props.item.arch}}</td>
+          <td class="text-xs-center">
+            <ManaCurveCompact class="manaCurve ml-1 mt-1" :manaCurve="props.item.manaCurve"/>
+          </td>
           <td class="text-xs-right">
             <WildcardsCost class="mt-1 mr-2" :cost="props.item.wildcardCost" :small="true"/>
           </td>
-          <td class="text-xs-center">
-            <ManaCurveCompact class="manaCurve mt-1" :manaCurve="props.item.manaCurve"/>
+          <td v-if="isUserLogged()" class="text-xs-center">
+            <v-progress-circular v-if="props.item.wildcardCostToBuild === undefined"
+              color="deep-orange" :size="24" :indeterminate="true"/>
+            <v-tooltip bottom>
+              <span v-if="props.item.owned !== undefined" slot="activator">
+                {{ `${props.item.owned}%` }}
+              </span>
+              <div>
+                <span>Missing:</span>
+                <WildcardsCost v-if="props.item.wildcardCostToBuild !== undefined"
+                  class="mt-1 mr-2" :cost="props.item.wildcardCostToBuild" :small="true"/>
+              </div>
+            </v-tooltip>
           </td>
           <td class="text-xs-center">
-            {{new Date(props.item.date.replace('_', ':')).toLocaleString()}}
+            {{new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0]}}
           </td>
         </template>
       </v-data-table>
@@ -49,6 +66,7 @@
 import ColorFilter from '@/components/filters/ColorFilter'
 import ManaCurveCompact from '@/components/ManaCurveCompact'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
+import DeckUtils from '@/scripts/deckutils'
 
 export default {
   name: 'PublicDecks',
@@ -57,23 +75,26 @@ export default {
   },
   data () {
     return {
-      headers: [
-        { text: 'Colors', align: 'center', value: 'colors' },
-        { text: 'Name', value: 'name' },
-        { text: 'Archetype', value: 'arch' },
-        { text: 'Total Cost', align: 'center', value: 'total_cost', sortable: false },
-        { text: 'Mana Curve', align: 'center', value: 'mana_curve', sortable: false },
-        { text: 'Publish Date', align: 'center', value: 'date' }
-      ],
+      headers: [],
       isLoading: false,
       pagination: {},
       totalPages: 0,
       totalItems: 0,
       currentDecks: [],
       activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,g,r,u,w',
+      searchQuery: this.$route.query.query !== undefined ? this.$route.query.query : ''
     }
   },
   mounted () {
+    this.headers.push({ text: 'Colors', align: 'center', value: 'colors' })
+    this.headers.push({ text: 'Name', value: 'name' })
+    this.headers.push({ text: 'Archetype', value: 'arch' })
+    this.headers.push({ text: 'Mana Curve', align: 'center', value: 'mana_curve', sortable: false })
+    this.headers.push({ text: 'Total Cost', align: 'center', value: 'total_cost', sortable: false })
+    if (this.$isUserLogged()) {
+      this.headers.push({ text: 'Owned', align: 'center', value: 'total_cost', sortable: false })
+    }
+    this.headers.push({ text: 'Publish Date', align: 'center', value: 'date' })
     this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
     this.pagination.sortBy = 'date'
     this.pagination.descending = true
@@ -88,39 +109,50 @@ export default {
         }
       })
       this.isLoading = true
-      this.pagination.rowsPerPage = 5
+      this.pagination.rowsPerPage = 15
       const { sortBy, descending, page, rowsPerPage } = this.pagination
-      this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending, this.activeColors)
+      this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending, this.activeColors, true)
         .then(res => {
           this.isLoading = false
           this.currentDecks = res.data
           const isPageFull = res.data.length === this.pagination.rowsPerPage
           this.totalPages = isPageFull ? page + 1 : page
           this.totalItems = (this.pagination.page * this.pagination.rowsPerPage) + res.data.length
+          this.getUserCollection()
         })
         .catch(error => {
           this.isLoading = false
           console.log(error)
         })
     },
-    getDeckWCCost: function () {
-      const wcCost = {}
-      Object.keys(this.deckCards).forEach(mtgaid => {
-        const card = this.deckCards[mtgaid]
-        if (!card.type.includes('Basic Land')) {
-          if (wcCost[card.rarity] === undefined) {
-            wcCost[card.rarity] = card.qtd
-          } else {
-            wcCost[card.rarity] += card.qtd
-          }
-        }
+    getUserCollection: function () {
+      this.$api.getUserCollection()
+        .then(res => {
+          this.isLoading = false
+          const userCollection = res.data
+          const decks = this.currentDecks.map(deck => {
+            deck.wildcardCostToBuild = DeckUtils.getDeckWCMissingCost(userCollection,
+              deck.cards, deck.sideboard)
+            deck.owned = this.getOwnedPercent(deck.wildcardCost, deck.wildcardCostToBuild)
+            return deck
+          })
+          this.currentDecks = decks
+        })
+    },
+    getOwnedPercent: function (wcCost, wcMissing) {
+      let total = 0
+      Object.keys(wcCost).forEach(rarity => {
+        total += wcCost[rarity]
       })
-      return {
-        'mythic': wcCost['mythic'],
-        'rare': wcCost['rare'],
-        'uncommon': wcCost['uncommon'],
-        'common': wcCost['common']
-      }
+      let missing = 0
+      Object.keys(wcMissing).forEach(rarity => {
+        missing += wcMissing[rarity]
+      })
+      const missingPercent = missing / total * 100
+      return (100 - missingPercent).toFixed(1)
+    },
+    isUserLogged: function () {
+      return this.$isUserLogged()
     }
   },
   watch: {
