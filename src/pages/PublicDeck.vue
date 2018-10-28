@@ -17,14 +17,14 @@
         </v-layout>
       </div>
 
-      <v-flex class="mt-4">
-        <span class='subheading'>Total deck cost:</span>
-        <WildcardsCost class="mt-1 mr-1" :cost="deckWCCost"/>
-      </v-flex>
-
       <v-flex class="mt-4" v-if="$isUserLogged()">
         <span class='subheading'>Cost to build:</span>
         <WildcardsCost class="mt-1 mr-1" :cost="deckWCMissingCost"/>
+      </v-flex>
+
+      <v-flex class="mt-4">
+        <span class='subheading'>Total deck cost:</span>
+        <WildcardsCost class="mt-1 mr-1" :cost="deckWCCost"/>
       </v-flex>
 
       <v-divider class="mt-5 ml-3 mr-3"/>
@@ -106,6 +106,7 @@ import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
 import TypeDistribution from '@/components/charts/TypeDistribution'
 import ManaCurve from '@/components/charts/ManaCurve'
 import SampleHand from '@/components/SampleHand'
+import DeckUtils from '@/scripts/deckutils'
 import Utils from '@/scripts/utils'
 
 export default {
@@ -146,7 +147,7 @@ export default {
           this.deckArch = res.data.arch
           this.deckColors = res.data.colors
           this.deckManaCurve = res.data.manaCurve
-          this.deckWCCost = this.getDeckWCCost()
+          this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
           if (this.$isUserLogged()) {
             this.getUserCollection()
           }
@@ -163,7 +164,8 @@ export default {
           this.isLoading = false
           this.userCollection = res.data
           this.userCollectionWithoutMainDeck = this.getUserCollectionWithoudMainDeck()
-          this.deckWCMissingCost = this.getDeckWCMissingCost()
+          this.deckWCMissingCost = DeckUtils.getDeckWCMissingCost(this.userCollection,
+            this.deckCards, this.sideboardCards)
         })
         .catch(error => {
           this.isLoading = false
@@ -181,53 +183,13 @@ export default {
       })
       return data
     },
-    getDeckWCCost: function () {
-      const wcCost = {}
-      Object.keys(this.deckCards).forEach(mtgaid => {
-        const card = this.deckCards[mtgaid]
-        if (!card.type.includes('Basic Land')) {
-          if (wcCost[card.rarity] === undefined) {
-            wcCost[card.rarity] = card.qtd
-          } else {
-            wcCost[card.rarity] += card.qtd
-          }
-        }
-      })
-      return {
-        'mythic': wcCost['mythic'],
-        'rare': wcCost['rare'],
-        'uncommon': wcCost['uncommon'],
-        'common': wcCost['common']
-      }
-    },
-    getDeckWCMissingCost: function () {
-      const wcMissingCost = {}
-      Object.keys(this.deckCards).forEach(mtgaId => {
-        const card = this.deckCards[mtgaId]
-        const qtdOwned = this.userCollection[mtgaId] !== undefined ? this.userCollection[mtgaId] : 0
-        const missingQtd = card.qtd - qtdOwned
-        if (!card.type.includes('Basic Land') && missingQtd > 0) {
-          if (wcMissingCost[card.rarity] === undefined) {
-            wcMissingCost[card.rarity] = missingQtd
-          } else {
-            wcMissingCost[card.rarity] += missingQtd
-          }
-        }
-      })
-      return {
-        'mythic': wcMissingCost['mythic'] !== undefined ? wcMissingCost['mythic'] : 0,
-        'rare': wcMissingCost['rare'] !== undefined ? wcMissingCost['rare'] : 0,
-        'uncommon': wcMissingCost['uncommon'] !== undefined ? wcMissingCost['uncommon'] : 0,
-        'common': wcMissingCost['common'] !== undefined ? wcMissingCost['common'] : 0
-      }
-    },
     changeDeckMode: function () {
       this.textMode = !this.textMode
       this.getUserCollection()
     },
     exportDeckToArena: function () {
       let data = ''
-      const cardsByType = Utils.groupCardsByType(this.deckCards)
+      const cardsByType = DeckUtils.groupCardsByType(this.deckCards)
       cardsByType['Sideboard'] = this.sideboardCards
       Object.keys(cardsByType).forEach(type => {
         const cards = cardsByType[type]
@@ -254,7 +216,7 @@ export default {
     },
     exportDeckToReading: function () {
       let data = ''
-      const cardsByType = Utils.groupCardsByType(this.deckCards)
+      const cardsByType = DeckUtils.groupCardsByType(this.deckCards)
       cardsByType['Sideboard'] = this.sideboardCards
       Object.keys(cardsByType).forEach(type => {
         const cards = cardsByType[type]

@@ -6,7 +6,7 @@
 
 <script>
 import Chart from 'chart.js'
-import Utils from '@/scripts/utils'
+import DeckUtils from '@/scripts/deckutils'
 
 export default {
   props: {
@@ -30,7 +30,7 @@ export default {
   computed: {
     cardsByType: function () {
       let data = {}
-      const cardsByType = Utils.groupCardsByType(this.cards)
+      const cardsByType = DeckUtils.groupCardsByType(this.cards)
       Object.keys(cardsByType).forEach(type => {
         data[type] = cardsByType[type].length
       })

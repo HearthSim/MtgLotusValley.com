@@ -36,30 +36,5 @@ export default {
     el.select()
     document.execCommand('copy')
     document.body.removeChild(el)
-  },
-  groupCardsByType: function (cards) {
-    const cardsArray = []
-    Object.keys(cards).forEach(mtgaId => {
-      cardsArray.push(cards[mtgaId])
-    })
-    const data = {}
-    data['Lands'] = cardsArray.filter(card => {
-      return card.type.includes('Land') && !card.type.includes('Creature')
-    })
-    data['Creatures'] = cardsArray.filter(card => card.type.includes('Creature'))
-    data['Spells'] = cardsArray.filter(card => {
-      return card.type.includes('Instant') || card.type.includes('Sorcery')
-    })
-    data['Enchantments'] = cardsArray.filter(card => {
-      return card.type.includes('Enchantment') && !card.type.includes('Creature')
-    })
-    data['Artifacts'] = cardsArray.filter(card => {
-      return card.type.includes('Artifact') &&
-        !card.type.includes('Creature') &&
-        !card.type.includes('Land') &&
-        !card.type.includes('Enchantment')
-    })
-    data['Planeswalkers'] = cardsArray.filter(card => card.type.includes('Planeswalker'))
-    return data
   }
 }
