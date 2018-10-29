@@ -5,6 +5,7 @@
         v-model="searchQuery" @keyup.native.enter="requestDecks()"
         solo single-line hide-details clearable />
       <ColorFilter class="mt-3" v-model="activeColors" simple/>
+      <CardsFilter class="mt-3" v-model="containsCards" simple/>
       <v-divider class="mt-3 ml-4 mr-4"/>
       <v-btn id="filterApply" color="mt-3 white" @click="requestDecks()">Apply</v-btn>
     </v-flex>
@@ -60,6 +61,7 @@
 </template>
 
 <script>
+import CardsFilter from '@/components/filters/CardsFilter'
 import ColorFilter from '@/components/filters/ColorFilter'
 import ManaCurveCompact from '@/components/ManaCurveCompact'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
@@ -68,7 +70,7 @@ import DeckUtils from '@/scripts/deckutils'
 export default {
   name: 'PublicDecks',
   components: {
-    ColorFilter, ManaCurveCompact, WildcardsCost
+    CardsFilter, ColorFilter, ManaCurveCompact, WildcardsCost
   },
   data () {
     return {
@@ -79,6 +81,7 @@ export default {
       totalItems: 0,
       currentDecks: [],
       activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,g,r,u,w',
+      containsCards: this.$route.query.cards !== undefined ? this.$route.query.cards : '',
       searchQuery: this.$route.query.query !== undefined ? this.$route.query.query : ''
     }
   },
@@ -98,19 +101,12 @@ export default {
   },
   methods: {
     requestDecks: function () {
-      this.$router.push({
-        path: 'decks',
-        query: {
-          page: this.pagination.page,
-          colors: this.activeColors,
-          query: this.searchQuery
-        }
-      })
+      this.updateRouter()
       this.isLoading = true
       this.pagination.rowsPerPage = 15
       const { sortBy, descending, page, rowsPerPage } = this.pagination
       this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending,
-        this.activeColors, this.searchQuery, true)
+        this.activeColors, this.searchQuery, this.containsCards, true)
         .then(res => {
           this.isLoading = false
           this.currentDecks = res.data
@@ -152,6 +148,22 @@ export default {
     },
     isUserLogged: function () {
       return this.$isUserLogged()
+    },
+    updateRouter: function () {
+      const queryParams = {
+        page: this.pagination.page,
+        colors: this.activeColors
+      }
+      if (this.containsCards !== '') {
+        queryParams['cards'] = this.containsCards
+      }
+      if (this.searchQuery !== '') {
+        queryParams['query'] = this.searchQuery
+      }
+      this.$router.push({
+        path: 'decks',
+        query: queryParams
+      })
     }
   },
   watch: {

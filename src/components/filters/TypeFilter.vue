@@ -31,11 +31,6 @@ export default {
   mounted () {
     this.activeTypes = this.value.split(',')
   },
-  watch: {
-    value: function (value) {
-      this.activeTypes = value.split(',')
-    }
-  },
   methods: {
     typeClick (name) {
       this.toogleItem(this.activeTypes, name)
@@ -47,6 +42,11 @@ export default {
       } else {
         array.push(item)
       }
+    }
+  },
+  watch: {
+    value: function (value) {
+      this.activeTypes = value.split(',')
     }
   }
 }

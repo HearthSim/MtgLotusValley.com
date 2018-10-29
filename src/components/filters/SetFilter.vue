@@ -31,11 +31,6 @@ export default {
   mounted () {
     this.activeSets = this.value.split(',')
   },
-  watch: {
-    value: function (value) {
-      this.activeSets = value.split(',')
-    }
-  },
   methods: {
     setClick (code) {
       this.toogleItem(this.activeSets, code)
@@ -47,6 +42,11 @@ export default {
       } else {
         array.push(item)
       }
+    }
+  },
+  watch: {
+    value: function (value) {
+      this.activeSets = value.split(',')
     }
   }
 }

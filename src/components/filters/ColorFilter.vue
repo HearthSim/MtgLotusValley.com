@@ -5,7 +5,7 @@
         <span class="label pl-1">Colors</span>
       </div>
       <div class="text-xs-center mt-1">
-        <v-tooltip v-for="color in colors" :key="color.code" top open-delay=1000>
+        <v-tooltip v-for="color in colors" :key="color.code" top open-delay=500>
           <img :class="!activeColors.includes(color.code) ? 'grayscale' : ''" slot="activator"
             :src="require(`@/assets/mana/${color.code}.png`)" @click="colorClick(color.code)"/>
           {{ color.desc }}
@@ -37,11 +37,6 @@ export default {
   mounted () {
     this.activeColors = this.value.split(',')
   },
-  watch: {
-    value: function (value) {
-      this.activeColors = value.split(',')
-    }
-  },
   methods: {
     colorClick (name) {
       this.toogleItem(this.activeColors, name)
@@ -53,6 +48,11 @@ export default {
       } else {
         array.push(item)
       }
+    }
+  },
+  watch: {
+    value: function (value) {
+      this.activeColors = value.split(',')
     }
   }
 }

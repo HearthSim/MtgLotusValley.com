@@ -39,5 +39,11 @@ export default {
     el.select()
     document.execCommand('copy')
     document.body.removeChild(el)
+  },
+  remove: function (array, element) {
+    const index = array.indexOf(element)
+    if (index !== -1) {
+      array.splice(index, 1)
+    }
   }
 }
