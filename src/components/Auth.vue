@@ -1,17 +1,19 @@
 <template>
   <v-toolbar-items>
-    <WildcardsCost class="mt-1 mr-2" :cost="userWildcards"/>
     <v-btn v-if="!logged" flat @click="signInDialog = true">Sign In</v-btn>
     <v-btn v-if="!logged" flat @click="signUpDialog = true">Register</v-btn>
-    <v-menu v-if="logged" bottom transition="slide-y-transition">
+    <v-menu v-if="logged" open-on-hover offset-y bottom transition="slide-y-transition">
       <v-btn flat slot="activator">
           {{ loggedUserName }}
+          <v-icon>arrow_drop_down</v-icon>
       </v-btn>
-      <v-list>
-        <v-list-tile v-for="(item, i) in signedMenuItems" :key="i" @click="signedMenuClick(i)">
-          <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
+        <v-list>
+          <WildcardsCost class="mt-2 ml-2 mr-2" :cost="userWildcards"/>
+          <v-divider class="mt-2 mb-1"/>
+          <v-list-tile v-for="(item, i) in signedMenuItems" :key="i" @click="signedMenuClick(i)">
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile>
+        </v-list>
     </v-menu>
 
     <v-dialog v-model="signInDialog" width="300">

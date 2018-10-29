@@ -50,7 +50,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  #container {
+    min-width: 50px;
+  }
   #container ul {
     padding-left: 0px;
   }
