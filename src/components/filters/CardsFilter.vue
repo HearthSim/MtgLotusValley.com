@@ -1,6 +1,6 @@
 <template>
-  <div class="ml-3 mr-3">
-    <v-card class="pt-2 pl-2 pr-2 pb-2">
+  <div class="ml-2 mr-2">
+    <v-card :class="`pt-2 pl-2 pr-2 pb-2 ${expand ? 'd-block' : ''}`">
       <div class="text-xs-left body-1">
         <span class="label pl-1">Contains Cards</span>
       </div>
@@ -23,9 +23,15 @@
 import Utils from '@/scripts/utils'
 
 export default {
-  props: [
-    'value'
-  ],
+  props: {
+    value: {
+      type: String
+    },
+    expand: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       cards: [],

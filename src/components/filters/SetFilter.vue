@@ -62,7 +62,7 @@ export default {
   }
   img {
     border-radius: 8px;
-    height: 36px;
+    height: 34px;
     padding: 4px;
   }
   img:hover {
