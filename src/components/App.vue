@@ -8,9 +8,32 @@
           </router-link>
         </v-btn>
       </v-toolbar-items>
-      <v-toolbar-title v-text="title" class="hidden-xs-only"/>
+      <v-toolbar-title v-text="'Black Lotus Valley'" class="hidden-xs-only"/>
       <v-spacer/>
-      <v-btn flat @click="onDecksClick()">Decks</v-btn>
+      <v-menu open-on-hover offset-y bottom transition="slide-y-transition">
+        <v-btn flat slot="activator" @click="onDecksClick()">
+          Decks
+          <v-icon>arrow_drop_down</v-icon>
+        </v-btn>
+        <v-list>
+          <v-list-tile v-for="(item, i) in decksMenuItems" :key="i" @click="onDecksMenuClick(i)">
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+      <!-- Upload dialog -->
+      <v-dialog v-model="loadDeckDialog" max-width="350">
+        <v-card>
+          <v-card-title class="headline">Load Deck</v-card-title>
+          <v-textarea class="ml-4 mr-4" no-resize rows="15"
+            v-model="loadDeckText" :placeholder="loadDeckHint"/>
+          <v-card-actions>
+            <v-spacer/>
+            <v-btn color="green darken-1" flat @click.native="onLoadDeckLoadClick()">Load</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
       <v-spacer/>
       <Auth/>
     </v-toolbar>
@@ -37,12 +60,43 @@ export default {
     return {
       clipped: false,
       fixed: false,
-      title: 'Black Lotus Valley'
+      decksMenuItems: [
+        { title: 'All Decks' },
+        { title: 'Load list' }
+      ],
+      loadDeckDialog: false,
+      loadDeckText: '',
+      loadDeckHint: 'Creature (14)\n4 Arclight Phoenix\n3 Crackling Drake\n4 Enigma Drake\n3 Goblin Electromancer\nSorcery (12)\n1 Beacon Bolt\n4 Chart a Course\n1 Lava Coil\n2 Maximize Velocity\n4 Tormenting Voice\nInstant (13)\n1 Dive Down\n4 Opt\n4 Radical Idea\n4 Shock\nLand (21)\n7 Island\n6 Mountain\n4 Steam Vents\n4 Sulfur Falls'
     }
   },
   methods: {
+    onDecksMenuClick: function (index) {
+      switch (index) {
+        case 0:
+          this.$router.replace('/decks')
+          break
+        case 1:
+          this.loadDeckText = ''
+          this.loadDeckDialog = true
+          break
+      }
+    },
     onDecksClick: function () {
       this.$router.replace('/decks')
+    },
+    onLoadDeckLoadClick: function () {
+      const re = /\d+\s.+/g
+      const cardLines = this.loadDeckText.match(re)
+      const cards = cardLines.map(line => line.replace(' ', ':'))
+      this.$api.convertCardsToMtgaId(cards.join(';'))
+        .then(res => {
+          this.loadDeckDialog = false
+          this.$router.replace(`/decks/${res.data.cards}?loader=true`)
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
     }
   }
 }

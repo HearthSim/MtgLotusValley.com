@@ -1,5 +1,6 @@
 <template>
   <v-layout row class="mb-3">
+    <!-- Left -->
     <v-flex hidden-sm-and-down md3 lg2 xl2>
       <v-text-field class="mt-4 pl-3 pr-3" label="Search" 
         v-model="searchQuery" @keyup.native.enter="requestDecks()"
@@ -9,7 +10,8 @@
       <v-divider class="mt-3 ml-4 mr-4"/>
       <v-btn id="filterApply" color="mt-3 white" @click="requestDecks()">Apply</v-btn>
     </v-flex>
-    <v-flex           xs12 sm8 md6 lg8 xl8>
+    <!-- Right -->
+    <v-flex          xs12 sm11 md8 lg9 xl9>
       <v-data-table class="mt-4 elevation-1" :headers="headers" :items="currentDecks"
         :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems" hide-actions>
         <template slot="items" slot-scope="props">
@@ -55,7 +57,7 @@
         <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="7"/>
       </v-layout>
     </v-flex>
-    <v-flex hidden-xs-only sm4 md3 lg2 xl2>
+    <v-flex hidden-xs-only sm1 md1 lg1 xl1>
     </v-flex>
   </v-layout>
 </template>

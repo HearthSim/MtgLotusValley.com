@@ -201,11 +201,23 @@ export default {
       }
     })
   },
-  getEvents (alias) {
+  getEvents () {
     return axios.get('/events', {
       params: {
         onlyRunning: true
       }
+    })
+  },
+  convertCardsToMtgaId (cards) {
+    return axios.post('/decks/converter', {
+      cards: cards,
+      format: 'reading'
+    })
+  },
+  convertCardsToObjects (cards) {
+    return axios.post('/decks/converter', {
+      cards: escape(cards),
+      format: 'mtga'
     })
   }
 }

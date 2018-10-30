@@ -120,6 +120,7 @@ export default {
   data () {
     return {
       deckAlias: this.$route.params.alias,
+      deckLoader: this.$route.query.loader,
       deckCards: {},
       sideboardCards: {},
       deckName: '',
@@ -138,6 +139,13 @@ export default {
   methods: {
     requestDeck: function () {
       this.isLoading = true
+      if (this.deckLoader) {
+        this.getDeckByCards()
+      } else {
+        this.getDeckByAlias()
+      }
+    },
+    getDeckByAlias: function () {
       this.$api.getPublicDeck(this.deckAlias)
         .then(res => {
           this.isLoading = false
@@ -145,6 +153,26 @@ export default {
           this.sideboardCards = res.data.sideboard
           this.deckName = res.data.name
           this.deckArch = res.data.arch
+          this.deckColors = res.data.colors
+          this.deckManaCurve = res.data.manaCurve
+          this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
+          if (this.$isUserLogged()) {
+            this.getUserCollection()
+          }
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
+    },
+    getDeckByCards: function () {
+      this.$api.convertCardsToObjects(this.deckAlias)
+        .then(res => {
+          this.isLoading = false
+          this.deckCards = res.data.cards
+          this.sideboardCards = {} // res.data.sideboard
+          this.deckName = ''
+          this.deckArch = ''
           this.deckColors = res.data.colors
           this.deckManaCurve = res.data.manaCurve
           this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
