@@ -4,7 +4,7 @@
       <v-toolbar-items>
         <v-btn flat>
           <router-link to="/">
-            <img src="@/assets/logo.png" alt="Logo" height="38px" width="38px">
+            <img src="@/assets/home.png" alt="Logo" height="38px">
           </router-link>
         </v-btn>
       </v-toolbar-items>
