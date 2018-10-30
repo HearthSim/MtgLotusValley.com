@@ -4,17 +4,19 @@
     <v-flex class="" hidden-sm-and-down    md3 lg2 xl3>
 
       <div :class="`ml-2 mt-4 m-auto cover cover-${deckColors} white--text`">
-        <v-layout class="mt-2 ml-2" sm12 row nowrap>
-          <span class="title textNoWrap mr-2">{{ deckName }}</span>
-          <v-spacer/>
-          <div class="mana mr-2">
-            <img v-for="color in deckColors.split('')" :key="color"
-              :src="require(`@/assets/mana/${color}.png`)"/>
-          </div>
-        </v-layout>
-        <v-layout class="mt-2 ml-2" sm12 row nowrap>
-          <span class='subheading'>{{ deckArch }}</span>
-        </v-layout>
+        <div class="text-xs-center">
+          <v-layout class="mt-2 ml-2" sm12 row nowrap>
+            <span class="title textNoWrap mr-2">{{ deckName }}</span>
+            <v-spacer/>
+            <div class="mana mr-2">
+              <img v-for="color in deckColors.split('')" :key="color"
+                :src="require(`@/assets/mana/${color}.png`)"/>
+            </div>
+          </v-layout>
+          <v-layout class="mt-2 ml-2" sm12 row nowrap>
+            <span class='subheading'>{{ deckArch }}</span>
+          </v-layout>
+        </div>
       </div>
 
       <v-flex class="mt-4" v-if="$isUserLogged()">
@@ -166,11 +168,12 @@ export default {
         })
     },
     getDeckByCards: function () {
-      this.$api.convertCardsToObjects(this.deckAlias)
+      const cardsInfo = this.deckAlias.split('_')
+      this.$api.convertCardsToObjects(cardsInfo[0], cardsInfo[1])
         .then(res => {
           this.isLoading = false
           this.deckCards = res.data.cards
-          this.sideboardCards = {} // res.data.sideboard
+          this.sideboardCards = res.data.sideboard
           this.deckName = ''
           this.deckArch = ''
           this.deckColors = res.data.colors

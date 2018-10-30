@@ -208,15 +208,17 @@ export default {
       }
     })
   },
-  convertCardsToMtgaId (cards) {
+  convertCardsToMtgaId (cards, sideboard) {
     return axios.post('/decks/converter', {
       cards: cards,
+      sideboard: sideboard,
       format: 'reading'
     })
   },
-  convertCardsToObjects (cards) {
+  convertCardsToObjects (cards, sideboard) {
     return axios.post('/decks/converter', {
       cards: escape(cards),
+      sideboard: escape(sideboard),
       format: 'mtga'
     })
   }

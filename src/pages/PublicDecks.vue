@@ -5,8 +5,8 @@
       <v-text-field class="mt-4 pl-3 pr-3" label="Search" 
         v-model="searchQuery" @keyup.native.enter="requestDecks()"
         solo single-line hide-details clearable />
-      <ColorFilter class="mt-3" v-model="activeColors" simple/>
-      <CardsFilter class="mt-3" v-model="containsCards" simple/>
+      <ColorFilter class="mt-3 pl-2 pr-2" v-model="activeColors" simple expand/>
+      <CardsFilter class="mt-3 pl-2 pr-2" v-model="containsCards" simple expand/>
       <v-divider class="mt-3 ml-4 mr-4"/>
       <v-btn id="filterApply" color="mt-3 white" @click="requestDecks()">Apply</v-btn>
     </v-flex>
