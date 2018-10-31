@@ -171,6 +171,28 @@ export default {
       }
     })
   },
+  getUserDecks () {
+    return axios.get('/users/decks', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: {
+        userId: localStorage.getItem('localId')
+      }
+    })
+  },
+  getPrivateDeck (id) {
+    return axios.get('/users/decks', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: {
+        cardDetails: true,
+        deckId: id,
+        userId: localStorage.getItem('localId')
+      }
+    })
+  },
   getUserExtras () {
     return axios.get('/users/extras', {
       headers: {

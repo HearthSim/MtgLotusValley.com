@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home'
 import PublicDeck from '@/pages/PublicDeck'
-import PublicDecks from '@/pages/PublicDecks'
+import PublicDeckList from '@/pages/PublicDeckList'
+import PrivateDeck from '@/pages/PrivateDeck'
+import PrivateDeckList from '@/pages/PrivateDeckList'
 import UserCollection from '@/pages/UserCollection'
 
 Vue.use(Router)
@@ -16,9 +18,25 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/collection',
+      path: '/user/collection',
       name: 'UserCollection',
       component: UserCollection,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/user/decks/:id',
+      name: 'PrivateDeck',
+      component: PrivateDeck,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/user/decks',
+      name: 'PrivateDeckList',
+      component: PrivateDeckList,
       meta: {
         requiresAuth: true
       }
@@ -30,8 +48,8 @@ const router = new Router({
     },
     {
       path: '/decks',
-      name: 'PublicDecks',
-      component: PublicDecks
+      name: 'PublicDeckList',
+      component: PublicDeckList
     },
     {
       path: '*',

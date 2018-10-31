@@ -2,7 +2,7 @@
   <v-toolbar-items>
     <v-btn v-if="!logged" flat @click="signInDialog = true">Sign In</v-btn>
     <v-btn v-if="!logged" flat @click="signUpDialog = true">Register</v-btn>
-    <v-menu v-if="logged" open-on-hover offset-y bottom transition="slide-y-transition">
+    <v-menu v-if="logged" class="ml-5" open-on-hover offset-y bottom transition="slide-y-transition">
       <v-btn flat slot="activator">
           {{ loggedUserName }}
           <v-icon>arrow_drop_down</v-icon>
@@ -129,7 +129,9 @@ export default {
   methods: {
     signedMenuClick: function (index) {
       switch (index) {
-        case 0: this.$router.replace('/collection?page=1')
+        case 0: this.$router.replace('/user/collection')
+          break
+        case 1: this.$router.replace('/user/decks')
           break
         case 2: this.logout()
           break
