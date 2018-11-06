@@ -171,13 +171,20 @@ export default {
       }
     })
   },
-  getUserDecks () {
+  getUserDecks (page, pageSize, sortBy, descending, colors, query, cards, cardDetails) {
     return axios.get('/users/decks', {
       headers: {
         Authorization: 'required'
       },
       params: {
-        userId: localStorage.getItem('localId')
+        userId: localStorage.getItem('localId'),
+        pageNumber: page,
+        pageSize: pageSize,
+        sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`,
+        cardDetails: cardDetails,
+        containsCards: cards,
+        colors: colors,
+        query: query
       }
     })
   },

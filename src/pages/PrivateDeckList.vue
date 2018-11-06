@@ -2,7 +2,7 @@
   <v-layout row class="mb-3">
     <!-- Left -->
     <v-flex hidden-sm-and-down md3 lg2 xl2>
-      <v-text-field class="mt-4 pl-3 pr-3" label="Search" 
+      <v-text-field class="mt-3 pl-3 pr-3" label="Search"
         v-model="searchQuery" @keyup.native.enter="requestDecks()"
         solo single-line hide-details clearable />
       <ColorFilter class="mt-3 pl-2 pr-2" v-model="activeColors" simple expand/>
@@ -12,9 +12,13 @@
     </v-flex>
     <!-- Right -->
     <v-flex          xs12 sm11 md8 lg9 xl9>
-      <v-data-table class="mt-4 elevation-1" :headers="headers" :items="currentDecks"
-        :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems" hide-actions>
+      <v-data-table class="mt-3 elevation-1" :headers="headers" :items="currentDecks"
+        :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems"
+        v-model="selectedDecks" item-key="id" select-all hide-actions>
         <template slot="items" slot-scope="props">
+          <td>
+            <v-checkbox v-model="props.selected" primary hide-details/>
+          </td>
           <td class="text-xs-center">
             <div id="mana" class="mt-2">
               <img v-for="color in props.item.colors.split('')" :key="color"
@@ -34,7 +38,7 @@
             <WildcardsCost class="mt-1 mr-2" :cost="props.item.wildcardCost" :small="true"/>
           </td>
           <td class="text-xs-center">
-            {{ props.item.date }} <!-- new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0]}} -->
+            {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0] }}
           </td>
         </template>
       </v-data-table>
@@ -66,6 +70,7 @@ export default {
       pagination: {},
       totalPages: 0,
       totalItems: 0,
+      selectedDecks: [],
       currentDecks: [],
       activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,g,r,u,w',
       containsCards: this.$route.query.cards !== undefined ? this.$route.query.cards : '',
@@ -80,14 +85,14 @@ export default {
     this.headers.push({ text: 'Total Cost', align: 'center', value: 'total_cost', sortable: false })
     this.headers.push({ text: 'Publish Date', align: 'center', value: 'date' })
     this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
-    this.pagination.sortBy = 'date'
+    this.pagination.sortBy = 'name'
     this.pagination.descending = true
   },
   methods: {
     requestDecks: function () {
       this.updateRouter()
       this.isLoading = true
-      this.pagination.rowsPerPage = 15
+      this.pagination.rowsPerPage = 10
       const { sortBy, descending, page, rowsPerPage } = this.pagination
       this.$api.getUserDecks(page, rowsPerPage, sortBy, descending,
         this.activeColors, this.searchQuery, this.containsCards, true)
