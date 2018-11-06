@@ -18,6 +18,11 @@
             <v-card-title class="headline">Load Deck</v-card-title>
             <v-textarea class="ml-4 mr-4" no-resize rows="15"
               v-model="loadDeckText" :placeholder="loadDeckHint"/>
+            <p class="text-md-center red--text darken-1" v-if="showError">{{ errorMsg }}</p>
+            <p class="text-md-center" v-if="isLoading">
+              <v-progress-circular color="deep-orange" :indeterminate="true"/>
+            </p>
+            <v-divider/>
             <v-card-actions>
               <v-spacer/>
               <v-btn color="green darken-1" flat @click.native="onLoadDeckLoadClick()">Load</v-btn>
@@ -53,7 +58,10 @@ export default {
       fixed: false,
       loadDeckDialog: false,
       loadDeckText: '',
-      loadDeckHint: 'Creature (14)\n4 Arclight Phoenix\n3 Crackling Drake\n4 Enigma Drake\n3 Goblin Electromancer\nSorcery (12)\n1 Beacon Bolt\n4 Chart a Course\n1 Lava Coil\n2 Maximize Velocity\n4 Tormenting Voice\nInstant (13)\n1 Dive Down\n4 Opt\n4 Radical Idea\n4 Shock\nLand (21)\n7 Island\n6 Mountain\n4 Steam Vents\n4 Sulfur Falls'
+      loadDeckHint: 'Creature (14)\n4 Arclight Phoenix\n3 Crackling Drake\n4 Enigma Drake\n3 Goblin Electromancer\nSorcery (12)\n1 Beacon Bolt\n4 Chart a Course\n1 Lava Coil\n2 Maximize Velocity\n4 Tormenting Voice\nInstant (13)\n1 Dive Down\n4 Opt\n4 Radical Idea\n4 Shock\nLand (21)\n7 Island\n6 Mountain\n4 Steam Vents\n4 Sulfur Falls',
+      isLoading: false,
+      showError: false,
+      errorMsg: ''
     }
   },
   methods: {
@@ -65,35 +73,58 @@ export default {
       this.loadDeckDialog = true
     },
     onLoadDeckLoadClick: function () {
-      let mainDeckText = this.loadDeckText.replace('Sideboard', 'sideboard').replace('SIDEBOARD', 'sideboard')
-      let sideboardDeckText = ''
-      if (this.loadDeckText.toLowerCase().includes('sideboard')) {
-        const loadText = mainDeckText.split('sideboard')
-        mainDeckText = loadText[0]
-        sideboardDeckText = loadText[1]
+      this.isLoading = false
+      this.showError = false
+      try {
+        let mainDeckText = this.loadDeckText
+          .replace(/\d+x\s/g, s => s.replace('x', ''))  // Remove qtd x
+          .replace(/sideboard/gi, 'sideboard')  // Lowercase sideboard
+        let sideboardDeckText = ''
+        if (mainDeckText.includes('sideboard')) {
+          const loadText = mainDeckText.split('sideboard')
+          mainDeckText = loadText[0]
+          sideboardDeckText = loadText[1]
+        }
+        console.log(mainDeckText)
+        const re = /^\d+\s+(['/,A-Za-z]+[^\S\n]*)+/gm // Match any digit plus words with space but not newline
+        const cardLines = mainDeckText.match(re)
+        const cards = cardLines.map(line => line.replace(' ', ':')
+          .replace(/\s{2,10}/, '')  // Trim between text
+          .replace(/\s\d*[bgruw]+\s/g, '')  // Remove mana cost if has
+          .trim()
+        )
+        console.log(cards)
+        let sideboard = []
+        if (sideboardDeckText.length > 0) {
+          const sideboardLines = sideboardDeckText.match(re)
+          sideboard = sideboardLines.map(line => line.replace(' ', ':')
+          .replace(/\s{2,10}/, '')  // Trim between text
+          .replace(/\s\d*[bgruw]+\s/g, '')  // Remove mana cost if has
+          .trim()
+        )
+        }
+        this.$api.convertCardsToMtgaId(cards.join(';'), sideboard.join(';'))
+          .then(res => {
+            this.loadDeckDialog = false
+            if (this.$route.path.includes('/decks/')) {
+              this.$router.replace(`/decks/${res.data.cards}_${res.data.sideboard}?loader=true`)
+              location.reload()
+            } else {
+              this.$router.replace(`/decks/${res.data.cards}_${res.data.sideboard}?loader=true`)
+            }
+          })
+          .catch(error => {
+            console.log(error)
+            this.isLoading = false
+            this.errorMsg = error.response.data
+            this.showError = true
+          })
+      } catch (e) {
+        console.log(e)
+        this.isLoading = false
+        this.errorMsg = 'Invalid deck list'
+        this.showError = true
       }
-      const re = /\d+\s.+/g
-      const cardLines = mainDeckText.match(re)
-      const cards = cardLines.map(line => line.replace(' ', ':'))
-      let sideboard = []
-      if (sideboardDeckText.length > 0) {
-        const sideboardLines = sideboardDeckText.match(re)
-        sideboard = sideboardLines.map(line => line.replace(' ', ':'))
-      }
-      this.$api.convertCardsToMtgaId(cards.join(';'), sideboard.join(';'))
-        .then(res => {
-          this.loadDeckDialog = false
-          if (this.$route.path.includes('/decks/')) {
-            this.$router.replace(`/decks/${res.data.cards}_${res.data.sideboard}?loader=true`)
-            location.reload()
-          } else {
-            this.$router.replace(`/decks/${res.data.cards}_${res.data.sideboard}?loader=true`)
-          }
-        })
-        .catch(error => {
-          this.isLoading = false
-          console.log(error)
-        })
     }
   }
 }
