@@ -1,5 +1,17 @@
 <template>
-  <v-layout row class="mb-3">
+  <v-layout class="mb-3" row wrap>
+    <!-- Top -->
+    <v-flex class="text-xs-left" xs12>
+      <v-breadcrumbs class="ml-2">
+        <v-icon slot="divider">chevron_right</v-icon>
+        <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
+        <v-breadcrumbs-item exact ripple to="/user">User</v-breadcrumbs-item>
+        <v-breadcrumbs-item exact ripple disabled>Decks</v-breadcrumbs-item>
+      </v-breadcrumbs>
+    </v-flex>
+    <v-flex xs12>
+      <v-divider/>
+    </v-flex>
     <!-- Left -->
     <v-flex hidden-sm-and-down md3 lg2 xl2>
       <v-text-field class="mt-3 pl-3 pr-3" label="Search"

@@ -61,8 +61,8 @@ export default {
 <style>
   #wildcards {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: right;
+    justify-content: space-between;
   }
   #wildcards > div {
     display: contents;

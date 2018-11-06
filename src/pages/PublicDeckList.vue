@@ -1,8 +1,19 @@
 <template>
-  <v-layout row class="mb-3">
+  <v-layout class="mb-3" row wrap>
+    <!-- Top -->
+    <v-flex class="text-xs-left" xs12>
+      <v-breadcrumbs class="ml-2">
+        <v-icon slot="divider">chevron_right</v-icon>
+        <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
+        <v-breadcrumbs-item exact ripple disabled>Decks</v-breadcrumbs-item>
+      </v-breadcrumbs>
+    </v-flex>
+    <v-flex xs12>
+      <v-divider/>
+    </v-flex>
     <!-- Left -->
     <v-flex hidden-sm-and-down md3 lg2 xl2>
-      <v-text-field class="mt-4 pl-3 pr-3" label="Search" 
+      <v-text-field class="mt-3 pl-3 pr-3" label="Search"
         v-model="searchQuery" @keyup.native.enter="requestDecks()"
         solo single-line hide-details clearable />
       <ColorFilter class="mt-3 pl-2 pr-2" v-model="activeColors" simple expand/>
@@ -12,7 +23,7 @@
     </v-flex>
     <!-- Right -->
     <v-flex          xs12 sm11 md8 lg9 xl9>
-      <v-data-table class="mt-4 elevation-1" :headers="headers" :items="currentDecks"
+      <v-data-table class="mt-3 elevation-1" :headers="headers" :items="currentDecks"
         :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems" hide-actions>
         <template slot="items" slot-scope="props">
           <td class="text-xs-center">
@@ -48,7 +59,7 @@
             </v-tooltip>
           </td>
           <td class="text-xs-center">
-            {{new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0]}}
+            {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0] }}
           </td>
         </template>
       </v-data-table>

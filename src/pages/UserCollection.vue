@@ -1,6 +1,18 @@
 <template>
   <div>
-    <v-layout row fill-height>
+    <v-layout row wrap fill-height>
+      <!-- Top -->
+      <v-flex class="text-xs-left" xs12>
+        <v-breadcrumbs class="ml-2">
+          <v-icon slot="divider">chevron_right</v-icon>
+          <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
+          <v-breadcrumbs-item exact ripple to="/user">User</v-breadcrumbs-item>
+          <v-breadcrumbs-item exact ripple disabled>Collection</v-breadcrumbs-item>
+        </v-breadcrumbs>
+      </v-flex>
+      <v-flex xs12>
+        <v-divider/>
+      </v-flex>
       <!-- Left -->
       <v-flex sm2>
         <v-text-field class="mt-4 pl-4 pr-4" label="Search" 

@@ -1,7 +1,20 @@
 <template>
-  <v-layout row>
+  <v-layout class="mb-3" row wrap>
+    <!-- Top -->
+    <v-flex class="text-xs-left" xs12>
+      <v-breadcrumbs class="ml-2">
+        <v-icon slot="divider">chevron_right</v-icon>
+        <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
+        <v-breadcrumbs-item exact ripple to="/user">User</v-breadcrumbs-item>
+        <v-breadcrumbs-item exact ripple to="/user/decks">Decks</v-breadcrumbs-item>
+        <v-breadcrumbs-item exact ripple disabled>{{ deckName }}</v-breadcrumbs-item>
+      </v-breadcrumbs>
+    </v-flex>
+    <v-flex xs12>
+      <v-divider/>
+    </v-flex>
     <!-- Left -->
-    <v-flex class="" hidden-sm-and-down    md3 lg2 xl3>
+    <v-flex hidden-sm-and-down    md3 lg2 xl3>
 
       <div :class="`ml-2 mt-4 m-auto cover cover-${deckColors} white--text`">
         <div class="text-xs-center">
@@ -19,14 +32,9 @@
         </div>
       </div>
 
-      <v-flex class="mt-4" v-if="$isUserLogged()">
-        <span class='subheading'>Cost to build:</span>
-        <WildcardsCost class="mt-1 mr-1" :cost="deckWCMissingCost"/>
-      </v-flex>
-
       <v-flex class="mt-4">
         <span class='subheading'>Total deck cost:</span>
-        <WildcardsCost class="mt-1 mr-1" :cost="deckWCCost"/>
+        <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
       </v-flex>
 
       <v-divider class="mt-5 ml-3 mr-3"/>
@@ -62,7 +70,7 @@
       </v-layout>
     </v-flex>
     <!-- Center -->
-    <v-flex xs12 sm8 md6 lg7 xl6>
+    <v-flex class="center" xs12 sm8 md6 lg7 xl6>
       <div>
         <v-layout row class="mt-4 ml-5">
           <span class="subheading mt-2">Main Deck</span>
@@ -129,7 +137,6 @@ export default {
       deckColors: '',
       deckManaCurve: {},
       deckWCCost: {},
-      deckWCMissingCost: {},
       isLoading: false,
       textMode: true,
       deckExportDialogVisible: false
@@ -211,6 +218,9 @@ export default {
     .deckContainer {
       column-count: 2;
     }
+  }
+  .center .v-divider {
+    width: 150px;
   }
   .deck {
     padding-left: 3%;
