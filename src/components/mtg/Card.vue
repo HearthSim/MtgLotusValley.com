@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!asText" :class="`${highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'}`">
+    <div v-if="!asText" :class="`cardAsImage ${highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'}`">
       <a target="_blank" :href="cardLink()">
         <img :class="`cardBorder ${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
           v-lazy="imageUrl" width="100%"/>
@@ -69,6 +69,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   a {
+    position: relative;
     color: #337ab7;
     text-decoration: none;
   }
@@ -80,6 +81,13 @@ export default {
   .grayscale {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
+  }
+  .cardAsImage {
+    z-index: 999;
+  }
+  .cardAsImage:hover {
+    position: relative;
+    z-index: 9999;
   }
   .defaultHoverScale:hover {
     transform: scale(1.2);
@@ -96,13 +104,15 @@ export default {
     max-width: 200px;
   }
   .cardQtd {
+    position: absolute;
+    bottom: 0;
     border: 2px double darkgray;
 	  border-radius: 6px;
     font-size: 11pt;
     padding-left: 5px;
     padding-right: 5px;
     background: lightgray;
-    transform: translateX(-5px) translateY(-25px);
+    transform: translateX(-5px);
     width: fit-content;
   }
 </style>
