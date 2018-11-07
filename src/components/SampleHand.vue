@@ -2,9 +2,11 @@
   <div>
     <v-layout>
       <v-spacer/>
-      <a class="mr-1" v-on:click="regenerateSampleHand()">Generate new hand</a>
+      <a class="mr-4" v-on:click="drawCard()">Draw card</a>
+      <a class="mr-4" v-on:click="mulligan()">Mulligan</a>
+      <a class="mr-1" v-on:click="regenerateSampleHand(7)">Generate new hand</a>
     </v-layout>
-    <div id="cards" class="mt-1">
+    <div id="cards" class="mt-1" ref="cardsList">
       <div v-for="(card, index) in sampleCards" :key="index">
         <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid' 
           :qtd="-1" :highScaleOnHover="true"/>
@@ -29,7 +31,10 @@ export default {
   data () {
     return {
       cardsPool: [],
-      sampleCards: []
+      sampleCards: [],
+      lastSampleCardsLength: 0,
+      shuffleCardsPool: [],
+      cardsDrawIndex: []
     }
   },
   methods: {
@@ -38,20 +43,54 @@ export default {
         .sort((a, b) => a[0] - b[0])
         .map(a => a[1])
     },
-    regenerateSampleHand: function () {
+    drawCard: function () {
+      if (this.cardsDrawIndex.length >= this.shuffleCardsPool.length) {
+        return
+      }
+      const indexChoosed = Math.floor(Math.random() * this.shuffleCardsPool.length - 1) + 1
+      if (this.cardsDrawIndex.includes(indexChoosed)) {
+        this.drawCard()
+        return
+      }
+      this.cardsDrawIndex.push(indexChoosed)
+      const oldHand = this.sampleCards
       this.sampleCards = []
       setTimeout(() => {
-        this.generateSampleHand()
+        for (let i = 1; i < oldHand.length; i++) {
+          this.sampleCards.push(oldHand[i])
+        }
+        this.sampleCards.push(this.shuffleCardsPool[indexChoosed])
       }, 100)
     },
-    generateSampleHand: function () {
-      const shuffleCardsPool = this.shuffleArray(this.cardsPool)
-      const cardsDrawIndex = []
+    mulligan: function () {
+      if (this.lastSampleCardsLength === 1) {
+        this.lastSampleCardsLength = 2
+      }
+      this.regenerateSampleHand(this.lastSampleCardsLength - 1)
+    },
+    regenerateSampleHand: function (size) {
+      this.sampleCards = []
+      setTimeout(() => {
+        this.generateSampleHand(size)
+      }, 100)
+    },
+    generateSampleHand: function (size) {
+      this.lastSampleCardsLength = size
+      this.shuffleCardsPool = this.shuffleArray(this.cardsPool)
+      this.cardsDrawIndex = []
+      const noCards = 7 - size
+      while (this.sampleCards.length < noCards) {
+        this.sampleCards.push({
+          name: '',
+          multiverseid: 0,
+          imageUrl: require('@/assets/card.png')
+        })
+      }
       while (this.sampleCards.length < 7) {
-        const indexChoosed = Math.floor(Math.random() * shuffleCardsPool.length - 1) + 1
-        if (!cardsDrawIndex.includes(indexChoosed)) {
-          cardsDrawIndex.push(indexChoosed)
-          this.sampleCards.push(shuffleCardsPool[indexChoosed])
+        const indexChoosed = Math.floor(Math.random() * this.shuffleCardsPool.length - 1) + 1
+        if (!this.cardsDrawIndex.includes(indexChoosed)) {
+          this.cardsDrawIndex.push(indexChoosed)
+          this.sampleCards.push(this.shuffleCardsPool[indexChoosed])
         }
       }
     }
@@ -64,7 +103,10 @@ export default {
           this.cardsPool.push(card)
         }
       })
-      this.generateSampleHand()
+      this.generateSampleHand(7)
+      setTimeout(() => {
+        this.$refs.cardsList.setAttribute('min-height', this.$refs.cardsList.clientHeight)
+      }, 100)
     }
   }
 }
