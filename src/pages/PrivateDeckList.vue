@@ -28,10 +28,10 @@
         :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems"
         v-model="selectedDecks" item-key="id" select-all hide-actions>
         <template slot="items" slot-scope="props">
-          <td>
+          <td class="text-xs-center" width="80">
             <v-checkbox v-model="props.selected" primary hide-details/>
           </td>
-          <td class="text-xs-center">
+          <td class="text-xs-center" width="150">
             <div id="mana" class="mt-2">
               <img v-for="color in props.item.colors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
@@ -46,11 +46,11 @@
           <td class="text-xs-center">
             <ManaCurveCompact class="manaCurve ml-1 mt-1" :manaCurve="props.item.manaCurve"/>
           </td>
-          <td class="text-xs-right">
-            <WildcardsCost class="mt-1 mr-2" :cost="props.item.wildcardCost" :small="true"/>
+          <td class="text-xs-right" width="200">
+            <WildcardsCost class="mt-1" :cost="props.item.wildcardCost" :small="true"/>
           </td>
           <td class="text-xs-center">
-            {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0] }}
+            {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
           </td>
         </template>
       </v-data-table>
@@ -95,7 +95,7 @@ export default {
     this.headers.push({ text: 'Archetype', value: 'arch' })
     this.headers.push({ text: 'Mana Curve', align: 'center', value: 'mana_curve', sortable: false })
     this.headers.push({ text: 'Total Cost', align: 'center', value: 'total_cost', sortable: false })
-    this.headers.push({ text: 'Publish Date', align: 'center', value: 'date' })
+    this.headers.push({ text: 'Last Update', align: 'center', value: 'date' })
     this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
     this.pagination.sortBy = 'name'
     this.pagination.descending = true
@@ -150,6 +150,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .wildcards {
+    justify-content: space-between;
+  }
   #mana {
     margin-left: 8px;
     margin-right: 8px;

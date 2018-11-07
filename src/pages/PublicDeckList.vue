@@ -41,8 +41,8 @@
           <td class="text-xs-center">
             <ManaCurveCompact class="manaCurve ml-1 mt-1" :manaCurve="props.item.manaCurve"/>
           </td>
-          <td class="text-xs-right">
-            <WildcardsCost class="mt-1 mr-2" :cost="props.item.wildcardCost" :small="true"/>
+          <td class="text-xs-right" width="200">
+            <WildcardsCost class="mt-1" :cost="props.item.wildcardCost" :small="true"/>
           </td>
           <td v-if="isUserLogged()" class="text-xs-center">
             <v-progress-circular v-if="props.item.wildcardCostToBuild === undefined"
@@ -59,7 +59,7 @@
             </v-tooltip>
           </td>
           <td class="text-xs-center">
-            {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0] }}
+            {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
           </td>
         </template>
       </v-data-table>
@@ -192,6 +192,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .wildcards {
+    justify-content: space-between;
+  }
   #mana {
     margin-left: 8px;
     margin-right: 8px;

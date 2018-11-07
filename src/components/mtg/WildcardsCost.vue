@@ -1,7 +1,7 @@
 <template>
-  <div id="wildcards">
+  <div class="wildcards">
     <div v-for="wcCost in wcCosts" :key="wcCost.rarity">
-      <span :class="small ? 'textSizeSmall' : 'textSizeNormal'">{{ wcCost.qtd }} </span>
+      <span :class="`mr-1 ml-2 ${small ? 'textSizeSmall' : 'textSizeNormal'}`">{{ wcCost.qtd }} </span>
       <v-tooltip bottom>
         <img :class="small ? 'imgSizeSmall' : 'imgSizeNormal'" slot="activator"
           :src="require(`@/assets/wildcards/${wcCost.rarity}.png`)"/>
@@ -59,23 +59,25 @@ export default {
 </script>
 
 <style>
-  #wildcards {
+  .wildcards {
     display: flex;
     align-items: right;
-    justify-content: space-between;
+    justify-content: center;
   }
-  #wildcards > div {
+  .wildcards > div {
     display: contents;
   }
   .textSizeNormal {
     font-size: 14pt;
     margin-left: 5px;
     margin-right: 4px;
+    transform: translateY(4px);
   }
   .textSizeSmall {
     font-size: 9pt;
     margin-left: 4px;
     margin-right: 2px;
+    transform: translateY(2px);
   }
   .imgSizeNormal {
     width: 22px;

@@ -14,30 +14,30 @@
       <v-divider/>
     </v-flex>
     <!-- Left -->
-    <v-flex hidden-sm-and-down    md3 lg2 xl3>
+    <v-flex class="pl-2 pr-2" hidden-sm-and-down    md3 lg2 xl3>
 
-      <div :class="`ml-2 mt-4 m-auto cover cover-${deckColors} white--text`">
-        <div class="text-xs-center">
-          <v-layout class="mt-2 ml-2" sm12 row nowrap>
-            <span class="title textNoWrap mr-2">{{ deckName }}</span>
-            <v-spacer/>
-            <div class="mana mr-2">
-              <img v-for="color in deckColors.split('')" :key="color"
-                :src="require(`@/assets/mana/${color}.png`)"/>
-            </div>
-          </v-layout>
-          <v-layout class="mt-2 ml-2" sm12 row nowrap>
-            <span class='subheading'>{{ deckArch }}</span>
-          </v-layout>
-        </div>
+      <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
+        <v-layout class="mt-2 ml-2" row nowrap>
+          <span class="title textNoWrap mr-2">{{ deckName }}</span>
+          <v-spacer/>
+          <div class="mana mr-2">
+            <img v-for="color in deckColors.split('')" :key="color"
+              :src="require(`@/assets/mana/${color}.png`)"/>
+          </div>
+        </v-layout>
+        <v-layout class="mt-2 ml-2" row nowrap>
+          <span class='subheading'>{{ deckArch }}</span>
+        </v-layout>
       </div>
 
+      <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
+      
       <v-flex class="mt-4">
         <span class='subheading'>Total deck cost:</span>
         <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
       </v-flex>
 
-      <v-divider class="mt-5 ml-3 mr-3"/>
+      <v-divider class="mt-4 ml-3 mr-3"/>
 
       <v-layout column>
         <v-btn class="mt-4" color="primary" flat small v-on:click="changeDeckMode()">
@@ -101,7 +101,6 @@
     </v-flex>
     <!-- Right -->
     <v-flex class="rSide mb-3" hidden-xs-only sm4 md3 lg3 xl3>
-      <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
       <CardsColorDistribution class='mt-4' :cards="deckCards"/>
       <TypeDistribution class='mt-4' :cards="deckCards"/>
     </v-flex>
