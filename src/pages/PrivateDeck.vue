@@ -30,8 +30,6 @@
         </v-layout>
       </div>
 
-      <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
-      
       <v-flex class="mt-4">
         <span class='subheading'>Total deck cost:</span>
         <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
@@ -40,10 +38,6 @@
       <v-divider class="mt-4 ml-3 mr-3"/>
 
       <v-layout column>
-        <v-btn class="mt-4" color="primary" flat small v-on:click="changeDeckMode()">
-          {{ textMode ? 'Visual Mode' : 'Text Mode'}}
-        </v-btn>
-
         <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
           <v-btn flat small color="primary" v-on:click="exportDeckToArena()" 
             slot="activator">Export to Arena</v-btn>
@@ -71,45 +65,40 @@
     </v-flex>
     <!-- Center -->
     <v-flex class="center" xs12 sm8 md6 lg7 xl6>
-      <div>
-        <v-layout row class="mt-4 ml-5">
-          <span class="subheading mt-2">Main Deck</span>
-        </v-layout>
-        <v-divider class="mt-1 ml-5 mr-5"/>
-        <Deck v-if="textMode" class="deck deckContainer mt-4" :cards="deckCards"
-          :userCollection="userCollection" largeName/>
-        <DeckVisual v-if="!textMode" class="deck mt-3" :cards="deckCards"
-          :userCollection="userCollection"/>
-      </div>
-
-      <div v-if="Object.keys(sideboardCards).length > 0">
-        <v-layout row class="mt-4 ml-5">
-          <span class="subheading mt-2">Sideboard</span>
-        </v-layout>
-        <v-divider class="mt-1 ml-5 mr-5"/>
-        <Deck v-if="textMode" class="deck deckContainer mt-4" :sideboard="sideboardCards"
-          :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck" largeName/>
-        <DeckVisual v-if="!textMode" class="deck mt-3" :sideboard="sideboardCards"
-          :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
-      </div>
-        
-      <v-layout row class="mt-4 ml-5">
-        <span class="subheading mt-2">Sample Hand</span>
-      </v-layout>
-      <v-divider class="mt-1 ml-5 mr-5"/>
-      <SampleHand class="mt-3" :cards="deckCards"/>
+      <v-tabs class="mt-3 ml-4 mr-4" color="#fafafa">
+        <v-tab>Matches</v-tab>
+        <v-tab>Stats</v-tab>
+        <v-tab>Sample Hand</v-tab>
+        <v-tab-item>
+        </v-tab-item>
+        <v-tab-item>
+          <v-layout class='mt-4' row wrap>
+            <v-flex sx6>
+              <ManaCurve :manaCurve="deckManaCurve"/>
+            </v-flex>      
+            <v-flex sx6>
+              <CardsColorDistribution :cards="deckCards"/>
+            </v-flex>
+            <v-flex sx6>
+              <TypeDistribution :cards="deckCards"/>
+            </v-flex>
+          </v-layout>
+        </v-tab-item>
+        <v-tab-item>
+          <SampleHand class="mt-3" :cards="deckCards"/>
+        </v-tab-item>
+      </v-tabs>
     </v-flex>
     <!-- Right -->
     <v-flex class="rSide mb-3" hidden-xs-only sm4 md3 lg3 xl3>
-      <CardsColorDistribution class='mt-4' :cards="deckCards"/>
-      <TypeDistribution class='mt-4' :cards="deckCards"/>
+      <Deck class="deck deckContainer mt-4" :cards="deckCards"
+        :sideboard="sideboardCards" largeName/>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import Deck from '@/components/mtg/Deck'
-import DeckVisual from '@/components/mtg/DeckVisual'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
 import TypeDistribution from '@/components/charts/TypeDistribution'
@@ -121,7 +110,7 @@ import Utils from '@/scripts/utils'
 export default {
   name: 'PrivateDeck',
   components: {
-    Deck, DeckVisual, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
+    Deck, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
   },
   created () {
     this.requestDeck()
@@ -137,7 +126,6 @@ export default {
       deckManaCurve: {},
       deckWCCost: {},
       isLoading: false,
-      textMode: true,
       deckExportDialogVisible: false
     }
   },
@@ -159,9 +147,6 @@ export default {
           this.isLoading = false
           console.log(error)
         })
-    },
-    changeDeckMode: function () {
-      this.textMode = !this.textMode
     },
     exportDeckToArena: function () {
       let data = ''
@@ -213,11 +198,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @media (min-width: 768px) {
-    .deckContainer {
-      column-count: 2;
-    }
-  }
   .center .v-divider {
     width: 150px;
   }

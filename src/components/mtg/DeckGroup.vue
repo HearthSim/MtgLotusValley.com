@@ -1,9 +1,9 @@
 <template>
   <tr>
-    <td>
+    <td :class="marginTop ? 'pt-3' : ''">
       <i v-bind:class="'ms ms-' + groupSymbol + ' ms-shadow'"></i>
     </td>
-    <td class="body-2" id="group_name">
+    <td :class="`body-2 group_name ${marginTop ? 'pt-3' : ''}`">
       &nbsp;{{groupName}} ({{groupSize}})
     </td>
   </tr>
@@ -20,6 +20,10 @@ export default {
     groupSize: {
       type: Number,
       required: true
+    },
+    marginTop: {
+      type: Boolean,
+      required: false
     }
   },
   computed: {
@@ -38,9 +42,9 @@ export default {
 }
 </script>
 
-<style>
-table #group_name {
-  text-align: left;
-  padding-top: 0.4em;
-}
+<style scoped>
+  .group_name {
+    text-align: left;
+    padding-top: 0.4em;
+  }
 </style>

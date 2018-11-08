@@ -3,28 +3,28 @@
     <div class='deck'>
       <span class='body-2'>{{ name }}</span>
       <table>
-        <DeckGroup v-if='lands.length > 0'         v-bind:groupSize="landsQtd"         groupName="Lands" />
-        <DeckCard  v-if='lands.length > 0'         v-for='card in lands'          v-bind:key='card.id'
-          v-bind:card='card' :userCollection="userCollection" largeName/>
-        <DeckGroup v-if='creatures.length > 0'     v-bind:groupSize="creaturesQtd"     groupName="Creatures" />
-        <DeckCard  v-if='creatures.length > 0'     v-for='card in creatures'      v-bind:key='card.id'
-          v-bind:card='card' :userCollection="userCollection" largeName/>
-        <DeckGroup v-if='spells.length > 0'        v-bind:groupSize="spellsQtd"        groupName="Spells" />
-        <DeckCard  v-if='spells.length > 0'        v-for='card in spells'         v-bind:key='card.id'
-          v-bind:card='card' :userCollection="userCollection" largeName/>
-        <DeckGroup v-if='enchantments.length > 0'  v-bind:groupSize="enchantmentsQtd"  groupName="Enchantments" />
-        <DeckCard  v-if='enchantments.length > 0'  v-for='card in enchantments'   v-bind:key='card.id'
-          v-bind:card='card' :userCollection="userCollection" largeName/>
-        <DeckGroup v-if='artifacts.length > 0'     v-bind:groupSize="artifactsQtd"     groupName="Artifacts" />
-        <DeckCard  v-if='artifacts.length > 0'     v-for='card in artifacts'      v-bind:key='card.id'
-          v-bind:card='card' :userCollection="userCollection" largeName/>
-        <DeckGroup v-if='planeswalkers.length > 0' v-bind:groupSize="planeswalkersQtd" groupName="Planeswalkers" />
-        <DeckCard  v-if='planeswalkers.length > 0' v-for='card in planeswalkers'  v-bind:key='card.id'
-          v-bind:card='card' :userCollection="userCollection" largeName/>
-        <DeckGroup v-if='cardsGrouped.lenght > 0 && sideCards.length > 0'
-          v-bind:groupSize="sideboardQtd" groupName="Sideboard" />
-        <DeckCard  v-if='sideCards.length > 0'     v-for='card in sideCards'      v-bind:key='card.id'
-          v-bind:card='card' :userCollection="userCollectionWithoutMainDeck" largeName/>
+        <DeckGroup v-if='lands.length > 0'         :groupSize="landsQtd"         groupName="Lands" />
+        <DeckCard  v-if='lands.length > 0'         v-for='card in lands'          :key='`M${card.id}`'
+          :card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='creatures.length > 0'     :groupSize="creaturesQtd"     groupName="Creatures" />
+        <DeckCard  v-if='creatures.length > 0'     v-for='card in creatures'      :key='`M${card.id}`'
+          :card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='spells.length > 0'        :groupSize="spellsQtd"        groupName="Spells" />
+        <DeckCard  v-if='spells.length > 0'        v-for='card in spells'         :key='`M${card.id}`'
+          :card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='enchantments.length > 0'  :groupSize="enchantmentsQtd"  groupName="Enchantments" />
+        <DeckCard  v-if='enchantments.length > 0'  v-for='card in enchantments'   :key='`M${card.id}`'
+          :card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='artifacts.length > 0'     :groupSize="artifactsQtd"     groupName="Artifacts" />
+        <DeckCard  v-if='artifacts.length > 0'     v-for='card in artifacts'      :key='`M${card.id}`'
+          :card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='planeswalkers.length > 0' :groupSize="planeswalkersQtd" groupName="Planeswalkers" />
+        <DeckCard  v-if='planeswalkers.length > 0' v-for='card in planeswalkers'  :key='`M${card.id}`'
+          :card='card' :userCollection="userCollection" largeName/>
+        <DeckGroup v-if='cardsGrouped.length > 0 && sideCards.length > 0' :groupSize="sideboardQtd" 
+          groupName="Sideboard" marginTop />
+        <DeckCard  v-if='sideCards.length > 0'     v-for='card in sideCards'      :key='`S${card.id}`'
+          :card='card' :userCollection="userCollectionWithoutMainDeck" largeName/>
       </table>
     </div>
   </div>
@@ -154,18 +154,19 @@ export default {
 }
 </script>
 
-<style>
-.deck {
-  overflow-x: auto;
-  font-size: 11pt;
-}
-table {
-  margin: auto;
-  text-align: right;
-  table-layout: fixed;
-  border-spacing: 0;
-}
-table td {
-  padding: 0;
-}
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  .deck {
+    overflow-x: auto;
+    font-size: 11pt;
+  }
+  table {
+    margin: auto;
+    text-align: right;
+    table-layout: fixed;
+    border-spacing: 0;
+  }
+  table td {
+    padding: 0;
+  }
 </style>
