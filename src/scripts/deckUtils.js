@@ -1,3 +1,4 @@
+import Utils from '@/scripts/utils'
 
 export default {
   groupCardsByType: function (cards) {
@@ -90,5 +91,49 @@ export default {
       'uncommon': wcMissingCost['uncommon'] !== undefined ? wcMissingCost['uncommon'] : 0,
       'common': wcMissingCost['common'] !== undefined ? wcMissingCost['common'] : 0
     }
+  },
+  exportDeckToArena: function (deckCards, sideboardCards) {
+    let data = ''
+    const cardsByType = this.groupCardsByType(deckCards)
+    cardsByType['Sideboard'] = sideboardCards
+    Object.keys(cardsByType).forEach(type => {
+      const cards = cardsByType[type]
+      if (type === 'Sideboard' && Object.keys(cards).length > 0) {
+        data += '\n'
+      }
+      Object.keys(cards).forEach(mtgaId => {
+        const card = cards[mtgaId]
+        let set = card.set
+        let number = card.number
+        if (number === 'GR5' || number === 'GR8') {
+          set = 'GRN'
+        }
+        if (number === 'GR6') {
+          set = 'DAR'
+        }
+        if (number.endsWith('a')) {
+          number = number.replace('a', '')
+        }
+        data += `${card.qtd} ${card.name} (${set}) ${number}\n`
+      })
+    })
+    Utils.copyStringToClipboard(data)
+  },
+  exportDeckToReading: function (deckCards, sideboardCards) {
+    let data = ''
+    const cardsByType = this.groupCardsByType(deckCards)
+    cardsByType['Sideboard'] = sideboardCards
+    Object.keys(cardsByType).forEach(type => {
+      const cards = cardsByType[type]
+      if (Object.keys(cards).length > 0) {
+        const qtd = Object.keys(cards).map(mtgaId => cards[mtgaId].qtd).reduce((p, n) => p + n)
+        data += `\n${type} (${qtd})\n`
+        Object.keys(cards).forEach(mtgaId => {
+          const card = cards[mtgaId]
+          data += `${card.qtd} ${card.name}\n`
+        })
+      }
+    })
+    Utils.copyStringToClipboard(data)
   }
 }
