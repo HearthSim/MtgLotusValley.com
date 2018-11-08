@@ -1,89 +1,60 @@
 <template>
-  <v-layout id="events" row wrap>
-    <v-flex v-for="(event, index) in currentEvents" :key="index">
-      <v-card class="mt-1 ml-1 mr-1 mb-1">
-        <!-- Line 1 -->
-        <v-layout class="line line1" row nowrap>
-          <v-flex sm12>
-            <div class="mt-1 mb-1 white--text">
-              <span class="caption">{{ event.name }}</span>
-            </div>
-          </v-flex>
-        </v-layout>
-        <!-- Line 2 -->
-        <v-layout class="line line2 mt-1" row nowrap>
-          <v-flex sm7>
-            <div>
-              <span class="caption">{{ event.format }}</span>
-            </div>
-          </v-flex>
-          <v-flex sm5>
-            <div class="eventCost" v-if="event.entry.gems !== undefined">
-              <img :src="require('@/assets/gems.png')"/>
-              <span class="caption">{{ event.entry.gems }}</span>
-            </div>
-          </v-flex>
-        </v-layout>
-        <!-- Line 3 -->
-        <v-layout class="line line3" row nowrap>
-          <v-flex sm7>
-            <div>
-              <span class="caption">{{ event.remainginTime }}</span>
-            </div>
-          </v-flex>
-          <v-flex sm5>
-            <div class="eventCost" v-if="event.entry.gold !== undefined">
-              <img :src="require('@/assets/coins.png')"/>
-              <span class="caption">{{ event.entry.gold }}</span>
-            </div>
-          </v-flex>
-        </v-layout>
-      </v-card>
+  <v-layout class="events" row wrap>
+    <v-flex v-if="upcomingEvents.length > 0" xs12 class="text-xs-left body-1">
+      <span class="ml-2">Current</span>
+    </v-flex>
+    <v-flex v-if="upcomingEvents.length > 0" xs12 class="text-xs-left">
+      <v-divider class="ml-2"/>
+    </v-flex>
+    <v-flex class="mt-2" v-for="(event, index) in currentEvents" :key="index">
+      <Event class="mt-1 ml-1 mr-1 mb-1" :event="event"/>
+    </v-flex>
+    <v-flex v-if="upcomingEvents.length > 0" xs12 class="mt-3 text-xs-left body-1">
+      <span class="ml-2">Upcoming</span>
+    </v-flex>
+    <v-flex v-if="upcomingEvents.length > 0" xs12 class="text-xs-left">
+      <v-divider class="ml-2"/>
+    </v-flex>
+    <v-flex class="mt-2" v-for="(event, index) in upcomingEvents" :key="index">
+      <Event class="mt-1 ml-1 mr-1 mb-1" :event="event"/>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-const DateDiff = require('date-diff')
+import Event from '@/components/Event'
 
 export default {
+  components: {
+    Event
+  },
   mounted () {
     this.getEvents()
   },
   data () {
     return {
-      currentEvents: []
+      currentEvents: [],
+      upcomingEvents: []
     }
   },
   methods: {
     getEvents: function () {
       this.$api.getEvents()
         .then(res => {
-          const events = res.data
-          events.forEach(event => {
-            event.remainginTime = this.getRemainingTime(event.ends)
-            setInterval(() => {
-              if (new Date(event.ends) >= new Date()) {
-                event.remainginTime = this.getRemainingTime(event.ends)
-              }
-            }, 1000)
+          this.currentEvents = res.data.filter(event => {
+            const starts = new Date(event.starts)
+            const ends = new Date(event.ends)
+            return starts <= new Date() && ends >= new Date()
           })
-          this.currentEvents = events
+          this.upcomingEvents = res.data.filter(event => {
+            const starts = new Date(event.starts)
+            return starts > new Date()
+          })
         })
         .catch(error => {
           this.isLoading = false
           console.log(error)
         })
-    },
-    getRemainingTime: function (ends) {
-      const endsDate = new Date(ends)
-      const now = new Date()
-      const diff = new DateDiff(endsDate, now)
-      const diffDays = Math.trunc(diff.days())
-      const diffHours = Math.trunc(diff.hours() % 24)
-      const diffMinutes = Math.trunc(diff.minutes() % 60).toString().padStart(2, '0')
-      const diffSeconds = Math.trunc(diff.seconds() % 60).toString().padStart(2, '0')
-      return `${diffDays} days, ${diffHours}:${diffMinutes}:${diffSeconds}`
     }
   }
 }
@@ -91,24 +62,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #events .v-card {
-    height: 80px;
-    width: 200px;
-    display: inline-block;
+  @media (max-width: 1919px) {
+    .events {
+      max-width: 250px;
+    }
   }
-  #event {
-    height: 80px;
-    width: 200px;
+  @media (min-width: 1920px) {
+    .events {
+      max-width: 450px;
+    }
   }
-  .eventCost img {
-    height: 16px;
-    width: 16px;
-    transform: translateY(4px);
-  }
-  .eventCost span {
-    min-width: 4ch;
-  }
-  .line1 {
-    background-color: darkorange;
+  .v-divider {
+    width: 100px;
   }
 </style>

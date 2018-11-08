@@ -233,7 +233,7 @@ export default {
   getEvents () {
     return axios.get('/events', {
       params: {
-        onlyRunning: true
+        notFinished: true
       }
     })
   },

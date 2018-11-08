@@ -3,10 +3,10 @@
       <v-flex xs12 sm12 md3 lg3 xl3>
         <div class="mt-3">
           <span class='body-2 grey--text text--darken-2'>
-            <strong>Current Events</strong>
+            <strong>Events</strong>
           </span>
         </div>
-        <Events class="mt-2 ml-3 mr-3 mb-2"/>
+        <Events class="mt-2 mb-2 m-auto"/>
       </v-flex>
       <v-flex xs12 sm8 md6 lg6 xl6>
         <div class="mt-3 ta-l">
