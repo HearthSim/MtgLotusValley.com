@@ -30,7 +30,7 @@
               <!-- Line 2 -->
               <v-layout class="line line2" row nowrap>
                 <v-flex>
-                  <WildcardsCost class="mt-1 mr-2" :cost="deck.wildcardCost" :small="true"/>
+                  <WildcardsCost class="mt-1 mr-2 white--text" :cost="deck.wildcardCost" :small="true"/>
                 </v-flex>
                 <v-spacer/>
                 <v-flex>
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import ManaCurveCompact from '@/components/ManaCurveCompact'
+import ManaCurveCompact from '@/components/charts/ManaCurveCompact'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 
 export default {

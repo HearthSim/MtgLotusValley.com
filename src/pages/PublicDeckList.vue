@@ -76,7 +76,7 @@
 <script>
 import CardsFilter from '@/components/filters/CardsFilter'
 import ColorFilter from '@/components/filters/ColorFilter'
-import ManaCurveCompact from '@/components/ManaCurveCompact'
+import ManaCurveCompact from '@/components/charts/ManaCurveCompact'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import DeckUtils from '@/scripts/deckutils'
 
