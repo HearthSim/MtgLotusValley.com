@@ -66,16 +66,17 @@
     <!-- Center -->
     <v-flex class="center" xs12 sm8 md6 lg7 xl6>
       <v-tabs class="mt-3 ml-4 mr-4" color="#fafafa">
+
         <v-tab>Matches</v-tab>
-        <v-tab>Stats</v-tab>
-        <v-tab>Sample Hand</v-tab>
         <v-tab-item>
         </v-tab-item>
+
+        <v-tab>Stats</v-tab>
         <v-tab-item>
           <v-layout class='mt-4' row wrap>
             <v-flex sx6>
               <ManaCurve :manaCurve="deckManaCurve"/>
-            </v-flex>      
+            </v-flex>
             <v-flex sx6>
               <CardsColorDistribution :cards="deckCards"/>
             </v-flex>
@@ -84,8 +85,10 @@
             </v-flex>
           </v-layout>
         </v-tab-item>
+
+        <v-tab>Play Test</v-tab>
         <v-tab-item>
-          <SampleHand class="mt-3" :cards="deckCards"/>
+          <PlayTest class="mt-3" :cards="deckCards"/>
         </v-tab-item>
       </v-tabs>
     </v-flex>
@@ -103,17 +106,13 @@ import WildcardsCost from '@/components/mtg/WildcardsCost'
 import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
 import TypeDistribution from '@/components/charts/TypeDistribution'
 import ManaCurve from '@/components/charts/ManaCurve'
-import SampleHand from '@/components/SampleHand'
+import PlayTest from '@/components/PlayTest'
 import DeckUtils from '@/scripts/deckutils'
-import Utils from '@/scripts/utils'
 
 export default {
   name: 'PrivateDeck',
   components: {
-    Deck, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
-  },
-  created () {
-    this.requestDeck()
+    Deck, PlayTest, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
   },
   data () {
     return {
@@ -164,6 +163,15 @@ export default {
 <style scoped>
   .center .v-divider {
     width: 150px;
+  }
+  #mana {
+    margin-left: 8px;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+  #mana img {
+    height: 20px;
+    width: 20px;
   }
   .deck {
     padding-left: 3%;

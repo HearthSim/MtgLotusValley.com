@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <div v-if="!asText" :class="`cardAsImage ${highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'}`">
-      <a target="_blank" :href="cardLink()">
-        <img :class="`cardBorder ${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
-          v-lazy="imageUrl" width="100%"/>
-        <v-card class="cardQtd elevation-2" v-if="qtd > 0">
-          {{ qtd }}
-        </v-card>
-      </a>
+  <div class="cardContainer">
+    <div v-if="!asText" :class="`cardAsImage ${highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'}`"
+      @click="openInNewTab(cardLink())">
+      <img :class="`cardBorder ${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
+        v-lazy="imageUrl" width="100%" ref="cardImage"/>
+      <v-card class="cardQtd elevation-2" v-if="qtd > 0">
+        {{ qtd }}
+      </v-card>
     </div>
     <v-tooltip v-if="asText" :class="`textNoWrap ${largeName ? 'textNameLarge' : 'textNameNormal'}`" left lazy>
       <a class='body-1' target="_blank" :href="cardLink()" slot="activator">
@@ -53,6 +52,16 @@ export default {
       type: Boolean,
       default: false,
       required: false
+    },
+    clickable: {
+      type: Boolean,
+      required: false,
+      default: true
+    }
+  },
+  watch: {
+    imageUrl: function (value) {
+      this.$refs.cardImage.setAttribute('src', value)
     }
   },
   methods: {
@@ -61,6 +70,12 @@ export default {
         return `http://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[${this.name}]`
       }
       return `http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=${this.multiverseid}`
+    },
+    openInNewTab: function (url) {
+      if (this.clickable) {
+        var win = window.open(url, '_blank')
+        win.focus()
+      }
     }
   }
 }

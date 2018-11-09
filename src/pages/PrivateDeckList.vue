@@ -77,7 +77,14 @@ export default {
   },
   data () {
     return {
-      headers: [],
+      headers: [
+        { text: 'Colors', align: 'center', value: 'colors' },
+        { text: 'Name', value: 'name' },
+        { text: 'Archetype', value: 'arch' },
+        { text: 'Mana Curve', align: 'center', value: 'mana_curve', sortable: false },
+        { text: 'Total Cost', align: 'center', value: 'total_cost', sortable: false },
+        { text: 'Last Update', align: 'center', value: 'date' }
+      ],
       isLoading: false,
       pagination: {},
       totalPages: 0,
@@ -90,12 +97,6 @@ export default {
     }
   },
   mounted () {
-    this.headers.push({ text: 'Colors', align: 'center', value: 'colors' })
-    this.headers.push({ text: 'Name', value: 'name' })
-    this.headers.push({ text: 'Archetype', value: 'arch' })
-    this.headers.push({ text: 'Mana Curve', align: 'center', value: 'mana_curve', sortable: false })
-    this.headers.push({ text: 'Total Cost', align: 'center', value: 'total_cost', sortable: false })
-    this.headers.push({ text: 'Last Update', align: 'center', value: 'date' })
     this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
     this.pagination.sortBy = 'name'
     this.pagination.descending = true

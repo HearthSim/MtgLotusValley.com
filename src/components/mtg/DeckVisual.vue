@@ -5,28 +5,28 @@
     </v-flex>
     <v-flex xl12 class="types">
       <DeckGroup align="center" v-if='lands.length > 0'
-        v-bind:groupSize="lands.length"         groupName="Lands" />
+        :groupSize="lands.length"         groupName="Lands" />
       <DeckGroup align="center" v-if='creatures.length > 0'
-        v-bind:groupSize="creatures.length"     groupName="Creatures" />
+        :groupSize="creatures.length"     groupName="Creatures" />
       <DeckGroup align="center" v-if='spells.length > 0'
-        v-bind:groupSize="spells.length"        groupName="Spells" />
+        :groupSize="spells.length"        groupName="Spells" />
       <DeckGroup align="center" v-if='enchantments.length > 0'
-        v-bind:groupSize="enchantments.length"  groupName="Enchantments" />
+        :groupSize="enchantments.length"  groupName="Enchantments" />
       <DeckGroup align="center" v-if='artifacts.length > 0'
-        v-bind:groupSize="artifacts.length"     groupName="Artifacts" />
+        :groupSize="artifacts.length"     groupName="Artifacts" />
       <DeckGroup align="center" v-if='planeswalkers.length > 0'
-        v-bind:groupSize="planeswalkers.length" groupName="Planeswalkers" />
+        :groupSize="planeswalkers.length" groupName="Planeswalkers" />
     </v-flex>
-    <v-flex xl12 class="cardsContainer mt-2">
-      <DeckVisualPile class="cards" :cardsPile="cardsPile"
-        v-for='(cardsPile, pileIndex) in allCards' v-bind:key='`main_pile${pileIndex}`'/>
+    <v-flex xl12 class="pileContainer mt-2">
+      <DeckVisualPile class="pile" v-for='(pile, pileIndex) in allCards'
+        :key='`main_pile${pileIndex}`' :cardsPile="pile"/>
     </v-flex>
     <v-flex xl12 class="types mt-2 mb-2" v-if='allCards.length > 0 && allSideboard.length > 0'>
-      <DeckGroup align="center" v-bind:groupSize="allSideboard.length" groupName="Sideboard" />
+      <DeckGroup align="center" :groupSize="allSideboard.length" groupName="Sideboard" />
     </v-flex>
-    <v-flex xl12 class="cardsContainer" v-if='allSideboard.length > 0'>
-      <DeckVisualPile class="cards" :cardsPile="cardsPile"
-        v-for='(cardsPile, pileIndex) in allSideboard' v-bind:key='`side_pile${pileIndex}`'/>
+    <v-flex xl12 class="pileContainer" v-if='allSideboard.length > 0'>
+      <DeckVisualPile class="pile" v-for='(pile, pileIndex) in allSideboard'
+        :key='`side_pile${pileIndex}`' :cardsPile="pile"/>
     </v-flex>
   </v-layout>
 </template>
@@ -106,7 +106,7 @@ export default {
   },
   mounted: function () {
     const columns = 4
-    let cards = []
+    const cards = []
     if (this.cards !== undefined) {
       let data = []
       data = data.concat(this.lands)
@@ -122,17 +122,19 @@ export default {
       }
     }
     this.allCards = cards
+    this.updateUserCollection()
 
-    cards = []
+    const sideboard = []
     if (this.sideboard !== undefined) {
       const data = this.groupCards(this.sideboard, false)
       const pileSize = data.length / columns
       for (let i = 0; i < columns; i++) {
         const index = i * pileSize
-        cards.push(data.slice(index, index + pileSize))
+        sideboard.push(data.slice(index, index + pileSize))
       }
     }
-    this.allSideboard = cards
+    this.allSideboard = sideboard
+    this.updateUserCollectionWithoutMainDeck()
   },
   methods: {
     cardLink: function (multiverseid, name) {
@@ -194,15 +196,21 @@ export default {
         this.allSideboard = pilesUpdated
       }
       return data
+    },
+    updateUserCollection: function () {
+      const remainingCollection = this.updateMissingCards(this.allCards, true, this.userCollection)
+      this.updateMissingCards(this.allSideboard, false, remainingCollection)
+    },
+    updateUserCollectionWithoutMainDeck: function () {
+      this.updateMissingCards(this.allSideboard, false, this.userCollectionWithoutMainDeck)
     }
   },
   watch: {
     userCollection: function (value) {
-      const remainingCollection = this.updateMissingCards(this.allCards, true, value)
-      this.updateMissingCards(this.allSideboard, false, remainingCollection)
+      this.updateUserCollection()
     },
     userCollectionWithoutMainDeck: function (value) {
-      this.updateMissingCards(this.allSideboard, false, value)
+      this.updateUserCollectionWithoutMainDeck()
     }
   }
 }
@@ -220,13 +228,13 @@ export default {
   tr {
     width: 100%;
   }
-  .cardsContainer{
+  .pileContainer {
     font-size: 11pt;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
   }
-  .cards {
+  .pile {
     padding: 2px;
     flex: 1;
     max-width: 250px;

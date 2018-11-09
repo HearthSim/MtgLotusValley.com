@@ -44,9 +44,6 @@
       <v-divider class="mt-4 ml-3 mr-3"/>
 
       <v-layout column>
-        <v-btn class="mt-4" color="primary" flat small v-on:click="changeDeckMode()">
-          {{ textMode ? 'Visual Mode' : 'Text Mode'}}
-        </v-btn>
 
         <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
           <v-btn flat small color="primary" v-on:click="exportDeckToArena()" 
@@ -75,33 +72,53 @@
     </v-flex>
     <!-- Center -->
     <v-flex class="center" xs12 sm8 md6 lg7 xl6>
-      <div>
-        <v-layout row class="mt-4 ml-5">
-          <span class="subheading mt-2">Main Deck</span>
-        </v-layout>
-        <v-divider class="mt-1 ml-5 mr-5"/>
-        <Deck v-if="textMode" class="deck deckContainer mt-4" :cards="deckCards"
-          :userCollection="userCollection" largeName/>
-        <DeckVisual v-if="!textMode" class="deck mt-3" :cards="deckCards"
-          :userCollection="userCollection"/>
-      </div>
 
-      <div v-if="Object.keys(sideboardCards).length > 0">
-        <v-layout row class="mt-4 ml-5">
-          <span class="subheading mt-2">Sideboard</span>
-        </v-layout>
-        <v-divider class="mt-1 ml-5 mr-5"/>
-        <Deck v-if="textMode" class="deck deckContainer mt-4" :sideboard="sideboardCards"
-          :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck" largeName/>
-        <DeckVisual v-if="!textMode" class="deck mt-3" :sideboard="sideboardCards"
-          :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
-      </div>
-        
-      <v-layout row class="mt-4 ml-5">
-        <span class="subheading mt-2">Sample Hand</span>
-      </v-layout>
-      <v-divider class="mt-1 ml-5 mr-5"/>
-      <SampleHand class="mt-3" :cards="deckCards"/>
+      <v-tabs class="mt-3 ml-4 mr-4" color="#fafafa">
+
+        <v-tab>Text Mode</v-tab>
+        <v-tab-item>
+          <div>
+            <v-layout row class="mt-4 ml-5">
+              <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
+            </v-layout>
+            <v-divider class="mt-1 ml-5 mr-5"/>
+            <Deck class="deck deckContainer mt-4" :cards="deckCards" :userCollection="userCollection" largeName/>
+          </div>
+          <div v-if="Object.keys(sideboardCards).length > 0">
+            <v-layout row class="mt-4 ml-5">
+              <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
+            </v-layout>
+            <v-divider class="mt-1 ml-5 mr-5"/>
+            <Deck class="deck deckContainer mt-4" :sideboard="sideboardCards"
+              :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck" largeName/>
+          </div>            
+        </v-tab-item>
+
+        <v-tab>Visual Mode</v-tab>
+        <v-tab-item lazy>
+          <div>
+            <v-layout row class="mt-4 ml-5">
+              <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
+            </v-layout>
+            <v-divider class="mt-1 ml-5 mr-5"/>
+            <DeckVisual class="deck mt-3" :cards="deckCards" :userCollection="userCollection"/>
+          </div>
+          <div v-if="Object.keys(sideboardCards).length > 0">
+            <v-layout row class="mt-4 ml-5">
+              <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
+            </v-layout>
+            <v-divider class="mt-1 ml-5 mr-5"/>
+            <DeckVisual class="deck mt-3" :sideboard="sideboardCards"
+              :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
+          </div>
+        </v-tab-item>
+
+        <v-tab>Play Test</v-tab>
+        <v-tab-item>
+          <PlayTest class="mt-3" :cards="deckCards"/>
+        </v-tab-item>
+      </v-tabs>
+
     </v-flex>
     <!-- Right -->
     <v-flex class="rSide mb-3" hidden-xs-only sm4 md3 lg3 xl3>
@@ -118,14 +135,13 @@ import WildcardsCost from '@/components/mtg/WildcardsCost'
 import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
 import TypeDistribution from '@/components/charts/TypeDistribution'
 import ManaCurve from '@/components/charts/ManaCurve'
-import SampleHand from '@/components/SampleHand'
+import PlayTest from '@/components/PlayTest'
 import DeckUtils from '@/scripts/deckutils'
-import Utils from '@/scripts/utils'
 
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, DeckVisual, SampleHand, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
+    Deck, DeckVisual, PlayTest, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
   },
   created () {
     this.requestDeck()
@@ -143,7 +159,6 @@ export default {
       deckWCCost: {},
       deckWCMissingCost: {},
       isLoading: false,
-      textMode: true,
       userCollection: {},
       userCollectionWithoutMainDeck: {},
       deckExportDialogVisible: false
@@ -225,19 +240,15 @@ export default {
       })
       return data
     },
-    changeDeckMode: function () {
-      this.textMode = !this.textMode
-      this.getUserCollection()
-    },
     exportDeckToArena: function () {
       DeckUtils.exportDeckToArena(this.deckCards, this.sideboardCards)
     },
     exportDeckToReading: function () {
-      const cardsByType = DeckUtils.groupCardsByType(this.deckCards)
       DeckUtils.exportDeckToReading(this.deckCards, this.sideboardCards)
     },
     cardsTotal: function (cards) {
-      return Object.keys(cards).map(mtgaId => cards[mtgaId].qtd).reduce((p, n) => p + n)
+      const cardsQtd = Object.keys(cards).map(mtgaId => cards[mtgaId].qtd)
+      return cardsQtd.length > 0 ? cardsQtd.reduce((p, n) => p + n) : 0
     }
   }
 }
@@ -251,7 +262,7 @@ export default {
     }
   }
   .center .v-divider {
-    width: 150px;
+    width: 200px;
   }
   .deck {
     padding-left: 3%;

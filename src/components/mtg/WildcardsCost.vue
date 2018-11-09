@@ -1,7 +1,7 @@
 <template>
   <div class="wildcards">
     <div v-for="wcCost in wcCosts" :key="wcCost.rarity">
-      <span :class="`mr-1 ml-2 ${small ? 'textSizeSmall' : 'textSizeNormal'}`">{{ wcCost.qtd }} </span>
+      <span :class="`${small ? 'textSizeSmall' : 'textSizeNormal mr-1 ml-2'}`">{{ wcCost.qtd }} </span>
       <v-tooltip bottom>
         <img :class="small ? 'imgSizeSmall' : 'imgSizeNormal'" slot="activator"
           :src="require(`@/assets/wildcards/${wcCost.rarity}.png`)"/>

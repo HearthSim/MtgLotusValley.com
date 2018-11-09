@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cardContainer">
     <a class="card" v-for='(card, index) in cardsPile' v-bind:key='index' target="_blank" 
       :href="cardLink(card.multiverseid, card.name)">
       <img :class="`cardBorder cardImage ${card.isMissing ? 'grayscale' : ''}`"
