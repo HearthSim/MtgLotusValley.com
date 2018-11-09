@@ -188,7 +188,7 @@ export default {
       }
     })
   },
-  getPrivateDeck (id) {
+  getUserDeck (id) {
     return axios.get('/users/decks', {
       headers: {
         Authorization: 'required'
@@ -197,6 +197,20 @@ export default {
         cardDetails: true,
         deckId: id,
         userId: localStorage.getItem('localId')
+      }
+    })
+  },
+  getUserDeckMatches (id, page, pageSize, sortBy, descending) {
+    return axios.get('/users/matches', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: {
+        deckId: id,
+        userId: localStorage.getItem('localId'),
+        pageNumber: page,
+        pageSize: pageSize,
+        sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`
       }
     })
   },

@@ -69,6 +69,26 @@
 
         <v-tab>Matches</v-tab>
         <v-tab-item>
+          <v-data-table :headers="matchesHeaders" :items="deckMatches" hide-actions class="elevation-1"
+            :loading="isLoading" :pagination.sync="pagination" :total-items="deckMatches.length">
+            <template slot="items" slot-scope="props">
+              <td :class="`text-xs-center ${props.item.wins ? 'green--text' : 'red--text'}`">
+                {{ props.item.wins ? 'Won' : 'Lost' }}
+              </td>
+              <td class="text-xs-left">{{props.item.opponentName}}</td>
+              <td class="text-xs-center" width="150">
+                <div id="mana" class="mt-2">
+                  <img v-for="color in props.item.opponentDeckColors.split('')" :key="color"
+                    :src="require(`@/assets/mana/${color}.png`)"/>
+                </div>
+              </td>
+              <td class="text-xs-left">{{props.item.opponentDeckArch}}</td>
+              <td class="text-xs-center">
+                {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
+              </td>
+            </template>
+          </v-data-table>
+          <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="7"/>
         </v-tab-item>
 
         <v-tab>Stats</v-tab>
@@ -116,6 +136,13 @@ export default {
   },
   data () {
     return {
+      matchesHeaders: [
+        { text: 'Result', align: 'center', value: 'result' },
+        { text: 'Opponent', value: 'opponent', sortable: false },
+        { text: 'Opponent Colors', value: 'opponentColors' },
+        { text: 'Opponent Archetype', value: 'opponentArch' },
+        { text: 'Date', align: 'center', value: 'date' }
+      ],
       deckId: this.$route.params.id,
       deckCards: {},
       sideboardCards: {},
@@ -124,14 +151,23 @@ export default {
       deckColors: '',
       deckManaCurve: {},
       deckWCCost: {},
+      deckMatches: [],
       isLoading: false,
+      pagination: {},
       deckExportDialogVisible: false
     }
+  },
+  mounted () {
+    this.requestDeck()
+    this.requestDeckMatches()
+    this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
+    this.pagination.sortBy = 'name'
+    this.pagination.descending = true
   },
   methods: {
     requestDeck: function () {
       this.isLoading = true
-      this.$api.getPrivateDeck(this.deckId)
+      this.$api.getUserDeck(this.deckId)
         .then(res => {
           this.isLoading = false
           this.deckCards = res.data.cards
@@ -147,6 +183,18 @@ export default {
           console.log(error)
         })
     },
+    requestDeckMatches: function () {
+      this.isLoading = true
+      this.pagination.rowsPerPage = 15
+      const { sortBy, descending, page, rowsPerPage } = this.pagination
+      this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending)
+        .then(res => {
+          this.isLoading = false
+          this.deckMatches = res.data
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
         })
     },
     exportDeckToArena: function () {
