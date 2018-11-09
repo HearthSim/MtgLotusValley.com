@@ -10,12 +10,12 @@
     </v-flex>
     <!-- Hand -->
     <v-flex xs12>
-      <v-container class="cards mt-2 scroll-x" h-bar ref="handList">
+      <ScrollDiv class="cards mt-2" :overflowAlways="false" ref="handList">
         <div v-for="(card, index) in handCards" :key="index" @click="onHandCardClick(index)">
           <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid'
             :qtd="-1" :highScaleOnHover="true" :clickable="false"/>
         </div>
-      </v-container>
+      </ScrollDiv>
       <v-divider class="mt-1"/>
     </v-flex>
     <!-- Field -->
@@ -23,21 +23,21 @@
       <v-layout row wrap>
         <!-- Non-Land -->
         <v-flex xs12 class="ml-2">
-          <div class="cards mt-2" ref="landsList">
+          <ScrollDiv class="cards mt-2" :overflowAlways="false" ref="landList">
             <div v-for="(card, index) in nonLandCards" :key="index">
               <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid'
                 :qtd="-1" :highScaleOnHover="true"/>
             </div>
-          </div>
+          </ScrollDiv>
         </v-flex>
         <!-- Lands -->
         <v-flex xs12 class="ml-2 mr-2">
-          <div class="cards mt-1" ref="nonLandsList">
+          <ScrollDiv class="cards mt-1" :overflowAlways="false" ref="nonLandList">
             <div v-for="(card, index) in landCards" :key="index">
               <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid'
                 :qtd="-1" :highScaleOnHover="true"/>
             </div>
-          </div>
+          </ScrollDiv>
         </v-flex>
       </v-layout>
     </v-flex>
@@ -50,11 +50,12 @@
 
 <script>
 import Card from '@/components/mtg/Card'
+import ScrollDiv from '@/components/ScrollDiv'
 import DeckVisualPile from '@/components/mtg/DeckVisualPile'
 
 export default {
   components: {
-    Card, DeckVisualPile
+    Card, DeckVisualPile, ScrollDiv
   },
   props: {
     cards: {
@@ -158,13 +159,10 @@ export default {
 <style scoped>
   .cards {
     display: flex;
-    /* overflow-x: auto;
-    overflow-y: hidden; */
-  }
-  .cards > div {
-    margin: 1px;
   }
   .cardContainer {
     width: 8em;
+    margin: 1px;
   }
+  .m-auto { margin: auto !important; }
 </style>

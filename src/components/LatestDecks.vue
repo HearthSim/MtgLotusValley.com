@@ -1,73 +1,62 @@
 <template>
   <v-card id="decks">
-    <v-layout row>
-      <v-flex>
-        <div class="btArrow" v-on:click="scrollLeft()">
-          <v-icon>keyboard_arrow_left</v-icon>
-        </div>
-      </v-flex>
-      <v-flex class="scroll" ref="scrollView">
-        <router-link v-for="deck in currentDecks" :key="deck.alias" :to="`/decks/${deck.alias}`">
-          <div class="deck">
-            <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-${deck.colors}`">
-              <!-- Line 1 -->
-              <v-layout class="line line1" row nowrap>
-                <v-flex>
-                  <div class="mt-2">
-                    <span>
-                      <strong class="white--text">{{ deck.name }}</strong>
-                    </span>
-                  </div>
-                </v-flex>
-                <v-spacer/>
-                <v-flex>
-                  <div id="mana" class="mt-2">
-                    <img v-for="color in deck.colors.split('')" :key="color"
-                      :src="require(`@/assets/mana/${color}.png`)"/>
-                  </div>
-                </v-flex>
-              </v-layout>
-              <!-- Line 2 -->
-              <v-layout class="line line2" row nowrap>
-                <v-flex>
-                  <WildcardsCost class="mt-1 mr-2 white--text" :cost="deck.wildcardCost" :small="true"/>
-                </v-flex>
-                <v-spacer/>
-                <v-flex>
-                  <ManaCurveCompact class="manaCurve mt-1" :manaCurve="deck.manaCurve"/>
-                </v-flex>
-              </v-layout>
-            </div>
-          </div>
-        </router-link>
-        <router-link v-if="decksLoaded" :to="'/decks'">
-          <div class="deck">
-            <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-default`">
-              <v-layout class="line showMore" row nowrap>
-                <div>
-                  <strong class="white--text">More Decks</strong>
+    <ScrollDiv>
+      <router-link v-for="deck in currentDecks" :key="deck.alias" :to="`/decks/${deck.alias}`">
+        <div class="deck">
+          <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-${deck.colors}`">
+            <!-- Line 1 -->
+            <v-layout class="line line1" row nowrap>
+              <v-flex>
+                <div class="mt-2">
+                  <span>
+                    <strong class="white--text">{{ deck.name }}</strong>
+                  </span>
                 </div>
-              </v-layout>
-            </div>
+              </v-flex>
+              <v-spacer/>
+              <v-flex>
+                <div id="mana" class="mt-2">
+                  <img v-for="color in deck.colors.split('')" :key="color"
+                    :src="require(`@/assets/mana/${color}.png`)"/>
+                </div>
+              </v-flex>
+            </v-layout>
+            <!-- Line 2 -->
+            <v-layout class="line line2" row nowrap>
+              <v-flex>
+                <WildcardsCost class="mt-1 mr-2 white--text" :cost="deck.wildcardCost" :small="true"/>
+              </v-flex>
+              <v-spacer/>
+              <v-flex>
+                <ManaCurveCompact class="manaCurve mt-1" :manaCurve="deck.manaCurve"/>
+              </v-flex>
+            </v-layout>
           </div>
-        </router-link>
-      </v-flex>
-      <v-flex>
-        <div class="btArrow" v-on:click="scrollRight()">
-          <v-icon>keyboard_arrow_right</v-icon>
         </div>
-      </v-flex>
-    </v-layout>
+      </router-link>
+      <router-link v-if="decksLoaded" :to="'/decks'">
+        <div class="deck">
+          <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-default`">
+            <v-layout class="line showMore" row nowrap>
+              <div>
+                <strong class="white--text">More Decks</strong>
+              </div>
+            </v-layout>
+          </div>
+        </div>
+      </router-link>
+    </ScrollDiv>
   </v-card>
 </template>
 
 <script>
+import ScrollDiv from '@/components/ScrollDiv'
 import ManaCurveCompact from '@/components/charts/ManaCurveCompact'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 
 export default {
   components: {
-    ManaCurveCompact, WildcardsCost
+    ScrollDiv, ManaCurveCompact, WildcardsCost
   },
   mounted () {
     this.getDecks()
@@ -91,18 +80,6 @@ export default {
           this.isLoading = false
           console.log(error)
         })
-    },
-    scrollLeft: function () {
-      this.$refs.scrollView.scrollBy({
-        left: -200,
-        behavior: 'smooth'
-      })
-    },
-    scrollRight: function () {
-      this.$refs.scrollView.scrollBy({
-        left: 200,
-        behavior: 'smooth'
-      })
     }
   }
 }
@@ -133,25 +110,6 @@ export default {
   .showMore > div {
     width: 100%;
     text-align: center;
-  }
-  .btArrow {
-    height: 100px;
-  }
-  .btArrow:hover {
-    background-color: #DDDDDDAA;
-  }
-  .btArrow > i {
-    transform: translateY(30px);
-  }
-  .scroll {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-  .scroll::-webkit-scrollbar {
-    display: none; 
   }
   .scroll > a {
     flex: 0 0 auto; 
