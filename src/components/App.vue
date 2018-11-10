@@ -143,10 +143,19 @@ export default {
 .m-auto { margin: auto; }
 .d-block { display: block; }
 
+.textNoselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
 .textNoWrap {
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: inline-flex;/* block; */
+  display: inline-flex; /* block; */
   overflow: hidden;
 }
 

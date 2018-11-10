@@ -1,15 +1,20 @@
 <template>
-  <div class="cardContainer">
-    <a class="card" v-for='(card, index) in cardsPile' v-bind:key='index' target="_blank" 
-      :href="cardLink(card.multiverseid, card.name)">
-      <img :class="`cardBorder cardImage ${card.isMissing ? 'grayscale' : ''}`"
-        v-lazy="card.imageUrl" alt="Loading..." />
+  <div>
+    <a class="cardContainer" v-for='(card, index) in cardsPile' v-bind:key='index'
+       target="_blank" :href="cardLink(card.multiverseid, card.name)">
+      <Card class="card" :name='card.name' :imageUrl='card.imageUrl'
+        :multiverseid='card.multiverseid' :qtd="-1" :scaleOnHover="false" />
     </a>
   </div>
 </template>
 
 <script>
+import Card from '@/components/mtg/Card'
+
 export default {
+  components: {
+    Card
+  },
   props: {
     cardsPile: {
       type: Array,
@@ -29,30 +34,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .card {
+  .cardContainer {
     display: inline-block;
     position: relative;
   }
-  .card .cardImage {
+  .cardContainer .card {
     pointer-events: none;
     display: block;
     position: relative;
-    max-width: 100%;
-    width: 250px;
   }
-  .card:hover img {
+  .cardContainer:hover .card {
     z-index: 9999;
   }
-  .card:not(:first-child) {
+  .cardContainer:not(:first-child) {
     margin-top: -129%;
-  }
-  .cardBorder {
-    padding: 4px;
-    border-radius: 12px;
-    background-color: #14130e;
-  }
-  .grayscale {
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
   }
 </style>

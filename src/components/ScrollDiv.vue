@@ -1,18 +1,18 @@
 <template>
   <v-layout row>
-    <v-flex>
+    <div class="btArrowContainer textNoselect">
       <div v-if="overflowAlways || overflow" class="btArrow" v-on:click="scrollLeft()">
         <v-icon>keyboard_arrow_left</v-icon>
       </div>
-    </v-flex>
+    </div>
     <v-flex class="scroll ml-1 mr-1" ref="scrollView">
       <slot/>
     </v-flex>
-    <v-flex>
+    <div class="btArrowContainer textNoselect">
       <div v-if="overflowAlways || overflow" class="btArrow" v-on:click="scrollRight()">
         <v-icon>keyboard_arrow_right</v-icon>
       </div>
-    </v-flex>
+    </div>
   </v-layout>
 </template>
 
@@ -71,9 +71,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .btArrowContainer {
+    width: 1.25em;
+  }
   .btArrow {
     height: 100%;
-    width: 1.25em;
     display: flex;
     justify-content: center;
   }

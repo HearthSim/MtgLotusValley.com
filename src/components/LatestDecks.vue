@@ -99,9 +99,12 @@ export default {
     width: 200px;
     float: left;
     overflow-y: hidden;
+    transform: scale(1);
+    transition-duration: .5s;
   }
   .deck:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
+    transition-duration: .5s;
   }
   .showMore {
     height: 100%;

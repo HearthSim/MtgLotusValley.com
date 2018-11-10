@@ -1,6 +1,6 @@
 <template>
   <div class="cardContainer">
-    <div v-if="!asText" :class="`cardAsImage ${highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'}`"
+    <div v-if="!asText" :class="`cardAsImage ${getScaleClass()} ${clickable ? 'pointer' : ''}`"
       @click="openInNewTab(cardLink())">
       <img :class="`cardBorder ${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
         v-lazy="imageUrl" width="100%" ref="cardImage"/>
@@ -48,6 +48,11 @@ export default {
       required: false,
       default: false
     },
+    scaleOnHover: {
+      type: Boolean,
+      default: true,
+      required: false
+    },
     highScaleOnHover: {
       type: Boolean,
       default: false,
@@ -71,6 +76,12 @@ export default {
       }
       return `http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=${this.multiverseid}`
     },
+    getScaleClass: function () {
+      if (!this.scaleOnHover) {
+        return ''
+      }
+      return this.highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'
+    },
     openInNewTab: function (url) {
       if (this.clickable) {
         var win = window.open(url, '_blank')
@@ -88,6 +99,9 @@ export default {
     color: #337ab7;
     text-decoration: none;
   }
+  .pointer {
+    cursor: pointer;
+  }
   .cardBorder {
     padding: 4px;
     border-radius: 8px;
@@ -104,8 +118,16 @@ export default {
     position: relative;
     z-index: 9999;
   }
+  .defaultHoverScale {
+    transform: scale(1);
+    transition-duration: .5s;
+  }
   .defaultHoverScale:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
+    transition-duration: .5s;
+  }
+  .highHoverScale {
+    transform: scale(1);
     transition-duration: .5s;
   }
   .highHoverScale:hover {

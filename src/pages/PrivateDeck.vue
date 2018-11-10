@@ -69,7 +69,7 @@
 
         <v-tab>Matches</v-tab>
         <v-tab-item>
-          <v-data-table :headers="matchesHeaders" :items="deckMatches" hide-actions class="elevation-1"
+          <v-data-table class="elevation-1 mt-2" :headers="matchesHeaders" :items="deckMatches" hide-actions
             :loading="isLoading" :pagination.sync="pagination" :total-items="deckMatches.length">
             <template slot="items" slot-scope="props">
               <td :class="`text-xs-center ${props.item.wins ? 'green--text' : 'red--text'}`">
