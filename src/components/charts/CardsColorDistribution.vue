@@ -111,6 +111,15 @@ export default {
           title: {
             text: 'Color Distribution',
             display: true
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                const index = tooltipItem.index
+                const qtd = data.datasets[0].data[index]
+                return `${qtd} Cards`
+              }
+            }
           }
         }
       })

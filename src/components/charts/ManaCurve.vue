@@ -122,7 +122,7 @@ export default {
 <style>
   #canvas-container {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 350px;
+    margin: auto;
   }
 </style>

@@ -125,7 +125,6 @@ export default {
           tooltips: {
             callbacks: {
               label: function (tooltipItem, data) {
-                console.log(data)
                 const index = tooltipItem.index
                 const qtd = data.datasets[0].data[index]
                 const text = data.datasets[0].labelText

@@ -32,7 +32,8 @@ export default {
       let data = {}
       const cardsByType = DeckUtils.groupCardsByType(this.cards)
       Object.keys(cardsByType).forEach(type => {
-        data[type] = cardsByType[type].length
+        const cardsQtd = cardsByType[type].map(card => card.qtd)
+        data[type] = cardsQtd.length > 0 ? cardsQtd.reduce((acc, value) => acc + value) : 0
       })
       return data
     },
@@ -80,6 +81,16 @@ export default {
           title: {
             text: 'Type Distribution',
             display: true
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                const index = tooltipItem.index
+                const qtd = data.datasets[0].data[index]
+                const text = data.labels[index]
+                return `${qtd} ${text}`
+              }
+            }
           }
         }
       })
