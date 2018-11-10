@@ -35,7 +35,7 @@
       <ManaCurve class="mt-3" :manaCurve="deckManaCurve"/>
       
       <v-flex class="mt-4">
-        <span class='subheading'>Total deck cost:</span>
+        <span class='subheading'>Total Cost</span>
         <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
       </v-flex>
 
@@ -104,14 +104,7 @@
 
         <v-tab>Stats</v-tab>
         <v-tab-item>
-          <v-layout class='mt-4' row wrap>
-            <v-flex xs6>
-              <CardsColorDistribution :cards="deckCards"/>
-            </v-flex>
-            <v-flex xs6>
-              <TypeDistribution :cards="deckCards"/>
-            </v-flex>
-          </v-layout>
+          <DeckStats class='mt-3' :cards="deckCards"/>
         </v-tab-item>
 
         <v-tab>Play Test</v-tab>
@@ -130,9 +123,8 @@
 
 <script>
 import Deck from '@/components/mtg/Deck'
+import DeckStats from '@/components/mtg/DeckStats'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
-import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
-import TypeDistribution from '@/components/charts/TypeDistribution'
 import ManaCurve from '@/components/charts/ManaCurve'
 import PlayTest from '@/components/PlayTest'
 import DeckUtils from '@/scripts/deckutils'
@@ -140,7 +132,7 @@ import DeckUtils from '@/scripts/deckutils'
 export default {
   name: 'PrivateDeck',
   components: {
-    Deck, PlayTest, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
+    Deck, DeckStats, PlayTest, ManaCurve, WildcardsCost
   },
   data () {
     return {

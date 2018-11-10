@@ -32,12 +32,12 @@
       <ManaCurve class='mt-3' :manaCurve="deckManaCurve"/>
       
       <v-flex class="mt-4" v-if="$isUserLogged()">
-        <span class='subheading'>Cost to build:</span>
+        <span class='subheading'>Build Cost</span>
         <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCMissingCost"/>
       </v-flex>
 
       <v-flex class="mt-4">
-        <span class='subheading'>Total deck cost:</span>
+        <span class='subheading'>Total Cost</span>
         <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
       </v-flex>
 
@@ -112,6 +112,11 @@
           </div>
         </v-tab-item>
 
+        <v-tab>Stats</v-tab>
+        <v-tab-item>
+          <DeckStats class='mt-3' :cards="deckCards"/>
+        </v-tab-item>
+
         <v-tab>Play Test</v-tab>
         <v-tab-item>
           <PlayTest class="mt-3" :cards="deckCards"/>
@@ -121,18 +126,16 @@
     </v-flex>
     <!-- Right -->
     <v-flex class="rSide mb-3" hidden-xs-only sm4 md3 lg3 xl3>
-      <CardsColorDistribution class='mt-4' :cards="deckCards"/>
-      <TypeDistribution class='mt-4' :cards="deckCards"/>
+      
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import Deck from '@/components/mtg/Deck'
+import DeckStats from '@/components/mtg/DeckStats'
 import DeckVisual from '@/components/mtg/DeckVisual'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
-import CardsColorDistribution from '@/components/charts/CardsColorDistribution'
-import TypeDistribution from '@/components/charts/TypeDistribution'
 import ManaCurve from '@/components/charts/ManaCurve'
 import PlayTest from '@/components/PlayTest'
 import DeckUtils from '@/scripts/deckutils'
@@ -140,7 +143,7 @@ import DeckUtils from '@/scripts/deckutils'
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, DeckVisual, PlayTest, ManaCurve, WildcardsCost, CardsColorDistribution, TypeDistribution
+    Deck, DeckStats, DeckVisual, PlayTest, ManaCurve, WildcardsCost
   },
   created () {
     this.requestDeck()
@@ -261,7 +264,7 @@ export default {
     }
   }
   .deckContainer {
-    max-width: 45em;
+    max-width: 46em;
     margin: auto;
   }
   .center .v-divider {

@@ -194,9 +194,10 @@ export default {
         Authorization: 'required'
       },
       params: {
-        cardDetails: true,
         deckId: id,
-        userId: localStorage.getItem('localId')
+        userId: localStorage.getItem('localId'),
+        cardDetails: true,
+        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity'
       }
     })
   },
@@ -240,7 +241,9 @@ export default {
   getPublicDeck (alias) {
     return axios.get('/decks/published', {
       params: {
-        alias: escape(alias)
+        alias: escape(alias),
+        cardDetails: true,
+        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity'
       }
     })
   },

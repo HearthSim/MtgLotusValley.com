@@ -27,10 +27,10 @@ export default {
       })
       return data
     },
-    manaCurveSpellsData: function () {
+    manaCurvenonCreaturesData: function () {
       const data = []
       Object.keys(this.manaCurve.total).forEach(mana => {
-        data.push(this.manaCurve.spells[mana])
+        data.push(this.manaCurve.nonCreatures[mana])
       })
       return data
     },
@@ -62,7 +62,7 @@ export default {
               hoverBackgroundColor: '#00CCFF'
             },
             {
-              data: this.manaCurveSpellsData,
+              data: this.manaCurvenonCreaturesData,
               backgroundColor: '#FF8A65',
               hoverBackgroundColor: '#FF8A85'
             }
