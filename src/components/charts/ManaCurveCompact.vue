@@ -23,19 +23,19 @@ export default {
   computed: {
     manaCurveArray: function () {
       const data = []
-      Object.keys(this.manaCurve).forEach(cmc => {
+      Object.keys(this.manaCurve.total).forEach(cmc => {
         data.push({
           'cmc': cmc,
-          'value': this.manaCurve[cmc]
+          'value': this.manaCurve.total[cmc]
         })
       })
       return data
     },
     highestCmc: function () {
       let data = 0
-      Object.keys(this.manaCurve).forEach(cmc => {
-        if (this.manaCurve[cmc] > data) {
-          data = this.manaCurve[cmc]
+      Object.keys(this.manaCurve.total).forEach(cmc => {
+        if (this.manaCurve.total[cmc] > data) {
+          data = this.manaCurve.total[cmc]
         }
       })
       return data

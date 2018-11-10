@@ -20,22 +20,36 @@ export default {
     }
   },
   computed: {
-    manaCurveData: function () {
+    manaCurveCreaturesData: function () {
       const data = []
-      Object.keys(this.manaCurve).forEach(mana => {
-        data.push(this.manaCurve[mana])
+      Object.keys(this.manaCurve.total).forEach(mana => {
+        data.push(this.manaCurve.creatures[mana])
+      })
+      return data
+    },
+    manaCurveSpellsData: function () {
+      const data = []
+      Object.keys(this.manaCurve.total).forEach(mana => {
+        data.push(this.manaCurve.spells[mana])
+      })
+      return data
+    },
+    manaCurveTotalData: function () {
+      const data = []
+      Object.keys(this.manaCurve.total).forEach(mana => {
+        data.push(this.manaCurve.total[mana])
       })
       return data
     },
     maxYAxes: function () {
-      return this.manaCurveData.reduce(function (a, b) {
+      return this.manaCurveTotalData.reduce(function (a, b) {
         return Math.max(a, b)
-      }) + 2
+      })
     }
   },
   watch: {
     manaCurve: function () {
-      const labels = Object.keys(this.manaCurve)
+      const labels = Object.keys(this.manaCurve.total)
       const ctx = document.getElementById('manaCurve-chart')
       new Chart(ctx, { // eslint-disable-line no-new
         type: 'bar',
@@ -43,11 +57,14 @@ export default {
           labels: labels,
           datasets: [
             {
-              data: this.manaCurveData,
-              backgroundColor: '#1976D2',
-              borderColor: '#1976D2',
-              borderWidth: 1,
-              hoverBackgroundColor: '#2196F3'
+              data: this.manaCurveCreaturesData,
+              backgroundColor: '#00BBEE',
+              hoverBackgroundColor: '#00CCFF'
+            },
+            {
+              data: this.manaCurveSpellsData,
+              backgroundColor: '#FF8A65',
+              hoverBackgroundColor: '#FF8A85'
             }
           ]
         },
@@ -61,7 +78,8 @@ export default {
               },
               gridLines: {
                 display: false
-              }
+              },
+              stacked: true
             }],
             yAxes: [{
               ticks: {
@@ -70,7 +88,8 @@ export default {
               },
               gridLines: {
                 display: false
-              }
+              },
+              stacked: true
             }]
           },
           legend: {
@@ -83,8 +102,10 @@ export default {
           tooltips: {
             callbacks: {
               title: function (tooltipItem, data) {
+                const textOne = tooltipItem[0].datasetIndex === 0 ? 'Creature' : 'NonCreature'
+                const textMany = tooltipItem[0].datasetIndex === 0 ? 'Creatures' : 'NonCreatures'
                 const cardQtd = tooltipItem[0].yLabel
-                return cardQtd === 1 ? `${cardQtd} card` : `${cardQtd} cards`
+                return cardQtd === 1 ? `${cardQtd} ${textOne}` : `${cardQtd} ${textMany}`
               },
               label: function (tooltipItem, data) {
                 return ``

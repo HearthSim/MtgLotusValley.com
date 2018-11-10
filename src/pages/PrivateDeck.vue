@@ -14,22 +14,26 @@
       <v-divider/>
     </v-flex>
     <!-- Left -->
-    <v-flex class="pl-2 pr-2" hidden-sm-and-down    md3 lg2 xl3>
+    <v-flex hidden-sm-and-down    md3 lg2 xl3>
 
-      <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
-        <v-layout class="mt-2 ml-2" row nowrap>
-          <span class="title textNoWrap mr-2">{{ deckName }}</span>
-          <v-spacer/>
-          <div class="mana mr-2">
-            <img v-for="color in deckColors.split('')" :key="color"
-              :src="require(`@/assets/mana/${color}.png`)"/>
-          </div>
-        </v-layout>
-        <v-layout class="mt-2 ml-2" row nowrap>
-          <span class='subheading'>{{ deckArch }}</span>
-        </v-layout>
+      <div class="pl-2 pr-2">
+        <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
+          <v-layout class="mt-2 ml-2" row nowrap>
+            <span class="title textNoWrap mr-2">{{ deckName }}</span>
+            <v-spacer/>
+            <div class="mana mr-2">
+              <img v-for="color in deckColors.split('')" :key="color"
+                :src="require(`@/assets/mana/${color}.png`)"/>
+            </div>
+          </v-layout>
+          <v-layout class="mt-2 ml-2" row nowrap>
+            <span class='subheading'>{{ deckArch }}</span>
+          </v-layout>
+        </div>
       </div>
 
+      <ManaCurve class="mt-3" :manaCurve="deckManaCurve"/>
+      
       <v-flex class="mt-4">
         <span class='subheading'>Total deck cost:</span>
         <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
@@ -67,8 +71,12 @@
     <v-flex class="center" xs12 sm8 md6 lg7 xl6>
       <v-tabs class="mt-3 ml-3 mr-3" color="#fafafa">
 
-        <v-tab>Matches</v-tab>
+        <v-tab>Overview</v-tab>
         <v-tab-item>
+        </v-tab-item>
+
+        <v-tab>Matches</v-tab>
+        <v-tab-item lazy>
           <v-data-table class="elevation-1 mt-2" :headers="matchesHeaders" :items="deckMatches" hide-actions
             :loading="isLoading" :pagination.sync="pagination" :total-items="deckMatches.length">
             <template slot="items" slot-scope="props">
@@ -97,9 +105,6 @@
         <v-tab>Stats</v-tab>
         <v-tab-item>
           <v-layout class='mt-4' row wrap>
-            <v-flex xs6>
-              <ManaCurve :manaCurve="deckManaCurve"/>
-            </v-flex>
             <v-flex xs6>
               <CardsColorDistribution :cards="deckCards"/>
             </v-flex>

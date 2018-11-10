@@ -29,7 +29,7 @@
         </v-layout>
       </div>
 
-      <ManaCurve class='mt-4' :manaCurve="deckManaCurve"/>
+      <ManaCurve class='mt-3' :manaCurve="deckManaCurve"/>
       
       <v-flex class="mt-4" v-if="$isUserLogged()">
         <span class='subheading'>Cost to build:</span>
@@ -259,6 +259,10 @@ export default {
     .deckContainer {
       column-count: 2;
     }
+  }
+  .deckContainer {
+    max-width: 45em;
+    margin: auto;
   }
   .center .v-divider {
     width: 200px;
