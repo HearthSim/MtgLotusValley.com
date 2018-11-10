@@ -62,8 +62,6 @@ export default {
     },
     updateOverflow: function () {
       const scrollView = this.$refs.scrollView
-      console.log(scrollView.scrollWidth)
-      console.log(scrollView.clientWidth)
       const hasMoreContent = scrollView.scrollWidth > scrollView.clientWidth
       this.overflow = hasMoreContent && scrollView.scrollWidth > 0
     }

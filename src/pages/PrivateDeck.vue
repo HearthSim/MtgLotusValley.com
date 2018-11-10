@@ -88,19 +88,22 @@
               </td>
             </template>
           </v-data-table>
-          <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="7"/>
+          <v-layout row xs12 class="mt-2 mb-2">
+            <v-spacer/>
+            <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="5"/>
+          </v-layout>
         </v-tab-item>
 
         <v-tab>Stats</v-tab>
         <v-tab-item>
           <v-layout class='mt-4' row wrap>
-            <v-flex sx6>
+            <v-flex xs6>
               <ManaCurve :manaCurve="deckManaCurve"/>
             </v-flex>
-            <v-flex sx6>
+            <v-flex xs6>
               <CardsColorDistribution :cards="deckCards"/>
             </v-flex>
-            <v-flex sx6>
+            <v-flex xs6>
               <TypeDistribution :cards="deckCards"/>
             </v-flex>
           </v-layout>
@@ -137,10 +140,10 @@ export default {
   data () {
     return {
       matchesHeaders: [
-        { text: 'Result', align: 'center', value: 'result' },
+        { text: 'Result', align: 'center', value: 'wins' },
         { text: 'Opponent', value: 'opponent', sortable: false },
-        { text: 'Opponent Colors', value: 'opponentColors' },
-        { text: 'Opponent Archetype', value: 'opponentArch' },
+        { text: 'Opponent Colors', value: 'opponentDeckColors' },
+        { text: 'Opponent Archetype', value: 'opponentDeckArch' },
         { text: 'Date', align: 'center', value: 'date' }
       ],
       deckId: this.$route.params.id,
@@ -154,15 +157,16 @@ export default {
       deckMatches: [],
       isLoading: false,
       pagination: {},
+      totalPages: 1,
       deckExportDialogVisible: false
     }
   },
   mounted () {
-    this.requestDeck()
-    this.requestDeckMatches()
     this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
     this.pagination.sortBy = 'date'
     this.pagination.descending = true
+    this.requestDeck()
+    this.requestDeckMatches()
   },
   methods: {
     requestDeck: function () {
@@ -185,11 +189,12 @@ export default {
     },
     requestDeckMatches: function () {
       this.isLoading = true
-      this.pagination.rowsPerPage = 15
+      this.pagination.rowsPerPage = 10
       const { sortBy, descending, page, rowsPerPage } = this.pagination
       this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending)
         .then(res => {
           this.isLoading = false
+          this.totalPages = res.data.length < rowsPerPage ? page : page + 1
           this.deckMatches = res.data
         })
         .catch(error => {
@@ -202,6 +207,14 @@ export default {
     },
     exportDeckToReading: function () {
       DeckUtils.exportDeckToReading(this.deckCards, this.sideboardCards)
+    }
+  },
+  watch: {
+    pagination: {
+      handler () {
+        this.requestDeckMatches()
+      },
+      deep: true
     }
   }
 }
