@@ -1,7 +1,7 @@
 <template>
   <v-layout class="pt-2 pb-2" row wrap>
     <v-flex xs12>
-      <div class="text-xs-right textNoselect">
+      <div class="text-xs-right textNoSelect">
         <a class="mr-4" v-on:click="regenerateSampleHand(7)">Generate new hand</a>
         <a class="mr-4" v-on:click="restart()">Restart</a>
         <a class="mr-4" v-on:click="mulligan()">Mulligan</a>

@@ -27,16 +27,16 @@
               <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
                 :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
             </v-flex>
-            <v-layout row align-center justify-space-between>
-              <v-flex xs3 sm3 md1 offset-md5 lg2 offset-lg2 class="text-xs-center">
-                <v-progress-circular v-if="isLoading" color="deep-orange" 
-                  :width="2" :size="24" :indeterminate="true"/>
-              </v-flex>
-              <v-flex xs9 sm9            md6            lg6 class="text-xs-right mb-3">
-                <v-pagination v-model="currentPage" @input="goToPage" 
-                  :length="totalPages" :total-visible="7"/>
-              </v-flex>
-            </v-layout>
+          </v-layout>
+          <v-layout row align-center justify-space-between xs12>
+            <v-flex xs3 sm3 md1 offset-md5 lg2 offset-lg2 class="text-xs-center">
+              <v-progress-circular v-if="isLoading" color="deep-orange" 
+                :width="2" :size="24" :indeterminate="true"/>
+            </v-flex>
+            <v-flex xs9 sm9            md6            lg6 class="text-xs-right mb-3">
+              <v-pagination v-model="currentPage" @input="goToPage" 
+                :length="totalPages" :total-visible="7"/>
+            </v-flex>
           </v-layout>
         </v-container>
       </v-flex>
@@ -45,7 +45,6 @@
         <ColorFilter class="mt-4 pl-3 pr-3" v-model="activeColors"/>
         <TypeFilter class="mt-3 pl-3 pr-3" v-model="activeTypes"/>
         <SetFilter class="mt-3 pl-3 pr-3" v-model="activeSets"/>
-        <v-divider class="mt-3 ml-4 mr-4"/>
         <v-btn class="mt-3" color="white" @click="updateFilters()">Apply</v-btn>
       </v-flex>
     </v-layout>
@@ -110,7 +109,7 @@ export default {
           this.userCollection = res.data
         })
     },
-    updateFilters () {
+    updateFilters: function () {
       this.$router.push({
         path: 'collection',
         query: {
@@ -121,6 +120,7 @@ export default {
           sets: this.activeSets
         }
       })
+      this.currentPage = 1
       this.getCards()
     }
   }

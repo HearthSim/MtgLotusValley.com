@@ -143,7 +143,7 @@ export default {
 .m-auto { margin: auto; }
 .d-block { display: block; }
 
-.textNoselect {
+.textNoSelect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */

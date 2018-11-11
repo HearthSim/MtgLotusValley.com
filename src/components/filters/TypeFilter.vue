@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-2 mr-2">
+  <div class="ml-2 mr-2 textNoSelect">
     <v-card class="pt-2 pl-2 pr-2 pb-2">
       <div class="text-xs-left body-1">
         <span class="label pl-1">Types</span>
