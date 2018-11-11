@@ -13,7 +13,7 @@
       <v-divider/>
     </v-flex>
     <!-- Left -->
-    <v-flex class="pl-2 pr-2" hidden-sm-and-down    md3 lg2 xl3>
+    <v-flex class="pl-2 pr-2" hidden-sm-and-down    md3 lg2 xl2>
 
       <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
         <v-layout class="mt-2 ml-2" row nowrap>
@@ -71,26 +71,28 @@
       </v-layout>
     </v-flex>
     <!-- Center -->
-    <v-flex class="center" xs12 sm8 md6 lg7 xl6>
+    <v-flex class="center"                 xs12 sm8 md6 lg8 xl8>
       <v-tabs class="mt-3 ml-3 mr-3" color="#fafafa">
 
         <v-tab>Text Mode</v-tab>
         <v-tab-item>
-          <div>
-            <v-layout row class="mt-4 ml-5">
-              <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
-            </v-layout>
-            <v-divider class="mt-1 ml-5 mr-5"/>
-            <Deck class="deck deckContainer mt-4" :cards="deckCards" :userCollection="userCollection" largeName/>
-          </div>
-          <div v-if="Object.keys(sideboardCards).length > 0">
-            <v-layout row class="mt-4 ml-5">
-              <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
-            </v-layout>
-            <v-divider class="mt-1 ml-5 mr-5"/>
-            <Deck class="deck deckContainer mt-4" :sideboard="sideboardCards"
-              :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck" largeName/>
-          </div>            
+          <v-layout row wrap>
+            <v-flex lg12 xl8>
+              <v-layout row class="mt-4 ml-5">
+                <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
+              </v-layout>
+              <v-divider class="mt-1 ml-5 mr-5"/>
+              <Deck class="deck deckContainer mt-4" :cards="deckCards" :userCollection="userCollection" largeName/>
+            </v-flex>
+            <v-flex lg12 xl4 v-if="Object.keys(sideboardCards).length > 0">
+              <v-layout row class="mt-4 ml-5">
+                <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
+              </v-layout>
+              <v-divider class="mt-1 ml-5 mr-5"/>
+              <Deck class="deck sideContainer mt-4" :sideboard="sideboardCards"
+                :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck" largeName/>
+            </v-flex>
+          </v-layout>
         </v-tab-item>
 
         <v-tab>Visual Mode</v-tab>
@@ -125,7 +127,7 @@
 
     </v-flex>
     <!-- Right -->
-    <v-flex class="rSide mb-3" hidden-xs-only sm4 md3 lg3 xl3>
+    <v-flex class="rSide mb-3"   hidden-xs-only sm4 md3 lg2 xl2>
       
     </v-flex>
   </v-layout>
@@ -263,7 +265,12 @@ export default {
       column-count: 2;
     }
   }
-  .deckContainer {
+  @media (min-width: 768px) and (max-width: 1900px) {
+    .sideContainer {
+      column-count: 2;
+    }
+  }
+  .deckContainer, .sideContainer {
     max-width: 46em;
     margin: auto;
   }

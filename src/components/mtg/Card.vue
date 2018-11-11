@@ -4,6 +4,8 @@
       @click="openInNewTab(cardLink())">
       <img :class="`cardBorder ${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
         v-lazy="imageUrl" width="100%" ref="cardImage"/>
+      <img v-if="imageUrlTransformed !== undefined" :class="`cardTransformed cardBorder ${qtd === 0 ? 'grayscale' : ''}`"
+        :alt="name" v-lazy="imageUrlTransformed" width="100%" ref="cardImageTransformed"/>
       <v-card class="cardQtd elevation-2" v-if="qtd > 0">
         {{ qtd }}
       </v-card>
@@ -28,6 +30,10 @@ export default {
     imageUrl: {
       type: String,
       required: true
+    },
+    imageUrlTransformed: {
+      type: String,
+      required: false
     },
     multiverseid: {
       type: Number,
@@ -67,6 +73,9 @@ export default {
   watch: {
     imageUrl: function (value) {
       this.$refs.cardImage.setAttribute('src', value)
+    },
+    imageUrlTransformed: function (value) {
+      this.$refs.cardImageTransformed.setAttribute('src', value)
     }
   },
   methods: {
@@ -107,6 +116,12 @@ export default {
     border-radius: 8px;
     background-color: #14130e;
   }
+  .cardTransformed {
+    display:none;
+    position:absolute;
+    top:0;
+    right:-100%;
+  }
   .grayscale {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
@@ -117,6 +132,9 @@ export default {
   .cardAsImage:hover {
     position: relative;
     z-index: 9999;
+  }
+  .cardAsImage:hover .cardTransformed {
+    display: block;
   }
   .defaultHoverScale {
     transform: scale(1);

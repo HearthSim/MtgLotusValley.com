@@ -18,14 +18,13 @@
         <v-text-field class="mt-4 pl-4 pr-4" label="Search" 
           v-model="searchQuery" @keyup.native.enter="updateFilters"
           solo single-line hide-details clearable />
-        <ColorFilter class="mt-3 pl-3 pr-3" v-model="activeColors"/>
       </v-flex>
       <!-- Center -->
       <v-flex           xs12 sm8>
         <v-container id="cards" class='mt-3' grid-list-md fluid>
           <v-layout row wrap>
             <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
-              <Card :name='card.name' :imageUrl='card.imageUrl'
+              <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
                 :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
             </v-flex>
             <v-layout row align-center justify-space-between>
@@ -43,7 +42,8 @@
       </v-flex>
       <!-- Right -->
       <v-flex hidden-xs-only sm2>
-        <TypeFilter class="mt-4 pl-3 pr-3" v-model="activeTypes"/>
+        <ColorFilter class="mt-4 pl-3 pr-3" v-model="activeColors"/>
+        <TypeFilter class="mt-3 pl-3 pr-3" v-model="activeTypes"/>
         <SetFilter class="mt-3 pl-3 pr-3" v-model="activeSets"/>
         <v-divider class="mt-3 ml-4 mr-4"/>
         <v-btn class="mt-3" color="white" @click="updateFilters()">Apply</v-btn>
