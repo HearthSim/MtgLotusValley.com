@@ -51,8 +51,8 @@
 
 <script>
 import Card from '@/components/mtg/Card'
+import DeckVisualPile from '@/components/deck/DeckVisualPile'
 import ScrollDiv from '@/components/ScrollDiv'
-import DeckVisualPile from '@/components/mtg/DeckVisualPile'
 
 export default {
   components: {

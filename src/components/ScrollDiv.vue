@@ -5,7 +5,7 @@
         <v-icon>keyboard_arrow_left</v-icon>
       </div>
     </div>
-    <v-flex class="scroll ml-1 mr-1" ref="scrollView">
+    <v-flex class="scroll" ref="scrollView">
       <slot/>
     </v-flex>
     <div class="btArrowContainer textNoSelect">

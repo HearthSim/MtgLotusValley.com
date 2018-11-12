@@ -64,8 +64,8 @@
 import Deck from '@/components/mtg/Deck'
 import DecksByArch from '@/components/charts/DecksByArch'
 import DecksColorDistribution from '@/components/charts/DecksColorDistribution'
-import LatestDecks from '@/components/LatestDecks'
-import Events from '@/components/Events'
+import Events from '@/components/home/Events'
+import LatestDecks from '@/components/home/LatestDecks'
 import MostPlayedCards from '@/components/MostPlayedCards'
 
 export default {

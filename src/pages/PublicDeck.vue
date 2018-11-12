@@ -13,20 +13,22 @@
       <v-divider/>
     </v-flex>
     <!-- Left -->
-    <v-flex class="pl-2 pr-2" hidden-sm-and-down    md3 lg2 xl2>
+    <v-flex hidden-sm-and-down    md3 lg2 xl3>
 
-      <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
-        <v-layout class="mt-2 ml-2" row nowrap>
-          <span class="title textNoWrap mr-2">{{ deckName }}</span>
-          <v-spacer/>
-          <div class="mana mr-2">
-            <img v-for="color in deckColors.split('')" :key="color"
-              :src="require(`@/assets/mana/${color}.png`)"/>
-          </div>
-        </v-layout>
-        <v-layout class="mt-2 ml-2" row nowrap>
-          <span class='subheading'>{{ deckArch }}</span>
-        </v-layout>
+      <div class="pl-2 pr-2">
+        <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
+          <v-layout class="mt-2 ml-2" row nowrap>
+            <span class="title textNoWrap mr-2">{{ deckName }}</span>
+            <v-spacer/>
+            <div class="mana mr-2">
+              <img v-for="color in deckColors.split('')" :key="color"
+                :src="require(`@/assets/mana/${color}.png`)"/>
+            </div>
+          </v-layout>
+          <v-layout class="mt-2 ml-2" row nowrap>
+            <span class='subheading'>{{ deckArch }}</span>
+          </v-layout>
+        </div>
       </div>
 
       <ManaCurve class='mt-3' :manaCurve="deckManaCurve"/>
@@ -71,7 +73,7 @@
       </v-layout>
     </v-flex>
     <!-- Center -->
-    <v-flex class="center"                 xs12 sm8 md6 lg8 xl8>
+    <v-flex class="center"                 xs12 sm8 md6 lg7 xl6>
       <v-tabs class="mt-3 ml-3 mr-3" color="#fafafa">
 
         <v-tab>Text Mode</v-tab>
@@ -127,7 +129,7 @@
 
     </v-flex>
     <!-- Right -->
-    <v-flex class="rSide mb-3"   hidden-xs-only sm4 md3 lg2 xl2>
+    <v-flex class="rSide mb-3"   hidden-xs-only sm4 md3 lg3 xl3>
       
     </v-flex>
   </v-layout>
@@ -135,17 +137,17 @@
 
 <script>
 import Deck from '@/components/mtg/Deck'
-import DeckStats from '@/components/mtg/DeckStats'
-import DeckVisual from '@/components/mtg/DeckVisual'
-import WildcardsCost from '@/components/mtg/WildcardsCost'
+import DeckVisual from '@/components/deck/DeckVisual'
+import Stats from '@/components/deck/Stats'
+import PlayTest from '@/components/deck/PlayTest'
 import ManaCurve from '@/components/charts/ManaCurve'
-import PlayTest from '@/components/PlayTest'
+import WildcardsCost from '@/components/mtg/WildcardsCost'
 import DeckUtils from '@/scripts/deckutils'
 
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, DeckStats, DeckVisual, PlayTest, ManaCurve, WildcardsCost
+    Deck, DeckVisual, Stats, PlayTest, ManaCurve, WildcardsCost
   },
   created () {
     this.requestDeck()

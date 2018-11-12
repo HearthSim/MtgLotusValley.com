@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Event from '@/components/Event'
+import Event from '@/components/home/Event'
 
 export default {
   components: {

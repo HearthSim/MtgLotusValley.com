@@ -33,7 +33,7 @@
 
 <script>
 import DeckGroup from '@/components/mtg/DeckGroup'
-import DeckVisualPile from '@/components/mtg/DeckVisualPile'
+import DeckVisualPile from '@/components/deck/DeckVisualPile'
 
 export default {
   components: {

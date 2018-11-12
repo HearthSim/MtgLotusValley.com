@@ -75,6 +75,11 @@
         <v-tab-item>
         </v-tab-item>
 
+        <v-tab>Stats</v-tab>
+        <v-tab-item>
+          <Stats class='mt-3' :cards="deckCards"/>
+        </v-tab-item>
+
         <v-tab>Matches</v-tab>
         <v-tab-item lazy>
           <v-data-table class="elevation-1 mt-2" :headers="matchesHeaders" :items="deckMatches" hide-actions
@@ -102,11 +107,6 @@
           </v-layout>
         </v-tab-item>
 
-        <v-tab>Stats</v-tab>
-        <v-tab-item>
-          <DeckStats class='mt-3' :cards="deckCards"/>
-        </v-tab-item>
-
         <v-tab>Play Test</v-tab>
         <v-tab-item>
           <PlayTest class="mt-3" :cards="deckCards"/>
@@ -123,16 +123,16 @@
 
 <script>
 import Deck from '@/components/mtg/Deck'
-import DeckStats from '@/components/mtg/DeckStats'
+import Stats from '@/components/deck/Stats'
+import PlayTest from '@/components/deck/PlayTest'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import ManaCurve from '@/components/charts/ManaCurve'
-import PlayTest from '@/components/PlayTest'
 import DeckUtils from '@/scripts/deckutils'
 
 export default {
   name: 'PrivateDeck',
   components: {
-    Deck, DeckStats, PlayTest, ManaCurve, WildcardsCost
+    Deck, Stats, PlayTest, ManaCurve, WildcardsCost
   },
   data () {
     return {
