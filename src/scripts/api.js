@@ -197,7 +197,8 @@ export default {
         deckId: id,
         userId: localStorage.getItem('localId'),
         cardDetails: true,
-        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity'
+        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity',
+        updates: true
       }
     })
   },
@@ -243,7 +244,8 @@ export default {
       params: {
         alias: escape(alias),
         cardDetails: true,
-        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity'
+        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity',
+        updates: true
       }
     })
   },

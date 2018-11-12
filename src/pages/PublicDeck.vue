@@ -116,9 +116,14 @@
           </div>
         </v-tab-item>
 
+        <v-tab>Updates</v-tab>
+        <v-tab-item>
+          <Updates class='mt-3' :updates="deckUpdates"/>
+        </v-tab-item>
+
         <v-tab>Stats</v-tab>
         <v-tab-item>
-          <DeckStats class='mt-3' :cards="deckCards"/>
+          <Stats class='mt-3' :cards="deckCards"/>
         </v-tab-item>
 
         <v-tab>Play Test</v-tab>
@@ -139,6 +144,7 @@
 import Deck from '@/components/mtg/Deck'
 import DeckVisual from '@/components/deck/DeckVisual'
 import Stats from '@/components/deck/Stats'
+import Updates from '@/components/deck/Updates'
 import PlayTest from '@/components/deck/PlayTest'
 import ManaCurve from '@/components/charts/ManaCurve'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
@@ -147,7 +153,7 @@ import DeckUtils from '@/scripts/deckutils'
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, DeckVisual, Stats, PlayTest, ManaCurve, WildcardsCost
+    Deck, DeckVisual, Stats, Updates, PlayTest, ManaCurve, WildcardsCost
   },
   created () {
     this.requestDeck()
@@ -164,6 +170,7 @@ export default {
       deckManaCurve: {},
       deckWCCost: {},
       deckWCMissingCost: {},
+      deckUpdates: [],
       isLoading: false,
       userCollection: {},
       userCollectionWithoutMainDeck: {},
@@ -190,6 +197,7 @@ export default {
           this.deckColors = res.data.colors
           this.deckManaCurve = res.data.manaCurve
           this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
+          this.deckUpdates = res.data.updates
           if (this.$isUserLogged()) {
             this.getUserCollection()
           }
