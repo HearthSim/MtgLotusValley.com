@@ -73,6 +73,7 @@
 
         <v-tab>Overview</v-tab>
         <v-tab-item>
+          <Overview class='mt-3' :deckId="deckId"/>
         </v-tab-item>
 
         <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
@@ -128,6 +129,7 @@
 
 <script>
 import Deck from '@/components/mtg/Deck'
+import Overview from '@/components/deck/Overview'
 import Stats from '@/components/deck/Stats'
 import Updates from '@/components/deck/Updates'
 import PlayTest from '@/components/deck/PlayTest'
@@ -138,7 +140,7 @@ import DeckUtils from '@/scripts/deckutils'
 export default {
   name: 'PrivateDeck',
   components: {
-    Deck, Stats, Updates, PlayTest, ManaCurve, WildcardsCost
+    Deck, Overview, Stats, Updates, PlayTest, ManaCurve, WildcardsCost
   },
   data () {
     return {

@@ -249,6 +249,13 @@ export default {
       }
     })
   },
+  getDeckOverview (id) {
+    return axios.get('/decks/stats', {
+      params: {
+        deckId: id
+      }
+    })
+  },
   getEvents () {
     return axios.get('/events', {
       params: {

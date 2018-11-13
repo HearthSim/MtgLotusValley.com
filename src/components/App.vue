@@ -77,6 +77,7 @@ export default {
       this.showError = false
       try {
         let mainDeckText = this.loadDeckText
+          .replace(/\t/g, ' ')  // Replace tab for space
           .replace(/\d+x\s/g, s => s.replace('x', ''))  // Remove qtd x
           .replace(/sideboard/gi, 'sideboard')  // Lowercase sideboard
         let sideboardDeckText = ''
