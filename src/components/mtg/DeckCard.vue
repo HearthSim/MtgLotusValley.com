@@ -5,7 +5,7 @@
     </td>
     <td id='card_name'>
       <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
-        :multiverseid='card.multiverseid' asText largeName/>
+        :multiverseid='card.multiverseid' asText :largeName="largeName"/>
     <td>
     <td id='card_cost'>
       <ManaSymbols :cardid='card.id' :cost='card.manaCost'/>

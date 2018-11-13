@@ -6,7 +6,7 @@
         v-lazy="imageUrl" width="100%" ref="cardImage"/>
       <img v-if="imageUrlTransformed !== undefined" :class="`cardTransformed cardBorder ${qtd === 0 ? 'grayscale' : ''}`"
         :alt="name" v-lazy="imageUrlTransformed" width="100%" ref="cardImageTransformed"/>
-      <v-card class="cardQtd elevation-2" v-if="qtd > 0">
+      <v-card class="cardQtd elevation-2" v-if="qtd > 1">
         {{ qtd }}
       </v-card>
     </div>

@@ -75,6 +75,11 @@
         <v-tab-item>
         </v-tab-item>
 
+        <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
+        <v-tab-item>
+          <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
+        </v-tab-item>
+
         <v-tab>Stats</v-tab>
         <v-tab-item>
           <Stats class='mt-3' :cards="deckCards"/>
@@ -124,6 +129,7 @@
 <script>
 import Deck from '@/components/mtg/Deck'
 import Stats from '@/components/deck/Stats'
+import Updates from '@/components/deck/Updates'
 import PlayTest from '@/components/deck/PlayTest'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import ManaCurve from '@/components/charts/ManaCurve'
@@ -132,7 +138,7 @@ import DeckUtils from '@/scripts/deckutils'
 export default {
   name: 'PrivateDeck',
   components: {
-    Deck, Stats, PlayTest, ManaCurve, WildcardsCost
+    Deck, Stats, Updates, PlayTest, ManaCurve, WildcardsCost
   },
   data () {
     return {
@@ -152,6 +158,7 @@ export default {
       deckManaCurve: {},
       deckWCCost: {},
       deckMatches: [],
+      deckUpdates: [],
       isLoading: false,
       pagination: {},
       totalPages: 1,
@@ -178,6 +185,7 @@ export default {
           this.deckColors = res.data.colors
           this.deckManaCurve = res.data.manaCurve
           this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
+          this.deckUpdates = res.data.updates
         })
         .catch(error => {
           this.isLoading = false

@@ -5,26 +5,26 @@
       <table>
         <DeckGroup v-if='lands.length > 0'         :groupSize="landsQtd"         groupName="Lands" />
         <DeckCard  v-if='lands.length > 0'         v-for='card in lands'          :key='`M${card.id}`'
-          :card='card' :userCollection="userCollection" largeName/>
+          :card='card' :userCollection="userCollection" :largeName="largeName"/>
         <DeckGroup v-if='creatures.length > 0'     :groupSize="creaturesQtd"     groupName="Creatures" />
         <DeckCard  v-if='creatures.length > 0'     v-for='card in creatures'      :key='`M${card.id}`'
-          :card='card' :userCollection="userCollection" largeName/>
+          :card='card' :userCollection="userCollection" :largeName="largeName"/>
         <DeckGroup v-if='spells.length > 0'        :groupSize="spellsQtd"        groupName="Spells" />
         <DeckCard  v-if='spells.length > 0'        v-for='card in spells'         :key='`M${card.id}`'
-          :card='card' :userCollection="userCollection" largeName/>
+          :card='card' :userCollection="userCollection" :largeName="largeName"/>
         <DeckGroup v-if='enchantments.length > 0'  :groupSize="enchantmentsQtd"  groupName="Enchantments" />
         <DeckCard  v-if='enchantments.length > 0'  v-for='card in enchantments'   :key='`M${card.id}`'
-          :card='card' :userCollection="userCollection" largeName/>
+          :card='card' :userCollection="userCollection" :largeName="largeName"/>
         <DeckGroup v-if='artifacts.length > 0'     :groupSize="artifactsQtd"     groupName="Artifacts" />
         <DeckCard  v-if='artifacts.length > 0'     v-for='card in artifacts'      :key='`M${card.id}`'
-          :card='card' :userCollection="userCollection" largeName/>
+          :card='card' :userCollection="userCollection" :largeName="largeName"/>
         <DeckGroup v-if='planeswalkers.length > 0' :groupSize="planeswalkersQtd" groupName="Planeswalkers" />
         <DeckCard  v-if='planeswalkers.length > 0' v-for='card in planeswalkers'  :key='`M${card.id}`'
-          :card='card' :userCollection="userCollection" largeName/>
+          :card='card' :userCollection="userCollection" :largeName="largeName"/>
         <DeckGroup v-if='cardsGrouped.length > 0 && sideCards.length > 0' :groupSize="sideboardQtd" 
           groupName="Sideboard" marginTop />
         <DeckCard  v-if='sideCards.length > 0'     v-for='card in sideCards'      :key='`S${card.id}`'
-          :card='card' :userCollection="userCollectionWithoutMainDeck" largeName/>
+          :card='card' :userCollection="userCollectionWithoutMainDeck" :largeName="largeName"/>
       </table>
     </div>
   </div>

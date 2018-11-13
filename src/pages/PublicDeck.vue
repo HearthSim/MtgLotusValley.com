@@ -84,7 +84,7 @@
                 <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
               </v-layout>
               <v-divider class="mt-1 ml-5 mr-5"/>
-              <Deck class="deck deckContainer mt-4" :cards="deckCards" :userCollection="userCollection" largeName/>
+              <Deck class="deck deckContainer mt-4" :cards="deckCards" :userCollection="userCollection"/>
             </v-flex>
             <v-flex lg12 xl4 v-if="Object.keys(sideboardCards).length > 0">
               <v-layout row class="mt-4 ml-5">
@@ -92,7 +92,7 @@
               </v-layout>
               <v-divider class="mt-1 ml-5 mr-5"/>
               <Deck class="deck sideContainer mt-4" :sideboard="sideboardCards"
-                :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck" largeName/>
+                :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
             </v-flex>
           </v-layout>
         </v-tab-item>
@@ -116,9 +116,9 @@
           </div>
         </v-tab-item>
 
-        <v-tab>Updates</v-tab>
+        <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
         <v-tab-item>
-          <Updates class='mt-3' :updates="deckUpdates"/>
+          <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
         </v-tab-item>
 
         <v-tab>Stats</v-tab>
@@ -288,8 +288,8 @@ export default {
     width: 200px;
   }
   .deck {
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
   }
   .deckTitle {
     justify-content: center;

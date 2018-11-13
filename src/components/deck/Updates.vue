@@ -1,32 +1,30 @@
 <template>
-  <v-layout row wrap>
-    <v-flex xs12 v-for="update in updates" :key="update.date">
-      <span class="subheading mt-2">{{update.date}}</span>
-      <v-layout row wrap>
-        <v-flex xs12>
-          <span class="body-2 mt-2 green--text">In</span>
-        </v-flex>
-        <v-flex xs12>
-          <ScrollDiv class="cards mt-2" :overflowAlways="false">
+  <v-layout row wrap class="pt-2">
+    <v-flex xs12 class="text-xs-left mt-3" v-for="update in updates.slice().reverse()" :key="update.date">
+      <v-icon>keyboard_arrow_right</v-icon>
+      <span class="subheading">
+        {{ new Date(update.date.replace('_', ':')).toLocaleString().replace(' ', ' - ') }}
+      </span>
+      <v-divider/>
+      <v-layout row wrap class="mt-1 ml-3">
+        <div v-if="getCardsIn(update.mainDeck).length > 0" class="mt-2">
+          <span class="subheading green--text">In</span>
+          <div class="cards ml-2">
             <div v-for="(card, index) in getCardsIn(update.mainDeck)" :key="index">
               <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid'
-                :imageUrlTrnaformed='card.imageUrlTransformed' :qtd="-1"/>
+                :imageUrlTranformed='card.imageUrlTransformed' :qtd="card.qtd"/>
             </div>
-          </ScrollDiv>
-        </v-flex>
-      </v-layout>
-      <v-layout row wrap>
-        <v-flex xs12>
-          <span class="body-2 mt-2 green--red">Out</span>
-        </v-flex>
-        <v-flex xs12>
-          <ScrollDiv class="cards mt-2" :overflowAlways="false">
+          </div>
+        </div>
+        <div row v-if="getCardsOut(update.mainDeck).length > 0" class="mt-2 ml-4">
+          <span class="subheading red--text">Out</span>
+          <div class="cards ml-2">
             <div v-for="(card, index) in getCardsOut(update.mainDeck)" :key="index">
               <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid'
-                :imageUrlTrnaformed='card.imageUrlTransformed' :qtd="-1"/>
+                :imageUrlTranformed='card.imageUrlTransformed' :qtd="card.qtd * -1"/>
             </div>
-          </ScrollDiv>
-        </v-flex>
+          </div>
+        </div>
       </v-layout>
     </v-flex>
   </v-layout>
@@ -41,7 +39,7 @@ export default {
   },
   props: {
     updates: {
-      type: Object,
+      type: Array,
       required: true
     }
   },
@@ -72,11 +70,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .mt-3:first-child {
+    margin-top: 0px !important;
+  }
   .cards {
     display: flex;
+    flex-wrap: wrap;
   }
   .cardContainer {
     width: 8em;
     margin: 1px;
+  }
+  .v-divider {
+    width: 175px;
+  }
+  .v-icon {
+    transform: translateY(3px);
   }
 </style>
