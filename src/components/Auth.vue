@@ -119,6 +119,7 @@ export default {
       },
       showPassword: false,
       signedMenuItems: [
+        { title: 'My Profile' },
         { title: 'My Collection' },
         { title: 'My Decks' },
         { title: 'Logout' }
@@ -129,11 +130,13 @@ export default {
   methods: {
     signedMenuClick: function (index) {
       switch (index) {
-        case 0: this.$router.replace('/user/collection')
+        case 0: this.$router.replace('/user')
           break
-        case 1: this.$router.replace('/user/decks')
+        case 1: this.$router.replace('/user/collection')
           break
-        case 2: this.logout()
+        case 2: this.$router.replace('/user/decks')
+          break
+        case 3: this.logout()
           break
       }
     },
@@ -223,7 +226,7 @@ export default {
       const userName = userEmail.substring(0, userEmail.indexOf('@'))
       this.loggedUserName = Utils.captalize(userName)
       this.logged = true
-      this.getUserWildcards()
+      this.requestUserWildcards()
     },
     logout: function () {
       this.$api.deleteUserToken()
@@ -252,7 +255,7 @@ export default {
           console.log(error)
         })
     },
-    getUserWildcards: function () {
+    requestUserWildcards: function () {
       this.$api.getUserExtras(this.deckAlias)
         .then(res => {
           if (res.data === '') {

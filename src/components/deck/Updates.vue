@@ -3,7 +3,7 @@
     <v-flex xs12 class="text-xs-left mt-3" v-for="update in updates.slice().reverse()" :key="update.date">
       <v-icon>keyboard_arrow_right</v-icon>
       <span class="subheading">
-        {{ new Date(update.date.replace('_', ':')).toLocaleString().replace(' ', ' - ') }}
+        {{ new Date(update.date.replace('_', ':')).toLocaleString().replace(' ', ' - ').replace(',', '') }}
       </span>
       <v-divider/>
       <v-layout row wrap class="mt-1 ml-3">

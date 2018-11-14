@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home'
-import PublicDeck from '@/pages/PublicDeck'
-import PublicDeckList from '@/pages/PublicDeckList'
-import PrivateDeck from '@/pages/PrivateDeck'
-import PrivateDeckList from '@/pages/PrivateDeckList'
+import User from '@/pages/User'
 import UserCollection from '@/pages/UserCollection'
+import PrivateDeckList from '@/pages/PrivateDeckList'
+import PrivateDeck from '@/pages/PrivateDeck'
+import PublicDeckList from '@/pages/PublicDeckList'
+import PublicDeck from '@/pages/PublicDeck'
 
 Vue.use(Router)
 
@@ -18,17 +19,17 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/user/collection',
-      name: 'UserCollection',
-      component: UserCollection,
+      path: '/user',
+      name: 'User',
+      component: User,
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: '/user/decks/:id',
-      name: 'PrivateDeck',
-      component: PrivateDeck,
+      path: '/user/collection',
+      name: 'UserCollection',
+      component: UserCollection,
       meta: {
         requiresAuth: true
       }
@@ -42,14 +43,22 @@ const router = new Router({
       }
     },
     {
-      path: '/decks/:alias',
-      name: 'PublicDeck',
-      component: PublicDeck
+      path: '/user/decks/:id',
+      name: 'PrivateDeck',
+      component: PrivateDeck,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/decks',
       name: 'PublicDeckList',
       component: PublicDeckList
+    },
+    {
+      path: '/decks/:alias',
+      name: 'PublicDeck',
+      component: PublicDeck
     },
     {
       path: '*',

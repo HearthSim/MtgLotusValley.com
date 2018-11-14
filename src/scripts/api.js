@@ -161,13 +161,14 @@ export default {
       }
     })
   },
-  getUserCollection () {
+  getUserCollection (summarized) {
     return axios.get('/users/collection', {
       headers: {
         Authorization: 'required'
       },
       params: {
-        userId: localStorage.getItem('localId')
+        userId: localStorage.getItem('localId'),
+        summarized: summarized
       }
     })
   },
