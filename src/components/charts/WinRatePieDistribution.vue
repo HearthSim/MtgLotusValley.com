@@ -49,7 +49,7 @@ export default {
     colorsHexValue: function () {
       const data = []
       Object.keys(this.data).forEach(color => {
-        const colorObj = Utils.colors.find(colorObj => colorObj.desc.toLowerCase() === color)
+        const colorObj = Utils.colors.find(colorObj => colorObj.name.toLowerCase() === color)
         data.push(colorObj.hexValue)
       })
       return data
@@ -57,7 +57,7 @@ export default {
     colorsHexHoverValue: function () {
       const data = []
       Object.keys(this.data).forEach(color => {
-        const colorObj = Utils.colors.find(colorObj => colorObj.desc.toLowerCase() === color)
+        const colorObj = Utils.colors.find(colorObj => colorObj.name.toLowerCase() === color)
         data.push(colorObj.hexHoverValue)
       })
       return data

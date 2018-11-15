@@ -8,7 +8,7 @@
         <v-tooltip v-for="type in types" :key="type.code" top open-delay=1000>
           <img :class="!activeTypes.includes(type.code) ? 'grayscale' : ''" slot="activator"
             :src="require(`@/assets/types/${type.code}.png`)" @click="typeClick(type.code)"/>
-          {{ type.desc }}
+          {{ type.name }}
         </v-tooltip>
       </div>
     </v-card>

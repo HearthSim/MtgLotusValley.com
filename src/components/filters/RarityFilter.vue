@@ -2,13 +2,14 @@
   <div class="ml-2 mr-2 textNoSelect">
     <v-card :class="`pt-2 pl-2 pr-2 pb-2 ${expand ? 'd-block' : ''}`">
       <div class="text-xs-left body-1">
-        <span class="label pl-1">Colors</span>
+        <span class="label pl-1">Rarity</span>
       </div>
       <div class="text-xs-center mt-1">
-        <v-tooltip v-for="color in colors" :key="color.code" top open-delay=500>
-          <img :class="!activeColors.includes(color.code) ? 'grayscale' : ''" slot="activator"
-            :src="require(`@/assets/mana/${color.code}.png`)" @click="colorClick(color.code)"/>
-          {{ color.name }}
+        <v-tooltip v-for="rarity in rarities" :key="rarity.code" top open-delay=500>
+          <i v-bind:title="setTitle" :class="`ss ss-2x ss-parl3 ss-${rarity.name.toLowerCase()}
+            ${!activeRarities.includes(rarity.code) ? ' grayscale' : ''}`"
+            @click="rarityClick(rarity.code)" slot="activator"/>
+          {{ rarity.name }}
         </v-tooltip>
       </div>
     </v-card>
@@ -23,10 +24,6 @@ export default {
     value: {
       type: String
     },
-    simple: {
-      type: Boolean,
-      default: false
-    },
     expand: {
       type: Boolean,
       default: false
@@ -34,17 +31,17 @@ export default {
   },
   data () {
     return {
-      activeColors: [],
-      colors: this.simple ? Utils.colors.filter(c => c.code !== 'c' && c.code !== 'm') : Utils.colors
+      activeRarities: [],
+      rarities: Utils.rarities
     }
   },
   mounted () {
-    this.activeColors = this.value.split(',')
+    this.activeRarities = this.value.split(',')
   },
   methods: {
-    colorClick (name) {
-      this.toogleItem(this.activeColors, name)
-      this.$emit('input', this.activeColors.sort().join())
+    rarityClick (name) {
+      this.toogleItem(this.activeRarities, name)
+      this.$emit('input', this.activeRarities.sort().join())
     },
     toogleItem (array, item) {
       if (array.includes(item)) {
@@ -56,7 +53,7 @@ export default {
   },
   watch: {
     value: function (value) {
-      this.activeColors = value.split(',')
+      this.activeRarities = value.split(',')
     }
   }
 }
@@ -72,13 +69,12 @@ export default {
     align-items: baseline;
     display: inline-block;
   }
-  img {
+  i {
     border-bottom: 1px orange solid;
     border-radius: 8px;
-    height: 36px;
     padding: 4px;
   }
-  img:hover {
+  i:hover {
     background: lightgray;
   }
   .grayscale {

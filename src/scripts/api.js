@@ -148,13 +148,14 @@ export default {
       }
     })
   },
-  getCards (page, pageSize, query, colors, types, sets) {
+  getCards (page, pageSize, query, colors, rarities, types, sets) {
     return axios.get('/cards', {
       params: {
         pageNumber: page,
         pageSize: pageSize,
         query: query,
         colors: colors,
+        rarities: rarities,
         types: types,
         sets: sets,
         fields: 'name,mtgaid,multiverseid,imageUrl,imageUrlTransformed'

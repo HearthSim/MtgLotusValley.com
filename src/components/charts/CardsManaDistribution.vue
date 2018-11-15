@@ -72,7 +72,7 @@ export default {
       const data = []
       Object.keys(this.cardsByColors).forEach(color => {
         const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
-        data.push(colorObj.desc)
+        data.push(colorObj.name)
       })
       return data
     },

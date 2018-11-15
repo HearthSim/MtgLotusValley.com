@@ -18,6 +18,8 @@
         <v-text-field class="mt-4 pl-4 pr-4" label="Search" 
           v-model="searchQuery" @keyup.native.enter="updateFilters"
           solo single-line hide-details clearable />
+        <ColorFilter class="mt-3 pl-3 pr-3" v-model="activeColors"/>
+        <RarityFilter class="mt-3 pl-3 pr-3" v-model="activeRarities"/>
       </v-flex>
       <!-- Center -->
       <v-flex           xs12 sm8>
@@ -42,8 +44,7 @@
       </v-flex>
       <!-- Right -->
       <v-flex hidden-xs-only sm2>
-        <ColorFilter class="mt-4 pl-3 pr-3" v-model="activeColors"/>
-        <TypeFilter class="mt-3 pl-3 pr-3" v-model="activeTypes"/>
+        <TypeFilter class="mt-4 pl-3 pr-3" v-model="activeTypes"/>
         <SetFilter class="mt-3 pl-3 pr-3" v-model="activeSets"/>
         <v-btn class="mt-3" color="white" @click="updateFilters()">Apply</v-btn>
       </v-flex>
@@ -54,13 +55,14 @@
 <script>
 import Card from '@/components/mtg/Card'
 import ColorFilter from '@/components/filters/ColorFilter'
+import RarityFilter from '@/components/filters/RarityFilter'
 import TypeFilter from '@/components/filters/TypeFilter'
 import SetFilter from '@/components/filters/SetFilter'
 
 export default {
   name: 'UserCollection',
   components: {
-    Card, ColorFilter, TypeFilter, SetFilter
+    Card, ColorFilter, RarityFilter, TypeFilter, SetFilter
   },
   mounted () {
     this.getCards()
@@ -69,6 +71,7 @@ export default {
     return {
       currentPage: this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1,
       activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,c,g,m,r,u,w',
+      activeRarities: this.$route.query.rarities !== undefined ? this.$route.query.rarities : 'c,u,r,m',
       activeTypes: this.$route.query.types !== undefined ? this.$route.query.types : 'a,c,e,i,l,p,s',
       activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : 'ANA,XLN,RIX,DAR,M19,GRN,MED',
       searchQuery: this.$route.query.query,
@@ -91,7 +94,7 @@ export default {
       this.isLoading = true
       const pageSize = 12
       this.$api.getCards(this.currentPage, pageSize, this.searchQuery,
-        this.activeColors, this.activeTypes, this.activeSets)
+        this.activeColors, this.activeRarities, this.activeTypes, this.activeSets)
         .then(res => {
           this.currentPageCards = res.data.data
           this.totalPages = res.data.totalPages
@@ -116,6 +119,7 @@ export default {
           page: 1,
           query: this.searchQuery,
           colors: this.activeColors,
+          rarities: this.activeRarities,
           types: this.activeTypes,
           sets: this.activeSets
         }
