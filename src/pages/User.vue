@@ -2,40 +2,41 @@
   <v-layout class="mb-3" row wrap>
     <!-- Top -->
     <v-flex class="text-xs-left" xs12>
-      <v-breadcrumbs class="ml-2">
-        <v-icon slot="divider">chevron_right</v-icon>
-        <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
-        <v-breadcrumbs-item exact ripple disabled>User</v-breadcrumbs-item>
-      </v-breadcrumbs>
+      <v-layout row nowrap>
+        <v-breadcrumbs class="ml-2">
+          <v-icon slot="divider">chevron_right</v-icon>
+          <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
+          <v-breadcrumbs-item exact ripple disabled>User</v-breadcrumbs-item>
+        </v-breadcrumbs>
+        <v-layout row class="userSummary">
+          <v-layout column class="mr-2">
+            <span class="headline">{{totalGames}} games</span>
+          </v-layout>
+          <v-layout column>
+            <span class="display-1">(</span>
+          </v-layout>
+          <v-layout column class="ml-2 mr-2 body-2 text-xs-center">
+            <span>{{totalConstructed}} Constructed</span>
+            <span>{{totalLimited}} Limited</span>
+          </v-layout>
+          <v-layout column class="mr-4">
+            <span class="display-1">)</span>
+          </v-layout>
+        </v-layout>
+      </v-layout>
     </v-flex>
     <v-flex xs12>
       <v-divider/>
     </v-flex>
     <!-- Left -->
-    <v-flex hidden-sm-and-down                    md3 lg2 xl2>
-
-      <div class="pt-4">
-        <span class='body-2 grey--text text--darken-2'>
-          <strong>Iventory</strong>
-        </span>
-        <div class="pl-2 pr-2">
-          <WildcardsCost class="mt-4 m-auto" :cost="userWildcards"/>
-        </div>
-      </div>
-
-    </v-flex>
-    <!-- Center -->
-    <v-flex class="center"               xs12 sm8 md7 lg6 xl6>
-    </v-flex>
-    <!-- Right -->
-    <v-flex class="rSide pt-3 mb-3" hidden-xs-only sm4 md2 lg4 xl4>
+    <v-flex class="center pt-3 pl-4 pr-2" xs7>
       <span class='body-2 grey--text text--darken-2'>
         <strong>Collection Summary</strong>
       </span>
       <v-layout row wrap>
-        <v-card class="setSummary mt-3 mr-3" v-for="set in userCollectionSummary" :key="set.code">
+        <v-card class="setSummary mt-4 m-auto" v-for="set in userCollectionSummary" :key="set.code">
           <div class="summaryTitle pt-1 pb-1 white--text body-1">{{set.name}}</div>
-          <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" top lazy>
+          <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
             <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
               slot="activator">
               <v-layout row nowrap>
@@ -53,28 +54,42 @@
         </v-card>
       </v-layout>
     </v-flex>
+    <!-- Right -->
+    <v-flex class="rSide pt-3 pl-2 pr-2 pb-3" xs5>
+      <span class='body-2 grey--text text--darken-2'>
+        <strong>Events Summary</strong>
+      </span>
+      <v-layout row wrap>
+        <v-flex xs6 class="eventStat" v-for="eventStat in userEventsStats" :key="eventStat.name">
+          <EventStats class="mt-3" :data="eventStat" :id="eventStat.name"/>
+        </v-flex>
+      </v-layout>
+    </v-flex>
   </v-layout>
 </template>
 
 <script>
+import EventStats from '@/components/charts/EventStats'
 import SetSymbol from '@/components/mtg/SetSymbol'
-import WildcardsCost from '@/components/mtg/WildcardsCost'
 import Utils from '@/scripts/utils'
 
 export default {
   name: 'PublicDeck',
   components: {
-    SetSymbol, WildcardsCost
+    EventStats, SetSymbol
   },
   created () {
     this.requestUserCollectionSummary()
-    this.requestUserWildcards()
+    this.requestUserEventsStats()
   },
   data () {
     return {
       userCollectionSummary: [],
-      userWildcards: {},
-      rarities: Utils.rarities
+      userEventsStats: [],
+      rarities: Utils.rarities,
+      totalGames: 0,
+      totalConstructed: 0,
+      totalLimited: 0
     }
   },
   methods: {
@@ -87,19 +102,25 @@ export default {
           console.log(error)
         })
     },
-    requestUserWildcards: function () {
-      this.$api.getUserExtras(this.deckAlias)
+    requestUserEventsStats: function () {
+      this.$api.getUserEventsStats()
         .then(res => {
-          if (res.data === '') {
-            this.userWildcards = {}
-            return
-          }
-          this.userWildcards = {
-            'mythic': res.data['wcMythic'],
-            'rare': res.data['wcRare'],
-            'uncommon': res.data['wcUncommon'],
-            'common': res.data['wcCommon']
-          }
+          const data = res.data.map(stat => {
+            const event = Utils.events.find(event => event.name === stat.name)
+            stat['type'] = event.type
+            return stat
+          })
+          data.sort((e1, e2) => {
+            const e1Index = Utils.events.findIndex(event => event.name === e1.name)
+            const e2Index = Utils.events.findIndex(event => event.name === e2.name)
+            return e1Index - e2Index
+          })
+          this.totalGames = data.map(stat => stat.wins + stat.losses).reduce((acc, value) => acc + value)
+          this.totalConstructed = data.filter(stat => stat.type === 'Constructed')
+            .map(stat => stat.wins + stat.losses).reduce((acc, value) => acc + value)
+          this.totalLimited = data.filter(stat => stat.type === 'Limited')
+            .map(stat => stat.wins + stat.losses).reduce((acc, value) => acc + value)
+          this.userEventsStats = data
         })
         .catch(error => {
           console.log(error)
@@ -115,6 +136,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .userSummary {
+    justify-content: flex-end;
+  }
+  .userSummary .layout {
+    justify-content: center;
+    flex: none;
+  }
+  .eventStat {
+    min-height: 200px;
+  }
   .setSummary {
     width: 200px;
   }

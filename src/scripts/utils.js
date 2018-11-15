@@ -33,6 +33,17 @@ export default {
     { code: 'GRN', name: 'Guilds of Ravnica' },
     { code: 'MED', name: 'Mythic Edition' }
   ],
+  events: [
+    { name: 'RankedConstructed', type: 'Constructed' },
+    { name: 'QuickConstructed', type: 'Constructed' },
+    { name: 'CompetitiveConstructed', type: 'Constructed' },
+    { name: 'Draft', type: 'Limited' },
+    { name: 'Sealed', type: 'Limited' },
+    { name: 'Singleton', type: 'Constructed' },
+    { name: 'Pauper', type: 'Constructed' },
+    { name: 'Momir', type: 'Constructed' },
+    { name: 'Exploration', type: 'Constructed' }
+  ],
   captalize: function (value) {
     return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
   },

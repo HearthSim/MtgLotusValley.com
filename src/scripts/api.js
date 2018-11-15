@@ -173,6 +173,16 @@ export default {
       }
     })
   },
+  getUserEventsStats () {
+    return axios.get('/users/stats', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: {
+        userId: localStorage.getItem('localId')
+      }
+    })
+  },
   getUserDecks (page, pageSize, sortBy, descending, colors, query, cards, cardDetails) {
     return axios.get('/users/decks', {
       headers: {
