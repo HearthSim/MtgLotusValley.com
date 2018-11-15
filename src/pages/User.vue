@@ -14,8 +14,13 @@
     <!-- Left -->
     <v-flex hidden-sm-and-down                    md3 lg2 xl2>
 
-      <div class="pl-2 pr-2">
-        <WildcardsCost class="mt-4 m-auto" :cost="userWildcards"/>
+      <div class="pt-4">
+        <span class='body-2 grey--text text--darken-2'>
+          <strong>Iventory</strong>
+        </span>
+        <div class="pl-2 pr-2">
+          <WildcardsCost class="mt-4 m-auto" :cost="userWildcards"/>
+        </div>
       </div>
 
     </v-flex>
@@ -27,19 +32,22 @@
       <span class='body-2 grey--text text--darken-2'>
         <strong>Collection Summary</strong>
       </span>
-      <v-layout row wrap class="mt-1">
+      <v-layout row wrap>
         <v-card class="setSummary mt-3 mr-3" v-for="set in userCollectionSummary" :key="set.code">
           <div class="summaryTitle pt-1 pb-1 white--text body-1">{{set.name}}</div>
-          <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name}`" top lazy>
-            <v-layout row nowrap slot="activator">
-              <SetSymbol class="setSymbol ml-2" :set="set.code" :rarity="rarity.name"/>
-              <v-progress-linear class="ml-2" :color="rarity.color" height="5"
-                :value="set.unique[rarity.name] / set.all[rarity.name] * 100"/>
-              <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name)}}%</span>
-            </v-layout>
+          <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" top lazy>
+            <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
+              slot="activator">
+              <v-layout row nowrap>
+                <SetSymbol class="setSymbol ml-2" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
+                <v-progress-linear class="ml-2" :color="rarity.color" height="5"
+                  :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
+                <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
+              </v-layout>
+            </router-link>
             <v-layout column>
-              <span>Unique cards: {{set.unique[rarity.name]}} / {{set.all[rarity.name]}}</span>
-              <span>Playset: {{set.owned[rarity.name]}} / {{set.all[rarity.name] * 4}}</span>
+              <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
+              <span>Playset: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}</span>
             </v-layout>
           </v-tooltip>
         </v-card>
@@ -51,6 +59,7 @@
 <script>
 import SetSymbol from '@/components/mtg/SetSymbol'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
+import Utils from '@/scripts/utils'
 
 export default {
   name: 'PublicDeck',
@@ -65,12 +74,7 @@ export default {
     return {
       userCollectionSummary: [],
       userWildcards: {},
-      rarities: [
-        { name: 'common', color: 'grey' },
-        { name: 'uncommon', color: 'blue-grey' },
-        { name: 'rare', color: 'amber' },
-        { name: 'mythic', color: 'deep-orange' }
-      ]
+      rarities: Utils.rarities
     }
   },
   methods: {
@@ -124,5 +128,9 @@ export default {
   }
   .summaryTitle {
     background-color: darkorange;
+  }
+  a {
+    color: black;
+    text-decoration: none;
   }
 </style>
