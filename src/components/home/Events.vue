@@ -6,7 +6,7 @@
     <v-flex v-if="upcomingEvents.length > 0" xs12 class="text-xs-left">
       <v-divider class="ml-2"/>
     </v-flex>
-    <v-flex class="mt-2" v-for="(event, index) in currentEvents" :key="index">
+    <v-flex class="mt-2" v-for="event in currentEvents" :key="event.id">
       <Event class="mt-1 ml-1 mr-1 mb-1" :event="event"/>
     </v-flex>
     <v-flex v-if="upcomingEvents.length > 0" xs12 class="mt-3 text-xs-left body-1">
@@ -15,7 +15,7 @@
     <v-flex v-if="upcomingEvents.length > 0" xs12 class="text-xs-left">
       <v-divider class="ml-2"/>
     </v-flex>
-    <v-flex class="mt-2" v-for="(event, index) in upcomingEvents" :key="index">
+    <v-flex class="mt-2" v-for="event in upcomingEvents" :key="event.id">
       <Event class="mt-1 ml-1 mr-1 mb-1" :event="event"/>
     </v-flex>
   </v-layout>

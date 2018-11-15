@@ -217,6 +217,17 @@ export default {
       }
     })
   },
+  getUserDeckOverview (id) {
+    return axios.get('/users/decks/stats', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: {
+        deckId: id,
+        userId: localStorage.getItem('localId')
+      }
+    })
+  },
   getUserExtras () {
     return axios.get('/users/extras', {
       headers: {
@@ -247,13 +258,6 @@ export default {
         cardDetails: true,
         fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity',
         updates: true
-      }
-    })
-  },
-  getDeckOverview (id) {
-    return axios.get('/decks/stats', {
-      params: {
-        deckId: id
       }
     })
   },

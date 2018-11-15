@@ -48,7 +48,7 @@ export default {
     }
   },
   mounted () {
-    this.$api.getDeckOverview(this.deckId)
+    this.$api.getUserDeckOverview(this.deckId)
       .then(res => {
         this.isLoading = false
         this.winrateByArchs = res.data.archs
