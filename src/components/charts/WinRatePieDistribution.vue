@@ -16,7 +16,8 @@ export default {
     },
     id: {
       type: String,
-      required: false
+      required: false,
+      default: ''
     },
     title: {
       type: String,

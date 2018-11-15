@@ -1,7 +1,7 @@
   <template>
     <v-layout row wrap>
       <v-flex xs12 sm12 md3 lg3 xl3>
-        <div class="mt-3">
+        <div class="mt-4">
           <span class='body-2 grey--text text--darken-2'>
             <strong>Events</strong>
           </span>
@@ -9,7 +9,7 @@
         <Events class="mt-2 mb-2 m-auto"/>
       </v-flex>
       <v-flex xs12 sm8 md6 lg6 xl6>
-        <div class="mt-3 ta-l">
+        <div class="mt-4 ta-l">
           <span class='body-2 grey--text text--darken-2'>
             <strong>Latest published Decks</strong>
           </span>
@@ -18,12 +18,11 @@
         
       </v-flex>
       <v-flex xs12 sm4 md3 lg3 xl3>
-        <div class='mt-3'>
-          <DecksColorDistribution :colors="decksByColorsBasics"/>
-          <div class="mt-5">
-            <span class='subheading'>Deck of Day</span>
-          </div>
-          <Deck class="mt-1 mb-4" :cards="deckOfDayCards" :name="deckOfDayName"/>
+        <div class='mt-4'>
+          <span class='body-2 grey--text text--darken-2'>
+            <strong>Deck of Day</strong>
+          </span>
+          <Deck class="mt-3 mb-4" :cards="deckOfDayCards" :name="deckOfDayName"/>
         </div>
       </v-flex>
     </v-layout>
@@ -31,24 +30,21 @@
 
 <script>
 import Deck from '@/components/mtg/Deck'
-import DecksColorDistribution from '@/components/charts/DecksColorDistribution'
 import Events from '@/components/home/Events'
 import LatestDecks from '@/components/home/LatestDecks'
 
 export default {
   name: 'Home',
   components: {
-    Deck, Events, LatestDecks, DecksColorDistribution
+    Deck, Events, LatestDecks
   },
   created () {
     this.requestDeckOfDay()
-    this.requestDeckByColorsBasics()
   },
   data () {
     return {
       deckOfDayCards: {},
-      deckOfDayName: '',
-      decksByColorsBasics: {}
+      deckOfDayName: ''
     }
   },
   methods: {
@@ -64,15 +60,6 @@ export default {
         .then(res => {
           this.deckOfDayCards = res.data.cards
           this.deckOfDayName = `${res.data.name} | ${res.data.wins}-${res.data.losses} (${res.data.winRate}%)`
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-    requestDeckByColorsBasics: function () {
-      this.$api.getDecksByColors(this.getDaysAgo(8), this.getDaysAgo(1), true)
-        .then(res => {
-          this.decksByColorsBasics = res.data
         })
         .catch(error => {
           console.log(error)

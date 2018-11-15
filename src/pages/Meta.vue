@@ -4,7 +4,7 @@
       <v-flex xs2>
       </v-flex>
       <!-- Center -->
-      <v-flex xs8 class="mb-3">
+      <v-flex xs7 class="mb-3">
         <div class="mt-3 ta-l">
           <span class='body-2 grey--text text--darken-2'>
             <strong>Most Played Cards (Last 7 days)</strong>
@@ -41,27 +41,37 @@
         </v-card>
       </v-flex>
       <!-- Right -->
-      <v-flex xs2>
+      <v-flex xs3>
+        <div>
+          <DecksColorDistribution class="mt-3" :colors="decksByColorsBasics"/>
+          <DecksGuildsDistribution class="mt-4" :colors="decksByColorsGuilds"/>
+        </div>
       </v-flex>
     </v-layout>
 </template>
 
 <script>
 import DecksByArch from '@/components/charts/DecksByArch'
+import DecksColorDistribution from '@/components/charts/DecksColorDistribution'
+import DecksGuildsDistribution from '@/components/charts/DecksGuildsDistribution'
 import MostPlayedCards from '@/components/MostPlayedCards'
 
 export default {
   name: 'Home',
   components: {
-    DecksByArch, MostPlayedCards
+    DecksByArch, DecksColorDistribution, DecksGuildsDistribution, MostPlayedCards
   },
   created () {
+    this.requestDeckByColorsBasics()
+    this.requestDeckByColorsGuilds()
     this.requestMostPlayedCards()
   },
   data () {
     return {
       mostPlayedCardsConstructed: {},
-      mostPlayedCardsLimited: {}
+      mostPlayedCardsLimited: {},
+      decksByColorsBasics: {},
+      decksByColorsGuilds: {}
     }
   },
   methods: {
@@ -76,6 +86,30 @@ export default {
       return date.getUTCFullYear() + '-' +
           (`0${date.getUTCMonth() + 1}`).slice(-2) + '-' +
           (`0${date.getUTCDate()}`).slice(-2)
+    },
+    requestDeckByColorsBasics: function () {
+      this.$api.getDecksByColors(this.getDaysAgo(8), this.getDaysAgo(1), true)
+        .then(res => {
+          this.decksByColorsBasics = res.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    requestDeckByColorsGuilds: function () {
+      this.$api.getDecksByColors(this.getDaysAgo(8), this.getDaysAgo(1), false)
+        .then(res => {
+          const data = {}
+          Object.keys(res.data).forEach(colors => {
+            if (colors.length > 1) {
+              data[colors] = res.data[colors]
+            }
+          })
+          this.decksByColorsGuilds = data
+        })
+        .catch(error => {
+          console.log(error)
+        })
     },
     requestMostPlayedCards: function () {
       this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'constructed', 15)

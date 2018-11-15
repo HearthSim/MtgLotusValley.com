@@ -44,6 +44,28 @@ export default {
     { name: 'Momir', type: 'Constructed' },
     { name: 'Exploration', type: 'Constructed' }
   ],
+  guilds: [
+    { colors: 'wu', colorsOrdered: 'uw', name: 'Azorius' },
+    { colors: 'wr', colorsOrdered: 'rw', name: 'Boros' },
+    { colors: 'ub', colorsOrdered: 'bu', name: 'Dimir' },
+    { colors: 'ur', colorsOrdered: 'ru', name: 'Izzet' },
+    { colors: 'bg', colorsOrdered: 'bg', name: 'Golgari' },
+    { colors: 'rg', colorsOrdered: 'gr', name: 'Gruul' },
+    { colors: 'br', colorsOrdered: 'br', name: 'Rakdos' },
+    { colors: 'wg', colorsOrdered: 'gw', name: 'Selesnya' },
+    { colors: 'ug', colorsOrdered: 'gu', name: 'Simic' },
+    { colors: 'wb', colorsOrdered: 'bw', name: 'Orzhov' },
+    { colors: 'wbg', colorsOrdered: 'bgw', name: 'Abzan' },
+    { colors: 'wug', colorsOrdered: 'guw', name: 'Bant' },
+    { colors: 'wub', colorsOrdered: 'buw', name: 'Esper' },
+    { colors: 'ubr', colorsOrdered: 'bru', name: 'Grixis' },
+    { colors: 'wur', colorsOrdered: 'ruw', name: 'Jeskai' },
+    { colors: 'brg', colorsOrdered: 'bgr', name: 'Jund' },
+    { colors: 'wbr', colorsOrdered: 'brw', name: 'Mardu' },
+    { colors: 'wrg', colorsOrdered: 'grw', name: 'Naya' },
+    { colors: 'ubg', colorsOrdered: 'bgu', name: 'Sultai' },
+    { colors: 'urg', colorsOrdered: 'gru', name: 'Temur' }
+  ],
   captalize: function (value) {
     return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
   },

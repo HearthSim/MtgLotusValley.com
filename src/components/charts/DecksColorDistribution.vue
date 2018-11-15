@@ -1,6 +1,6 @@
 <template>
   <div id="canvas-container">
-    <canvas id="colorDistribution-chart"/>
+    <canvas id="decksColorDistribution-chart"/>
   </div>
 </template>
 
@@ -58,7 +58,7 @@ export default {
   },
   watch: {
     colors: function () {
-      const ctx = document.getElementById('colorDistribution-chart')
+      const ctx = document.getElementById('decksColorDistribution-chart')
       ctx.height = 250
       new Chart(ctx, { // eslint-disable-line no-new
         type: 'pie',
@@ -83,6 +83,13 @@ export default {
           title: {
             text: 'Color Distribution (Last 7 days)',
             display: true
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                return data.datasets[0].data[tooltipItem.index] + '%'
+              }
+            }
           }
         }
       })
