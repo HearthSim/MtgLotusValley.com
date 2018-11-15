@@ -15,38 +15,7 @@
           </span>
         </div>
         <LatestDecks class="mt-2" />
-        <div class="mt-3 ta-l">
-          <span class='body-2 grey--text text--darken-2'>
-            <strong>Constructed</strong>
-          </span>
-        </div>
-        <v-card class="mt-2 pt-1 pb-2">
-          <v-layout class="mt-2 ml-2 mr-2" row wrap>
-            <v-flex xs12 sm6>
-              <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCardsConstructed"/>
-            </v-flex>
-            <v-flex xs12 sm6>
-              <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" 
-                :dateMax="getDaysAgo(1)" eventType="Constructed"/>
-            </v-flex>
-          </v-layout>
-        </v-card>
-        <div class="mt-3 ta-l">
-          <span class='body-2 grey--text text--darken-2'>
-            <strong>Limited</strong>
-          </span>
-        </div>
-        <v-card class="mt-2 pt-1 pb-2">
-          <v-layout class="mt-2 ml-2 mr-2" row nowrap>
-            <v-flex xs12 sm6>
-              <MostPlayedCards class="mt-1 ml-2 mostPlayedCards" :cards="mostPlayedCardsLimited"/>
-            </v-flex>
-            <v-flex xs12 sm6>
-              <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" 
-                :dateMax="getDaysAgo(1)" eventType="Limited"/>
-            </v-flex>
-          </v-layout>
-        </v-card>
+        
       </v-flex>
       <v-flex xs12 sm4 md3 lg3 xl3>
         <div class='mt-3'>
@@ -62,37 +31,27 @@
 
 <script>
 import Deck from '@/components/mtg/Deck'
-import DecksByArch from '@/components/charts/DecksByArch'
 import DecksColorDistribution from '@/components/charts/DecksColorDistribution'
 import Events from '@/components/home/Events'
 import LatestDecks from '@/components/home/LatestDecks'
-import MostPlayedCards from '@/components/MostPlayedCards'
 
 export default {
   name: 'Home',
   components: {
-    Deck, DecksByArch, Events, LatestDecks, DecksColorDistribution, MostPlayedCards
+    Deck, Events, LatestDecks, DecksColorDistribution
   },
   created () {
     this.requestDeckOfDay()
     this.requestDeckByColorsBasics()
-    this.requestMostPlayedCards()
   },
   data () {
     return {
       deckOfDayCards: {},
       deckOfDayName: '',
-      decksByColorsBasics: {},
-      mostPlayedCardsConstructed: {},
-      mostPlayedCardsLimited: {}
+      decksByColorsBasics: {}
     }
   },
   methods: {
-    getMonthFirstDay: function () {
-      const date = new Date()
-      const month = date.getUTCMonth() + (date.getUTCDate() === 1 ? 0 : 1)
-      return date.getUTCFullYear() + '-' + `0${month}`.slice(-2) + '-01'
-    },
     getDaysAgo: function (days) {
       const date = new Date()
       date.setDate(date.getDate() - days)
@@ -114,22 +73,6 @@ export default {
       this.$api.getDecksByColors(this.getDaysAgo(8), this.getDaysAgo(1), true)
         .then(res => {
           this.decksByColorsBasics = res.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-    requestMostPlayedCards: function () {
-      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'constructed', 20)
-        .then(res => {
-          this.mostPlayedCardsConstructed = res.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
-      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'limited', 10)
-        .then(res => {
-          this.mostPlayedCardsLimited = res.data
         })
         .catch(error => {
           console.log(error)

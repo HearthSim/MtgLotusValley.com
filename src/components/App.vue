@@ -9,6 +9,7 @@
         </v-btn>
       </v-toolbar-items>
       <v-spacer/>
+      <v-btn flat @click="onMetaClick()">Meta</v-btn>
       <v-btn flat @click="onDecksClick()">Decks</v-btn>
       <v-btn flat @click="onDeckLoadClick()">
         Load List
@@ -65,6 +66,9 @@ export default {
     }
   },
   methods: {
+    onMetaClick: function () {
+      this.$router.replace('/meta')
+    },
     onDecksClick: function () {
       this.$router.replace('/decks')
     },
@@ -86,7 +90,6 @@ export default {
           mainDeckText = loadText[0]
           sideboardDeckText = loadText[1]
         }
-        console.log(mainDeckText)
         const re = /^\d+\s+(['/,A-Za-z]+[^\S\n]*)+/gm // Match any digit plus words with space but not newline
         const cardLines = mainDeckText.match(re)
         const cards = cardLines.map(line => line.replace(' ', ':')
@@ -94,7 +97,6 @@ export default {
           .replace(/\s\d*[bgruw]+\s/g, '')  // Remove mana cost if has
           .trim()
         )
-        console.log(cards)
         let sideboard = []
         if (sideboardDeckText.length > 0) {
           const sideboardLines = sideboardDeckText.match(re)

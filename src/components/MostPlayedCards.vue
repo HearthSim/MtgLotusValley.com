@@ -3,11 +3,12 @@
     <div class='mostPlayedCards'>
       <div>
         <span class='caption grey--text text--darken-2'>
-          <strong>Most Played Cards (Last 7 days)</strong>
+          <strong>{{ title }}</strong>
         </span>
       </div>
       <table class="mt-1">
-        <DeckCard v-for='card in cardsSorted' v-bind:key='card.mtgaId' v-bind:card='card'/>
+        <DeckCard v-for='card in cardsSorted' :key='card.mtgaId'
+          :card='card' :largeName="largeName"/>
       </table>
     </div>
   </div>
@@ -24,6 +25,16 @@ export default {
     cards: {
       type: Object,
       required: true
+    },
+    title: {
+      type: String,
+      required: false,
+      default: 'Most Played Cards (Last 7 days)'
+    },
+    largeName: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {

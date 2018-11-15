@@ -25,6 +25,11 @@ export default {
     eventType: {
       type: String,
       required: false
+    },
+    title: {
+      type: String,
+      required: false,
+      default: 'Deck by Archetype'
     }
   },
   mounted () {
@@ -98,7 +103,7 @@ export default {
           },
           title: {
             display: true,
-            text: 'Deck by Archetype'
+            text: this.title
           }
         }
       })
