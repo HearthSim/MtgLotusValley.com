@@ -13,7 +13,7 @@ import 'vuetify/dist/vuetify.min.css'
 // const isProduction = process.env.NODE_ENV === 'production'
 
 Vue.use(VueAnalytics, {
-  id: 'UA-127301117-1',
+  id: 'UA-129283949-1',
   router,
   autoTracking: {
     exception: true,
