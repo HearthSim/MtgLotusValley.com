@@ -157,8 +157,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .deck {
-    overflow-x: auto;
     font-size: 11pt;
+    /* overflow-x: auto; breaks two column */
   }
   table {
     margin: auto;

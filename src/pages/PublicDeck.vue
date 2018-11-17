@@ -74,7 +74,7 @@
     </v-flex>
     <!-- Center -->
     <v-flex class="center"                 xs12 sm8 md6 lg7 xl6>
-      <v-tabs class="mt-3 ml-3 mr-3" color="#fafafa">
+      <v-tabs class="mt-3 ml-3 mr-3" color="transparent">
 
         <v-tab>Text Mode</v-tab>
         <v-tab-item>

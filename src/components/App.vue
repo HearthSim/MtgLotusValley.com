@@ -34,8 +34,7 @@
       <v-spacer/>
       <Auth/>
     </v-toolbar>
-    <v-content>
-      <router-view/>
+    <v-content id="body">
     </v-content>
     <!-- <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
@@ -141,6 +140,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#body {
+  background: url('~@/assets/bg.jpg') repeat;
 }
 
 .m-auto { margin: auto; }
