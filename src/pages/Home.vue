@@ -56,7 +56,7 @@ export default {
           (`0${date.getUTCDate()}`).slice(-2)
     },
     requestDeckOfDay: function () {
-      this.$api.getDeckOfDay(this.getDaysAgo(1))
+      this.$api.getDeckOfDay(this.getDaysAgo(1), 'Constructed')
         .then(res => {
           this.deckOfDayCards = res.data.cards
           this.deckOfDayName = `${res.data.name} | ${res.data.wins}-${res.data.losses} (${res.data.winRate}%)`

@@ -111,21 +111,20 @@ export default {
       email: email
     })
   },
-  getDeckOfDay: function (date) {
-    const params = {}
-    if (date !== undefined) {
-      params['date'] = date
-    }
+  getDeckOfDay: function (date, eventType) {
     return axios.get('/stats/deckOfDay', {
-      params: params
+      params: {
+        date: date,
+        eventType: eventType
+      }
     })
   },
-  getDecksByArch (dateMin, dateMax, event) {
+  getDecksByArch (dateMin, dateMax, eventType) {
     return axios.get('/stats/decksByArch', {
       params: {
         dateMin: dateMin,
         dateMax: dateMax,
-        event: event
+        eventType: eventType
       }
     })
   },
@@ -138,12 +137,12 @@ export default {
       }
     })
   },
-  getMostPlayedCards (dateMin, dateMax, event, size) {
+  getMostPlayedCards (dateMin, dateMax, eventType, size) {
     return axios.get('/stats/mostPlayedCards', {
       params: {
         dateMin: dateMin,
         dateMax: dateMax,
-        event: event,
+        eventType: eventType,
         size: size
       }
     })

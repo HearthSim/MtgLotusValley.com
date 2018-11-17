@@ -63,15 +63,13 @@ export default {
   },
   data () {
     return {
-      currentPage: 1,
       currentDecks: {},
       decksLoaded: false
     }
   },
   methods: {
     getDecks: function () {
-      const pageSize = 10
-      this.$api.getPublicDecks(this.currentPage, pageSize)
+      this.$api.getPublicDecks(1, 10)
         .then(res => {
           this.currentDecks = res.data
           this.decksLoaded = true

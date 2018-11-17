@@ -112,14 +112,14 @@ export default {
         })
     },
     requestMostPlayedCards: function () {
-      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'constructed', 15)
+      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'Constructed', 15)
         .then(res => {
           this.mostPlayedCardsConstructed = res.data
         })
         .catch(error => {
           console.log(error)
         })
-      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'limited', 15)
+      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'Limited', 15)
         .then(res => {
           this.mostPlayedCardsLimited = res.data
         })
