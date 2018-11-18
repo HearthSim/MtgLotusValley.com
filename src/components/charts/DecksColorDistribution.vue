@@ -13,6 +13,11 @@ export default {
     colors: {
       type: Object,
       required: true
+    },
+    title: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   computed: {
@@ -82,7 +87,7 @@ export default {
           },
           title: {
             text: 'Color Distribution (Last 7 days)',
-            display: true
+            display: this.title
           },
           tooltips: {
             callbacks: {

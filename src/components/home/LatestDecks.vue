@@ -21,7 +21,7 @@
             </v-flex>
           </v-layout>
           <!-- Line 2 -->
-          <v-layout class="line line2 mt-1" row nowrap>
+          <v-layout class="line line2" row nowrap>
             <v-flex>
               <WildcardsCost class="mt-1 ml-1 white--text" :cost="deck.wildcardCost" :small="true"/>
             </v-flex>
@@ -139,5 +139,8 @@ export default {
     margin-top: 5px;
     margin-left: 10px;
     font-size: 12pt;
+  }
+  .line2 {
+    margin-top: 6px;
   }
 </style>

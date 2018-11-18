@@ -153,7 +153,7 @@ export default {
     transition-duration: .5s;
   }
   .textNameNormal {
-    max-width: 140px;
+    max-width: 160px;
   }
   .textNameLarge {
     max-width: 200px;

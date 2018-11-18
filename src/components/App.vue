@@ -178,7 +178,7 @@ export default {
   padding: 4px;
 }
 .boxContent {
-  padding: 8px;
+  margin: 8px;
 }
 
 .m-auto { margin: auto; }
