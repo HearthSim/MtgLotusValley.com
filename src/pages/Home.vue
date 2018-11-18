@@ -1,12 +1,7 @@
   <template>
     <v-layout row wrap>
-      <v-flex xs12 sm12 md3 lg3 xl3>
-        <div class="mt-4">
-          <span class='body-2 grey--text text--darken-2'>
-            <strong>Events</strong>
-          </span>
-        </div>
-        <Events class="mt-2 mb-2 m-auto"/>
+      <v-flex xs12>
+        <Events class="mt-2 mb-2 ml-2 mr-2"/>
       </v-flex>
       <v-flex xs12 sm8 md6 lg6 xl6>
         <div class="mt-4 ta-l">

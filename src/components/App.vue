@@ -1,40 +1,57 @@
 <template>
   <v-app>
-    <v-toolbar app dark :clipped-left="clipped">
+    <v-toolbar app dark dense>
       <v-toolbar-items>
         <v-btn flat>
           <router-link to="/">
-            <img src="@/assets/home.png" alt="Logo" height="38px">
+            <img class="mt-1" src="@/assets/home.png" alt="Logo" height="38px">
           </router-link>
         </v-btn>
       </v-toolbar-items>
       <v-spacer/>
-      <v-btn flat @click="onMetaClick()">Meta</v-btn>
-      <v-btn flat @click="onDecksClick()">Decks</v-btn>
-      <v-btn flat @click="onDeckLoadClick()">
-        Load List
-        <!-- Upload dialog -->
-        <v-dialog v-model="loadDeckDialog" max-width="350">
-          <v-card>
-            <v-card-title class="headline">Load Deck</v-card-title>
-            <v-textarea class="ml-4 mr-4" no-resize rows="15"
-              v-model="loadDeckText" :placeholder="loadDeckHint"/>
-            <p class="text-md-center red--text darken-1" v-if="showError">{{ errorMsg }}</p>
-            <p class="text-md-center" v-if="isLoading">
-              <v-progress-circular color="deep-orange" :indeterminate="true"/>
-            </p>
-            <v-divider/>
-            <v-card-actions>
-              <v-spacer/>
-              <v-btn color="green darken-1" flat @click.native="onLoadDeckLoadClick()">Load</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-btn>
-      <v-spacer/>
       <Auth/>
     </v-toolbar>
     <v-content id="body">
+      <div id="content" class="mt-4">
+        <v-toolbar id="menu" dark dense>
+          <v-toolbar-items>
+            <v-btn flat icon href="/">
+              <img src="@/assets/logo.png" alt="Home" height="38px">
+            </v-btn>
+            <v-divider class="ml-2" vertical/>
+            <v-btn flat to="/meta">Meta</v-btn>
+            <v-divider vertical/>
+            <v-btn flat to="/decks">Decks</v-btn>
+            <v-divider vertical/>
+            <v-btn flat @click="onDeckLoadClick()">
+              Load List
+              <!-- Upload dialog -->
+              <v-dialog v-model="loadDeckDialog" max-width="350">
+                <v-card>
+                  <v-card-title class="headline">Load Deck</v-card-title>
+                  <v-textarea class="ml-4 mr-4" no-resize rows="15"
+                    v-model="loadDeckText" :placeholder="loadDeckHint"/>
+                  <p class="text-md-center red--text darken-1" v-if="showError">{{ errorMsg }}</p>
+                  <p class="text-md-center" v-if="isLoading">
+                    <v-progress-circular color="deep-orange" :indeterminate="true"/>
+                  </p>
+                  <v-divider/>
+                  <v-card-actions>
+                    <v-spacer/>
+                    <v-btn color="green darken-1" flat @click.native="onLoadDeckLoadClick()">Load</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-btn>
+            <v-divider vertical/>
+          </v-toolbar-items>
+          <v-spacer/>
+          <v-btn icon href="https://twitter.com/MtgLotusValley" target="_blank">
+            <img src="@/assets/twitter.png" alt="Twitter" height="24px">
+          </v-btn>
+        </v-toolbar>
+        <router-view/>
+      </div>
     </v-content>
     <!-- <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
@@ -54,7 +71,6 @@ export default {
   },
   data () {
     return {
-      clipped: false,
       fixed: false,
       loadDeckDialog: false,
       loadDeckText: '',
@@ -65,12 +81,6 @@ export default {
     }
   },
   methods: {
-    onMetaClick: function () {
-      this.$router.replace('/meta')
-    },
-    onDecksClick: function () {
-      this.$router.replace('/decks')
-    },
     onDeckLoadClick: function () {
       this.loadDeckText = ''
       this.loadDeckDialog = true
@@ -141,9 +151,20 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 #body {
   background: url('~@/assets/bg.jpg') repeat;
+}
+#menu {
+  background: url('~@/assets/bg_header.jpg') no-repeat;
+}
+#menu .v-toolbar__content {
+  padding-left: 8px;
+  padding-right: 16px;
+}
+#content {
+  background: url('~@/assets/bg_content.jpg') repeat;
+  margin: auto;
+  max-width: 1000px;
 }
 
 .m-auto { margin: auto; }
