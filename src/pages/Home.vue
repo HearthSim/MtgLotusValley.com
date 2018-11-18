@@ -1,7 +1,7 @@
   <template>
     <v-layout row wrap>
       <v-flex xs12>
-        <Events class="mt-2 mb-2 ml-2 mr-2"/>
+        <Events/>
       </v-flex>
       <v-flex xs12 sm8 md6 lg6 xl6>
         <div class="mt-4 ta-l">

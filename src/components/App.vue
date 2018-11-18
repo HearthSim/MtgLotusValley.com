@@ -12,7 +12,7 @@
       <Auth/>
     </v-toolbar>
     <v-content id="body">
-      <div id="content" class="mt-4">
+      <div id="content" class="mt-4 mb-4">
         <v-toolbar id="menu" dark dense>
           <v-toolbar-items>
             <v-btn flat icon href="/">
@@ -165,6 +165,20 @@ export default {
   background: url('~@/assets/bg_content.jpg') repeat;
   margin: auto;
   max-width: 1000px;
+}
+.box {
+  border: 4px solid grey;
+  margin: 8px;
+  background: url('~@/assets/bg_box.jpg') repeat;
+}
+.boxHeader {
+  background: url('~@/assets/bg_header.jpg') repeat;
+  color: #fff!important;
+  caret-color: #fff!important;
+  padding: 4px;
+}
+.boxContent {
+  padding: 8px;
 }
 
 .m-auto { margin: auto; }

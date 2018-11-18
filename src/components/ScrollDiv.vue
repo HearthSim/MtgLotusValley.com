@@ -5,7 +5,7 @@
         <v-icon>keyboard_arrow_left</v-icon>
       </div>
     </div>
-    <v-flex class="scroll" ref="scrollView">
+    <v-flex :class="`scroll ${multiline ? 'multiline' : ''}`" ref="scrollView">
       <slot/>
     </v-flex>
     <div class="btArrowContainer textNoSelect">
@@ -20,6 +20,11 @@
 
 export default {
   props: {
+    multiline: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     step: {
       type: Number,
       required: false,
@@ -28,7 +33,7 @@ export default {
     overflowAlways: {
       type: Boolean,
       required: false,
-      default: true
+      default: false
     }
   },
   data () {
@@ -91,5 +96,9 @@ export default {
   }
   .scroll::-webkit-scrollbar {
     display: none;
+  }
+  .multiline {
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 </style>

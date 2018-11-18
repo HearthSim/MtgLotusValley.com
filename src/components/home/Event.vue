@@ -83,7 +83,7 @@ export default {
 <style scoped>
   .event {
     height: 80px;
-    width: 200px;
+    width: 205px;
     display: inline-block;
   }
   .eventCost img {

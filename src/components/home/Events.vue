@@ -1,32 +1,39 @@
 <template>
-  <v-layout class="events" row wrap>
-    <v-flex v-if="upcomingEvents.length > 0" xs12 class="text-xs-left body-1">
-      <span class="ml-2">Current</span>
+  <v-layout class="events" row nowrap>
+    <v-flex xs6 class="mr-1">
+      <v-layout class="box mr-0" row wrap>
+        <v-flex xs12 class="boxHeader">Current Events</v-flex>
+        <v-layout class="boxContent" row wrap>
+          <ScrollDiv class="scrollDiv" :step="210" multiline>
+            <v-flex v-for="event in currentEvents" :key="event.id">
+              <Event class="mt-1 ml-1 mr-1 mb-1" :event="event"/>
+            </v-flex>
+          </ScrollDiv>
+        </v-layout>
+      </v-layout>
     </v-flex>
-    <v-flex v-if="upcomingEvents.length > 0" xs12 class="text-xs-left">
-      <v-divider class="ml-2"/>
-    </v-flex>
-    <v-flex class="mt-2" v-for="event in currentEvents" :key="event.id">
-      <Event class="mt-1 ml-1 mr-1 mb-1" :event="event"/>
-    </v-flex>
-    <v-flex v-if="upcomingEvents.length > 0" xs12 class="mt-3 text-xs-left body-1">
-      <span class="ml-2">Upcoming</span>
-    </v-flex>
-    <v-flex v-if="upcomingEvents.length > 0" xs12 class="text-xs-left">
-      <v-divider class="ml-2"/>
-    </v-flex>
-    <v-flex class="mt-2" v-for="event in upcomingEvents" :key="event.id">
-      <Event class="mt-1 ml-1 mr-1 mb-1" :event="event"/>
+    <v-flex xs6 class="ml-1">
+      <v-layout class="box ml-0" row wrap>
+        <v-flex xs12 class="boxHeader">Upcoming Events</v-flex>
+        <v-layout class="boxContent" row wrap>
+          <ScrollDiv class="scrollDiv" :step="210" multiline>
+            <v-flex v-for="event in upcomingEvents" :key="event.id">
+              <Event class="mt-1 ml-1 mr-1 mb-1" :event="event"/>
+            </v-flex>
+          </ScrollDiv>
+        </v-layout>
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import Event from '@/components/home/Event'
+import ScrollDiv from '@/components/ScrollDiv'
 
 export default {
   components: {
-    Event
+    Event, ScrollDiv
   },
   mounted () {
     this.getEvents()
@@ -62,17 +69,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @media (max-width: 1919px) {
-    .events {
-      max-width: 250px;
-    }
-  }
-  @media (min-width: 1920px) {
-    .events {
-      max-width: 450px;
-    }
-  }
-  .v-divider {
-    width: 100px;
+  .scrollDiv {
+    height: 180px;
   }
 </style>
