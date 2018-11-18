@@ -1,21 +1,21 @@
 <template>
-  <div class="ml-2 mr-2">
-    <v-card :class="`pt-2 pl-2 pr-2 pb-2 ${expand ? 'd-block' : ''}`">
-      <div class="text-xs-left body-1">
-        <span class="label pl-1">Contains Cards</span>
-      </div>
-      <div class="text-xs-center">
-        <v-text-field class="mt-1 ml-2 mr-2 mb-2" label="Card Name" 
+  <div class="pl-2 pr-2">
+    <v-layout row nowrap>
+      <div class="pt-1 pb-1">
+        <div class="text-xs-left body-1 font-weight-bold">
+          <span>Contains Cards</span>
+        </div>
+        <v-text-field class="field mt-0" label="Card Name" 
           v-model="cardName" @keyup.native.enter="addCard()"
           flat single-line hide-details clearable />
-        <div>
-          <v-chip class="mt-1" v-for="(name, index) in cards" :key="index" 
-            close @input="remCard(name)">
-            {{ name }}
-          </v-chip>
-        </div>
       </div>
-    </v-card>
+      <div class="text-xs-center">
+        <v-chip v-for="(name, index) in cards" :key="index" 
+          close @input="remCard(name)">
+          {{ name }}
+        </v-chip>
+      </div>
+    </v-layout>
   </div>
 </template>
 
@@ -26,10 +26,6 @@ export default {
   props: {
     value: {
       type: String
-    },
-    expand: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
@@ -45,6 +41,9 @@ export default {
   },
   methods: {
     addCard () {
+      if (this.cardName === '') {
+        return
+      }
       this.cards.push(this.cardName)
       this.updateValue()
       this.cardName = ''
@@ -75,11 +74,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .v-card {
-    border: solid 1px lightgray;
-    border-radius: 8px;
-    align-items: baseline;
-    display: inline-block;
+  .field {
+    width: 180px;
   }
   img {
     border-radius: 8px;

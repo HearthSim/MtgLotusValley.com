@@ -7,63 +7,72 @@
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
-      <v-divider/>
+      <v-layout class="box filters" row wrap>
+        <v-layout class="boxContent" row nowrap>
+          <QueryFilter class="filter mt-1 pl-2 pr-2" v-model="searchQuery"
+            v-on:onQuery="requestDecks()" title="Name or Archetype"/>
+          <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+          <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors" simple/>
+          <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+          <CardsFilter class="filter mt-1 pl-2 pr-2" v-model="containsCards" ref="cardsFilter"/>
+          <div class="text-xs-right">
+            <v-btn class="mt-0" color="white" @click="requestDecks()">Apply Filters</v-btn>
+            <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
+          </div>
+        </v-layout>
+      </v-layout>
     </v-flex>
-    <!-- Left -->
-    <v-flex hidden-sm-and-down md3 lg2 xl2>
-      <v-text-field class="mt-3 pl-3 pr-3" label="Search"
-        v-model="searchQuery" @keyup.native.enter="requestDecks()"
-        solo single-line hide-details clearable />
-      <ColorFilter class="mt-3 pl-2 pr-2" v-model="activeColors" simple expand/>
-      <CardsFilter class="mt-3 pl-2 pr-2" v-model="containsCards" simple expand/>
-      <v-divider class="mt-3 ml-4 mr-4"/>
-      <v-btn id="filterApply" color="mt-3 white" @click="requestDecks()">Apply</v-btn>
-    </v-flex>
-    <!-- Right -->
-    <v-flex          xs12 sm11 md8 lg9 xl9>
-      <v-data-table class="mt-3 elevation-1" :headers="headers" :items="currentDecks"
-        :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems" hide-actions>
-        <template slot="items" slot-scope="props">
-          <td class="text-xs-center">
-            <div id="mana" class="mt-2">
-              <img v-for="color in props.item.colors.split('')" :key="color"
-                :src="require(`@/assets/mana/${color}.png`)"/>
-            </div>
-          </td>
-          <td class="text-xs-left">
-            <router-link :to="`/decks/${props.item.alias}`">
-              {{props.item.name}}
-            </router-link>
-          </td>
-          <td class="text-xs-left">{{props.item.arch}}</td>
-          <td class="text-xs-center">
-            <ManaCurveCompact class="manaCurve ml-1 mt-1" :manaCurve="props.item.manaCurve"/>
-          </td>
-          <td class="text-xs-right" width="200">
-            <WildcardsCost class="mt-1" :cost="props.item.wildcardCost" :small="true"/>
-          </td>
-          <td v-if="isUserLogged()" class="text-xs-center">
-            <v-progress-circular v-if="props.item.wildcardCostToBuild === undefined"
-              color="deep-orange" :size="24" :indeterminate="true"/>
-            <v-tooltip bottom>
-              <span v-if="props.item.owned !== undefined" slot="activator">
-                {{ `${props.item.owned}%` }}
-              </span>
-              <div>
-                <span>Missing:</span>
-                <WildcardsCost v-if="props.item.wildcardCostToBuild !== undefined"
-                  class="mt-1 mr-2" :cost="props.item.wildcardCostToBuild" :small="true"/>
-              </div>
-            </v-tooltip>
-          </td>
-          <td class="text-xs-center">
-            {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
-          </td>
-        </template>
-      </v-data-table>
-      <v-layout row xs9 sm9            md6            lg4 class="text-xs-right mt-2 mb-3">
-        <v-spacer/>
-        <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="7"/>
+    <!-- Bottom -->
+    <v-flex xs12>
+      <v-layout class="box mt-0" row nowrap>
+        <v-layout class="boxContent" row wrap>
+          <v-flex xs12>
+            <v-data-table class="m-auto elevation-1" :headers="headers" :items="currentDecks"
+              :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems" hide-actions>
+              <template slot="items" slot-scope="props">
+                <td class="text-xs-center">
+                  <div id="mana" class="mt-2">
+                    <img v-for="color in props.item.colors.split('')" :key="color"
+                      :src="require(`@/assets/mana/${color}.png`)"/>
+                  </div>
+                </td>
+                <td class="text-xs-left">
+                  <router-link :to="`/decks/${props.item.alias}`">
+                    {{props.item.name}}
+                  </router-link>
+                </td>
+                <td class="text-xs-left">{{props.item.arch}}</td>
+                <td class="text-xs-center">
+                  <ManaCurveCompact class="manaCurve ml-1 mt-1" :manaCurve="props.item.manaCurve"/>
+                </td>
+                <td class="text-xs-right" width="200">
+                  <WildcardsCost class="mt-1" :cost="props.item.wildcardCost" :small="true"/>
+                </td>
+                <td v-if="isUserLogged()" class="text-xs-center">
+                  <v-progress-circular v-if="props.item.wildcardCostToBuild === undefined"
+                    color="deep-orange" :size="24" :indeterminate="true"/>
+                  <v-tooltip bottom>
+                    <span v-if="props.item.owned !== undefined" slot="activator">
+                      {{ `${props.item.owned}%` }}
+                    </span>
+                    <div>
+                      <span>Missing:</span>
+                      <WildcardsCost v-if="props.item.wildcardCostToBuild !== undefined"
+                        class="mt-1 mr-2" :cost="props.item.wildcardCostToBuild" :small="true"/>
+                    </div>
+                  </v-tooltip>
+                </td>
+                <td class="text-xs-center">
+                  {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
+                </td>
+              </template>
+            </v-data-table>
+          </v-flex>
+          <v-layout row xs12 class="text-xs-right mt-2">
+            <v-spacer/>
+            <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="7"/>
+          </v-layout>
+        </v-layout>
       </v-layout>
     </v-flex>
     <v-flex hidden-xs-only sm1 md1 lg1 xl1>
@@ -74,6 +83,7 @@
 <script>
 import CardsFilter from '@/components/filters/CardsFilter'
 import ColorFilter from '@/components/filters/ColorFilter'
+import QueryFilter from '@/components/filters/QueryFilter'
 import ManaCurveCompact from '@/components/charts/ManaCurveCompact'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import DeckUtils from '@/scripts/deckutils'
@@ -81,7 +91,7 @@ import DeckUtils from '@/scripts/deckutils'
 export default {
   name: 'PublicDecks',
   components: {
-    CardsFilter, ColorFilter, ManaCurveCompact, WildcardsCost
+    CardsFilter, ColorFilter, QueryFilter, ManaCurveCompact, WildcardsCost
   },
   data () {
     return {
@@ -122,6 +132,7 @@ export default {
   },
   methods: {
     requestDecks: function () {
+      this.$refs.cardsFilter.addCard()
       this.updateRouter()
       this.isLoading = true
       this.pagination.rowsPerPage = 15
@@ -140,6 +151,12 @@ export default {
           this.isLoading = false
           console.log(error)
         })
+    },
+    clearFilters: function () {
+      this.activeColors = 'b,g,r,u,w'
+      this.searchQuery = ''
+      this.containsCards = ''
+      this.requestDecks()
     },
     getUserCollection: function () {
       this.$api.getUserCollection()
@@ -200,6 +217,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .filters {
+    height: 110px;
+  }
+  .filters button {
+    width: 150px;
+  }
+  .filter {
+    min-width: 210px;
+  }
   .wildcards {
     justify-content: space-between;
   }

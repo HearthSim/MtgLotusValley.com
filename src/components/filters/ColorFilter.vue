@@ -1,17 +1,17 @@
 <template>
   <div class="ml-2 mr-2 textNoSelect">
-    <v-card :class="`pt-2 pl-2 pr-2 pb-2 ${expand ? 'd-block' : ''}`">
-      <div class="text-xs-left body-1">
-        <span class="label pl-1">Colors</span>
+    <div class="pt-1 pl-2 pr-2 pb-1">
+      <div class="text-xs-left body-1 font-weight-bold">
+        <span>Colors</span>
       </div>
-      <div class="text-xs-center mt-1">
+      <v-layout row nowrap class="text-xs-left mt-2">
         <v-tooltip v-for="color in colors" :key="color.code" top open-delay=500>
           <img :class="!activeColors.includes(color.code) ? 'grayscale' : ''" slot="activator"
             :src="require(`@/assets/mana/${color.code}.png`)" @click="colorClick(color.code)"/>
           {{ color.name }}
         </v-tooltip>
-      </div>
-    </v-card>
+      </v-layout>
+    </div>
   </div>
 </template>
 
@@ -24,10 +24,6 @@ export default {
       type: String
     },
     simple: {
-      type: Boolean,
-      default: false
-    },
-    expand: {
       type: Boolean,
       default: false
     }
@@ -64,14 +60,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .label {
-  }
-  .v-card {
-    border: solid 1px lightgray;
-    border-radius: 8px;
-    align-items: baseline;
-    display: inline-block;
-  }
   img {
     border-bottom: 1px orange solid;
     border-radius: 8px;
