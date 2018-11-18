@@ -203,7 +203,7 @@ export default {
 .cover {
   background-size: cover;
   background-position: center;
-  height: 70px;
+  height: 100%;
   max-width: 250px;
   border-radius: 5px;
   overflow: hidden;

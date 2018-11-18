@@ -3,23 +3,31 @@
       <v-flex xs12>
         <Events/>
       </v-flex>
-      <v-flex xs12 sm8 md6 lg6 xl6>
-        <div class="mt-4 ta-l">
-          <span class='body-2 grey--text text--darken-2'>
-            <strong>Latest published Decks</strong>
-          </span>
-        </div>
-        <LatestDecks class="mt-2" />
-        
+      <v-flex xs12>
+        <v-layout class="box" row wrap>
+          <v-flex xs12 class="boxHeader">Latest Decks</v-flex>
+          <v-layout class="boxContent" row wrap>
+            <LatestDecks />
+          </v-layout>
+        </v-layout>
       </v-flex>
-      <v-flex xs12 sm4 md3 lg3 xl3>
-        <div class='mt-4'>
-          <span class='body-2 grey--text text--darken-2'>
-            <strong>Deck of Day</strong>
-          </span>
-          <Deck class="mt-3 mb-4" :cards="deckOfDayCards" :name="deckOfDayName"/>
-        </div>
-      </v-flex>
+      <v-layout row wrap>
+        <v-flex xs8>
+          <v-layout class="box" row wrap>
+            <v-flex xs12 class="boxHeader">News</v-flex>
+            <v-layout class="boxContent" row wrap>
+            </v-layout>
+          </v-layout>
+        </v-flex>
+        <v-flex xs4>
+          <v-layout class="box" row wrap>
+            <v-flex xs12 class="boxHeader">Deck of Day</v-flex>
+            <v-layout class="boxContent" row wrap>
+              <Deck class="mt-2 m-auto" :cards="deckOfDayCards" :name="deckOfDayName"/>
+            </v-layout>
+          </v-layout>
+        </v-flex>
+      </v-layout>
     </v-layout>
 </template>
 

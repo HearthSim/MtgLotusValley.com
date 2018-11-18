@@ -1,52 +1,50 @@
 <template>
-  <v-card id="decks">
-    <ScrollDiv>
-      <router-link v-for="deck in currentDecks" :key="deck.alias" :to="`/decks/${deck.alias}`">
-        <div class="deck">
-          <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-${deck.colors}`">
-            <!-- Line 1 -->
-            <v-layout class="line line1" row nowrap>
-              <v-flex>
-                <div class="mt-2">
-                  <span>
-                    <strong class="white--text">{{ deck.name }}</strong>
-                  </span>
-                </div>
-              </v-flex>
-              <v-spacer/>
-              <v-flex>
-                <div id="mana" class="mt-2">
-                  <img v-for="color in deck.colors.split('')" :key="color"
-                    :src="require(`@/assets/mana/${color}.png`)"/>
-                </div>
-              </v-flex>
-            </v-layout>
-            <!-- Line 2 -->
-            <v-layout class="line line2" row nowrap>
-              <v-flex>
-                <WildcardsCost class="mt-1 mr-2 white--text" :cost="deck.wildcardCost" :small="true"/>
-              </v-flex>
-              <v-spacer/>
-              <v-flex>
-                <ManaCurveCompact class="manaCurve mt-1" :manaCurve="deck.manaCurve"/>
-              </v-flex>
-            </v-layout>
-          </div>
-        </div>
-      </router-link>
-      <router-link v-if="decksLoaded" :to="'/decks'">
-        <div class="deck">
-          <div :class="`mt-1 ml-1 mr-1 mb-1 cover cover-default`">
-            <v-layout class="line showMore" row nowrap>
+  <ScrollDiv class="scrollDiv" :step="220" multiline>
+    <router-link v-for="deck in currentDecks" :key="deck.alias" :to="`/decks/${deck.alias}`">
+      <div class="deck mt-1 ml-2 mr-1 mb-2">
+        <div :class="`cover cover-${deck.colors}`">
+          <!-- Line 1 -->
+          <v-layout class="line line1 pt-2" row nowrap>
+            <v-flex>
               <div>
-                <strong class="white--text">More Decks</strong>
+                <span>
+                  <strong class="white--text">{{ deck.name }}</strong>
+                </span>
               </div>
-            </v-layout>
-          </div>
+            </v-flex>
+            <v-spacer/>
+            <v-flex>
+              <div id="mana" class="mr-1">
+                <img v-for="color in deck.colors.split('')" :key="color"
+                  :src="require(`@/assets/mana/${color}.png`)"/>
+              </div>
+            </v-flex>
+          </v-layout>
+          <!-- Line 2 -->
+          <v-layout class="line line2 mt-1" row nowrap>
+            <v-flex>
+              <WildcardsCost class="mt-1 ml-1 white--text" :cost="deck.wildcardCost" :small="true"/>
+            </v-flex>
+            <v-spacer/>
+            <v-flex>
+              <ManaCurveCompact class="manaCurve" :manaCurve="deck.manaCurve"/>
+            </v-flex>
+          </v-layout>
         </div>
-      </router-link>
-    </ScrollDiv>
-  </v-card>
+      </div>
+    </router-link>
+    <router-link v-if="decksLoaded" :to="'/decks'">
+      <div class="deck">
+        <div :class="`mt-2 ml-1 mr-1 mb-1 cover cover-default`">
+          <v-layout class="line showMore" row nowrap>
+            <div>
+              <strong class="white--text">More Decks</strong>
+            </div>
+          </v-layout>
+        </div>
+      </div>
+    </router-link>
+  </ScrollDiv>
 </template>
 
 <script>
@@ -69,7 +67,7 @@ export default {
   },
   methods: {
     getDecks: function () {
-      this.$api.getPublicDecks(1, 10)
+      this.$api.getPublicDecks(1, 15)
         .then(res => {
           this.currentDecks = res.data
           this.decksLoaded = true
@@ -85,18 +83,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #decks {
-    height: 80px;
-    width: 100%;
-    display: inline-flex;
-    overflow-x: hidden;
-    overflow-y: hidden;
+  .scrollDiv {
+    height: 175px;
   }
   .deck {
     height: 75px;
-    width: 200px;
+    width: 210px;
     float: left;
-    overflow-y: hidden;
     transform: scale(1);
     transition-duration: .5s;
   }
@@ -116,7 +109,6 @@ export default {
     flex: 0 0 auto; 
   }
   #mana {
-    margin-right: 8px;
     white-space: nowrap;
     float: right;
   }
@@ -126,18 +118,20 @@ export default {
   }
   .manaCurve {
     float: right;
-    margin-right: 4px;
+    margin-top: 2px;
+    margin-right: 2px;
   }
   .line {
     text-align: start;
+    height: 50%;
   }
-  .line1 {
-    height: 35px;
+  .line #wildcards {
+    color: white;
   }
   .line1 span {
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 120px;
+    width: 130px;
     display: block;
     overflow: hidden;
   }
@@ -145,12 +139,5 @@ export default {
     margin-top: 5px;
     margin-left: 10px;
     font-size: 12pt;
-  }
-  .line2 {
-    margin-top: 4px;
-    height: 35px;
-  }
-  .line #wildcards {
-    color: white;
   }
 </style>
