@@ -3,10 +3,8 @@
     <!-- Top -->
     <v-flex class="text-xs-left" xs12>
       <v-layout row nowrap>
-        <v-breadcrumbs class="breadcrumbs">
+        <v-breadcrumbs class="breadcrumbs" :items="breadcrumbs">
           <v-icon slot="divider">chevron_right</v-icon>
-          <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
-          <v-breadcrumbs-item exact ripple disabled>User</v-breadcrumbs-item>
         </v-breadcrumbs>
         <v-layout row class="userSummary">
           <v-layout column class="mr-2">
@@ -84,6 +82,16 @@ export default {
   },
   data () {
     return {
+      breadcrumbs: [
+        {
+          text: 'Home',
+          href: '/'
+        },
+        {
+          text: 'User',
+          disabled: true
+        }
+      ],
       userCollectionSummary: [],
       userEventsStats: [],
       rarities: Utils.rarities,

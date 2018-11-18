@@ -2,12 +2,8 @@
   <v-layout class="mb-3" row wrap>
     <!-- Top -->
     <v-flex class="text-xs-left" xs12>
-      <v-breadcrumbs class="breadcrumbs">
+      <v-breadcrumbs class="breadcrumbs" :items="breadcrumbs">
         <v-icon slot="divider">chevron_right</v-icon>
-        <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
-        <v-breadcrumbs-item exact ripple to="/user">User</v-breadcrumbs-item>
-        <v-breadcrumbs-item exact ripple to="/user/decks">Decks</v-breadcrumbs-item>
-        <v-breadcrumbs-item exact ripple disabled>{{ deckName }}</v-breadcrumbs-item>
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
@@ -144,6 +140,20 @@ export default {
   },
   data () {
     return {
+      breadcrumbs: [
+        {
+          text: 'Home',
+          href: '/'
+        },
+        {
+          text: 'User',
+          href: '/user'
+        },
+        {
+          text: 'Decks',
+          href: '/user/decks'
+        }
+      ],
       matchesHeaders: [
         { text: 'Result', align: 'center', value: 'wins' },
         { text: 'Opponent', value: 'opponent', sortable: false },
@@ -180,6 +190,10 @@ export default {
       this.$api.getUserDeck(this.deckId)
         .then(res => {
           this.isLoading = false
+          this.breadcrumbs.push({
+            text: res.data.name,
+            disabled: true
+          })
           this.deckCards = res.data.cards
           this.sideboardCards = res.data.sideboard
           this.deckName = res.data.name

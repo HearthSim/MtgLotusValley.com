@@ -2,10 +2,8 @@
   <v-layout class="mb-3" row wrap>
     <!-- Top -->
     <v-flex class="text-xs-left" xs12>
-      <v-breadcrumbs class="breadcrumbs">
+      <v-breadcrumbs class="breadcrumbs" :items="breadcrumbs">
         <v-icon slot="divider">chevron_right</v-icon>
-        <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
-        <v-breadcrumbs-item exact ripple disabled>Decks</v-breadcrumbs-item>
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
@@ -87,6 +85,16 @@ export default {
   },
   data () {
     return {
+      breadcrumbs: [
+        {
+          text: 'Home',
+          href: '/'
+        },
+        {
+          text: 'Tests',
+          disabled: true
+        }
+      ],
       headers: [],
       isLoading: false,
       pagination: {},

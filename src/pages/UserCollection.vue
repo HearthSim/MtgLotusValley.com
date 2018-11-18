@@ -3,11 +3,8 @@
     <v-layout row wrap fill-height>
       <!-- Top -->
       <v-flex class="text-xs-left" xs12>
-        <v-breadcrumbs class="breadcrumbs">
+        <v-breadcrumbs class="breadcrumbs" :items="breadcrumbs">
           <v-icon slot="divider">chevron_right</v-icon>
-          <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
-          <v-breadcrumbs-item exact ripple to="/user">User</v-breadcrumbs-item>
-          <v-breadcrumbs-item exact ripple disabled>Collection</v-breadcrumbs-item>
         </v-breadcrumbs>
       </v-flex>
       <v-flex xs12>
@@ -69,6 +66,20 @@ export default {
   },
   data () {
     return {
+      breadcrumbs: [
+        {
+          text: 'Home',
+          href: '/'
+        },
+        {
+          text: 'User',
+          href: '/user'
+        },
+        {
+          text: 'Collection',
+          disabled: true
+        }
+      ],
       currentPage: this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1,
       activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,c,g,m,r,u,w',
       activeRarities: this.$route.query.rarities !== undefined ? this.$route.query.rarities : 'c,u,r,m',
