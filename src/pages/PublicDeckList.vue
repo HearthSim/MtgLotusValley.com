@@ -7,7 +7,7 @@
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
-      <v-layout class="box filters" row wrap>
+      <div class="box filters">
         <v-layout class="boxContent" row nowrap>
           <QueryFilter class="filter mt-1 pl-2 pr-2" v-model="searchQuery"
             v-on:onQuery="requestDecks()" title="Name or Archetype"/>
@@ -20,7 +20,7 @@
             <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
           </div>
         </v-layout>
-      </v-layout>
+      </div>
     </v-flex>
     <!-- Bottom -->
     <v-flex xs12>
@@ -28,7 +28,8 @@
         <v-layout class="boxContent" row wrap>
           <v-flex xs12>
             <v-data-table class="m-auto elevation-1" :headers="headers" :items="currentDecks"
-              :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems" hide-actions>
+              :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems"
+              hide-actions must-sort>
               <template slot="items" slot-scope="props">
                 <td class="text-xs-center">
                   <div id="mana" class="mt-2">
@@ -68,14 +69,11 @@
               </template>
             </v-data-table>
           </v-flex>
-          <v-layout row xs12 class="text-xs-right mt-2">
-            <v-spacer/>
+          <v-flex xs12 class="text-xs-right mt-2">
             <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="7"/>
-          </v-layout>
+          </v-flex>
         </v-layout>
       </v-layout>
-    </v-flex>
-    <v-flex hidden-xs-only sm1 md1 lg1 xl1>
     </v-flex>
   </v-layout>
 </template>

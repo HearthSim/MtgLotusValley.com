@@ -7,70 +7,99 @@
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
-      <v-divider/>
+      <div class="box filters">
+        <v-layout class="boxContent" row nowrap>
+          <QueryFilter class="filter mt-1 pl-2 pr-2" v-model="searchQuery"
+            v-on:onQuery="requestDecks()" title="Name or Archetype"/>
+          <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+          <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors" simple/>
+          <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+          <CardsFilter class="filter mt-1 pl-2 pr-2" v-model="containsCards" ref="cardsFilter"/>
+          <div class="text-xs-right">
+            <v-btn class="mt-0" color="white" @click="requestDecks()">Apply Filters</v-btn>
+            <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
+          </div>
+        </v-layout>
+      </div>
     </v-flex>
-    <!-- Left -->
-    <v-flex hidden-sm-and-down md3 lg2 xl2>
-      <v-text-field class="mt-3 pl-3 pr-3" label="Search"
-        v-model="searchQuery" @keyup.native.enter="requestDecks()"
-        solo single-line hide-details clearable />
-      <ColorFilter class="mt-3 pl-2 pr-2" v-model="activeColors" simple expand/>
-      <CardsFilter class="mt-3 pl-2 pr-2" v-model="containsCards" simple expand/>
-      <v-divider class="mt-3 ml-4 mr-4"/>
-      <v-btn id="filterApply" color="mt-3 white" @click="requestDecks()">Apply</v-btn>
-    </v-flex>
-    <!-- Right -->
-    <v-flex          xs12 sm11 md8 lg9 xl9>
-      <v-data-table class="mt-3 elevation-1" :headers="headers" :items="currentDecks"
-        :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems"
-        v-model="selectedDecks" item-key="id" select-all hide-actions>
-        <template slot="items" slot-scope="props">
-          <td class="text-xs-center" width="80">
-            <v-checkbox v-model="props.selected" primary hide-details/>
-          </td>
-          <td class="text-xs-center" width="150">
-            <div id="mana" class="mt-2">
-              <img v-for="color in props.item.colors.split('')" :key="color"
-                :src="require(`@/assets/mana/${color}.png`)"/>
-            </div>
-          </td>
-          <td class="text-xs-left">
-            <router-link :to="`/user/decks/${props.item.id}`">
-              {{props.item.name}}
-            </router-link>
-          </td>
-          <td class="text-xs-left">{{props.item.arch}}</td>
-          <td class="text-xs-center">
-            <ManaCurveCompact class="manaCurve ml-1 mt-1" :manaCurve="props.item.manaCurve"/>
-          </td>
-          <td class="text-xs-right" width="200">
-            <WildcardsCost class="mt-1" :cost="props.item.wildcardCost" :small="true"/>
-          </td>
-          <td class="text-xs-center">
-            {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
-          </td>
-        </template>
-      </v-data-table>
-      <v-layout row xs9 sm9            md6            lg4 class="text-xs-right mt-2 mb-3">
-        <v-spacer/>
-        <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="7"/>
+    <!-- Bottom -->
+    <v-flex xs12>
+      <v-layout class="box mt-0" row nowrap>
+        <v-layout class="boxContent" row wrap>
+          <v-flex xs12>
+            <v-data-table class="mt-auto elevation-1" :headers="headers" :items="currentDecks"
+              :loading="isLoading" :pagination.sync="pagination" :total-items="totalItems"
+              v-model="selectedDecks" item-key="id" select-all hide-actions must-sort>
+              <template slot="items" slot-scope="props">
+                <td class="text-xs-center" width="80">
+                  <v-checkbox v-model="props.selected" primary hide-details/>
+                </td>
+                <td class="text-xs-center" width="150">
+                  <div id="mana" class="mt-2">
+                    <img v-for="color in props.item.colors.split('')" :key="color"
+                      :src="require(`@/assets/mana/${color}.png`)"/>
+                  </div>
+                </td>
+                <td class="text-xs-left">
+                  <router-link :to="`/user/decks/${props.item.id}`">
+                    {{props.item.name}}
+                  </router-link>
+                </td>
+                <td class="text-xs-left">{{props.item.arch}}</td>
+                <td class="text-xs-center">
+                  <ManaCurveCompact class="manaCurve ml-1 mt-1" :manaCurve="props.item.manaCurve"/>
+                </td>
+                <td class="text-xs-right" width="200">
+                  <WildcardsCost class="mt-1" :cost="props.item.wildcardCost" :small="true"/>
+                </td>
+                <td class="text-xs-center">
+                  {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
+                </td>
+              </template>
+            </v-data-table>
+          </v-flex>
+          <v-flex xs12 class="mt-2">
+            <v-layout row nowrap>
+              <v-btn v-if="selectedDecks.length > 0" color="primary" flat small
+                @click="deleteConfirmationDialogVisible = true">Delete Selected Decks</v-btn>
+              <v-spacer/>
+              <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="7"/>
+            </v-layout>
+          </v-flex>
+        </v-layout>
       </v-layout>
     </v-flex>
-    <v-flex hidden-xs-only sm1 md1 lg1 xl1>
-    </v-flex>
+    <v-dialog v-model="deleteConfirmationDialogVisible" width="250">
+      <v-card>
+        <v-card-text class='subheading'>Are you Sure?</v-card-text>
+        <v-card-content>
+          <p class="text-md-center" v-if="isLoading">
+            <v-progress-circular color="deep-orange" :indeterminate="true"/>
+          </p>
+        </v-card-content>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn :disabled="isLoading" color="primary" flat
+            @click="deleteConfirmationDialogVisible = false">No</v-btn>
+          <v-btn :disabled="isLoading" color="primary" flat
+            @click="onDeleteSelectedsClick()">Yes</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-layout>
 </template>
 
 <script>
 import CardsFilter from '@/components/filters/CardsFilter'
 import ColorFilter from '@/components/filters/ColorFilter'
+import QueryFilter from '@/components/filters/QueryFilter'
 import ManaCurveCompact from '@/components/charts/ManaCurveCompact'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 
 export default {
   name: 'PrivateDeckList',
   components: {
-    CardsFilter, ColorFilter, ManaCurveCompact, WildcardsCost
+    CardsFilter, ColorFilter, QueryFilter, ManaCurveCompact, WildcardsCost
   },
   data () {
     return {
@@ -104,19 +133,21 @@ export default {
       currentDecks: [],
       activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,g,r,u,w',
       containsCards: this.$route.query.cards !== undefined ? this.$route.query.cards : '',
-      searchQuery: this.$route.query.query !== undefined ? this.$route.query.query : ''
+      searchQuery: this.$route.query.query !== undefined ? this.$route.query.query : '',
+      deleteConfirmationDialogVisible: false
     }
   },
   mounted () {
     this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
-    this.pagination.sortBy = 'name'
+    this.pagination.sortBy = 'date'
     this.pagination.descending = true
+    this.pagination.rowsPerPage = 10
   },
   methods: {
     requestDecks: function () {
       this.updateRouter()
+      this.selectedDecks = []
       this.isLoading = true
-      this.pagination.rowsPerPage = 10
       const { sortBy, descending, page, rowsPerPage } = this.pagination
       this.$api.getUserDecks(page, rowsPerPage, sortBy, descending,
         this.activeColors, this.searchQuery, this.containsCards, true)
@@ -147,6 +178,21 @@ export default {
         path: 'decks',
         query: queryParams
       })
+    },
+    onDeleteSelectedsClick: function () {
+      const ids = this.selectedDecks.map(deck => deck.id).join()
+      this.isLoading = true
+      this.$api.deleteUserDecks(ids)
+        .then(res => {
+          this.isLoading = false
+          this.deleteConfirmationDialogVisible = false
+          this.requestDecks()
+        })
+        .catch(error => {
+          this.isLoading = false
+          this.deleteConfirmationDialogVisible = false
+          console.log(error)
+        })
     }
   },
   watch: {
@@ -162,6 +208,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .filters {
+    height: 110px;
+  }
+  .filters button {
+    width: 150px;
+  }
+  .filter {
+    min-width: 210px;
+  }
   .wildcards {
     justify-content: space-between;
   }

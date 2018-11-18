@@ -238,6 +238,17 @@ export default {
       }
     })
   },
+  deleteUserDecks (ids) {
+    return axios.delete('/users/decks', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: {
+        deckIds: ids,
+        userId: localStorage.getItem('localId')
+      }
+    })
+  },
   getUserExtras () {
     return axios.get('/users/extras', {
       headers: {
