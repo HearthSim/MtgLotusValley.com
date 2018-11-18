@@ -3,7 +3,7 @@
     <v-layout row wrap fill-height>
       <!-- Top -->
       <v-flex class="text-xs-left" xs12>
-        <v-breadcrumbs class="ml-2">
+        <v-breadcrumbs class="breadcrumbs">
           <v-icon slot="divider">chevron_right</v-icon>
           <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
           <v-breadcrumbs-item exact ripple to="/user">User</v-breadcrumbs-item>

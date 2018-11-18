@@ -2,7 +2,7 @@
   <v-layout class="mb-3" row wrap>
     <!-- Top -->
     <v-flex class="text-xs-left" xs12>
-      <v-breadcrumbs class="ml-2">
+      <v-breadcrumbs class="breadcrumbs">
         <v-icon slot="divider">chevron_right</v-icon>
         <v-breadcrumbs-item exact ripple to="/">Home</v-breadcrumbs-item>
         <v-breadcrumbs-item exact ripple disabled>Decks</v-breadcrumbs-item>
@@ -119,7 +119,7 @@ export default {
       this.pagination.rowsPerPage = 15
       const { sortBy, descending, page, rowsPerPage } = this.pagination
       this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending,
-        this.activeColors, this.searchQuery, this.containsCards, true)
+        this.activeColors, this.searchQuery, this.containsCards, true, 'type')
         .then(res => {
           this.isLoading = false
           this.currentDecks = res.data

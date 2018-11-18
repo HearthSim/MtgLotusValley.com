@@ -248,16 +248,17 @@ export default {
       }
     })
   },
-  getPublicDecks (page, pageSize, sortBy, descending, colors, query, cards, cardDetails) {
+  getPublicDecks (page, pageSize, sortBy, descending, colors, query, cards, cardDetails, fields) {
     return axios.get('/decks/published', {
       params: {
         pageNumber: page,
         pageSize: pageSize,
         sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`,
-        cardDetails: cardDetails,
         containsCards: cards,
         colors: colors,
-        query: query
+        query: query,
+        cardDetails: cardDetails,
+        fields: fields
       }
     })
   },

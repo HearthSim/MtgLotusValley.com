@@ -166,6 +166,7 @@ export default {
   margin: auto;
   max-width: 1000px;
 }
+
 .box {
   border: 4px solid grey;
   margin: 8px;
@@ -179,6 +180,11 @@ export default {
 }
 .boxContent {
   margin: 8px;
+}
+.breadcrumbs {
+  background: url('~@/assets/bg_box.jpg') repeat;
+  height: 36px;
+  width: 100%;
 }
 
 .m-auto { margin: auto; }
