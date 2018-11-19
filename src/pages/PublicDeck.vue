@@ -7,132 +7,125 @@
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
-      <v-divider/>
-    </v-flex>
-    <!-- Left -->
-    <v-flex hidden-sm-and-down    md3 lg2 xl3>
-
-      <div class="pl-2 pr-2">
-        <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
-          <v-layout class="mt-2 ml-2" row nowrap>
-            <span class="title textNoWrap mr-2">{{ deckName }}</span>
-            <v-spacer/>
-            <div class="mana mr-2">
+      <v-layout row class="mt-2 ml-2 mr-2">
+        <div :class="`header header-${deckColors} white--text`">
+          <v-layout class="line pt-2 ml-3" row nowrap>
+            <div class="mana mt-1">
               <img v-for="color in deckColors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
             </div>
+            <span class="title textNoWrap mt-1 ml-2">{{ deckName }}</span>
           </v-layout>
-          <v-layout class="mt-2 ml-2" row nowrap>
+          <v-layout class="line pt-2 ml-3" row nowrap>
             <span class='subheading'>{{ deckArch }}</span>
           </v-layout>
         </div>
-      </div>
-
-      <ManaCurve class='mt-3' :manaCurve="deckManaCurve"/>
-      
-      <v-flex class="mt-4" v-if="$isUserLogged()">
-        <span class='subheading'>Build Cost</span>
-        <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCMissingCost"/>
-      </v-flex>
-
-      <v-flex class="mt-4">
-        <span class='subheading'>Total Cost</span>
-        <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
-      </v-flex>
-
-      <v-divider class="mt-4 ml-3 mr-3"/>
-
-      <v-layout column>
-
-        <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-          <v-btn flat small color="primary" v-on:click="exportDeckToArena()" 
-            slot="activator">Export to Arena</v-btn>
-          <v-card>
-            <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
-            <v-card-actions>
-              <v-spacer/>
-              <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-
-        <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-          <v-btn flat small color="primary" v-on:click="exportDeckToReading()" 
-            slot="activator">Export to Reading</v-btn>
-          <v-card>
-            <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
-            <v-card-actions>
-              <v-spacer/>
-              <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
       </v-layout>
-    </v-flex>
-    <!-- Center -->
-    <v-flex class="center"                 xs12 sm8 md6 lg7 xl6>
-      <v-tabs class="mt-3 ml-3 mr-3" color="transparent">
-
-        <v-tab>Text Mode</v-tab>
-        <v-tab-item>
-          <v-layout row wrap>
-            <v-flex lg12 xl8>
-              <v-layout row class="mt-4 ml-5">
-                <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
-              </v-layout>
-              <v-divider class="mt-1 ml-5 mr-5"/>
-              <Deck class="deck deckContainer mt-4" :cards="deckCards" :userCollection="userCollection"/>
-            </v-flex>
-            <v-flex lg12 xl4 v-if="Object.keys(sideboardCards).length > 0">
-              <v-layout row class="mt-4 ml-5">
-                <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
-              </v-layout>
-              <v-divider class="mt-1 ml-5 mr-5"/>
-              <Deck class="deck sideContainer mt-4" :sideboard="sideboardCards"
-                :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
-            </v-flex>
+    </v-flex>    
+    <!-- Left -->
+    <v-flex xs3>
+      <div class="box">
+        <v-layout class="boxContent pb-2" column nowrap>
+          <ManaCurve class='mt-2 ml-1 mr-1' :manaCurve="deckManaCurve"/> 
+          <v-flex class="mt-4" v-if="$isUserLogged()">
+            <span class='subheading'>Build Cost</span>
+            <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCMissingCost"/>
+          </v-flex>
+          <v-flex class="mt-4">
+            <span class='subheading'>Total Cost</span>
+            <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCCost"/>
+          </v-flex>
+          <v-divider class="mt-4 ml-3 mr-3"/>
+          <v-layout class="mt-3" column>
+            <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
+              <v-btn flat small color="primary" v-on:click="exportDeckToArena()" 
+                slot="activator">Export to Arena</v-btn>
+              <v-card>
+                <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+                <v-card-actions>
+                  <v-spacer/>
+                  <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+            <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
+              <v-btn flat small color="primary" v-on:click="exportDeckToReading()" 
+                slot="activator">Export to Reading</v-btn>
+              <v-card>
+                <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+                <v-card-actions>
+                  <v-spacer/>
+                  <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </v-layout>
-        </v-tab-item>
-
-        <v-tab>Visual Mode</v-tab>
-        <v-tab-item lazy>
-          <div>
-            <v-layout row class="mt-4 ml-5">
-              <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
-            </v-layout>
-            <v-divider class="mt-1 ml-5 mr-5"/>
-            <DeckVisual class="deck mt-3" :cards="deckCards" :userCollection="userCollection"/>
-          </div>
-          <div v-if="Object.keys(sideboardCards).length > 0">
-            <v-layout row class="mt-4 ml-5">
-              <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
-            </v-layout>
-            <v-divider class="mt-1 ml-5 mr-5"/>
-            <DeckVisual class="deck mt-3" :sideboard="sideboardCards"
-              :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
-          </div>
-        </v-tab-item>
-
-        <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
-        <v-tab-item>
-          <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
-        </v-tab-item>
-
-        <v-tab>Stats</v-tab>
-        <v-tab-item>
-          <Stats class='mt-3' :cards="deckCards"/>
-        </v-tab-item>
-
-        <v-tab>Play Test</v-tab>
-        <v-tab-item>
-          <PlayTest class="mt-3" :cards="deckCards"/>
-        </v-tab-item>
-      </v-tabs>
-
+        </v-layout>
+      </div>
     </v-flex>
     <!-- Right -->
-    <v-flex class="rSide mb-3"   hidden-xs-only sm4 md3 lg3 xl3>
-      
+    <v-flex xs9>
+      <div class="box ml-0">
+        <v-layout class="boxContent" column nowrap>
+          <v-tabs class="mb-3" color="transparent">
+
+            <v-tab>Text Mode</v-tab>
+            <v-tab-item>
+              <v-layout row wrap>
+                <v-flex lg12 xl8>
+                  <v-layout row class="mt-4 ml-5">
+                    <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
+                  </v-layout>
+                  <v-divider class="mt-1 ml-5 mr-5"/>
+                  <Deck class="deck deckContainer mt-4" :cards="deckCards" :userCollection="userCollection"/>
+                </v-flex>
+                <v-flex lg12 xl4 v-if="Object.keys(sideboardCards).length > 0">
+                  <v-layout row class="mt-4 ml-5">
+                    <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
+                  </v-layout>
+                  <v-divider class="mt-1 ml-5 mr-5"/>
+                  <Deck class="deck sideContainer mt-4" :sideboard="sideboardCards"
+                    :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
+                </v-flex>
+              </v-layout>
+            </v-tab-item>
+
+            <v-tab>Visual Mode</v-tab>
+            <v-tab-item lazy>
+              <div>
+                <v-layout row class="mt-4 ml-5">
+                  <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
+                </v-layout>
+                <v-divider class="mt-1 ml-5 mr-5"/>
+                <DeckVisual class="deck mt-3" :cards="deckCards" :userCollection="userCollection"/>
+              </div>
+              <div v-if="Object.keys(sideboardCards).length > 0">
+                <v-layout row class="mt-4 ml-5">
+                  <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
+                </v-layout>
+                <v-divider class="mt-1 ml-5 mr-5"/>
+                <DeckVisual class="deck mt-3" :sideboard="sideboardCards"
+                  :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
+              </div>
+            </v-tab-item>
+
+            <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
+            <v-tab-item>
+              <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
+            </v-tab-item>
+
+            <v-tab>Stats</v-tab>
+            <v-tab-item>
+              <Stats class='mt-3' :cards="deckCards"/>
+            </v-tab-item>
+
+            <v-tab>Play Test</v-tab>
+            <v-tab-item>
+              <PlayTest class="mt-3" :cards="deckCards"/>
+            </v-tab-item>
+          </v-tabs>
+        </v-layout>
+      </div>
     </v-flex>
   </v-layout>
 </template>
@@ -291,9 +284,12 @@ export default {
       column-count: 2;
     }
   }
+  .line {
+    height: 50%;
+  }
   .deckContainer, .sideContainer {
-    max-width: 46em;
-    margin: auto;
+    margin-left: 24px;
+    margin-right: 24px;
   }
   .center .v-divider {
     width: 200px;
@@ -318,5 +314,8 @@ export default {
   .mana img {
     height: 20px;
     width: 20px;
+  }
+  .wildcardsCost {
+    transform: translateX(-5px);
   }
 </style>

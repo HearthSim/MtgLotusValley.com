@@ -10,7 +10,7 @@
     </v-flex>
     <!-- Hand -->
     <v-flex xs12>
-      <ScrollDiv class="cards mt-2" :overflowAlways="false" ref="handList">
+      <ScrollDiv class="cards mt-3" :overflowAlways="false" ref="handList">
         <div v-for="(card, index) in handCards" :key="index" class="pointer"
           @click="onHandCardClick(index)">
           <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid'
@@ -44,7 +44,12 @@
     </v-flex>
     <!-- Graveyard -->
     <v-flex xs3 class="mt-3 pl-3 pr-3">
-      <DeckVisualPile class="m-auto" :cardsPile="graveyardCards"/>
+      <v-layout class="graveyard" row nowrap>
+        <v-divider class="mt-3 mb-3 mr-3" vertical/>
+        <v-flex>
+          <DeckVisualPile class="m-auto" :cardsPile="graveyardCards"/>
+        </v-flex>
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
@@ -160,10 +165,14 @@ export default {
 <style scoped>
   .cards {
     display: flex;
+    min-height: 170px;
   }
   .cardContainer {
     width: 8em;
     margin: 1px;
+  }
+  .graveyard {
+    height: 100%;
   }
   .pointer {
     cursor: cell;

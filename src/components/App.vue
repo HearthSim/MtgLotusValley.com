@@ -214,32 +214,70 @@ export default {
   border-radius: 5px;
   overflow: hidden;
 }
-.cover-bg { background-image: url('~@/assets/decks/bg.jpg') }
-.cover-br { background-image: url('~@/assets/decks/br.jpg') }
-.cover-brg { background-image: url('~@/assets/decks/brg.jpg') }
-.cover-c { background-image: url('~@/assets/decks/c.jpg') }
-.cover-default { background-image: url('~@/assets/decks/default.jpg') }
-.cover-g { background-image: url('~@/assets/decks/g.jpg') }
-.cover-m { background-image: url('~@/assets/decks/m.jpg') }
-.cover-r { background-image: url('~@/assets/decks/r.jpg') }
-.cover-rg { background-image: url('~@/assets/decks/rg.jpg') }
-.cover-u { background-image: url('~@/assets/decks/u.jpg') }
-.cover-ub { background-image: url('~@/assets/decks/ub.jpg') }
-.cover-ubg { background-image: url('~@/assets/decks/ubg.jpg') }
-.cover-ubr { background-image: url('~@/assets/decks/ubr.jpg') }
-.cover-ug { background-image: url('~@/assets/decks/ug.jpg') }
-.cover-ur { background-image: url('~@/assets/decks/ur.jpg') }
-.cover-urg { background-image: url('~@/assets/decks/urg.jpg') }
-.cover-w { background-image: url('~@/assets/decks/w.jpg') }
-.cover-wb { background-image: url('~@/assets/decks/wb.jpg') }
-.cover-wbg { background-image: url('~@/assets/decks/wbg.jpg') }
-.cover-wbr { background-image: url('~@/assets/decks/wbr.jpg') }
-.cover-wg { background-image: url('~@/assets/decks/wg.jpg') }
-.cover-wr { background-image: url('~@/assets/decks/wr.jpg') }
-.cover-wrg { background-image: url('~@/assets/decks/wrg.jpg') }
-.cover-wu { background-image: url('~@/assets/decks/wu.jpg') }
-.cover-wub { background-image: url('~@/assets/decks/wub.jpg') }
-.cover-wug { background-image: url('~@/assets/decks/wug.jpg') }
-.cover-wur { background-image: url('~@/assets/decks/wur.jpg') }
+.cover-b { background-image: url('~@/assets/decks-covers/b.jpg') }
+.cover-bg { background-image: url('~@/assets/decks-covers/bg.jpg') }
+.cover-br { background-image: url('~@/assets/decks-covers/br.jpg') }
+.cover-brg { background-image: url('~@/assets/decks-covers/brg.jpg') }
+.cover-c { background-image: url('~@/assets/decks-covers/c.jpg') }
+.cover-default { background-image: url('~@/assets/decks-covers/default.jpg') }
+.cover-g { background-image: url('~@/assets/decks-covers/g.jpg') }
+.cover-m { background-image: url('~@/assets/decks-covers/m.jpg') }
+.cover-r { background-image: url('~@/assets/decks-covers/r.jpg') }
+.cover-rg { background-image: url('~@/assets/decks-covers/rg.jpg') }
+.cover-u { background-image: url('~@/assets/decks-covers/u.jpg') }
+.cover-ub { background-image: url('~@/assets/decks-covers/ub.jpg') }
+.cover-ubg { background-image: url('~@/assets/decks-covers/ubg.jpg') }
+.cover-ubr { background-image: url('~@/assets/decks-covers/ubr.jpg') }
+.cover-ug { background-image: url('~@/assets/decks-covers/ug.jpg') }
+.cover-ur { background-image: url('~@/assets/decks-covers/ur.jpg') }
+.cover-urg { background-image: url('~@/assets/decks-covers/urg.jpg') }
+.cover-w { background-image: url('~@/assets/decks-covers/w.jpg') }
+.cover-wb { background-image: url('~@/assets/decks-covers/wb.jpg') }
+.cover-wbg { background-image: url('~@/assets/decks-covers/wbg.jpg') }
+.cover-wbr { background-image: url('~@/assets/decks-covers/wbr.jpg') }
+.cover-wg { background-image: url('~@/assets/decks-covers/wg.jpg') }
+.cover-wr { background-image: url('~@/assets/decks-covers/wr.jpg') }
+.cover-wrg { background-image: url('~@/assets/decks-covers/wrg.jpg') }
+.cover-wu { background-image: url('~@/assets/decks-covers/wu.jpg') }
+.cover-wub { background-image: url('~@/assets/decks-covers/wub.jpg') }
+.cover-wug { background-image: url('~@/assets/decks-covers/wug.jpg') }
+.cover-wur { background-image: url('~@/assets/decks-covers/wur.jpg') }
+
+.header {
+  background-size: cover;
+  background-position: center;
+  height: 80px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.header-b { background-image: url('~@/assets/decks-headers/b.jpg') }
+.header-bg { background-image: url('~@/assets/decks-headers/bg.jpg') }
+.header-br { background-image: url('~@/assets/decks-headers/br.jpg') }
+.header-brg { background-image: url('~@/assets/decks-headers/brg.jpg') }
+.header-c { background-image: url('~@/assets/decks-headers/c.jpg') }
+.header-default { background-image: url('~@/assets/decks-headers/default.jpg') }
+.header-g { background-image: url('~@/assets/decks-headers/g.jpg') }
+.header-m { background-image: url('~@/assets/decks-headers/m.jpg') }
+.header-r { background-image: url('~@/assets/decks-headers/r.jpg') }
+.header-rg { background-image: url('~@/assets/decks-headers/rg.jpg') }
+.header-u { background-image: url('~@/assets/decks-headers/u.jpg') }
+.header-ub { background-image: url('~@/assets/decks-headers/ub.jpg') }
+.header-ubg { background-image: url('~@/assets/decks-headers/ubg.jpg') }
+.header-ubr { background-image: url('~@/assets/decks-headers/ubr.jpg') }
+.header-ug { background-image: url('~@/assets/decks-headers/ug.jpg') }
+.header-ur { background-image: url('~@/assets/decks-headers/ur.jpg') }
+.header-urg { background-image: url('~@/assets/decks-headers/urg.jpg') }
+.header-w { background-image: url('~@/assets/decks-headers/w.jpg') }
+.header-wb { background-image: url('~@/assets/decks-headers/wb.jpg') }
+.header-wbg { background-image: url('~@/assets/decks-headers/wbg.jpg') }
+.header-wbr { background-image: url('~@/assets/decks-headers/wbr.jpg') }
+.header-wg { background-image: url('~@/assets/decks-headers/wg.jpg') }
+.header-wr { background-image: url('~@/assets/decks-headers/wr.jpg') }
+.header-wrg { background-image: url('~@/assets/decks-headers/wrg.jpg') }
+.header-wu { background-image: url('~@/assets/decks-headers/wu.jpg') }
+.header-wub { background-image: url('~@/assets/decks-headers/wub.jpg') }
+.header-wug { background-image: url('~@/assets/decks-headers/wug.jpg') }
+.header-wur { background-image: url('~@/assets/decks-headers/wur.jpg') }
 
 </style>
