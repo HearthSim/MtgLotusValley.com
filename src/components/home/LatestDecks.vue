@@ -34,8 +34,8 @@
       </div>
     </router-link>
     <router-link v-if="decksLoaded" :to="'/decks'">
-      <div class="deck">
-        <div :class="`mt-2 ml-1 mr-1 mb-1 cover cover-default`">
+      <div class="deck mt-1 ml-2 mr-1 mb-2">
+        <div class="cover cover-default">
           <v-layout class="line showMore" row nowrap>
             <div>
               <strong class="white--text">More Decks</strong>

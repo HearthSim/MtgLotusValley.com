@@ -164,7 +164,21 @@ export default {
 #content {
   background: url('~@/assets/bg_content.jpg') repeat;
   margin: auto;
-  max-width: 1000px;
+}
+@media (min-width: 762px) {
+  #content {
+    width: 720px;  /* margin 24px */
+  }
+}
+@media (min-width: 1024px) {
+  #content {
+    width: 1000px;  /* margin 12px */
+  }
+}
+@media (min-width: 1280px) {
+  #content {
+    width: 1184px;  /* margin 48px */
+  }
 }
 
 .box {

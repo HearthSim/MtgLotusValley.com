@@ -1,5 +1,5 @@
 <template>
-  <v-card class="event mt-1 ml-1 mr-1 mb-1">
+  <v-card class="event mt-1 mb-1">
     <!-- Line 1 -->
     <v-layout class="line line1" row nowrap>
       <v-flex sm12>
@@ -83,8 +83,21 @@ export default {
 <style scoped>
   .event {
     height: 80px;
-    width: 205px;
     display: inline-block;
+  }
+  @media (min-width: 1024px) {
+    .event {
+      width: 205px;
+      margin-left: 4px !important;
+      margin-right: 4px !important;
+    }
+  }
+  @media (min-width: 1280px) {
+    .event {
+      width: 210px;
+      margin-left: 8px !important;
+      margin-right: 8px !important;
+    }
   }
   .eventCost img {
     height: 16px;
