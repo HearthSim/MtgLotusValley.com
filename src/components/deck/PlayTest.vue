@@ -116,6 +116,9 @@ export default {
       this.generateSampleHand(size)
     },
     generateSampleHand: function (size) {
+      if (this.cardsPool.length < 7) {
+        return
+      }
       this.lastSampleCardsLength = size
       this.shuffleCardsPool = this.shuffleArray(this.cardsPool)
       this.cardsDrawIndex = []

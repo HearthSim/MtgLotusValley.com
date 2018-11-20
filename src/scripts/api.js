@@ -301,7 +301,9 @@ export default {
     return axios.post('/decks/converter', {
       cards: escape(cards),
       sideboard: escape(sideboard),
-      format: 'mtga'
+      format: 'mtga',
+      cardDetails: 'true',
+      fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity,qtd'
     })
   }
 }

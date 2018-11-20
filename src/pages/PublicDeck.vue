@@ -71,15 +71,15 @@
 
             <v-tab>Text Mode</v-tab>
             <v-tab-item>
-              <v-layout row wrap>
-                <v-flex lg12 xl8>
+              <v-layout column wrap>
+                <v-flex>
                   <v-layout row class="mt-4 ml-5">
                     <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
                   </v-layout>
                   <v-divider class="mt-1 ml-5 mr-5"/>
                   <Deck class="deck deckContainer mt-4" :cards="deckCards" :userCollection="userCollection"/>
                 </v-flex>
-                <v-flex lg12 xl4 v-if="Object.keys(sideboardCards).length > 0">
+                <v-flex v-if="Object.keys(sideboardCards).length > 0">
                   <v-layout row class="mt-4 ml-5">
                     <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
                   </v-layout>
@@ -238,7 +238,7 @@ export default {
         .then(res => {
           this.isLoading = false
           this.userCollection = res.data
-          this.userCollectionWithoutMainDeck = this.getUserCollectionWithoudMainDeck()
+          this.userCollectionWithoutMainDeck = this.getUserCollectionWithoutMainDeck()
           this.deckWCMissingCost = DeckUtils.getDeckWCMissingCost(this.userCollection,
             this.deckCards, this.sideboardCards)
         })
@@ -247,7 +247,7 @@ export default {
           console.log(error)
         })
     },
-    getUserCollectionWithoudMainDeck: function () {
+    getUserCollectionWithoutMainDeck: function () {
       const data = {}
       Object.assign(data, this.userCollection)
       Object.keys(this.deckCards).forEach(mtgaId => {

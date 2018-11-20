@@ -90,7 +90,9 @@ export default {
       this.showError = false
       try {
         let mainDeckText = this.loadDeckText
-          .replace(/\t/g, ' ')  // Replace tab for space
+          .replace(/\s+x\s/g, 'x ') // Remove spaces before x
+          .replace(/[`’]/g, '\'')      // Fix
+          .replace(/\t/g, ' ')     // Replace tab for space
           .replace(/\d+x\s/g, s => s.replace('x', ''))  // Remove qtd x
           .replace(/sideboard/gi, 'sideboard')  // Lowercase sideboard
         let sideboardDeckText = ''
@@ -99,12 +101,20 @@ export default {
           mainDeckText = loadText[0]
           sideboardDeckText = loadText[1]
         }
-        const re = /^\d+\s+(['/,A-Za-z]+[^\S\n]*)+/gm // Match any digit plus words with space but not newline
+        const re = /^\d+\s+(['-/,A-Za-z]+[^\S\n]*)+/gm // Match any digit plus words with space but not newline
         const cardLines = mainDeckText.match(re)
         const cards = cardLines.map(line => line.replace(' ', ':')
           .replace(/\s{2,10}/, '')  // Trim between text
           .replace(/\s\d*[bgruw]+\s/g, '')  // Remove mana cost if has
           .trim()
+        ).filter(cardLine => !cardLine.toUpperCase().endsWith('LANDS') &&
+          !cardLine.toUpperCase().endsWith('CREATURES') &&
+          !cardLine.toUpperCase().endsWith('INSTANTS') &&
+          !cardLine.toUpperCase().endsWith('SORCERIES') &&
+          !cardLine.toUpperCase().endsWith('SORC.') &&
+          !cardLine.toUpperCase().endsWith('SPELLS') &&
+          !cardLine.toUpperCase().endsWith('ARTIFACTS') &&
+          !cardLine.toUpperCase().endsWith('PLANESWALKERS')
         )
         let sideboard = []
         if (sideboardDeckText.length > 0) {
@@ -115,6 +125,8 @@ export default {
           .trim()
         )
         }
+        console.log(cards)
+        console.log(sideboard)
         this.$api.convertCardsToMtgaId(cards.join(';'), sideboard.join(';'))
           .then(res => {
             this.loadDeckDialog = false
