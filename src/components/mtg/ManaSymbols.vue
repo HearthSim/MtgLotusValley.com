@@ -1,6 +1,10 @@
 <template>
   <div id="manaSymbol">
-    <span v-for="(mana, index) in manaSymbols" :key="cardid + mana + index">
+    <span v-for="(mana, index) in manaSymbolsLeft" :key="cardid + mana + index">
+      <i v-bind:class="'ms ms-' + mana + ' ms-cost ms-shadow'"></i>
+    </span>
+    <span v-if="manaSymbolsRight.length > 0">//</span>
+    <span v-for="(mana, index) in manaSymbolsRight" :key="cardid + mana + index">
       <i v-bind:class="'ms ms-' + mana + ' ms-cost ms-shadow'"></i>
     </span>
   </div>
@@ -10,11 +14,23 @@
 
 export default {
   computed: {
-    manaSymbols: function () {
+    manaSymbolsLeft: function () {
       if (this.cost === undefined || this.cost === '') {
         return {}
       }
-      const manaCost = this.cost.substring(1, this.cost.length - 1)
+      let manaCost = this.cost
+      if (manaCost.includes('//')) {
+        manaCost = this.cost.split(' // ')[0]
+      }
+      manaCost = manaCost.substring(1, manaCost.length - 1)
+      return manaCost.toLowerCase().replace(new RegExp('/', 'g'), '').split('}{')
+    },
+    manaSymbolsRight: function () {
+      if (this.cost === undefined || !this.cost.includes('//') || this.cost === '') {
+        return {}
+      }
+      let manaCost = this.cost.split(' // ')[1]
+      manaCost = manaCost.substring(1, manaCost.length - 1)
       return manaCost.toLowerCase().replace(new RegExp('/', 'g'), '').split('}{')
     }
   },
