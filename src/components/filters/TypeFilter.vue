@@ -1,17 +1,17 @@
 <template>
   <div class="ml-2 mr-2 textNoSelect">
-    <v-card class="pt-2 pl-2 pr-2 pb-2">
-      <div class="text-xs-left body-1">
-        <span class="label pl-1">Types</span>
+    <div class="pt-1 pl-2 pr-2 pb-1">
+      <div class="text-xs-left body-1 font-weight-bold">
+        <span>Types</span>
       </div>
-      <div class="text-xs-center mt-1">
+      <v-layout row nowrap class="text-xs-left mt-2">
         <v-tooltip v-for="type in types" :key="type.code" top open-delay=1000>
           <img :class="!activeTypes.includes(type.code) ? 'grayscale' : ''" slot="activator"
             :src="require(`@/assets/types/${type.code}.png`)" @click="typeClick(type.code)"/>
           {{ type.name }}
         </v-tooltip>
-      </div>
-    </v-card>
+      </v-layout>
+    </div>
   </div>
 </template>
 

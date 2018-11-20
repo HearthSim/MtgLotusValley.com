@@ -8,42 +8,53 @@
         </v-breadcrumbs>
       </v-flex>
       <v-flex xs12>
-        <v-divider/>
-      </v-flex>
-      <!-- Left -->
-      <v-flex sm2>
-        <v-text-field class="mt-4 pl-4 pr-4" label="Search" 
-          v-model="searchQuery" @keyup.native.enter="updateFilters"
-          solo single-line hide-details clearable />
-        <ColorFilter class="mt-3 pl-3 pr-3" v-model="activeColors"/>
-        <RarityFilter class="mt-3 pl-3 pr-3" v-model="activeRarities"/>
+        <v-layout class="box" row wrap>
+          <v-flex xs12 class="boxHeader">Latest Decks</v-flex>
+          <v-layout class="boxContent" row wrap>
+            <QueryFilter class="filter mt-1 pl-2 pr-2" v-model="searchQuery"
+              v-on:onQuery="updateFilters()" title="Name or Archetype"/>
+            <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+            <v-layout column wrap>
+              <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors"/>
+              <RarityFilter class="filter mt-1 pl-2 pr-2" v-model="activeRarities"/>
+            </v-layout>
+            <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+            <v-layout column wrap>
+              <TypeFilter class="mt-1 pl-2 pr-2" v-model="activeTypes"/>
+              <SetFilter class="mt-1 pl-2 pr-2" v-model="activeSets"/>
+            </v-layout>
+            <v-layout column wrap>
+              <v-btn class="mt-0" color="white" @click="updateFilters()">Apply Filters</v-btn>
+              <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
+            </v-layout>
+          </v-layout>
+        </v-layout>
       </v-flex>
       <!-- Center -->
-      <v-flex           xs12 sm8>
-        <v-container id="cards" class='mt-3' grid-list-md fluid>
-          <v-layout row wrap>
-            <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
-              <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
-                :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
-            </v-flex>
+      <v-flex xs12>
+        <v-layout class="box" row wrap>
+          <v-flex xs12 class="boxHeader">Latest Decks</v-flex>
+          <v-layout class="boxContent" row wrap>
+            <v-container id="cards" class='mt-3' grid-list-md fluid>
+              <v-layout row wrap>
+                <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
+                  <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
+                    :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
+                </v-flex>
+              </v-layout>
+              <v-layout row align-center justify-space-between xs12>
+                <v-flex xs3 sm3 md1 offset-md5 lg2 offset-lg2 class="text-xs-center">
+                  <v-progress-circular v-if="isLoading" color="deep-orange" 
+                    :width="2" :size="24" :indeterminate="true"/>
+                </v-flex>
+                <v-flex xs9 sm9            md6            lg6 class="text-xs-right mb-3">
+                  <v-pagination v-model="currentPage" @input="goToPage" 
+                    :length="totalPages" :total-visible="7"/>
+                </v-flex>
+              </v-layout>
+            </v-container>
           </v-layout>
-          <v-layout row align-center justify-space-between xs12>
-            <v-flex xs3 sm3 md1 offset-md5 lg2 offset-lg2 class="text-xs-center">
-              <v-progress-circular v-if="isLoading" color="deep-orange" 
-                :width="2" :size="24" :indeterminate="true"/>
-            </v-flex>
-            <v-flex xs9 sm9            md6            lg6 class="text-xs-right mb-3">
-              <v-pagination v-model="currentPage" @input="goToPage" 
-                :length="totalPages" :total-visible="7"/>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-flex>
-      <!-- Right -->
-      <v-flex hidden-xs-only sm2>
-        <TypeFilter class="mt-4 pl-3 pr-3" v-model="activeTypes"/>
-        <SetFilter class="mt-3 pl-3 pr-3" v-model="activeSets"/>
-        <v-btn class="mt-3" color="white" @click="updateFilters()">Apply</v-btn>
+        </v-layout>
       </v-flex>
     </v-layout>
   </div>

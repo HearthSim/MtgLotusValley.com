@@ -7,118 +7,123 @@
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
-      <v-divider/>
-    </v-flex>
-    <!-- Left -->
-    <v-flex hidden-sm-and-down    md3 lg2 xl3>
-
-      <div class="pl-2 pr-2">
-        <div :class="`mt-4 m-auto cover cover-${deckColors} white--text`">
-          <v-layout class="mt-2 ml-2" row nowrap>
-            <span class="title textNoWrap mr-2">{{ deckName }}</span>
-            <v-spacer/>
-            <div class="mana mr-2">
+      <v-layout row class="headerContainer mt-2 ml-2 mr-2">
+        <div :class="`header header-${deckColors} white--text`">
+          <v-layout class="line pt-2 ml-3" row nowrap>
+            <div class="mana mt-1">
               <img v-for="color in deckColors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
             </div>
+            <span class="title textNoWrap mt-1 ml-2">{{ deckName }}</span>
           </v-layout>
-          <v-layout class="mt-2 ml-2" row nowrap>
+          <v-layout class="line pt-2 ml-3" row nowrap>
             <span class='subheading'>{{ deckArch }}</span>
           </v-layout>
         </div>
-      </div>
+        <div class="overlay">
+          <v-divider class="mt-2 ml-2 mr-2 mb-2" vertical/>
+          <v-layout column>
+            <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
+              <v-btn flat small color="primary" v-on:click="exportDeckToArena()" 
+                slot="activator">Export to Arena</v-btn>
+              <v-card>
+                <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+                <v-card-actions>
+                  <v-spacer/>
+                  <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
 
-      <ManaCurve class="mt-3" :manaCurve="deckManaCurve"/>
-      
-      <v-flex class="mt-4">
-        <span class='subheading'>Total Cost</span>
-        <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
-      </v-flex>
-
-      <v-divider class="mt-4 ml-3 mr-3"/>
-
-      <v-layout column>
-        <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-          <v-btn flat small color="primary" v-on:click="exportDeckToArena()" 
-            slot="activator">Export to Arena</v-btn>
-          <v-card>
-            <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
-            <v-card-actions>
-              <v-spacer/>
-              <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-
-        <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-          <v-btn flat small color="primary" v-on:click="exportDeckToReading()" 
-            slot="activator">Export to Reading</v-btn>
-          <v-card>
-            <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
-            <v-card-actions>
-              <v-spacer/>
-              <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+            <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
+              <v-btn flat small color="primary" v-on:click="exportDeckToReading()" 
+                slot="activator">Export to Reading</v-btn>
+              <v-card>
+                <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+                <v-card-actions>
+                  <v-spacer/>
+                  <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-layout>
+        </div>
       </v-layout>
     </v-flex>
-    <!-- Center -->
-    <v-flex class="center" xs12 sm8 md6 lg7 xl6>
-      <v-tabs class="mt-3 ml-3 mr-3" color="transparent">
+    <!-- Left -->
+    <v-flex class="center" xs8>
+      <div class="box">
+        <v-layout class="boxContent pb-2" column nowrap>
+          <v-tabs class="mt-3 ml-3 mr-3" color="transparent">
 
-        <v-tab>Overview</v-tab>
-        <v-tab-item>
-          <Overview class='mt-3' :deckId="deckId"/>
-        </v-tab-item>
+            <v-tab>Overview</v-tab>
+            <v-tab-item>
+              <Overview class='mt-3' :deckId="deckId"/>
+            </v-tab-item>
 
-        <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
-        <v-tab-item>
-          <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
-        </v-tab-item>
+            <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
+            <v-tab-item>
+              <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
+            </v-tab-item>
 
-        <v-tab>Stats</v-tab>
-        <v-tab-item>
-          <Stats class='mt-3' :cards="deckCards"/>
-        </v-tab-item>
+            <v-tab>Stats</v-tab>
+            <v-tab-item>
+              <Stats class='mt-3' :cards="deckCards"/>
+            </v-tab-item>
 
-        <v-tab>Matches</v-tab>
-        <v-tab-item lazy>
-          <v-data-table class="elevation-1 mt-2" :headers="matchesHeaders" :items="deckMatches" hide-actions
-            :loading="isLoading" :pagination.sync="pagination" :total-items="deckMatches.length">
-            <template slot="items" slot-scope="props">
-              <td :class="`text-xs-center ${props.item.wins ? 'green--text' : 'red--text'}`">
-                {{ props.item.wins ? 'Won' : 'Lost' }}
-              </td>
-              <td class="text-xs-left">{{props.item.opponentName}}</td>
-              <td class="text-xs-center" width="150">
-                <div id="mana" class="mt-2">
-                  <img v-for="color in props.item.opponentDeckColors.split('')" :key="color"
-                    :src="require(`@/assets/mana/${color}.png`)"/>
-                </div>
-              </td>
-              <td class="text-xs-left">{{props.item.opponentDeckArch}}</td>
-              <td class="text-xs-center">
-                {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
-              </td>
-            </template>
-          </v-data-table>
-          <v-layout row xs12 class="mt-2 mb-2">
-            <v-spacer/>
-            <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="5"/>
-          </v-layout>
-        </v-tab-item>
+            <v-tab>Matches</v-tab>
+            <v-tab-item lazy>
+              <v-data-table class="elevation-1 mt-2" :headers="matchesHeaders" :items="deckMatches" hide-actions
+                :loading="isLoading" :pagination.sync="pagination" :total-items="deckMatches.length">
+                <template slot="items" slot-scope="props">
+                  <td :class="`text-xs-center ${props.item.wins ? 'green--text' : 'red--text'}`">
+                    {{ props.item.wins ? 'Won' : 'Lost' }}
+                  </td>
+                  <td class="text-xs-left">{{props.item.opponentName}}</td>
+                  <td class="text-xs-center" width="150">
+                    <div id="mana" class="mt-2">
+                      <img v-for="color in props.item.opponentDeckColors.split('')" :key="color"
+                        :src="require(`@/assets/mana/${color}.png`)"/>
+                    </div>
+                  </td>
+                  <td class="text-xs-left">{{props.item.opponentDeckArch}}</td>
+                  <td class="text-xs-center">
+                    {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
+                  </td>
+                </template>
+              </v-data-table>
+              <v-layout row xs12 class="mt-2 mb-2">
+                <v-spacer/>
+                <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="5"/>
+              </v-layout>
+            </v-tab-item>
 
-        <v-tab>Play Test</v-tab>
-        <v-tab-item>
-          <PlayTest class="mt-3" :cards="deckCards"/>
-        </v-tab-item>
-      </v-tabs>
+            <v-tab>Play Test</v-tab>
+            <v-tab-item>
+              <PlayTest class="mt-3" :cards="deckCards"/>
+            </v-tab-item>
+          </v-tabs>
+        </v-layout>
+      </div>
     </v-flex>
     <!-- Right -->
-    <v-flex class="rSide mb-3" hidden-xs-only sm4 md3 lg3 xl3>
-      <Deck class="deck deckContainer mt-4" :cards="deckCards"
-        :sideboard="sideboardCards" largeName/>
+    <v-flex class="mb-3" xs4>
+
+      <div class="box">
+        <v-layout class="boxContent pb-2" column nowrap>
+          <ManaCurve class="mt-3" :manaCurve="deckManaCurve"/>
+
+          <Deck class="deck deckContainer mt-4" :cards="deckCards"
+            :sideboard="sideboardCards" largeName/>
+
+          <v-flex class="mt-4">
+            <span class='subheading'>Total Cost</span>
+            <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
+          </v-flex>
+
+        </v-layout>
+      </div>
+
     </v-flex>
   </v-layout>
 </template>
@@ -243,6 +248,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .line {
+    height: 50%;
+  }
   .center .v-divider {
     width: 150px;
   }
@@ -275,5 +283,14 @@ export default {
   .mana img {
     height: 20px;
     width: 20px;
+  }
+  .headerContainer {
+    position: relative;
+  }
+  .overlay {
+    position: absolute;
+    margin-top: -30px;
+    top: 0;
+    right: 0;
   }
 </style>

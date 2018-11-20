@@ -6,7 +6,7 @@
         <v-breadcrumbs class="breadcrumbs" :items="breadcrumbs">
           <v-icon slot="divider">chevron_right</v-icon>
         </v-breadcrumbs>
-        <v-layout row class="userSummary">
+        <v-layout row class="userSummary breadcrumbs">
           <v-layout column class="mr-2">
             <span class="headline">{{totalGames}} games</span>
           </v-layout>
@@ -28,39 +28,39 @@
     </v-flex>
     <!-- Left -->
     <v-flex class="center pt-3 pl-4 pr-2" xs7>
-      <span class='body-2 grey--text text--darken-2'>
-        <strong>Collection Summary</strong>
-      </span>
-      <v-layout row wrap>
-        <v-card class="setSummary mt-4 m-auto" v-for="set in userCollectionSummary" :key="set.code">
-          <div class="summaryTitle pt-1 pb-1 white--text body-1">{{set.name}}</div>
-          <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
-            <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
-              slot="activator">
-              <v-layout row nowrap>
-                <SetSymbol class="setSymbol ml-2" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
-                <v-progress-linear class="ml-2" :color="rarity.color" height="5"
-                  :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
-                <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
+      <v-layout class="box" row wrap>
+        <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
+        <v-layout class="boxContent" row wrap>
+          <v-card class="setSummary mt-4 m-auto" v-for="set in userCollectionSummary" :key="set.code">
+            <div class="summaryTitle pt-1 pb-1 white--text body-1">{{set.name}}</div>
+            <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
+              <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
+                slot="activator">
+                <v-layout row nowrap>
+                  <SetSymbol class="setSymbol ml-2" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
+                  <v-progress-linear class="ml-2" :color="rarity.color" height="5"
+                    :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
+                  <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
+                </v-layout>
+              </router-link>
+              <v-layout column>
+                <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
+                <span>Playset: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}</span>
               </v-layout>
-            </router-link>
-            <v-layout column>
-              <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
-              <span>Playset: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}</span>
-            </v-layout>
-          </v-tooltip>
-        </v-card>
+            </v-tooltip>
+          </v-card>
+        </v-layout>
       </v-layout>
     </v-flex>
     <!-- Right -->
     <v-flex class="rSide pt-3 pl-2 pr-2 pb-3" xs5>
-      <span class='body-2 grey--text text--darken-2'>
-        <strong>Events Summary</strong>
-      </span>
-      <v-layout row wrap>
-        <v-flex xs6 class="eventStat" v-for="eventStat in userEventsStats" :key="eventStat.name">
+      <v-layout class="box" row wrap>
+        <v-flex xs12 class="boxHeader">Events Summary</v-flex>
+        <v-layout class="boxContent" row wrap>
+          <v-flex xs6 class="eventStat" v-for="eventStat in userEventsStats" :key="eventStat.name">
           <EventStats class="mt-3" :data="eventStat" :id="eventStat.name"/>
         </v-flex>
+        </v-layout>
       </v-layout>
     </v-flex>
   </v-layout>

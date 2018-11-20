@@ -15,10 +15,12 @@
           <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors" simple/>
           <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
           <CardsFilter class="filter mt-1 pl-2 pr-2" v-model="containsCards" ref="cardsFilter"/>
-          <div class="text-xs-right">
-            <v-btn class="mt-0" color="white" @click="requestDecks()">Apply Filters</v-btn>
-            <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
-          </div>
+          <v-flex class="text-xs-right">
+            <v-layout column>
+              <v-btn class="mt-0" color="white" @click="requestDecks()">Apply Filters</v-btn>
+              <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
+            </v-layout>
+          </v-flex>
         </v-layout>
       </div>
     </v-flex>
@@ -109,7 +111,7 @@ export default {
       totalPages: 0,
       totalItems: 0,
       currentDecks: [],
-      activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,g,r,u,w',
+      activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : '',
       containsCards: this.$route.query.cards !== undefined ? this.$route.query.cards : '',
       searchQuery: this.$route.query.query !== undefined ? this.$route.query.query : ''
     }

@@ -4,7 +4,7 @@ let isRefreshingToken = false
 let subscribers = []
 
 const axios = require('axios')
-axios.defaults.baseURL = isProduction ? 'https://blacklotusvalley-ca867.firebaseapp.com/api'
+axios.defaults.baseURL = isProduction ? 'https://www.mtglotusvalley.com/api'
                                       : 'http://localhost:5000/api'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
@@ -208,7 +208,7 @@ export default {
         deckId: id,
         userId: localStorage.getItem('localId'),
         cardDetails: true,
-        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity',
+        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity,qtd',
         updates: true
       }
     })
@@ -266,7 +266,7 @@ export default {
         pageSize: pageSize,
         sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`,
         containsCards: cards,
-        colors: colors,
+        colors: colors === '' ? 'b,g,r,u,w' : colors,
         query: query,
         cardDetails: cardDetails,
         fields: fields
@@ -278,7 +278,7 @@ export default {
       params: {
         alias: escape(alias),
         cardDetails: true,
-        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity',
+        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity,qtd',
         updates: true
       }
     })
