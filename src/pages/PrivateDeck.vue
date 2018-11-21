@@ -20,11 +20,11 @@
             <span class='subheading'>{{ deckArch }}</span>
           </v-layout>
         </div>
-        <div class="overlay">
-          <v-divider class="mt-2 ml-2 mr-2 mb-2" vertical/>
+        <v-layout row class="overlay">
+          <v-divider class="mt-2 ml-2 mr-2 mb-2" vertical color="gray"/>
           <v-layout column>
-            <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-              <v-btn flat small color="primary" v-on:click="exportDeckToArena()" 
+            <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+              <v-btn flat small color="white" v-on:click="exportDeckToArena()" 
                 slot="activator">Export to Arena</v-btn>
               <v-card>
                 <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
@@ -35,8 +35,8 @@
               </v-card>
             </v-dialog>
 
-            <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-              <v-btn flat small color="primary" v-on:click="exportDeckToReading()" 
+            <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+              <v-btn flat small color="white" v-on:click="exportDeckToReading()" 
                 slot="activator">Export to Reading</v-btn>
               <v-card>
                 <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
@@ -47,7 +47,7 @@
               </v-card>
             </v-dialog>
           </v-layout>
-        </div>
+        </v-layout>
       </v-layout>
     </v-flex>
     <!-- Left -->
@@ -289,7 +289,7 @@ export default {
   }
   .overlay {
     position: absolute;
-    margin-top: -30px;
+    margin-top: 0;
     top: 0;
     right: 0;
   }

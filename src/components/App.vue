@@ -2,11 +2,9 @@
   <v-app>
     <v-toolbar app dark dense>
       <v-toolbar-items>
-        <v-btn flat>
-          <router-link to="/">
-            <img class="mt-1" src="@/assets/home.png" alt="Logo" height="38px">
-          </router-link>
-        </v-btn>
+        <router-link to="/">
+          <img class="mt-1" src="@/assets/home.png" alt="Logo" height="38px">
+        </router-link>
       </v-toolbar-items>
       <v-spacer/>
       <Auth/>
