@@ -88,10 +88,12 @@ export default {
       this.showError = false
       try {
         let mainDeckText = this.loadDeckText
+          .replace(/\n\n/g, '\n')   // Remove empty line
           .replace(/\s+x\s/g, 'x ') // Remove spaces before x
-          .replace(/[`’]/g, '\'')      // Fix
-          .replace(/\t/g, ' ')     // Replace tab for space
+          .replace(/[`’]/g, '\'')   // Fix
+          .replace(/\t/g, ' ')      // Replace tab for space
           .replace(/\d+x\s/g, s => s.replace('x', ''))  // Remove qtd x
+          .replace(/SB /gi, 'sideboard')        // Lowercase short sideboard
           .replace(/sideboard/gi, 'sideboard')  // Lowercase sideboard
         let sideboardDeckText = ''
         if (mainDeckText.includes('sideboard')) {
@@ -103,7 +105,7 @@ export default {
         const cardLines = mainDeckText.match(re)
         const cards = cardLines.map(line => line.replace(' ', ':')
           .replace(/\s{2,10}/, '')  // Trim between text
-          .replace(/\s\d*[bgruw]+\s/g, '')  // Remove mana cost if has
+          .replace(/\s\d*[bgruwx]+\s/g, '')  // Remove mana cost if has
           .trim()
         ).filter(cardLine => !cardLine.toUpperCase().endsWith('LANDS') &&
           !cardLine.toUpperCase().endsWith('CREATURES') &&
