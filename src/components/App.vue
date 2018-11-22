@@ -87,7 +87,12 @@ export default {
       this.isLoading = false
       this.showError = false
       try {
-        let mainDeckText = this.loadDeckText
+        let deckText = this.loadDeckText
+        const numberOfEmptySpace = ((deckText || '').match(/\n\n/g) || []).length
+        if (numberOfEmptySpace === 1) {
+          deckText = deckText.replace(/\n\n/g, '/nsideboard')
+        }
+        let mainDeckText = deckText
           .replace(/\n\n/g, '\n')   // Remove empty line
           .replace(/\s+x\s/g, 'x ') // Remove spaces before x
           .replace(/[`’]/g, '\'')   // Fix
@@ -97,14 +102,14 @@ export default {
           .replace(/sideboard/gi, 'sideboard')  // Lowercase sideboard
         let sideboardDeckText = ''
         if (mainDeckText.includes('sideboard')) {
-          const loadText = mainDeckText.split('sideboard')
-          mainDeckText = loadText[0]
-          sideboardDeckText = loadText[1]
+          const sideboardIndex = mainDeckText.indexOf('sideboard')
+          sideboardDeckText = mainDeckText.substring(sideboardIndex)
+          mainDeckText = mainDeckText.substring(0, sideboardIndex)
         }
-        const re = /^\d+\s+(['-/,A-Za-z]+[^\S\n]*)+/gm // Match any digit plus words with space but not newline
+        const re = /^\d+\s+(['\-/,A-Za-z]+[^\S\n]*)+/gm // Match any digit plus words with space but not newline
         const cardLines = mainDeckText.match(re)
-        const cards = cardLines.map(line => line.replace(' ', ':')
-          .replace(/\s{2,10}/, '')  // Trim between text
+        const cards = cardLines.map(line => line.replace(/\s{2,10}/g, ' ')  // Trim between text
+          .replace(' ', ':')  // Use colon between qtd and card name
           .replace(/\s\d*[bgruwx]+\s/g, '')  // Remove mana cost if has
           .trim()
         ).filter(cardLine => !cardLine.toUpperCase().endsWith('LANDS') &&
@@ -119,11 +124,13 @@ export default {
         let sideboard = []
         if (sideboardDeckText.length > 0) {
           const sideboardLines = sideboardDeckText.match(re)
-          sideboard = sideboardLines.map(line => line.replace(' ', ':')
-          .replace(/\s{2,10}/, '')  // Trim between text
-          .replace(/\s\d*[bgruw]+\s/g, '')  // Remove mana cost if has
-          .trim()
-        )
+          if (sideboardLines !== undefined && sideboardLines.length > 0) {
+            sideboard = sideboardLines.map(line => line.replace(/\s{2,10}/g, ' ')  // Trim between text
+              .replace(' ', ':')  // Use colon between qtd and card name
+              .replace(/\s\d*[bgruwx]+\s/g, '')  // Remove mana cost if has
+              .trim()
+            )
+          }
         }
         console.log(cards)
         console.log(sideboard)
