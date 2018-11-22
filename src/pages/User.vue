@@ -6,32 +6,57 @@
         <v-breadcrumbs class="breadcrumbs" :items="breadcrumbs">
           <v-icon slot="divider">chevron_right</v-icon>
         </v-breadcrumbs>
-        <v-layout row class="userSummary breadcrumbs">
-          <v-layout column class="mr-2">
-            <span class="headline">{{totalGames}} games</span>
-          </v-layout>
-          <v-layout column>
-            <span class="display-1">(</span>
-          </v-layout>
-          <v-layout column class="ml-2 mr-2 body-2 text-xs-center">
-            <span>{{totalConstructed}} Constructed</span>
-            <span>{{totalLimited}} Limited</span>
-          </v-layout>
-          <v-layout column class="mr-4">
-            <span class="display-1">)</span>
-          </v-layout>
-        </v-layout>
       </v-layout>
     </v-flex>
     <v-flex xs12>
       <v-divider/>
     </v-flex>
-    <!-- Left -->
-    <v-flex class="center pt-3 pl-4 pr-2" xs7>
+
+    <!-- Bottom -->
+
+    <v-flex class="center mt-2 pl-2 pr-2" xs12>
+      <v-layout class="box" row wrap>
+        <v-flex xs12 class="boxHeader">User Summary</v-flex>
+        <v-layout class="boxContent pb-1" row wrap>
+
+          <div class="ml-1">
+            <v-layout row class="userSummary">
+              <v-layout column class="mt-2 mr-2">
+                <span class="headline">{{totalGames}} games</span>
+              </v-layout>
+              <v-layout column>
+                <span class="display-1">(</span>
+              </v-layout>
+              <v-layout column class="ml-2 mr-2 body-2 text-xs-center">
+                <span>{{totalConstructed}} Constructed</span>
+                <span>{{totalLimited}} Limited</span>
+              </v-layout>
+              <v-layout column>
+                <span class="display-1">)</span>
+              </v-layout>
+            </v-layout>
+          </div>
+
+          <v-spacer/>
+
+          <span class="subheading pt-1 mt-2">{{ userGold }} </span>
+          <img class="mt-1 ml-1 icon" :src="require('@/assets/coins.png')"/>
+          
+          <span class="subheading pt-1 mt-2 ml-3">{{ userGems }} </span>
+          <img class="mt-1 ml-1 icon" :src="require('@/assets/gems.png')"/>
+          
+          <span class="subheading pt-1 mt-2 ml-3">{{ userVault }}% </span>
+          <img class="mt-1 ml-1 mr-2 icon" :src="require('@/assets/vault.png')"/>
+          
+        </v-layout>
+      </v-layout>
+    </v-flex>
+
+    <v-flex class="center mt-2 pl-2 pr-2" xs12>
       <v-layout class="box" row wrap>
         <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
-        <v-layout class="boxContent" row wrap>
-          <v-card class="setSummary mt-4 m-auto" v-for="set in userCollectionSummary" :key="set.code">
+        <v-layout class="boxContent pb-3" row wrap>
+          <v-card class="setSummary mt-3 m-auto" v-for="set in userCollectionSummary" :key="set.code">
             <div class="summaryTitle pt-1 pb-1 white--text body-1">{{set.name}}</div>
             <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
               <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
@@ -52,12 +77,12 @@
         </v-layout>
       </v-layout>
     </v-flex>
-    <!-- Right -->
-    <v-flex class="rSide pt-3 pl-2 pr-2 pb-3" xs5>
+
+    <v-flex class="mt- pl-2 pr-2 pb-3" xs12>
       <v-layout class="box" row wrap>
         <v-flex xs12 class="boxHeader">Events Summary</v-flex>
         <v-layout class="boxContent" row wrap>
-          <v-flex xs6 class="eventStat" v-for="eventStat in userEventsStats" :key="eventStat.name">
+          <v-flex xs3 class="eventStat" v-for="eventStat in userEventsStats" :key="eventStat.name">
           <EventStats class="mt-3" :data="eventStat" :id="eventStat.name"/>
         </v-flex>
         </v-layout>
@@ -69,14 +94,16 @@
 <script>
 import EventStats from '@/components/charts/EventStats'
 import SetSymbol from '@/components/mtg/SetSymbol'
+import WildcardsCost from '@/components/mtg/WildcardsCost'
 import Utils from '@/scripts/utils'
 
 export default {
   name: 'PublicDeck',
   components: {
-    EventStats, SetSymbol
+    EventStats, SetSymbol, WildcardsCost
   },
   created () {
+    this.requestUserExtras()
     this.requestUserCollectionSummary()
     this.requestUserEventsStats()
   },
@@ -94,6 +121,10 @@ export default {
       ],
       userCollectionSummary: [],
       userEventsStats: [],
+      userGold: 0,
+      userGems: 0,
+      userVault: 0.0,
+      userWildcards: {},
       rarities: Utils.rarities,
       totalGames: 0,
       totalConstructed: 0,
@@ -101,6 +132,20 @@ export default {
     }
   },
   methods: {
+    requestUserExtras: function () {
+      this.$api.getUserExtras(this.deckAlias)
+        .then(res => {
+          if (res.data === '') {
+            return
+          }
+          this.userGold = res.data.gold
+          this.userGems = res.data.gems
+          this.userVault = res.data.vaultProgress
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
     requestUserCollectionSummary: function () {
       this.$api.getUserCollection(true)
         .then(res => {
@@ -144,13 +189,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .userSummary {
-    justify-content: flex-end;
-  }
-  .userSummary .layout {
-    justify-content: center;
-    flex: none;
-  }
   .eventStat {
     min-height: 200px;
   }
@@ -167,6 +205,10 @@ export default {
   }
   .summaryTitle {
     background-color: darkorange;
+  }
+  .icon {
+    height: 32px;
+    width: 32px;
   }
   a {
     color: black;

@@ -9,35 +9,42 @@
       </v-flex>
       <v-flex xs12>
         <v-layout class="box" row wrap>
-          <v-flex xs12 class="boxHeader">Latest Decks</v-flex>
-          <v-layout class="boxContent" row wrap>
-            <QueryFilter class="filter mt-1 pl-2 pr-2" v-model="searchQuery"
-              v-on:onQuery="updateFilters()" title="Name or Archetype"/>
+          <v-layout class="boxContent" row nowrap>
+            <div>
+              <QueryFilter class="filter mt-1 pl-2 pr-2" v-model="searchQuery"
+                v-on:onQuery="updateFilters()" title="Name or Archetype"/>
+            </div>
             <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
-            <v-layout column wrap>
-              <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors"/>
-              <RarityFilter class="filter mt-1 pl-2 pr-2" v-model="activeRarities"/>
-            </v-layout>
+            <div>
+              <v-layout column wrap>
+                <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors"/>
+                <RarityFilter class="filter mt-1 pl-2 pr-2" v-model="activeRarities"/>
+              </v-layout>
+            </div>
             <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
-            <v-layout column wrap>
-              <TypeFilter class="mt-1 pl-2 pr-2" v-model="activeTypes"/>
-              <SetFilter class="mt-1 pl-2 pr-2" v-model="activeSets"/>
-            </v-layout>
-            <v-layout column wrap>
-              <v-btn class="mt-0" color="white" @click="updateFilters()">Apply Filters</v-btn>
-              <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
-            </v-layout>
+            <div>
+              <v-layout column wrap>
+                <TypeFilter class="mt-1 pl-2 pr-2" v-model="activeTypes"/>
+                <SetFilter class="mt-1 pl-2 pr-2" v-model="activeSets"/>
+              </v-layout>
+            </div>
+            <v-spacer/>
+            <div>
+              <v-layout column wrap>
+                <v-btn class="mt-0" color="white" @click="updateFilters()">Apply Filters</v-btn>
+                <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
+              </v-layout>
+            </div>
           </v-layout>
         </v-layout>
       </v-flex>
       <!-- Center -->
       <v-flex xs12>
         <v-layout class="box" row wrap>
-          <v-flex xs12 class="boxHeader">Latest Decks</v-flex>
           <v-layout class="boxContent" row wrap>
-            <v-container id="cards" class='mt-3' grid-list-md fluid>
+            <v-container id="cards" grid-list-md fluid>
               <v-layout row wrap>
-                <v-flex v-for="card in currentPageCards" :key="card.mtgaid" md4 lg2 xl2>
+                <v-flex v-for="card in currentPageCards" :key="card.mtgaid" xs2>
                   <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
                     :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
                 </v-flex>
@@ -66,11 +73,12 @@ import ColorFilter from '@/components/filters/ColorFilter'
 import RarityFilter from '@/components/filters/RarityFilter'
 import TypeFilter from '@/components/filters/TypeFilter'
 import SetFilter from '@/components/filters/SetFilter'
+import QueryFilter from '@/components/filters/QueryFilter'
 
 export default {
   name: 'UserCollection',
   components: {
-    Card, ColorFilter, RarityFilter, TypeFilter, SetFilter
+    Card, ColorFilter, RarityFilter, TypeFilter, SetFilter, QueryFilter
   },
   mounted () {
     this.getCards()
@@ -155,6 +163,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .filters {
+    height: 110px;
+  }
+  .filters button {
+    width: 150px;
+  }
+  .filter {
+    min-width: 150px;
+  }
   .v-input {
     display: inline-block;
     max-width: 240px;
