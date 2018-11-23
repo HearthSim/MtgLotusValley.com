@@ -57,11 +57,16 @@ export default {
       'common': wcCost['common']
     }
   },
-  getDeckWCMissingCost: function (userCollection, mainCards, sideboardCards) {
+  getDeckWCMissingCost: function (userCollection, mainCards, sideboardCards, reprintsCards) {
     const wcMissingCost = {}
     Object.keys(mainCards).forEach(mtgaId => {
       const card = mainCards[mtgaId]
-      const qtdOwned = userCollection[mtgaId] !== undefined ? userCollection[mtgaId] : 0
+      let qtdOwned = userCollection[mtgaId] !== undefined ? userCollection[mtgaId] : 0
+      if (reprintsCards !== undefined && reprintsCards[mtgaId] !== undefined) {
+        reprintsCards[mtgaId].forEach(reprintCard => {
+          qtdOwned += userCollection[reprintCard.mtgaid] !== undefined ? userCollection[reprintCard.mtgaid] : 0
+        })
+      }
       const missingQtd = card.qtd - qtdOwned
       if (!card.type.includes('Basic Land') && missingQtd > 0) {
         if (wcMissingCost[card.rarity] === undefined) {
@@ -74,7 +79,12 @@ export default {
     if (sideboardCards !== undefined && Object.keys(sideboardCards).length > 0) {
       Object.keys(sideboardCards).forEach(mtgaId => {
         const card = sideboardCards[mtgaId]
-        const qtdOwned = userCollection[mtgaId] !== undefined ? userCollection[mtgaId] : 0
+        let qtdOwned = userCollection[mtgaId] !== undefined ? userCollection[mtgaId] : 0
+        if (reprintsCards !== undefined && reprintsCards[mtgaId] !== undefined) {
+          reprintsCards[mtgaId].forEach(reprintCard => {
+            qtdOwned += userCollection[reprintCard.mtgaid] !== undefined ? userCollection[reprintCard.mtgaid] : 0
+          })
+        }
         const missingQtd = card.qtd - qtdOwned
         if (!card.type.includes('Basic Land') && missingQtd > 0) {
           if (wcMissingCost[card.rarity] === undefined) {

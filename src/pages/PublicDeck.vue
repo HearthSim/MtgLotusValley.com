@@ -21,12 +21,12 @@
           </v-layout>
         </div>
       </v-layout>
-    </v-flex>    
+    </v-flex>
     <!-- Left -->
     <v-flex xs3>
       <div class="box">
         <v-layout class="boxContent pb-2" column nowrap>
-          <ManaCurve class='mt-2 ml-1 mr-1' :manaCurve="deckManaCurve"/> 
+          <ManaCurve class='mt-2 ml-1 mr-1' :manaCurve="deckManaCurve"/>
           <v-flex class="mt-4" v-if="$isUserLogged()">
             <span class='subheading'>Build Cost</span>
             <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCMissingCost"/>
@@ -38,7 +38,7 @@
           <v-divider class="mt-4 ml-3 mr-3"/>
           <v-layout class="mt-3" column>
             <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-              <v-btn flat small color="primary" v-on:click="exportDeckToArena()" 
+              <v-btn flat small color="primary" v-on:click="exportDeckToArena()"
                 slot="activator">Export to Arena</v-btn>
               <v-card>
                 <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
@@ -49,7 +49,7 @@
               </v-card>
             </v-dialog>
             <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-              <v-btn flat small color="primary" v-on:click="exportDeckToReading()" 
+              <v-btn flat small color="primary" v-on:click="exportDeckToReading()"
                 slot="activator">Export to Reading</v-btn>
               <v-card>
                 <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
@@ -77,15 +77,14 @@
                     <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
                   </v-layout>
                   <v-divider class="mt-1 ml-5 mr-5"/>
-                  <Deck class="deck deckContainer mt-4" :cards="deckCards" :userCollection="userCollection"/>
+                  <Deck class="deck deckContainer mt-4" :cards="deckCards"/>
                 </v-flex>
                 <v-flex v-if="Object.keys(sideboardCards).length > 0">
                   <v-layout row class="mt-4 ml-5">
                     <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
                   </v-layout>
                   <v-divider class="mt-1 ml-5 mr-5"/>
-                  <Deck class="deck sideContainer mt-4" :sideboard="sideboardCards"
-                    :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
+                  <Deck class="deck sideContainer mt-4" :sideboard="sideboardCards"/>
                 </v-flex>
               </v-layout>
             </v-tab-item>
@@ -97,15 +96,14 @@
                   <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
                 </v-layout>
                 <v-divider class="mt-1 ml-5 mr-5"/>
-                <DeckVisual class="deck mt-3" :cards="deckCards" :userCollection="userCollection"/>
+                <DeckVisual class="deck mt-3" :cards="deckCards"/>
               </div>
               <div v-if="Object.keys(sideboardCards).length > 0">
                 <v-layout row class="mt-4 ml-5">
                   <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
                 </v-layout>
                 <v-divider class="mt-1 ml-5 mr-5"/>
-                <DeckVisual class="deck mt-3" :sideboard="sideboardCards"
-                  :userCollectionWithoutMainDeck="userCollectionWithoutMainDeck"/>
+                <DeckVisual class="deck mt-3" :sideboard="sideboardCards"/>
               </div>
             </v-tab-item>
 
@@ -164,6 +162,7 @@ export default {
       deckLoader: this.$route.query.loader,
       deckCards: {},
       sideboardCards: {},
+      reprintsCards: {},
       deckName: '',
       deckArch: '',
       deckColors: '',
@@ -172,8 +171,6 @@ export default {
       deckWCMissingCost: {},
       deckUpdates: [],
       isLoading: false,
-      userCollection: {},
-      userCollectionWithoutMainDeck: {},
       deckExportDialogVisible: false
     }
   },
@@ -218,13 +215,14 @@ export default {
           this.isLoading = false
           this.deckCards = res.data.cards
           this.sideboardCards = res.data.sideboard
-          this.deckName = ''
-          this.deckArch = ''
+          this.reprintsCards = res.data.reprints
+          this.deckName = res.data.name
+          this.deckArch = res.data.arch
           this.deckColors = res.data.colors
           this.deckManaCurve = res.data.manaCurve
           this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
           if (this.$isUserLogged()) {
-            this.getUserCollection()
+            this.getDeckMissingCards()
           }
         })
         .catch(error => {
@@ -232,24 +230,52 @@ export default {
           console.log(error)
         })
     },
-    getUserCollection: function () {
+    getDeckMissingCards: function () {
       this.isLoading = false
       this.$api.getUserCollection()
         .then(res => {
           this.isLoading = false
-          this.userCollection = res.data
-          this.userCollectionWithoutMainDeck = this.getUserCollectionWithoutMainDeck()
-          this.deckWCMissingCost = DeckUtils.getDeckWCMissingCost(this.userCollection,
-            this.deckCards, this.sideboardCards)
+          const userCollection = res.data
+          const cardsWithMissingQtd = {}
+          Object.keys(this.deckCards).forEach(mtgaId => {
+            const card = this.deckCards[mtgaId]
+            if (!card.type.includes('Basic Land')) {
+              card.missingQtd = this.getCardMissingQtd(mtgaId, card.qtd, userCollection)
+            }
+            cardsWithMissingQtd[mtgaId] = card
+          })
+          this.deckCards = cardsWithMissingQtd
+          const userCollectionWithoutMainDeck = this.getUserCollectionWithoutMainDeck(userCollection)
+          const sideboardWithMissingQtd = {}
+          Object.keys(this.sideboardCards).forEach(mtgaId => {
+            const card = this.sideboardCards[mtgaId]
+            if (!card.type.includes('Basic Land')) {
+              card.missingQtd = this.getCardMissingQtd(mtgaId, card.qtd, userCollectionWithoutMainDeck)
+            }
+            sideboardWithMissingQtd[mtgaId] = card
+          })
+          this.sideboardCards = sideboardWithMissingQtd
+          this.deckWCMissingCost = DeckUtils.getDeckWCMissingCost(userCollection,
+            this.deckCards, this.sideboardCards, this.reprintsCards)
         })
         .catch(error => {
           this.isLoading = false
           console.log(error)
         })
     },
-    getUserCollectionWithoutMainDeck: function () {
+    getCardMissingQtd: function (mtgaId, cardQtd, userCollection) {
+      let qtdOwned = userCollection[mtgaId] !== undefined ? userCollection[mtgaId] : 0
+      if (this.reprintsCards !== undefined && this.reprintsCards[mtgaId] !== undefined) {
+        this.reprintsCards[mtgaId].forEach(reprintCard => {
+          qtdOwned += userCollection[reprintCard.mtgaid] !== undefined ? userCollection[reprintCard.mtgaid] : 0
+        })
+      }
+      const missingQtd = cardQtd - qtdOwned
+      return missingQtd > 0 ? missingQtd : 0
+    },
+    getUserCollectionWithoutMainDeck: function (userCollection) {
       const data = {}
-      Object.assign(data, this.userCollection)
+      Object.assign(data, userCollection)
       Object.keys(this.deckCards).forEach(mtgaId => {
         const card = this.deckCards[mtgaId]
         const owned = data[mtgaId] !== undefined ? data[mtgaId] : 0

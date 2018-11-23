@@ -13,9 +13,9 @@
     <td id='card_set'>
       <SetSymbol :set='card.set' :rarity='card.rarity'/>
     </td>
-    <td id='card_missing' v-if="missingQtd > 0" :title="`You need ${missingQtd} ${card.rarity} wildcards`">
+    <td id='card_missing' v-if="card.missingQtd > 0" :title="`You need ${card.missingQtd} ${card.rarity} wildcards`">
       <div class="red--text">
-        {{ missingQtd }}
+        {{ card.missingQtd }}
         <img :src="require(`@/assets/wildcards/${card.rarity}.png`)"/>
       </div>
     </td>
@@ -42,30 +42,6 @@ export default {
       type: Boolean,
       required: false,
       default: false
-    },
-    userCollection: {
-      type: Object,
-      required: false
-    }
-  },
-  data () {
-    return {
-      missingQtd: 0
-    }
-  },
-  methods: {
-    updateMissingValue: function (owned) {
-      if (!this.card.type.includes('Basic Land')) {
-        this.missingQtd = this.card.qtd - owned
-      }
-    }
-  },
-  watch: {
-    userCollection: function (value) {
-      const owned = value[this.card.id] !== undefined ? value[this.card.id] : 0
-      if (!this.card.type.includes('Basic Land')) {
-        this.missingQtd = this.card.qtd - owned
-      }
     }
   }
 }
