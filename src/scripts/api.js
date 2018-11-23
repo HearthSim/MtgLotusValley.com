@@ -153,10 +153,10 @@ export default {
         pageNumber: page,
         pageSize: pageSize,
         query: query,
-        colors: colors,
-        rarities: rarities,
-        types: types,
-        sets: sets,
+        colors: colors === '' ? 'b,c,g,m,r,u,w' : colors,
+        rarities: rarities === '' ? 'c,u,r,m' : rarities,
+        types: types === '' ? 'a,c,e,i,l,p,s' : types,
+        sets: sets === '' ? 'ANA,XLN,RIX,DAR,M19,GRN,MED' : sets,
         fields: 'name,mtgaid,multiverseid,imageUrl,imageUrlTransformed'
       }
     })

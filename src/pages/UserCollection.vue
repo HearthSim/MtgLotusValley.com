@@ -11,20 +11,22 @@
         <v-layout class="box" row wrap>
           <v-layout class="boxContent" row nowrap>
             <div>
-              <QueryFilter class="filter mt-1 pl-2 pr-2" v-model="searchQuery"
-                v-on:onQuery="updateFilters()" title="Name or Archetype"/>
-            </div>
-            <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
-            <div>
               <v-layout column wrap>
-                <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors"/>
-                <RarityFilter class="filter mt-1 pl-2 pr-2" v-model="activeRarities"/>
+                <QueryFilter class="filter pl-2 pr-2" v-model="searchQuery"
+                  v-on:onQuery="updateFilters()" title="Name or Archetype"/>
+                <RarityFilter class="filter pl-2 pr-2" v-model="activeRarities"/>
               </v-layout>
             </div>
             <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
             <div>
               <v-layout column wrap>
-                <TypeFilter class="mt-1 pl-2 pr-2" v-model="activeTypes"/>
+                <ColorFilter class="filter pl-2 pr-2" v-model="activeColors"/>
+                <TypeFilter class="filter pl-2 pr-2" v-model="activeTypes"/>
+              </v-layout>
+            </div>
+            <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+            <div>
+              <v-layout column wrap>
                 <SetFilter class="mt-1 pl-2 pr-2" v-model="activeSets"/>
               </v-layout>
             </div>
@@ -100,10 +102,10 @@ export default {
         }
       ],
       currentPage: this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1,
-      activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,c,g,m,r,u,w',
-      activeRarities: this.$route.query.rarities !== undefined ? this.$route.query.rarities : 'c,u,r,m',
-      activeTypes: this.$route.query.types !== undefined ? this.$route.query.types : 'a,c,e,i,l,p,s',
-      activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : 'ANA,XLN,RIX,DAR,M19,GRN,MED',
+      activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : '',
+      activeRarities: this.$route.query.rarities !== undefined ? this.$route.query.rarities : '',
+      activeTypes: this.$route.query.types !== undefined ? this.$route.query.types : '',
+      activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : '',
       searchQuery: this.$route.query.query,
       currentPageCards: {},
       isLoading: false,
