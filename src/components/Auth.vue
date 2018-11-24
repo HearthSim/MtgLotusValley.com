@@ -8,20 +8,6 @@
           <v-icon>arrow_drop_down</v-icon>
       </v-btn>
         <v-list>
-          <v-layout row nowrap class="pl-1 pr-1">
-            <v-flex>
-              <span class="body-1 userExtra">{{ userGold }} </span>
-              <img class="mt-1 icon" :src="require('@/assets/coins.png')"/>
-            </v-flex>
-            <v-flex>
-              <span class="body-1 userExtra">{{ userGems }} </span>
-              <img class="mt-1 icon" :src="require('@/assets/gems.png')"/>
-            </v-flex>
-            <v-flex>
-              <span class="body-1 userExtra">{{ userVault }}% </span>
-              <img class="mt-1 icon" :src="require('@/assets/vault.png')"/>            
-            </v-flex>
-          </v-layout>
           <WildcardsCost class="mt-2 ml-2 mr-2" :cost="userWildcards"/>
           <v-divider class="mt-2 mb-1"/>
           <v-list-tile v-for="(item, i) in signedMenuItems" :key="i" @click="signedMenuClick(i)">
@@ -138,9 +124,6 @@ export default {
         { title: 'My Decks' },
         { title: 'Logout' }
       ],
-      userGold: 0,
-      userGems: 0,
-      userVault: 0.0,
       userWildcards: {}
     }
   },
@@ -279,9 +262,6 @@ export default {
             this.userWildcards = {}
             return
           }
-          this.userGold = res.data.gold
-          this.userGems = res.data.gems
-          this.userVault = res.data.vaultProgress
           this.userWildcards = {
             'mythic': res.data['wcMythic'],
             'rare': res.data['wcRare'],
@@ -301,9 +281,5 @@ export default {
 <style scoped>
   #recoverPassLink {
     margin-left: 10px;
-  }
-  .icon {
-    height: 24px;
-    width: 24px;
   }
 </style>
