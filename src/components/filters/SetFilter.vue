@@ -6,8 +6,8 @@
       </div>
       <v-layout row nowrap class="text-xs-left mt-2">
         <v-tooltip v-for="(set) in sets" :key="set.code" top open-delay=1000>
-          <img class="set" :class="!activeSets.includes(set.code) ? 'grayscale' : ''" slot="activator"
-            :src="require(`@/assets/sets/${set.code}.png`)" @click="setClick(set.code)"/>
+          <img :class="!activeSets.includes(set.code) ? 'grayscale' : ''" slot="activator"
+            :src="require(`@/assets/sets/icons/${set.code}.png`)" @click="setClick(set.code)"/>
           {{ set.name }}
         </v-tooltip>
       </v-layout>

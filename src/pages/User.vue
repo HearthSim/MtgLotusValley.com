@@ -52,17 +52,21 @@
       </v-layout>
     </v-flex>
 
-    <v-flex class="center mt-2 pl-2 pr-2" xs12>
+    <v-flex class="center pl-2 pr-2" xs12>
       <v-layout class="box" row wrap>
         <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
-        <v-layout class="boxContent pb-3" row wrap>
-          <v-card class="setSummary mt-3 m-auto" v-for="set in userCollectionSummary" :key="set.code">
-            <div class="summaryTitle pt-1 pb-1 white--text body-1">{{set.name}}</div>
+        <v-layout class="boxContent mt-0 pb-2" row wrap>
+          <v-card class="setSummary mt-3 pb-2 m-auto" v-for="set in userCollectionSummary" :key="set.code">
+            <div class="summaryTitle pt-1 mb-2">
+              <router-link :to="`/user/collection?page=1&sets=${set.code}`">
+                <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
+              </router-link>
+            </div>
             <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
               <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
                 slot="activator">
-                <v-layout row nowrap>
-                  <SetSymbol class="setSymbol ml-2" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
+                <v-layout class="setRarityLine" row nowrap>
+                  <SetSymbol class="setSymbol ml-3" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
                   <v-progress-linear class="ml-2" :color="rarity.color" height="5"
                     :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
                   <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
@@ -78,7 +82,7 @@
       </v-layout>
     </v-flex>
 
-    <v-flex class="mt- pl-2 pr-2 pb-3" xs12>
+    <v-flex class="pl-2 pr-2 pb-3" xs12>
       <v-layout class="box" row wrap>
         <v-flex xs12 class="boxHeader">Events Summary</v-flex>
         <v-layout class="boxContent" row wrap>
@@ -192,11 +196,20 @@ export default {
   .eventStat {
     min-height: 200px;
   }
+  .setLogo {
+    max-height: 30px;
+  }
+  .summaryTitle {
+    background-color: lightgray !important;
+  }
   .setSummary {
-    width: 200px;
+    width: 220px;
   }
   .setSymbol {
     transform: translateY(5px);
+  }
+  .setRarityLine {
+    height: 30px;
   }
   .summaryValue {
     min-width: 60px;
