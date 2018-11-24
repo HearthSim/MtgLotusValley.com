@@ -1,7 +1,7 @@
 
 const isProduction = process.env.NODE_ENV === 'production'
 let isRefreshingToken = false
-let subscribers = []
+let refreshSubscribers = []
 
 const axios = require('axios')
 axios.defaults.baseURL = isProduction ? 'https://www.mtglotusvalley.com/api'
@@ -21,44 +21,63 @@ axios.interceptors.request.use(
   error => Promise.reject(error)
 )
 
-axios.interceptors.response.use(undefined, err => {
-  const { config, response: { status, data } } = err
+axios.interceptors.response.use(response => {
+  return response
+}, error => {
+  const { config, response: { status, data } } = error
   const originalRequest = config
   if (status === 401 && data.error === 'TOKEN_EXPIRED') {
-    if (!isRefreshingToken) {
-      console.log('Token expired. Refreshing...')
+    const updateTime = localStorage.getItem('updateTime') || 0
+    const nowTime = new Date().getTime()
+    const isRecentlyUpdated = (nowTime - updateTime) < 60000
+    if (isRecentlyUpdated) {
+      console.log('Token recently Updated.')
+      return new Promise(resolve => {
+        const token = localStorage.getItem('idToken')
+        originalRequest.headers.Authorization = `Bearer ${token}`
+        resolve(axios(originalRequest))
+      })
+    } else if (!isRefreshingToken) {
       isRefreshingToken = true
-      refreshUserToken(localStorage.getItem('refreshToken'))
-        .then(res => {
-          isRefreshingToken = false
-          updateUserToken(res.data)
-          onUserTokenRefreshed(res.data.id_token)
-          subscribers = []
-        })
-        .catch(error => {
-          console.log(error)
-        })
+      console.log('Token expired. Refreshing...')
+      axios.post('/refreshtoken', {
+        refresh_token: localStorage.getItem('refreshToken')
+      })
+      .then(res => {
+        isRefreshingToken = false
+        console.log('Token refreshed.')
+        updateUserToken(res.data)
+        onUserTokenRefreshed(res.data.id_token)
+      })
+      .catch(error => {
+        console.log(error)
+      })
     }
-    const requestSubscribers = new Promise(resolve => {
+    return new Promise(resolve => {
       subscribeUserTokenRefresh(token => {
         originalRequest.headers.Authorization = `Bearer ${token}`
         resolve(axios(originalRequest))
       })
     })
-    return requestSubscribers
+  } else {
+    return Promise.reject(error)
   }
-  return Promise.reject(err)
 })
 
 function subscribeUserTokenRefresh (cb) {
-  subscribers.push(cb)
+  console.log('Subscribing for Refresh token.')
+  refreshSubscribers.push(cb)
 }
 
 function onUserTokenRefreshed (token) {
-  subscribers.map(cb => cb(token))
+  refreshSubscribers.forEach(callback => {
+    callback(token)
+  })
+  refreshSubscribers = []
 }
 
 function refreshUserToken (refreshToken) {
+  console.log('Token expired. Refreshing...')
   return axios.post('/refreshtoken', {
     refresh_token: refreshToken
   })
@@ -80,6 +99,7 @@ function updateUserToken (data) {
   const date = new Date()
   date.setSeconds(date.getSeconds() + Number.parseInt(data.expires_in))
   localStorage.setItem('expiresIn', date.toString())
+  localStorage.setItem('updateTime', new Date().getTime())
 }
 
 function deleteUserToken () {
