@@ -1,9 +1,9 @@
 <template>
-  <div class="pt-1 pl-2 pr-2 pb-1">
+  <div class="pt-1 pb-1">
     <div class="text-xs-left body-1 font-weight-bold">
       <span>{{title}}</span>
     </div>
-    <v-text-field class="field mt-0" label="Search" v-model="searchQuery"
+    <v-text-field class="field mt-0 pt-2" label="Search" v-model="searchQuery"
       @keyup.native.enter="applyQuery()"
       flat single-line hide-details clearable />
   </div>
@@ -49,7 +49,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .field {
-    width: 180px;
-  }
 </style>

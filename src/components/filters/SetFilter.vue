@@ -4,7 +4,7 @@
       <div class="text-xs-left body-1 font-weight-bold">
         <span>Sets</span>
       </div>
-      <v-layout row nowrap class="text-xs-left mt-2">
+      <v-layout row wrap class="text-xs-left mt-1">
         <v-tooltip v-for="(set) in sets" :key="set.code" top open-delay=1000>
           <img :class="!activeSets.includes(set.code) ? 'grayscale' : ''" slot="activator"
             :src="require(`@/assets/sets/icons/${set.code}.png`)" @click="setClick(set.code)"/>

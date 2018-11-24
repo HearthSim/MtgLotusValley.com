@@ -5,7 +5,7 @@
         <div class="text-xs-left body-1 font-weight-bold">
           <span>Contains Cards</span>
         </div>
-        <v-text-field class="field mt-0" label="Card Name" 
+        <v-text-field class="field mt-0 pt-2" label="Card Name" 
           v-model="cardName" @keyup.native.enter="addCard()"
           flat single-line hide-details clearable />
       </div>

@@ -9,32 +9,33 @@
       </v-flex>
       <v-flex xs12>
         <v-layout class="box" row wrap>
-          <v-layout class="boxContent" row nowrap>
+          <v-layout class="boxContent mb-1" row nowrap>
             <div>
               <v-layout column wrap>
-                <QueryFilter class="filter pl-2 pr-2" v-model="searchQuery"
+                <QueryFilter class="filterQuery m-auto" v-model="searchQuery"
                   v-on:onQuery="updateFilters()" title="Name or Archetype"/>
-                <RarityFilter class="filter pl-2 pr-2" v-model="activeRarities"/>
+                <RarityFilter class="filterRarity pl-2 pr-2" v-model="activeRarities"/>
               </v-layout>
             </div>
             <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
             <div>
               <v-layout column wrap>
-                <ColorFilter class="filter pl-2 pr-2" v-model="activeColors"/>
-                <TypeFilter class="filter pl-2 pr-2" v-model="activeTypes"/>
+                <ColorFilter class="filterColors pl-2 pr-2" v-model="activeColors"/>
+                <TypeFilter class="filterTypes pl-2 pr-2" v-model="activeTypes"/>
               </v-layout>
             </div>
             <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
             <div>
               <v-layout column wrap>
-                <SetFilter class="mt-1 pl-2 pr-2" v-model="activeSets"/>
+                <SetFilter class="filterSets pl-2 pr-2" v-model="activeSets"/>
+                <v-switch v-if="false" class="mt-0 ml-4 mr-3" label="Only cards that I have" v-model="onlyCardsIHave"/>
               </v-layout>
             </div>
-            <v-spacer/>
-            <div>
-              <v-layout column wrap>
-                <v-btn class="mt-0" color="white" @click="updateFilters()">Apply Filters</v-btn>
-                <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
+            <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+            <div class="m-auto">
+              <v-layout class="mt-2" column wrap>
+                <v-btn class="mt-2" color="white" @click="updateFilters()">Apply Filters</v-btn>
+                <v-btn class="mt-3" color="white" @click="clearFilters()">Clear Filters</v-btn>
               </v-layout>
             </div>
           </v-layout>
@@ -43,8 +44,8 @@
       <!-- Center -->
       <v-flex xs12>
         <v-layout class="box" row wrap>
-          <v-layout class="boxContent" row wrap>
-            <v-container id="cards" grid-list-md fluid>
+          <v-layout class="boxContent mb-0" row wrap>
+            <v-container class="pt-2 pl-2 pr-2 pb-2" grid-list-md fluid>
               <v-layout row wrap>
                 <v-flex v-for="card in currentPageCards" :key="card.mtgaid" xs2>
                   <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
@@ -56,7 +57,7 @@
                   <v-progress-circular v-if="isLoading" color="deep-orange" 
                     :width="2" :size="24" :indeterminate="true"/>
                 </v-flex>
-                <v-flex xs9 sm9            md6            lg6 class="text-xs-right mb-3">
+                <v-flex xs9 sm9            md6            lg6 class="text-xs-right">
                   <v-pagination v-model="currentPage" @input="goToPage" 
                     :length="totalPages" :total-visible="7"/>
                 </v-flex>
@@ -171,15 +172,21 @@ export default {
   .filters button {
     width: 150px;
   }
-  .filter {
-    min-width: 150px;
+  .filterQuery {
+    max-width: 160px;
   }
-  .v-input {
+  .filterColors, .filterTypes {
+    max-width: 270px;
+  }
+  .filterSets {
+    max-width: 220px;
+  }
+  .v-text-field {
     display: inline-block;
     max-width: 240px;
   }
-  #cards {
-    padding: 12px;
+  .v-input--switch {
+    height: 32px;
   }
   #pages button {
     min-width: 32px;

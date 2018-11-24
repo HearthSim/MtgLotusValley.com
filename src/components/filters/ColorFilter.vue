@@ -4,7 +4,7 @@
       <div class="text-xs-left body-1 font-weight-bold">
         <span>Colors</span>
       </div>
-      <v-layout row nowrap class="text-xs-left mt-2">
+      <v-layout row nowrap class="text-xs-left mt-1">
         <v-tooltip v-for="color in colors" :key="color.code" top open-delay=500>
           <img :class="!activeColors.includes(color.code) ? 'grayscale' : ''" slot="activator"
             :src="require(`@/assets/mana/${color.code}.png`)" @click="colorClick(color.code)"/>

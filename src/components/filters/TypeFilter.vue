@@ -4,7 +4,7 @@
       <div class="text-xs-left body-1 font-weight-bold">
         <span>Types</span>
       </div>
-      <v-layout row nowrap class="text-xs-left mt-2">
+      <v-layout row nowrap class="text-xs-left mt-1">
         <v-tooltip v-for="type in types" :key="type.code" top open-delay=1000>
           <img :class="!activeTypes.includes(type.code) ? 'grayscale' : ''" slot="activator"
             :src="require(`@/assets/types/${type.code}.png`)" @click="typeClick(type.code)"/>
