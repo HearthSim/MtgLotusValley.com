@@ -7,7 +7,7 @@
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
-      <v-layout row class="mt-2 ml-2 mr-2">
+      <v-layout row class="headerContainer mt-2 ml-2 mr-2">
         <div :class="`header header-${deckColors} white--text`">
           <v-layout class="line pt-2 ml-3" row nowrap>
             <div class="mana mt-1">
@@ -20,25 +20,21 @@
             <span class='subheading'>{{ deckArch }}</span>
           </v-layout>
         </div>
-      </v-layout>
-    </v-flex>
-    <!-- Left -->
-    <v-flex xs3>
-      <div class="box">
-        <v-layout class="boxContent pb-2" column nowrap>
-          <ManaCurve class='mt-2 ml-1 mr-1' :manaCurve="deckManaCurve"/>
-          <v-flex class="mt-4" v-if="$isUserLogged()">
-            <span class='subheading'>Build Cost</span>
-            <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCMissingCost"/>
-          </v-flex>
-          <v-flex class="mt-4">
-            <span class='subheading'>Total Cost</span>
-            <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCCost"/>
-          </v-flex>
-          <v-divider class="mt-4 ml-3 mr-3"/>
-          <v-layout class="mt-3" column>
-            <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-              <v-btn flat small color="primary" v-on:click="exportDeckToArena()"
+        <v-layout row class="overlay">
+          <v-layout class="boxContent" row nowrap>
+            <v-flex v-if="$isUserLogged()">
+              <span class='subheading'>Build Cost</span>
+              <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCMissingCost"/>
+            </v-flex>
+            <v-flex>
+              <span class='subheading'>Total Cost</span>
+              <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCCost"/>
+            </v-flex>
+          </v-layout>
+          <v-divider class="mt-2 ml-2 mr-2 mb-2" vertical color="gray"/>
+          <v-layout column>
+            <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+              <v-btn flat small color="white" v-on:click="exportDeckToArena()" 
                 slot="activator">Export to Arena</v-btn>
               <v-card>
                 <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
@@ -48,8 +44,9 @@
                 </v-card-actions>
               </v-card>
             </v-dialog>
-            <v-dialog class="btExport mt-1" v-model="deckExportDialogVisible" width="350">
-              <v-btn flat small color="primary" v-on:click="exportDeckToReading()"
+
+            <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+              <v-btn flat small color="white" v-on:click="exportDeckToReading()" 
                 slot="activator">Export to Reading</v-btn>
               <v-card>
                 <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
@@ -61,31 +58,18 @@
             </v-dialog>
           </v-layout>
         </v-layout>
-      </div>
+      </v-layout>
     </v-flex>
-    <!-- Right -->
-    <v-flex xs9>
-      <div class="box ml-0">
+    <!-- Left -->
+    <v-flex xs8>
+      <div class="box mr-0">
         <v-layout class="boxContent" column nowrap>
           <v-tabs class="mb-3" color="transparent">
 
-            <v-tab>Text Mode</v-tab>
+            <v-tab>Overview</v-tab>
             <v-tab-item>
               <v-layout column wrap>
-                <v-flex>
-                  <v-layout row class="mt-4 ml-5">
-                    <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
-                  </v-layout>
-                  <v-divider class="mt-1 ml-5 mr-5"/>
-                  <Deck class="deck deckContainer mt-4" :cards="deckCards"/>
-                </v-flex>
-                <v-flex v-if="Object.keys(sideboardCards).length > 0">
-                  <v-layout row class="mt-4 ml-5">
-                    <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
-                  </v-layout>
-                  <v-divider class="mt-1 ml-5 mr-5"/>
-                  <Deck class="deck sideContainer mt-4" :sideboard="sideboardCards"/>
-                </v-flex>
+
               </v-layout>
             </v-tab-item>
 
@@ -122,6 +106,18 @@
               <PlayTest class="mt-3" :cards="deckCards"/>
             </v-tab-item>
           </v-tabs>
+        </v-layout>
+      </div>
+    </v-flex>
+    <!-- Right -->
+    <v-flex class="ml-0 mb-3" xs4>
+      <div class="box">
+        <v-layout class="boxContent pb-2" column nowrap>
+          <v-flex>
+            <ManaCurve class='mt-2 ml-1 mr-1' :manaCurve="deckManaCurve"/>
+          </v-flex>
+          <Deck class="deck deckContainer mt-4" :cards="deckCards"
+            :sideboard="sideboardCards" largeName/>
         </v-layout>
       </div>
     </v-flex>
@@ -200,7 +196,7 @@ export default {
           this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
           this.deckUpdates = res.data.updates
           if (this.$isUserLogged()) {
-            this.getUserCollection()
+            this.getDeckMissingCards()
           }
         })
         .catch(error => {
@@ -300,32 +296,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @media (min-width: 768px) {
-    .deckContainer {
-      column-count: 2;
-    }
-  }
-  @media (min-width: 768px) and (max-width: 1900px) {
-    .sideContainer {
-      column-count: 2;
-    }
-  }
   .line {
     height: 50%;
-  }
-  .deckContainer, .sideContainer {
-    margin-left: 24px;
-    margin-right: 24px;
   }
   .center .v-divider {
     width: 200px;
   }
   .deck {
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
   }
   .deckTitle {
     justify-content: center;
+  }
+  .deckInfo {
+    height: 100px;
   }
   .btExport {
     padding-right: 3%;
@@ -343,5 +328,14 @@ export default {
   }
   .wildcardsCost {
     transform: translateX(-5px);
+  }
+  .headerContainer {
+    position: relative;
+  }
+  .overlay {
+    position: absolute;
+    margin-top: 0;
+    top: 0;
+    right: 0;
   }
 </style>

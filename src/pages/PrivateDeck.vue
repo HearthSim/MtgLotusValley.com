@@ -52,7 +52,7 @@
     </v-flex>
     <!-- Left -->
     <v-flex class="center" xs8>
-      <div class="box">
+      <div class="box mr-0">
         <v-layout class="boxContent pb-2" column nowrap>
           <v-tabs class="mt-3 ml-3 mr-3" color="transparent">
 
@@ -108,10 +108,9 @@
     </v-flex>
     <!-- Right -->
     <v-flex class="mb-3" xs4>
-
       <div class="box">
         <v-layout class="boxContent pb-2" column nowrap>
-          <ManaCurve class="mt-3" :manaCurve="deckManaCurve"/>
+          <ManaCurve class="mt-2 ml-1 mr-1" :manaCurve="deckManaCurve"/>
 
           <Deck class="deck deckContainer mt-4" :cards="deckCards"
             :sideboard="sideboardCards" largeName/>
@@ -123,7 +122,6 @@
 
         </v-layout>
       </div>
-
     </v-flex>
   </v-layout>
 </template>
@@ -253,15 +251,6 @@ export default {
   }
   .center .v-divider {
     width: 150px;
-  }
-  #mana {
-    margin-left: 8px;
-    margin-right: 8px;
-    white-space: nowrap;
-  }
-  #mana img {
-    height: 20px;
-    width: 20px;
   }
   .deck {
     padding-left: 3%;
