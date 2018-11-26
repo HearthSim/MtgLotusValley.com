@@ -1,5 +1,5 @@
 <template>
-  <v-layout row wrap>
+  <v-layout class="pl-3 pr-3 pb-3" row wrap>
     <v-flex xs6>
       <TypeDistribution :cards="cards"/>
     </v-flex>

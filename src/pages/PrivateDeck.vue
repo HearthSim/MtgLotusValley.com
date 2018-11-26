@@ -21,31 +21,15 @@
           </v-layout>
         </div>
         <v-layout row class="overlay">
-          <v-divider class="mt-2 ml-2 mr-2 mb-2" vertical color="gray"/>
-          <v-layout column>
-            <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
-              <v-btn flat small color="white" v-on:click="exportDeckToArena()" 
-                slot="activator">Export to Arena</v-btn>
-              <v-card>
-                <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
-                <v-card-actions>
-                  <v-spacer/>
-                  <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
+          <v-divider class="mt-2 mb-2" vertical color="gray"/>
+          <v-layout column class='manaCurve mt-2'>
+            <ManaCurve :manaCurve="deckManaCurve" :height="70" :showTitle="false"/>
+          </v-layout>
 
-            <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
-              <v-btn flat small color="white" v-on:click="exportDeckToReading()" 
-                slot="activator">Export to Reading</v-btn>
-              <v-card>
-                <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
-                <v-card-actions>
-                  <v-spacer/>
-                  <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
+          <v-divider class="mt-2 mb-2 mr-05" vertical color="gray"/>
+          <v-layout column>
+            <v-btn flat small color="white" @click="exportDeckToArena()">Export to Arena</v-btn>
+            <v-btn flat small color="white" @click="exportDeckToText()">Export to Text</v-btn>
           </v-layout>
         </v-layout>
       </v-layout>
@@ -54,7 +38,7 @@
     <v-flex class="center" xs8>
       <div class="box mr-0">
         <v-layout class="boxContent pb-2" column nowrap>
-          <v-tabs class="mt-3 ml-3 mr-3" color="transparent">
+          <v-tabs class="mt-1 ml-3 mr-3" color="transparent">
 
             <v-tab>Overview</v-tab>
             <v-tab-item>
@@ -110,20 +94,54 @@
     <v-flex class="mb-3" xs4>
       <div class="box">
         <v-layout class="boxContent pb-2" column nowrap>
-          <ManaCurve class="mt-2 ml-1 mr-1" :manaCurve="deckManaCurve"/>
 
           <Deck class="deck deckContainer mt-4" :cards="deckCards"
             :sideboard="sideboardCards" largeName/>
-
-          <v-flex class="mt-4">
-            <span class='subheading'>Total Cost</span>
-            <WildcardsCost class="mt-1 ml-3 mr-3" :cost="deckWCCost"/>
-          </v-flex>
-
         </v-layout>
       </div>
     </v-flex>
+
+    <!-- Dialogs -->
+    <v-dialog v-model="deleteConfirmationDialogVisible" width="250">
+      <v-card>
+        <v-card-title class='subheading'>Are you Sure?</v-card-title>
+        <v-card-text>
+          <p class="text-md-center" v-if="isLoading">
+            <v-progress-circular color="deep-orange" :indeterminate="true"/>
+          </p>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn :disabled="isLoading" color="primary" flat
+            @click="deleteConfirmationDialogVisible = false">No</v-btn>
+          <v-btn :disabled="isLoading" color="primary" flat
+            @click="deleteDeck()">Yes</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+      <v-card>
+        <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+      <v-card>
+        <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
   </v-layout>
+
 </template>
 
 <script>
@@ -177,7 +195,8 @@ export default {
       isLoading: false,
       pagination: {},
       totalPages: 1,
-      deckExportDialogVisible: false
+      deckExportDialogVisible: false,
+      deleteConfirmationDialogVisible: false
     }
   },
   mounted () {
@@ -227,10 +246,17 @@ export default {
         })
     },
     exportDeckToArena: function () {
+      this.deckExportDialogVisible = true
       DeckUtils.exportDeckToArena(this.deckCards, this.sideboardCards)
     },
-    exportDeckToReading: function () {
-      DeckUtils.exportDeckToReading(this.deckCards, this.sideboardCards)
+    exportDeckToText: function () {
+      this.deckExportDialogVisible = true
+      DeckUtils.exportDeckToText(this.deckCards, this.sideboardCards)
+    },
+    cardsTotal: function (cards) {
+      const cardsQtd = Object.keys(cards).map(mtgaId => cards[mtgaId].qtd)
+      return cardsQtd.length > 0 ? cardsQtd.reduce((p, n) => p + n) : 0
+    },
     }
   },
   watch: {
@@ -272,6 +298,9 @@ export default {
   .mana img {
     height: 20px;
     width: 20px;
+  }
+  .manaCurve {
+    width: 162px;
   }
   .headerContainer {
     position: relative;

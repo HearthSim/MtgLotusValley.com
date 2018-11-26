@@ -298,7 +298,7 @@ export default {
       params: {
         alias: escape(alias),
         cardDetails: true,
-        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity,qtd',
+        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,colorIdentity,qtd',
         updates: true
       }
     })

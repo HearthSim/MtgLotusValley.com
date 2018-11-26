@@ -129,7 +129,7 @@ export default {
     })
     Utils.copyStringToClipboard(data)
   },
-  exportDeckToReading: function (deckCards, sideboardCards) {
+  exportDeckToText: function (deckCards, sideboardCards) {
     let data = ''
     const cardsByType = this.groupCardsByType(deckCards)
     cardsByType['Sideboard'] = sideboardCards

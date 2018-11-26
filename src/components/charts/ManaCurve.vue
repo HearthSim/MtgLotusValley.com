@@ -13,6 +13,16 @@ export default {
       type: Object,
       required: true
     },
+    height: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    width: {
+      type: Number,
+      required: false,
+      default: 0
+    },
     showTitle: {
       type: Boolean,
       required: false,
@@ -51,6 +61,12 @@ export default {
     manaCurve: function () {
       const labels = Object.keys(this.manaCurve.total)
       const ctx = document.getElementById('manaCurve-chart')
+      if (this.height > 0) {
+        ctx.height = this.height
+      }
+      if (this.width > 0) {
+        ctx.width = this.width
+      }
       new Chart(ctx, { // eslint-disable-line no-new
         type: 'bar',
         data: {
@@ -74,7 +90,10 @@ export default {
           scales: {
             xAxes: [{
               ticks: {
-                beginAtZero: true
+                beginAtZero: true,
+                fontColor: '#FFFFFF',
+                maxRotation: 0,
+                minRotation: 0
               },
               gridLines: {
                 display: false
@@ -121,8 +140,7 @@ export default {
 
 <style>
   #canvas-container {
-    width: 90%;
-    max-width: 350px;
+    max-width: 300px;
     margin: auto;
   }
 </style>
