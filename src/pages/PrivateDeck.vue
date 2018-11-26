@@ -42,7 +42,42 @@
 
             <v-tab>Overview</v-tab>
             <v-tab-item>
-              <Overview class='mt-3' :deckId="deckId"/>
+              <v-layout column wrap>
+                <v-layout class="mt-1" row nowrap>
+                  <v-spacer/>
+                  <v-layout v-if="winRateTotal !== undefined" column wrap class="mt-4">
+                    <span class='subheading'>Deck WinRate</span>
+                    <span class='title mt-2'>
+                      {{winRateTotal.wins}}-{{winRateTotal.losses}} ({{winRateTotal.winrate}}%)
+                    </span>
+                  </v-layout>
+                  <v-spacer/>
+                  <v-flex class="mt-4">
+                    <span class='subheading'>Total Cost</span>
+                    <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCCost"/>
+                  </v-flex>
+                  <v-spacer/>
+                </v-layout>
+                <Overview class='mt-4' :winrate="deckWinRate"/>
+              </v-layout>
+            </v-tab-item>
+
+            <v-tab>Visual Mode</v-tab>
+            <v-tab-item lazy>
+              <div>
+                <v-layout row class="mt-4 ml-5">
+                  <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
+                </v-layout>
+                <v-divider class="mt-1 ml-5 mr-5"/>
+                <DeckVisual class="deck mt-3" :cards="deckCards"/>
+              </div>
+              <div v-if="Object.keys(sideboardCards).length > 0">
+                <v-layout row class="mt-4 ml-5">
+                  <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
+                </v-layout>
+                <v-divider class="mt-1 ml-5 mr-5"/>
+                <DeckVisual class="deck mt-3" :sideboard="sideboardCards"/>
+              </div>
             </v-tab-item>
 
             <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
@@ -94,7 +129,17 @@
     <v-flex class="mb-3" xs4>
       <div class="box">
         <v-layout class="boxContent pb-2" column nowrap>
+          <v-layout row class="deckActions">
+            <v-flex xs6>
+              <v-btn flat small color="blue" @click="editDeck()">Edit</v-btn>
+            </v-flex>
+            <v-divider class="mt-2 ml-2 mr-2 mb-2" vertical color="gray"/>
+            <v-flex xs6>
+              <v-btn flat small color="blue" @click="deleteConfirmationDialogVisible = true">Delete</v-btn>
+            </v-flex>
+          </v-layout>
 
+          <DeckPresenting v-if="Object.keys(deckCards).length > 0" class="mt-2 ml-1 mr-1" :cards="deckCards"/>
           <Deck class="deck deckContainer mt-4" :cards="deckCards"
             :sideboard="sideboardCards" largeName/>
         </v-layout>
@@ -146,6 +191,8 @@
 
 <script>
 import Deck from '@/components/mtg/Deck'
+import DeckPresenting from '@/components/deck/DeckPresenting'
+import DeckVisual from '@/components/deck/DeckVisual'
 import Overview from '@/components/deck/Overview'
 import Stats from '@/components/deck/Stats'
 import Updates from '@/components/deck/Updates'
@@ -157,7 +204,7 @@ import DeckUtils from '@/scripts/deckutils'
 export default {
   name: 'PrivateDeck',
   components: {
-    Deck, Overview, Stats, Updates, PlayTest, ManaCurve, WildcardsCost
+    Deck, DeckPresenting, DeckVisual, Overview, Stats, Updates, PlayTest, ManaCurve, WildcardsCost
   },
   data () {
     return {
@@ -192,6 +239,8 @@ export default {
       deckWCCost: {},
       deckMatches: [],
       deckUpdates: [],
+      deckWinRate: {},
+      winRateTotal: undefined,
       isLoading: false,
       pagination: {},
       totalPages: 1,
@@ -224,6 +273,8 @@ export default {
           this.deckManaCurve = res.data.manaCurve
           this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
           this.deckUpdates = res.data.updates
+          this.deckWinRate = res.data.winRate
+          this.winRateTotal = res.data.winRate.totalWinRate
         })
         .catch(error => {
           this.isLoading = false
@@ -257,6 +308,22 @@ export default {
       const cardsQtd = Object.keys(cards).map(mtgaId => cards[mtgaId].qtd)
       return cardsQtd.length > 0 ? cardsQtd.reduce((p, n) => p + n) : 0
     },
+    editDeck: function () {
+      this.$router.replace(`/user/decks/${this.deckId}/edit`)
+    },
+    deleteDeck: function () {
+      this.isLoading = true
+      this.$api.deleteUserDecks(this.deckId)
+        .then(res => {
+          this.isLoading = false
+          this.deleteConfirmationDialogVisible = false
+          this.$router.replace('/user/decks')
+        })
+        .catch(error => {
+          this.isLoading = false
+          this.deleteConfirmationDialogVisible = false
+          console.log(error)
+        })
     }
   },
   watch: {
@@ -310,5 +377,8 @@ export default {
     margin-top: 0;
     top: 0;
     right: 0;
+  }
+  .deckActions button {
+    width: 90%;
   }
 </style>

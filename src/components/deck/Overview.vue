@@ -1,9 +1,5 @@
 <template>
   <v-layout row wrap>
-    <v-flex xs12 class="text-xs-center">
-      <v-progress-circular v-if="isLoading" color="deep-orange"
-        :width="2" :size="24" :indeterminate="true"/>
-    </v-flex>
     <v-flex xs6>
       <WinRatePieDistribution :data="winrateByColors" id="colorsWins" title="Wins Vs Colors"/>
     </v-flex>
@@ -34,8 +30,8 @@ export default {
     WinRateHBarDistribution, WinRatePieDistribution
   },
   props: {
-    deckId: {
-      type: String,
+    winrate: {
+      type: Object,
       required: true
     }
   },
@@ -47,18 +43,12 @@ export default {
       winrateByGuilds: {}
     }
   },
-  mounted () {
-    this.$api.getUserDeckOverview(this.deckId)
-      .then(res => {
-        this.isLoading = false
-        this.winrateByArchs = res.data.archs
-        this.winrateByColors = res.data.colors
-        this.winrateByGuilds = res.data.guilds
-      })
-      .catch(error => {
-        this.isLoading = false
-        console.log(error)
-      })
+  watch: {
+    winrate: function (value) {
+      this.winrateByArchs = value.archs
+      this.winrateByColors = value.colors
+      this.winrateByGuilds = value.guilds
+    }
   }
 }
 </script>
