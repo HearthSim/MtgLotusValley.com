@@ -74,12 +74,12 @@
     </v-flex>
     <v-dialog v-model="deleteConfirmationDialogVisible" width="250">
       <v-card>
-        <v-card-text class='subheading'>Are you Sure?</v-card-text>
-        <v-card-content>
+        <v-card-title class='subheading'>Are you Sure?</v-card-title>
+        <v-card-text>
           <p class="text-md-center" v-if="isLoading">
             <v-progress-circular color="deep-orange" :indeterminate="true"/>
           </p>
-        </v-card-content>
+        </v-card-text>
         <v-card-actions>
           <v-spacer/>
           <v-btn :disabled="isLoading" color="primary" flat

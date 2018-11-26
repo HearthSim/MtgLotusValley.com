@@ -99,6 +99,8 @@
     <v-flex class="ml-0 mb-3" xs4>
       <div class="box">
         <v-layout class="boxContent pb-2" column nowrap>
+          <DeckPresenting v-if="Object.keys(deckCards).length > 0"
+            class="ml-1 mr-1" :cards="deckCards"/>
           <Deck class="deck deckContainer mt-4" :cards="deckCards"
             :sideboard="sideboardCards"/>
         </v-layout>
@@ -131,6 +133,7 @@
 
 <script>
 import Deck from '@/components/mtg/Deck'
+import DeckPresenting from '@/components/deck/DeckPresenting'
 import DeckVisual from '@/components/deck/DeckVisual'
 import Stats from '@/components/deck/Stats'
 import Updates from '@/components/deck/Updates'
@@ -142,7 +145,7 @@ import DeckUtils from '@/scripts/deckutils'
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, DeckVisual, Stats, Updates, PlayTest, ManaCurve, WildcardsCost
+    Deck, DeckPresenting, DeckVisual, Stats, Updates, PlayTest, ManaCurve, WildcardsCost
   },
   created () {
     this.requestDeck()

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar app dark dense>
+    <v-toolbar id="toolbar" app dark dense>
       <v-toolbar-items>
         <router-link to="/">
           <img class="mt-1" src="@/assets/home.png" alt="Logo" height="38px">
@@ -170,6 +170,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+#toolbar {
+  z-index: 99999;
+}
 #body {
   background: url('~@/assets/bg.jpg') repeat;
 }
@@ -221,6 +224,7 @@ export default {
 }
 
 .m-auto { margin: auto; }
+.mr-05 { margin-right: 2px !important }
 .d-block { display: block; }
 
 .textNoSelect {
