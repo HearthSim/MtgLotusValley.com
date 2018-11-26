@@ -167,18 +167,25 @@ export default {
       }
     })
   },
-  getCards (page, pageSize, query, colors, rarities, types, sets) {
+  getCards (page, pageSize, query, colors, rarities, types, sets, onlyOwnedCards) {
+    const headers = {}
+    const params = {
+      pageNumber: page,
+      pageSize: pageSize,
+      query: query,
+      colors: colors === '' ? 'b,c,g,m,r,u,w' : colors,
+      rarities: rarities === '' ? 'c,u,r,m' : rarities,
+      types: types === '' ? 'a,c,e,i,l,p,s' : types,
+      sets: sets === '' ? 'ANA,XLN,RIX,DAR,M19,GRN,MED' : sets,
+      fields: 'name,mtgaid,multiverseid,imageUrl,imageUrlTransformed'
+    }
+    if (onlyOwnedCards === true) {
+      headers['Authorization'] = 'required'
+      params['onlyUserIdCards'] = localStorage.getItem('localId')
+    }
     return axios.get('/cards', {
-      params: {
-        pageNumber: page,
-        pageSize: pageSize,
-        query: query,
-        colors: colors === '' ? 'b,c,g,m,r,u,w' : colors,
-        rarities: rarities === '' ? 'c,u,r,m' : rarities,
-        types: types === '' ? 'a,c,e,i,l,p,s' : types,
-        sets: sets === '' ? 'ANA,XLN,RIX,DAR,M19,GRN,MED' : sets,
-        fields: 'name,mtgaid,multiverseid,imageUrl,imageUrlTransformed'
-      }
+      headers: headers,
+      params: params
     })
   },
   getUserCollection (summarized) {
@@ -228,8 +235,9 @@ export default {
         deckId: id,
         userId: localStorage.getItem('localId'),
         cardDetails: true,
-        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity,qtd',
-        updates: true
+        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,colorIdentity,qtd',
+        updates: true,
+        winRate: true
       }
     })
   },

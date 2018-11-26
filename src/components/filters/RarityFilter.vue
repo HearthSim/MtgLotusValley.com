@@ -6,7 +6,7 @@
       </div>
       <v-layout row nowrap class="text-xs-left mt-0">
         <v-tooltip v-for="rarity in rarities" :key="rarity.code" top open-delay=500>
-          <i v-bind:title="setTitle" :class="`mr-1 ss ss-2x ss-parl3 ss-${rarity.name.toLowerCase()}
+          <i :class="`mr-1 ss ss-2x ss-parl3 ss-${rarity.name.toLowerCase()}
             ${!activeRarities.includes(rarity.code) ? ' grayscale' : ''}`"
             @click="rarityClick(rarity.code)" slot="activator"/>
           {{ rarity.name }}

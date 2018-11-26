@@ -28,7 +28,7 @@
             <div>
               <v-layout column wrap>
                 <SetFilter class="filterSets pl-2 pr-2" v-model="activeSets"/>
-                <v-switch v-if="false" class="mt-0 ml-4 mr-3" label="Only cards that I have" v-model="onlyCardsIHave"/>
+                <v-switch class="mt-0 ml-4 mr-3" label="Only my collection" v-model="onlyOwnedCards"/>
               </v-layout>
             </div>
             <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
@@ -107,6 +107,7 @@ export default {
       activeRarities: this.$route.query.rarities !== undefined ? this.$route.query.rarities : '',
       activeTypes: this.$route.query.types !== undefined ? this.$route.query.types : '',
       activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : '',
+      onlyOwnedCards: this.$route.query.onlyOwnedCards !== undefined ? this.$route.query.onlyOwnedCards : '',
       searchQuery: this.$route.query.query,
       currentPageCards: {},
       isLoading: false,
@@ -126,8 +127,8 @@ export default {
     getCards: function () {
       this.isLoading = true
       const pageSize = 12
-      this.$api.getCards(this.currentPage, pageSize, this.searchQuery,
-        this.activeColors, this.activeRarities, this.activeTypes, this.activeSets)
+      this.$api.getCards(this.currentPage, pageSize, this.searchQuery, this.activeColors,
+        this.activeRarities, this.activeTypes, this.activeSets, this.onlyOwnedCards)
         .then(res => {
           this.currentPageCards = res.data.data
           this.totalPages = res.data.totalPages
@@ -146,16 +147,30 @@ export default {
         })
     },
     updateFilters: function () {
+      const query = {
+        page: 1
+      }
+      if (this.searchQuery !== '') {
+        query['query'] = this.searchQuery
+      }
+      if (this.activeColors !== '') {
+        query['colors'] = this.activeColors
+      }
+      if (this.activeRarities !== '') {
+        query['rarities'] = this.activeRarities
+      }
+      if (this.activeTypes !== '') {
+        query['types'] = this.activeTypes
+      }
+      if (this.activeSets !== '') {
+        query['sets'] = this.activeSets
+      }
+      if (this.onlyOwnedCards !== '') {
+        query['onlyOwnedCards'] = this.onlyOwnedCards
+      }
       this.$router.push({
         path: 'collection',
-        query: {
-          page: 1,
-          query: this.searchQuery,
-          colors: this.activeColors,
-          rarities: this.activeRarities,
-          types: this.activeTypes,
-          sets: this.activeSets
-        }
+        query: query
       })
       this.currentPage = 1
       this.getCards()
