@@ -10,11 +10,11 @@
       <v-layout row class="headerContainer mt-2 ml-2 mr-2">
         <div :class="`header header-${deckColors} white--text`">
           <v-layout class="line pt-2 ml-3" row nowrap>
-            <div class="mana mt-1">
+            <div class="mana mt-2">
               <img v-for="color in deckColors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
             </div>
-            <span class="title textNoWrap mt-1 ml-2">{{ deckName }}</span>
+            <span class="title textNoWrap mt-2 ml-2">{{ deckName }}</span>
           </v-layout>
           <v-layout class="line pt-2 ml-3" row nowrap>
             <span class='subheading'>{{ deckArch }}</span>
@@ -23,7 +23,7 @@
         <v-layout row class="overlay">
           <v-divider class="mt-2 mb-2" vertical color="gray"/>
           <v-layout column class='manaCurve mt-2'>
-            <ManaCurve :manaCurve="deckManaCurve" :height="70" :showTitle="false"/>
+            <ManaCurve :manaCurve="deckManaCurve" :height="75" :showTitle="false"/>
           </v-layout>
 
           <v-divider class="mt-2 mb-2 mr-05" vertical color="gray"/>
@@ -35,7 +35,7 @@
       </v-layout>
     </v-flex>
     <!-- Left -->
-    <v-flex class="center" xs8>
+    <v-flex xs8>
       <div class="box mr-0">
         <v-layout class="boxContent pb-2" column nowrap>
           <v-tabs class="mt-1 ml-3 mr-3" color="transparent">
@@ -95,20 +95,20 @@
               <v-data-table class="elevation-1 mt-2" :headers="matchesHeaders" :items="deckMatches" hide-actions
                 :loading="isLoading" :pagination.sync="pagination" :total-items="deckMatches.length">
                 <template slot="items" slot-scope="props">
+                  <td class="text-xs-center">
+                    {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
+                  </td>
                   <td :class="`text-xs-center ${props.item.wins ? 'green--text' : 'red--text'}`">
                     {{ props.item.wins ? 'Won' : 'Lost' }}
                   </td>
-                  <td class="text-xs-left">{{props.item.opponentName}}</td>
-                  <td class="text-xs-center" width="150">
-                    <div id="mana" class="mt-2">
+                  <td class="text-xs-center">
+                    <div class="mana mt-2">
                       <img v-for="color in props.item.opponentDeckColors.split('')" :key="color"
                         :src="require(`@/assets/mana/${color}.png`)"/>
                     </div>
                   </td>
                   <td class="text-xs-left">{{props.item.opponentDeckArch}}</td>
-                  <td class="text-xs-center">
-                    {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
-                  </td>
+                  <td class="text-xs-left">{{props.item.opponentName}}</td>
                 </template>
               </v-data-table>
               <v-layout row xs12 class="mt-2 mb-2">
@@ -131,11 +131,11 @@
         <v-layout class="boxContent pb-2" column nowrap>
           <v-layout row class="deckActions">
             <v-flex xs6>
-              <v-btn flat small color="blue" @click="editDeck()">Edit</v-btn>
+              <v-btn flat small color="primary" @click="editDeck()">Edit</v-btn>
             </v-flex>
             <v-divider class="mt-2 ml-2 mr-2 mb-2" vertical color="gray"/>
             <v-flex xs6>
-              <v-btn flat small color="blue" @click="deleteConfirmationDialogVisible = true">Delete</v-btn>
+              <v-btn flat small color="primary" @click="deleteConfirmationDialogVisible = true">Delete</v-btn>
             </v-flex>
           </v-layout>
 
@@ -223,11 +223,11 @@ export default {
         }
       ],
       matchesHeaders: [
+        { text: 'Date', align: 'center', value: 'date' },
         { text: 'Result', align: 'center', value: 'wins' },
-        { text: 'Opponent', value: 'opponent', sortable: false },
         { text: 'Opponent Colors', value: 'opponentDeckColors' },
         { text: 'Opponent Archetype', value: 'opponentDeckArch' },
-        { text: 'Date', align: 'center', value: 'date' }
+        { text: 'Opponent Name', value: 'opponent', sortable: false }
       ],
       deckId: this.$route.params.id,
       deckCards: {},
@@ -342,9 +342,6 @@ export default {
   .line {
     height: 50%;
   }
-  .center .v-divider {
-    width: 150px;
-  }
   .deck {
     padding-left: 3%;
     padding-right: 3%;
@@ -355,10 +352,6 @@ export default {
   .btExport {
     padding-right: 3%;
   }
-  .rSide > div {
-    margin: auto;
-    width: fit-content;
-  }
   .mana {
     white-space: nowrap;
   }
@@ -367,7 +360,7 @@ export default {
     width: 20px;
   }
   .manaCurve {
-    width: 162px;
+    width: 164px;
   }
   .headerContainer {
     position: relative;

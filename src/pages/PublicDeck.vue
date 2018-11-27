@@ -10,20 +10,25 @@
       <v-layout row class="headerContainer mt-2 ml-2 mr-2">
         <div :class="`header header-${deckColors} white--text`">
           <v-layout class="line pt-2 ml-3" row nowrap>
-            <div class="mana mt-1">
+            <div class="mana mt-2 ml-1">
               <img v-for="color in deckColors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
             </div>
-            <span class="title textNoWrap mt-1 ml-2">{{ deckName }}</span>
+            <span class="title textNoWrap mt-2 ml-3">{{ deckName }}</span>
           </v-layout>
-          <v-layout class="line pt-2 ml-3" row nowrap>
-            <span class='subheading'>{{ deckArch }}</span>
+          <v-layout class="line ml-3" row nowrap>
+            <v-btn v-if="deckId !== ''" class="likeButton" flat small :disabled="isLoading"
+              :color="deckLiked ? 'primary' : 'white'" @click="like()">
+              <span class="mt-1 subheading text--white">({{deckLikes}})</span>
+              <v-icon class="ml-1">thumb_up</v-icon>
+            </v-btn>
+            <span class='subheading mt-2'>{{ deckArch }}</span>
           </v-layout>
         </div>
         <v-layout row class="overlay">
           <v-divider class="mt-2 mb-2" vertical color="gray"/>
           <v-layout column class='manaCurve mt-2'>
-            <ManaCurve :manaCurve="deckManaCurve" :height="70" :showTitle="false"/>
+            <ManaCurve :manaCurve="deckManaCurve" :height="75" :showTitle="false"/>
           </v-layout>
 
           <v-divider class="mt-2 mb-2 mr-05" vertical color="gray"/>
@@ -37,7 +42,7 @@
     <!-- Left -->
     <v-flex xs8>
       <div class="box mr-0">
-        <v-layout class="boxContent" column nowrap>
+        <v-layout class="mainContainer boxContent" column nowrap>
           <v-tabs class="mb-3" color="transparent">
 
             <v-tab>Overview</v-tab>
@@ -128,6 +133,16 @@
       </v-card>
     </v-dialog>
 
+    <v-dialog v-model="needLoginDialogVisible" width="350">
+      <v-card>
+        <v-card-text class='subheading'>User not logged.</v-card-text>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn color="primary" flat @click="needLoginDialogVisible = false">OK</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
   </v-layout>
 </template>
 
@@ -167,6 +182,7 @@ export default {
       deckCards: {},
       sideboardCards: {},
       reprintsCards: {},
+      deckId: '',
       deckName: '',
       deckArch: '',
       deckColors: '',
@@ -175,7 +191,10 @@ export default {
       deckWCMissingCost: {},
       deckUpdates: [],
       isLoading: false,
-      deckExportDialogVisible: false
+      deckExportDialogVisible: false,
+      needLoginDialogVisible: false,
+      deckLiked: false,
+      deckLikes: 0
     }
   },
   methods: {
@@ -195,6 +214,7 @@ export default {
             text: res.data.name,
             disabled: true
           })
+          this.deckId = res.data.id
           this.deckCards = res.data.cards
           this.sideboardCards = res.data.sideboard
           this.deckName = res.data.name
@@ -203,6 +223,8 @@ export default {
           this.deckManaCurve = res.data.manaCurve
           this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
           this.deckUpdates = res.data.updates
+          this.deckLiked = res.data.liked
+          this.deckLikes = res.data.likes
           if (this.$isUserLogged()) {
             this.getDeckMissingCards()
           }
@@ -299,6 +321,22 @@ export default {
     cardsTotal: function (cards) {
       const cardsQtd = Object.keys(cards).map(mtgaId => cards[mtgaId].qtd)
       return cardsQtd.length > 0 ? cardsQtd.reduce((p, n) => p + n) : 0
+    },
+    like: function () {
+      if (!this.$isUserLogged()) {
+        this.needLoginDialogVisible = true
+        return
+      }
+      this.$api.updateUserDeckLike(this.deckId, !this.deckLiked)
+        .then(res => {
+          this.isLoading = false
+          this.deckLiked = !this.deckLiked
+          this.deckLikes += this.deckLiked ? 1 : -1
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
     }
   }
 }
@@ -337,7 +375,7 @@ export default {
     width: 20px;
   }
   .manaCurve {
-    width: 162px;
+    width: 164px;
   }
   .wildcardsCost {
     transform: translateX(-5px);
@@ -353,5 +391,11 @@ export default {
   }
   .overview {
     min-height: 600px;
+  }
+  .likeButton {
+    min-width: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
+    transform: translateX(-8px);
   }
 </style>

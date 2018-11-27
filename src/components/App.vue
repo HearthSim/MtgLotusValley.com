@@ -283,7 +283,7 @@ export default {
 .header {
   background-size: cover;
   background-position: center;
-  height: 80px;
+  height: 85px;
   width: 100%;
   border-radius: 4px;
   overflow: hidden;

@@ -307,7 +307,19 @@ export default {
         alias: escape(alias),
         cardDetails: true,
         fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,colorIdentity,qtd',
-        updates: true
+        updates: true,
+        userLikeId: localStorage.getItem('localId')
+      }
+    })
+  },
+  updateUserDeckLike (deckId, like) {
+    return axios.post('/decks/like', {
+      userId: localStorage.getItem('localId'),
+      deckId: deckId,
+      action: like ? 'LIKE' : 'DISLIKE'
+    }, {
+      headers: {
+        Authorization: 'required'
       }
     })
   },

@@ -18,8 +18,8 @@
           <v-spacer/>
           <div>
             <v-layout column>
-              <v-btn class="mt-0" color="white" @click="requestDecks()">Apply Filters</v-btn>
-              <v-btn class="mt-1" color="white" @click="clearFilters()">Clear Filters</v-btn>
+              <v-btn class="mt-0" color="primary" flat @click="requestDecks()">Apply Filters</v-btn>
+              <v-btn class="mt-1" color="primary" flat @click="clearFilters()">Clear Filters</v-btn>
             </v-layout>
           </div>
         </v-layout>
