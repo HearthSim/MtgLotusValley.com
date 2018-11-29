@@ -312,14 +312,24 @@ export default {
       }
     })
   },
-  updateUserDeckLike (deckId, like) {
+  postUserDeckLike (deckId) {
     return axios.post('/decks/like', {
       userId: localStorage.getItem('localId'),
-      deckId: deckId,
-      action: like ? 'LIKE' : 'DISLIKE'
+      deckId: deckId
     }, {
       headers: {
         Authorization: 'required'
+      }
+    })
+  },
+  deleteUserDeckLike (deckId) {
+    return axios.delete('/decks/like', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: {
+        userId: localStorage.getItem('localId'),
+        deckId: deckId
       }
     })
   },

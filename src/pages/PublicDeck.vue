@@ -327,16 +327,29 @@ export default {
         this.needLoginDialogVisible = true
         return
       }
-      this.$api.updateUserDeckLike(this.deckId, !this.deckLiked)
-        .then(res => {
-          this.isLoading = false
-          this.deckLiked = !this.deckLiked
-          this.deckLikes += this.deckLiked ? 1 : -1
-        })
-        .catch(error => {
-          this.isLoading = false
-          console.log(error)
-        })
+      if (this.deckLiked) {
+        this.$api.deleteUserDeckLike(this.deckId)
+          .then(res => {
+            this.isLoading = false
+            this.deckLiked = false
+            this.deckLikes -= 1
+          })
+          .catch(error => {
+            this.isLoading = false
+            console.log(error)
+          })
+      } else {
+        this.$api.postUserDeckLike(this.deckId)
+          .then(res => {
+            this.isLoading = false
+            this.deckLiked = true
+            this.deckLikes += 1
+          })
+          .catch(error => {
+            this.isLoading = false
+            console.log(error)
+          })
+      }
     }
   }
 }

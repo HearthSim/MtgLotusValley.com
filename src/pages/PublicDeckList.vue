@@ -139,7 +139,7 @@ export default {
       this.pagination.rowsPerPage = 15
       const { sortBy, descending, page, rowsPerPage } = this.pagination
       this.$api.getPublicDecks(page, rowsPerPage, sortBy, descending,
-        this.activeColors, this.searchQuery, this.containsCards, true, 'type')
+        this.activeColors, this.searchQuery, this.containsCards, true, 'rarity,type,qtd')
         .then(res => {
           this.isLoading = false
           this.currentDecks = res.data
@@ -166,7 +166,7 @@ export default {
           const userCollection = res.data
           const decks = this.currentDecks.map(deck => {
             deck.wildcardCostToBuild = DeckUtils.getDeckWCMissingCost(userCollection,
-              deck.cards, deck.sideboard)
+              deck.cards, deck.sideboard, deck.reprints)
             deck.owned = this.getOwnedPercent(deck.wildcardCost, deck.wildcardCostToBuild)
             return deck
           })
