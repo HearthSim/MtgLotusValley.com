@@ -115,7 +115,10 @@ export default {
       data = data.concat(this.enchantments)
       data = data.concat(this.artifacts)
       data = data.concat(this.planeswalkers)
-      const pileSize = data.length / columns
+      let pileSize = data.length / columns
+      if (pileSize % 1 > 0) {
+        pileSize = Math.trunc(pileSize) + 1
+      }
       for (let i = 0; i < columns; i++) {
         const index = i * pileSize
         cards.push(data.slice(index, index + pileSize))
@@ -127,7 +130,10 @@ export default {
     const sideboard = []
     if (this.sideboard !== undefined) {
       const data = this.groupCards(this.sideboard, false)
-      const pileSize = data.length / columns
+      let pileSize = data.length / columns
+      if (pileSize % 1 > 0) {
+        pileSize = Math.trunc(pileSize) + 1
+      }
       for (let i = 0; i < columns; i++) {
         const index = i * pileSize
         sideboard.push(data.slice(index, index + pileSize))
@@ -149,16 +155,24 @@ export default {
         const card = cards[mtgaId]
         card['id'] = mtgaId
         card['itemType'] = 'card'
-        for (let i = 0; i < card.qtd; i++) {
-          if (card.type.includes('Basic Land')) {
-            card['isMissing'] = false
-          } else {
-            card['isMissing'] = this.$isUserLogged()
-          }
+        if (card.type.includes('Basic Land')) {
+          card['isMissing'] = false
+          card['basicLandQtd'] = card.qtd
           cardsArray.push(card)
+        } else {
+          card['isMissing'] = this.$isUserLogged()
+          for (let i = 0; i < card.qtd; i++) {
+            cardsArray.push(card)
+          }
         }
       })
       cardsArray.sort(function (card1, card2) {
+        if (card1.type.includes('Basic Land') && !card2.type.includes('Basic Land')) {
+          return -1
+        }
+        if (!card1.type.includes('Basic Land') && card2.type.includes('Basic Land')) {
+          return 1
+        }
         if (card1.cmc !== card2.cmc) {
           return card1.cmc - card2.cmc
         }

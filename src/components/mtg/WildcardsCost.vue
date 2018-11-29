@@ -42,7 +42,7 @@ export default {
       Object.keys(value).forEach(rarity => {
         this.wcCosts.push({
           'rarity': rarity,
-          'qtd': value[rarity]
+          'qtd': value[rarity] ? value[rarity] : 0
         })
       })
     },

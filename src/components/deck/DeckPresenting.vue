@@ -1,6 +1,6 @@
 <template>
   <v-layout row nowrap class="cardsGroup pt-3 pl-4 pr-4">
-    <div class="cardContainer" v-for="(card, index) in fiveImportantCards()" :key="card.id">
+    <div class="cardContainer" v-for="(card, index) in fiveImportantCards()" :key="`p${index}`">
       <Card :class="`card card${index + 1}`" :name='card.name' :imageUrl='card.imageUrl'
         :imageUrlTransformed='card.imageUrlTransformed' :multiverseid='card.multiverseid'
         :highScaleOnHover="true" :qtd="-1"/>

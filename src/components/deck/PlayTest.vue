@@ -171,7 +171,7 @@ export default {
     min-height: 170px;
   }
   .cardContainer {
-    width: 8em;
+    width: 96px;
     margin: 1px;
   }
   .graveyard {

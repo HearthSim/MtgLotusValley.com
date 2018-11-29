@@ -8,7 +8,7 @@
     </v-flex>
     <v-flex xs12>
       <v-layout row class="headerContainer mt-2 ml-2 mr-2">
-        <div :class="`header header-${deckColors} white--text`">
+        <div :class="`header header-${deckColors !== '' ? deckColors : 'default'} white--text`">
           <v-layout class="line pt-2 ml-3" row nowrap>
             <div class="mana mt-2">
               <img v-for="color in deckColors.split('')" :key="color"

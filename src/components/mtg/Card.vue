@@ -6,7 +6,8 @@
         v-lazy="imageUrl" width="100%" ref="cardImage"/>
       <img v-if="imageUrlTransformed !== undefined" :class="`cardTransformed cardBorder ${qtd === 0 ? 'grayscale' : ''}`"
         :alt="name" v-lazy="imageUrlTransformed" width="100%" ref="cardImageTransformed"/>
-      <v-card class="cardQtd elevation-2" v-if="qtd > 1">
+      <v-card v-if="qtd > 1" dark
+        :class="`cardQtd ${qtdPosition === 'top' ? 'cardQtdOnTop' : 'cardQtdOnBottom'} elevation-2`">
         {{ qtd }}
       </v-card>
     </div>
@@ -48,6 +49,11 @@ export default {
       type: Number,
       default: 0,
       required: false
+    },
+    qtdPosition: {
+      type: String,
+      required: false,
+      default: 'bottom'
     },
     largeName: {
       type: Boolean,
@@ -117,10 +123,10 @@ export default {
     background-color: #14130e;
   }
   .cardTransformed {
-    display:none;
-    position:absolute;
-    top:0;
-    right:-100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: -100%;
   }
   .grayscale {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
@@ -160,14 +166,21 @@ export default {
   }
   .cardQtd {
     position: absolute;
-    bottom: 0;
     border: 2px double darkgray;
 	  border-radius: 6px;
-    font-size: 11pt;
-    padding-left: 5px;
-    padding-right: 5px;
-    background: lightgray;
-    transform: translateX(-5px);
+    padding-left: 4px;
+    padding-right: 4px;
+    background: black;
     width: fit-content;
+  }
+  .cardQtdOnBottom {
+    bottom: 0;
+    transform: translateX(-5px);
+    font-size: 11pt;
+  }
+  .cardQtdOnTop {
+    top: 0;
+    transform: translateX(-16px);
+    font-size: 9.5pt;
   }
 </style>

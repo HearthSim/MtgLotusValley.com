@@ -3,7 +3,8 @@
     <a class="cardContainer" v-for='(card, index) in cardsPile' v-bind:key='index'
        target="_blank" :href="cardLink(card.multiverseid, card.name)">
       <Card class="card" :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
-        :multiverseid='card.multiverseid' :qtd="-1" :scaleOnHover="false" />
+        :multiverseid='card.multiverseid' :qtd="card.basicLandQtd ? card.basicLandQtd : -1"
+        qtdPosition="top" :scaleOnHover="false" />
     </a>
   </div>
 </template>
