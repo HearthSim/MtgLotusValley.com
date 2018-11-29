@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/pages/Home'
 import User from '@/pages/User'
 import Meta from '@/pages/Meta'
+import DeckBuilder from '@/pages/DeckBuilder'
 import UserCollection from '@/pages/UserCollection'
 import PrivateDeckList from '@/pages/PrivateDeckList'
 import PrivateDeck from '@/pages/PrivateDeck'
@@ -49,12 +50,25 @@ const router = new Router({
       }
     },
     {
+      path: '/user/decks/:id/edit',
+      name: 'DeckBuilderEdit',
+      component: DeckBuilder,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
       path: '/user/decks/:id',
       name: 'PrivateDeck',
       component: PrivateDeck,
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/decks/builder',
+      name: 'DeckBuilder',
+      component: DeckBuilder
     },
     {
       path: '/decks',

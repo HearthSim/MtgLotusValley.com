@@ -109,7 +109,7 @@ export default {
       activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : '',
       onlyOwnedCards: this.$route.query.onlyOwnedCards !== undefined ? this.$route.query.onlyOwnedCards : '',
       searchQuery: this.$route.query.query,
-      currentPageCards: {},
+      currentPageCards: [],
       isLoading: false,
       totalPages: 0,
       userCollection: {}
@@ -127,8 +127,8 @@ export default {
     getCards: function () {
       this.isLoading = true
       const pageSize = 12
-      this.$api.getCards(this.currentPage, pageSize, this.searchQuery, this.activeColors,
-        this.activeRarities, this.activeTypes, this.activeSets, this.onlyOwnedCards)
+      this.$api.getCards(this.searchQuery, this.activeColors, this.activeRarities,
+        this.activeTypes, this.activeSets, this.onlyOwnedCards, this.currentPage, pageSize)
         .then(res => {
           this.currentPageCards = res.data.data
           this.totalPages = res.data.totalPages

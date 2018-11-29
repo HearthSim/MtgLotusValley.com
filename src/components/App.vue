@@ -17,16 +17,16 @@
               <img src="@/assets/logo.png" alt="Home" height="38px">
             </v-btn>
             <v-divider class="ml-2" vertical/>
-            <v-btn flat to="/meta">Meta</v-btn>
+            <v-btn flat exact to="/decks">Decks</v-btn>
             <v-divider vertical/>
-            <v-btn flat to="/decks">Decks</v-btn>
+            <v-btn flat exact to="/decks/builder">Deck Builder</v-btn>
             <v-divider vertical/>
             <v-btn flat @click="onDeckLoadClick()">
-              Load List
+              Deck Loader
               <!-- Upload dialog -->
               <v-dialog v-model="loadDeckDialog" max-width="350">
                 <v-card>
-                  <v-card-title class="headline">Load Deck</v-card-title>
+                  <v-card-title class="headline">Deck Loader</v-card-title>
                   <v-textarea class="ml-4 mr-4" no-resize rows="15"
                     v-model="loadDeckText" :placeholder="loadDeckHint"/>
                   <p class="text-md-center red--text darken-1" v-if="showError">{{ errorMsg }}</p>
@@ -41,6 +41,8 @@
                 </v-card>
               </v-dialog>
             </v-btn>
+            <v-divider vertical/>
+            <v-btn flat exact to="/meta">Meta</v-btn>
             <v-divider vertical/>
           </v-toolbar-items>
           <v-spacer/>

@@ -167,17 +167,17 @@ export default {
       }
     })
   },
-  getCards (page, pageSize, query, colors, rarities, types, sets, onlyOwnedCards) {
+  getCards (query, colors, rarities, types, sets, onlyOwnedCards, page, pageSize) {
     const headers = {}
     const params = {
-      pageNumber: page,
-      pageSize: pageSize,
       query: query,
       colors: colors === '' ? 'b,c,g,m,r,u,w' : colors,
       rarities: rarities === '' ? 'c,u,r,m' : rarities,
       types: types === '' ? 'a,c,e,i,l,p,s' : types,
       sets: sets === '' ? 'ANA,XLN,RIX,DAR,M19,GRN,MED' : sets,
-      fields: 'name,mtgaid,multiverseid,imageUrl,imageUrlTransformed'
+      pageNumber: page,
+      pageSize: pageSize,
+      fields: 'name,mtgaid,multiverseid,colors,imageUrl,imageUrlTransformed'
     }
     if (onlyOwnedCards === true) {
       headers['Authorization'] = 'required'
