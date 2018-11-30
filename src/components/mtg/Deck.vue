@@ -33,10 +33,11 @@
 <script>
 import DeckCard from '@/components/mtg/DeckCard'
 import DeckGroup from '@/components/mtg/DeckGroup'
+import DeckUtils from '@/scripts/deckutils'
 
 export default {
   components: {
-    DeckCard, DeckGroup
+    DeckCard, DeckGroup, DeckUtils
   },
   props: {
     cards: {
@@ -89,26 +90,8 @@ export default {
         card['itemType'] = 'card'
         cardsArray.push(card)
       })
-      cardsArray.sort(function (card1, card2) {
-        if (card1.cmc !== card2.cmc) {
-          return card1.cmc - card2.cmc
-        }
-        if (card1.name > card2.name) {
-          return 1
-        } else {
-          return -1
-        }
-      })
+      DeckUtils.sortByCmc(cardsArray)
       return cardsArray
-    },
-    getGroupCardsQtd: function (group) {
-      if (group.length === 0) {
-        return 0
-      }
-      if (group.length === 1) {
-        return group[0].qtd
-      }
-      return group.map(card => card.qtd).reduce((acc, value) => acc + value)
     },
     updateDeckCards: function () {
       this.cardsGrouped = []
@@ -133,18 +116,18 @@ export default {
       })
       this.planeswalkers = this.cardsGrouped.filter(card => card.type.includes('Planeswalker'))
 
-      this.landsQtd = this.getGroupCardsQtd(this.lands)
-      this.creaturesQtd = this.getGroupCardsQtd(this.creatures)
-      this.spellsQtd = this.getGroupCardsQtd(this.spells)
-      this.enchantmentsQtd = this.getGroupCardsQtd(this.enchantments)
-      this.artifactsQtd = this.getGroupCardsQtd(this.artifacts)
-      this.planeswalkersQtd = this.getGroupCardsQtd(this.planeswalkers)
+      this.landsQtd = DeckUtils.getGroupCardsQtd(this.lands)
+      this.creaturesQtd = DeckUtils.getGroupCardsQtd(this.creatures)
+      this.spellsQtd = DeckUtils.getGroupCardsQtd(this.spells)
+      this.enchantmentsQtd = DeckUtils.getGroupCardsQtd(this.enchantments)
+      this.artifactsQtd = DeckUtils.getGroupCardsQtd(this.artifacts)
+      this.planeswalkersQtd = DeckUtils.getGroupCardsQtd(this.planeswalkers)
     },
     updateSideboardCards: function () {
       if (this.sideboard !== undefined) {
         this.sideboardCards = this.groupCards(this.sideboard)
       }
-      this.sideboardQtd = this.getGroupCardsQtd(this.sideboardCards)
+      this.sideboardQtd = DeckUtils.getGroupCardsQtd(this.sideboardCards)
     }
   },
   watch: {

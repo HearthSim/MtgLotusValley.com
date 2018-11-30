@@ -1,6 +1,24 @@
 import Utils from '@/scripts/utils'
 
 export default {
+  sortByCmc: function (deckCards) {
+    deckCards.sort(function (card1, card2) {
+      if (card1.type.includes('Basic Land') && !card2.type.includes('Basic Land')) {
+        return -1
+      }
+      if (!card1.type.includes('Basic Land') && card2.type.includes('Basic Land')) {
+        return 1
+      }
+      if (card1.cmc !== card2.cmc) {
+        return card1.cmc - card2.cmc
+      }
+      if (card1.name > card2.name) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+  },
   groupCardsByType: function (cards) {
     const cardsArray = []
     Object.keys(cards).forEach(mtgaId => {
@@ -25,6 +43,15 @@ export default {
     })
     data['Planeswalkers'] = cardsArray.filter(card => card.type.includes('Planeswalker'))
     return data
+  },
+  getGroupCardsQtd: function (group) {
+    if (group.length === 0) {
+      return 0
+    }
+    if (group.length === 1) {
+      return group[0].qtd
+    }
+    return group.map(card => card.qtd).reduce((acc, value) => acc + value)
   },
   getDeckWCCost: function (mainCards, sideboardCards) {
     const wcCost = {}

@@ -11,10 +11,9 @@
     <!-- Hand -->
     <v-flex xs12>
       <ScrollDiv class="cards mt-3" :overflowAlways="false" ref="handList">
-        <div v-for="(card, index) in handCards" :key="index" class="pointer"
-          @click="onHandCardClick(index)">
+        <div v-for="(card, index) in handCards" :key="index" class="pointer">
           <Card :name='card.name' :imageUrl='card.imageUrl' :multiverseid='card.multiverseid'
-            :qtd="-1" :scaleOnHover="false" :clickable="false"/>
+            :qtd="-1" :scaleOnHover="false" :clickable="true" :clickableKey="index" @click="onHandCardClick"/>
         </div>
       </ScrollDiv>
       <v-divider class="mt-1"/>

@@ -1,11 +1,15 @@
 <template>
   <div>
-    <a class="cardContainer" v-for='(card, index) in cardsPile' v-bind:key='index'
+    <a v-if="!clickable" class="cardContainer" v-for='(card, index) in cardsPile' v-bind:key='index'
        target="_blank" :href="cardLink(card.multiverseid, card.name)">
       <Card class="card" :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
-        :multiverseid='card.multiverseid' :qtd="card.basicLandQtd ? card.basicLandQtd : -1"
-        qtdPosition="top" :scaleOnHover="false" />
+        :multiverseid='card.multiverseid' :qtd="getCardQtd(card)" qtdPosition="top" :scaleOnHover="false"
+        :clickable="false" :clickableKey="index" @click="cardClick" />
     </a>
+    <Card v-if="clickable" class="card" v-for='(card, index) in cardsPile' v-bind:key='index'
+      :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
+      :multiverseid='card.multiverseid' :qtd="getCardQtd(card)" qtdPosition="top" :scaleOnHover="false"
+      :clickable="true" :clickableKey="index" @click="cardClick" />
   </div>
 </template>
 
@@ -20,6 +24,16 @@ export default {
     cardsPile: {
       type: Array,
       required: true
+    },
+    clickable: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    showQtd: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   methods: {
@@ -28,6 +42,16 @@ export default {
         return `http://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[${name}]`
       }
       return `http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=${multiverseid}`
+    },
+    cardClick: function (index) {
+      this.$emit('click', this.cardsPile[index])
+    },
+    getCardQtd: function (card) {
+      if (this.showQtd) {
+        return card.qtd
+      } else {
+        return card.basicLandQtd ? card.basicLandQtd : -1
+      }
     }
   }
 }

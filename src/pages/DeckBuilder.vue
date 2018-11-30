@@ -35,7 +35,7 @@
       </v-layout>
     </v-flex>
     <!-- Left -->
-    <v-flex xs8>
+    <v-flex xs9>
       <div class="box mr-0">
         <v-layout class="mainContainer boxContent mt-0 ml-0 mr-0 mb-0" column nowrap>
 
@@ -51,10 +51,11 @@
               </v-tab>
               <v-tab-item v-for="color in colors" :key="`cards${color.code}`">
                 <v-layout class="cardsContainer" row wrap>
-                  <v-flex class="cardContainer mt-2 ml-1 mr-1"
-                    v-for="card in getCardList(color.code)" :key="card.mtgaid">
+                  <v-flex v-for="card in getCardList(color.code)" :key="card.mtgaid"
+                    class="cardContainer pointer mt-2 ml-1 mr-1">
                     <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
-                      :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'/>
+                      :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'
+                      :scaleOnHover="false" :clickable="true" :clickableKey="card" @click="onLibraryCardClick"/>
                   </v-flex>
                 </v-layout>
               </v-tab-item>
@@ -66,21 +67,23 @@
       </div>
     </v-flex>
     <!-- Right -->
-    <v-flex class="ml-0 mb-3" xs4>
+    <v-flex class="ml-0 mb-3" xs3>
       <div class="box">
-        <v-layout class="boxContent pb-2" column nowrap>
-          <v-tabs class="mb-3" color="transparent">
+        <v-layout class="boxContent mt-0 ml-0 mr-0 pb-2" column nowrap>
+          <v-tabs class="mb-3" color="transparent" v-model="currentDeckTab">
 
             <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCCost"/>
 
-            <v-tab>Main</v-tab>
+            <v-tab>Main ({{deckCardsQtd}})</v-tab>
             <v-tab-item>
-              <DeckVisualPile class="deck deckContainer mt-4" :cardsPile="deckCards"/>
+              <DeckVisualPile class="deck deckContainer mt-4" :cardsPile="deckCards"
+                :clickable="true" :showQtd="true" @click="onMainDeckCardClick"/>
             </v-tab-item>
 
-            <v-tab>Sideboard</v-tab>
+            <v-tab>Sideboard ({{sideboardCardsQtd}})</v-tab>
             <v-tab-item>
-              <DeckVisualPile class="deck deckContainer mt-4" :cardsPile="sideboardCards"/>
+              <DeckVisualPile class="deck deckContainer mt-4" :cardsPile="sideboardCards"
+                :clickable="true" :showQtd="true" @click="onSideboardCardClick"/>
             </v-tab-item>
 
           </v-tabs>
@@ -196,7 +199,9 @@ export default {
         }
       ],
       deckCards: [],
+      deckCardsQtd: 0,
       sideboardCards: [],
+      sideboardCardsQtd: 0,
       deckName: '',
       deckArch: '',
       deckColors: '',
@@ -219,7 +224,8 @@ export default {
       activeTypes: '',
       activeSets: '',
       onlyOwnedCards: '',
-      searchQuery: ''
+      searchQuery: '',
+      currentDeckTab: 0
     }
   },
   computed: {
@@ -272,6 +278,55 @@ export default {
       if (colorCode === 'w') return this.wCards
       if (colorCode === 'c') return this.cCards
       if (colorCode === 'm') return this.mCards
+    },
+    onLibraryCardClick: function (card) {
+      if (this.currentDeckTab === 0) {
+        this.addCard(card, this.deckCards, this.deckCardsQtd)
+      } else {
+        this.addCard(card, this.sideboardCards, this.sideboardCardsQtd)
+      }
+    },
+    onMainDeckCardClick: function (card) {
+        this.remCard(card, this.deckCards, this.deckCardsQtd)
+    },
+    onSideboardCardClick: function (card) {
+        this.remCard(card, this.sideboardCards, this.sideboardCardsQtd)
+    },
+    addCard: function (card, pile, pileQtd) {
+      const cardQtd = this.userCollection[card.mtgaid]
+      if (cardQtd > 0) {
+        this.userCollection[card.mtgaid] -= 1
+      } else {
+        return
+      }
+      let deckCard = pile.find(c => c.mtgaid === card.mtgaid)
+      if (deckCard === undefined) {
+        deckCard = Object.assign({}, card)
+        deckCard.qtd = 1
+      } else {
+        deckCard.qtd += 1
+        Utils.remove(pile, deckCard)
+      }
+      this.$nextTick(() => {
+        pile.push(deckCard)
+        pileQtd = DeckUtils.getGroupCardsQtd(pile)
+        DeckUtils.sortByCmc(pile)
+      })
+    },
+    remCard: function (card, pile, pileQtd) {
+      this.userCollection[card.mtgaid] += 1
+      let deckCard = pile.find(c => c.mtgaid === card.mtgaid)
+      if (deckCard.qtd > 1) {
+        deckCard.qtd -= 1
+        Utils.remove(pile, deckCard)
+        this.$nextTick(() => {
+          pile.push(deckCard)
+          pileQtd = DeckUtils.getGroupCardsQtd(pile)
+          DeckUtils.sortByCmc(pile)
+        })
+      } else {
+        Utils.remove(pile, deckCard)
+      }
     }
   }
 }
@@ -283,8 +338,8 @@ export default {
     height: 50%;
   }
   .deck {
-    padding-left: 3%;
-    padding-right: 3%;
+    margin-left: 14%;
+    margin-right: 14%;
   }
   .deckTitle {
     justify-content: center;
@@ -347,7 +402,7 @@ export default {
     padding: 15px;
   }
   .cardContainer {
-    width: 112px;
+    width: 128px;
   }
   .mainContainer {
     position: relative;
@@ -357,5 +412,8 @@ export default {
     right: 0;
     margin-top: 12px;
     z-index: 99;
+  }
+  .pointer {
+    cursor: cell;
   }
 </style>

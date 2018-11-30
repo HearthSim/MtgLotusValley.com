@@ -1,7 +1,7 @@
 <template>
   <div class="cardContainer">
-    <div v-if="!asText" :class="`cardAsImage ${getScaleClass()} ${clickable ? 'pointer' : ''}`"
-      @click="openInNewTab(cardLink())">
+    <div v-if="!asText" :class="`cardAsImage ${getScaleClass()} ${clickable ? '' : 'pointer'}`"
+      @click="onClick(cardLink())">
       <img :class="`cardBorder ${qtd === 0 ? 'grayscale' : ''}`" :alt="name"
         v-lazy="imageUrl" width="100%" ref="cardImage"/>
       <img v-if="imageUrlTransformed !== undefined" :class="`cardTransformed cardBorder ${qtd === 0 ? 'grayscale' : ''}`"
@@ -53,7 +53,7 @@ export default {
     qtdPosition: {
       type: String,
       required: false,
-      default: 'bottom'
+      default: 'bottom'
     },
     largeName: {
       type: Boolean,
@@ -73,7 +73,10 @@ export default {
     clickable: {
       type: Boolean,
       required: false,
-      default: true
+      default: false
+    },
+    clickableKey: {
+      required: false
     }
   },
   watch: {
@@ -97,11 +100,16 @@ export default {
       }
       return this.highScaleOnHover ? 'highHoverScale' : 'defaultHoverScale'
     },
-    openInNewTab: function (url) {
+    onClick: function (url) {
       if (this.clickable) {
-        var win = window.open(url, '_blank')
-        win.focus()
+        this.$emit('click', this.clickableKey)
+      } else {
+        this.openInNewTab(url)
       }
+    },
+    openInNewTab: function (url) {
+      var win = window.open(url, '_blank')
+      win.focus()
     }
   }
 }
@@ -134,9 +142,9 @@ export default {
   }
   .cardAsImage {
     z-index: 999;
+    position: relative;
   }
   .cardAsImage:hover {
-    position: relative;
     z-index: 9999;
   }
   .cardAsImage:hover .cardTransformed {
@@ -159,10 +167,10 @@ export default {
     transition-duration: .5s;
   }
   .textNameNormal {
-    max-width: 160px;
+    max-width: 140px;
   }
   .textNameLarge {
-    max-width: 200px;
+    max-width: 180px;
   }
   .cardQtd {
     position: absolute;

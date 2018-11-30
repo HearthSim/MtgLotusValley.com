@@ -177,7 +177,7 @@ export default {
       sets: sets === '' ? 'ANA,XLN,RIX,DAR,M19,GRN,MED' : sets,
       pageNumber: page,
       pageSize: pageSize,
-      fields: 'name,mtgaid,multiverseid,colors,imageUrl,imageUrlTransformed'
+      fields: 'name,mtgaid,multiverseid,colors,type,imageUrl,imageUrlTransformed'
     }
     if (onlyOwnedCards === true) {
       headers['Authorization'] = 'required'

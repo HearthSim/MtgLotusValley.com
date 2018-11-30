@@ -34,10 +34,11 @@
 <script>
 import DeckGroup from '@/components/mtg/DeckGroup'
 import DeckVisualPile from '@/components/deck/DeckVisualPile'
+import DeckUtils from '@/scripts/deckutils'
 
 export default {
   components: {
-    DeckGroup, DeckVisualPile
+    DeckGroup, DeckVisualPile, DeckUtils
   },
   props: {
     cards: {
@@ -166,22 +167,7 @@ export default {
           }
         }
       })
-      cardsArray.sort(function (card1, card2) {
-        if (card1.type.includes('Basic Land') && !card2.type.includes('Basic Land')) {
-          return -1
-        }
-        if (!card1.type.includes('Basic Land') && card2.type.includes('Basic Land')) {
-          return 1
-        }
-        if (card1.cmc !== card2.cmc) {
-          return card1.cmc - card2.cmc
-        }
-        if (card1.name > card2.name) {
-          return 1
-        } else {
-          return -1
-        }
-      })
+      DeckUtils.sortByCmc(cardsArray)
       return cardsArray
     },
     updateMissingCards: function (piles, mainDeck, userCollection) {
