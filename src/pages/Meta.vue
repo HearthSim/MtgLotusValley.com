@@ -1,77 +1,39 @@
-  <template>
-    <v-layout row wrap>
-      <!-- Left -->
-      <v-flex xs2>
-      </v-flex>
-      <!-- Center -->
-      <v-flex xs7 class="mb-3">
-        <div class="mt-3 ta-l">
-          <span class='body-2 grey--text text--darken-2'>
-            <strong>Most Played Cards (Last 7 days)</strong>
-          </span>
-        </div>
-        <v-card class="mt-2 pt-2 pb-3">
-          <v-layout class="ml-2 mr-2" row wrap>
-            <v-flex xs12 sm6>
-              <MostPlayedCards class="mt-1 ml-2 mostPlayedCards"
-                :cards="mostPlayedCardsConstructed" title="Constructed" largeName/>
-            </v-flex>
-            <v-flex xs12 sm6>
-              <MostPlayedCards class="mt-1 ml-2 mostPlayedCards"
-                :cards="mostPlayedCardsLimited" title="Limited" largeName/>
-            </v-flex>
-          </v-layout>
-        </v-card>
-        <div class="mt-3 ta-l">
-          <span class='body-2 grey--text text--darken-2'>
-            <strong>Deck by Archetype</strong>
-          </span>
-        </div>
-        <v-card class="mt-2 pt-2 pb-2">
-          <v-layout class="ml-2 mr-2" row nowrap>
-            <v-flex xs12 sm6>
-              <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" 
-                :dateMax="getDaysAgo(1)" eventType="Constructed" title="Constructed"/>
-            </v-flex>
-            <v-flex xs12 sm6>
-              <DecksByArch class="ml-3 mr-3" :dateMin="getMonthFirstDay()" 
-                :dateMax="getDaysAgo(1)" eventType="Limited" title="Limited"/>
-            </v-flex>
-          </v-layout>
-        </v-card>
-      </v-flex>
-      <!-- Right -->
-      <v-flex xs3>
-        <div>
-          <DecksColorDistribution class="mt-3" :colors="decksByColorsBasics"/>
-          <DecksGuildsDistribution class="mt-4" :colors="decksByColorsGuilds"/>
-        </div>
-      </v-flex>
-    </v-layout>
+<template>
+  <v-tabs class="box" color="transparent">
+    <v-tab v-for="tab in tabs" :key="tab.title">{{tab.title}}</v-tab>
+    <v-tab-item v-for="(tab, index) in tabs" :key="tab.title">
+      <MetaData :index="index" :startsDate="tab.startsDate" :endsDate="tab.endsDate"/>
+    </v-tab-item>
+  </v-tabs>
 </template>
 
 <script>
-import DecksByArch from '@/components/charts/DecksByArch'
-import DecksColorDistribution from '@/components/charts/DecksColorDistribution'
-import DecksGuildsDistribution from '@/components/charts/DecksGuildsDistribution'
-import MostPlayedCards from '@/components/MostPlayedCards'
+import MetaData from '@/components/MetaData'
 
 export default {
-  name: 'Home',
+  name: 'Meta',
   components: {
-    DecksByArch, DecksColorDistribution, DecksGuildsDistribution, MostPlayedCards
-  },
-  created () {
-    this.requestDeckByColorsBasics()
-    this.requestDeckByColorsGuilds()
-    this.requestMostPlayedCards()
+    MetaData
   },
   data () {
     return {
-      mostPlayedCardsConstructed: {},
-      mostPlayedCardsLimited: {},
-      decksByColorsBasics: {},
-      decksByColorsGuilds: {}
+      tabs: [
+        {
+          title: 'Yesterday',
+          startsDate: this.getDaysAgo(1),
+          endsDate: this.getDaysAgo(1)
+        },
+        {
+          title: 'Last 7 days',
+          startsDate: this.getDaysAgo(8),
+          endsDate: this.getDaysAgo(1)
+        },
+        {
+          title: 'Last 30 days',
+          startsDate: this.getDaysAgo(31),
+          endsDate: this.getDaysAgo(1)
+        }
+      ]
     }
   },
   methods: {
@@ -86,46 +48,6 @@ export default {
       return date.getUTCFullYear() + '-' +
           (`0${date.getUTCMonth() + 1}`).slice(-2) + '-' +
           (`0${date.getUTCDate()}`).slice(-2)
-    },
-    requestDeckByColorsBasics: function () {
-      this.$api.getDecksByColors(this.getDaysAgo(8), this.getDaysAgo(1), true)
-        .then(res => {
-          this.decksByColorsBasics = res.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-    requestDeckByColorsGuilds: function () {
-      this.$api.getDecksByColors(this.getDaysAgo(8), this.getDaysAgo(1), false)
-        .then(res => {
-          const data = {}
-          Object.keys(res.data).forEach(colors => {
-            if (colors.length > 1) {
-              data[colors] = res.data[colors]
-            }
-          })
-          this.decksByColorsGuilds = data
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    },
-    requestMostPlayedCards: function () {
-      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'Constructed', 15)
-        .then(res => {
-          this.mostPlayedCardsConstructed = res.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
-      this.$api.getMostPlayedCards(this.getDaysAgo(8), this.getDaysAgo(1), 'Limited', 15)
-        .then(res => {
-          this.mostPlayedCardsLimited = res.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
     }
   }
 }
@@ -133,24 +55,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.mostPlayedCards {
-  min-width: 280px;
-}
-.ta-l {
-  text-align: left;
-}
 </style>

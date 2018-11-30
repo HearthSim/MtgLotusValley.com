@@ -95,20 +95,32 @@
               <v-data-table class="elevation-1 mt-2" :headers="matchesHeaders" :items="deckMatches" hide-actions
                 :loading="isLoading" :pagination.sync="pagination" :total-items="deckMatches.length">
                 <template slot="items" slot-scope="props">
-                  <td class="text-xs-center">
-                    {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
-                  </td>
                   <td :class="`text-xs-center ${props.item.wins ? 'green--text' : 'red--text'}`">
                     {{ props.item.wins ? 'Won' : 'Lost' }}
                   </td>
                   <td class="text-xs-center">
-                    <div class="mana mt-2">
+                    <div class="mana mt-1 ml-2">
                       <img v-for="color in props.item.opponentDeckColors.split('')" :key="color"
                         :src="require(`@/assets/mana/${color}.png`)"/>
                     </div>
                   </td>
-                  <td class="text-xs-left">{{props.item.opponentDeckArch}}</td>
-                  <td class="text-xs-left">{{props.item.opponentName}}</td>
+                  <td class="text-xs-center">                    
+                    <div class="ml-2">
+                      {{props.item.opponentDeckArch}}
+                    </div>
+                  </td>
+                  <td class="text-xs-center">
+                    {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
+                  </td>
+                  <td class="text-xs-center">
+                    <v-tooltip right lazy>
+                      <v-icon slot="activator" @click="showInfo(props.item)">info</v-icon>
+                      <v-layout column>
+                        <div>{{props.item.opponentName}}</div>
+                        <div>{{props.item.duration}}</div>
+                      </v-layout>
+                    </v-tooltip>
+                  </td>
                 </template>
               </v-data-table>
               <v-layout row xs12 class="mt-2 mb-2">
@@ -223,11 +235,11 @@ export default {
         }
       ],
       matchesHeaders: [
-        { text: 'Date', align: 'center', value: 'date' },
         { text: 'Result', align: 'center', value: 'wins' },
-        { text: 'Opponent Colors', value: 'opponentDeckColors' },
-        { text: 'Opponent Archetype', value: 'opponentDeckArch' },
-        { text: 'Opponent Name', value: 'opponent', sortable: false }
+        { text: 'Vs Colors', align: 'center', value: 'opponentDeckColors' },
+        { text: 'Vs Archetype', align: 'center', value: 'opponentDeckArch' },
+        { text: 'Date', align: 'center', value: 'date' },
+        { text: 'Details', align: 'center', value: 'details', sortable: false }
       ],
       deckId: this.$route.params.id,
       deckCards: {},

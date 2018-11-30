@@ -1,6 +1,6 @@
 <template>
   <div id="canvas-container">
-    <canvas id="decksGuildsDistribution-chart"/>
+    <canvas class="m-auto" :id="`decksGuildsDistribution${id}-chart`"/>
   </div>
 </template>
 
@@ -59,6 +59,16 @@ export default {
     colors: {
       type: Object,
       required: true
+    },
+    title: {
+      type: Boolean,
+      required: false,
+      default: true
+    },
+    id: {
+      type: Number,
+      required: false,
+      default: 0
     }
   },
   computed: {
@@ -83,8 +93,9 @@ export default {
   },
   watch: {
     colors: function () {
-      const ctx = document.getElementById('decksGuildsDistribution-chart')
+      const ctx = document.getElementById(`decksGuildsDistribution${this.id}-chart`)
       ctx.height = 350
+      ctx.width = 250
       new Chart(ctx, { // eslint-disable-line no-new
         type: 'pie',
         data: {
@@ -107,7 +118,7 @@ export default {
           },
           title: {
             text: 'Guilds Distribution (Last 7 days)',
-            display: true
+            display: this.title
           },
           tooltips: {
             callbacks: {
