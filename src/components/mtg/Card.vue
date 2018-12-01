@@ -141,7 +141,7 @@ export default {
     filter: grayscale(100%);
   }
   .cardAsImage {
-    z-index: 999;
+    z-index: 99;
     position: relative;
   }
   .cardAsImage:hover {

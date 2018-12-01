@@ -167,7 +167,7 @@ export default {
       }
     })
   },
-  getCards (query, colors, rarities, types, sets, onlyOwnedCards, page, pageSize) {
+  getCards (query, colors, rarities, types, sets, onlyOwnedCards, page, pageSize, fields) {
     const headers = {}
     const params = {
       query: query,
@@ -177,7 +177,7 @@ export default {
       sets: sets === '' ? 'ANA,XLN,RIX,DAR,M19,GRN,MED' : sets,
       pageNumber: page,
       pageSize: pageSize,
-      fields: 'name,mtgaid,multiverseid,colors,type,imageUrl,imageUrlTransformed'
+      fields: fields !== undefined ? fields : 'name,mtgaid,multiverseid,imageUrl,imageUrlTransformed'
     }
     if (onlyOwnedCards === true) {
       headers['Authorization'] = 'required'
@@ -238,6 +238,20 @@ export default {
         fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,colorIdentity,qtd',
         updates: true,
         winRate: true
+      }
+    })
+  },
+  postUserDeck (deckId, deckName, deckColors, deckCards, deckSideboard) {
+    return axios.post('/users/decks', {
+      deckId: deckId,
+      userId: localStorage.getItem('localId'),
+      name: deckName,
+      colors: deckColors,
+      cards: deckCards,
+      sideboard: deckSideboard
+    }, {
+      headers: {
+        Authorization: 'required'
       }
     })
   },
@@ -340,14 +354,16 @@ export default {
       }
     })
   },
-  convertCardsToMtgaId (cards, sideboard) {
+  convertNamesToCards (cards, sideboard, cardDetails, fields) {
     return axios.post('/decks/converter', {
       cards: cards,
       sideboard: sideboard,
-      format: 'reading'
+      format: 'reading',
+      cardDetails: cardDetails,
+      fields: fields
     })
   },
-  convertCardsToObjects (cards, sideboard) {
+  convertMtgaIdToCards (cards, sideboard) {
     return axios.post('/decks/converter', {
       cards: escape(cards),
       sideboard: escape(sideboard),

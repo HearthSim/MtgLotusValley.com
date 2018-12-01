@@ -11,7 +11,7 @@
         <div :class="`header header-${deckColors !== '' ? deckColors : 'default'} white--text`">
           <v-layout class="line pt-2 ml-3" row nowrap>
             <div class="mana mt-2 ml-1">
-              <img v-for="color in deckColors.split('')" :key="color"
+              <img class="mr-1" v-for="color in deckColors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
             </div>
             <span class="title textNoWrap mt-2 ml-3">{{ deckName }}</span>
@@ -23,13 +23,13 @@
         <v-layout row class="overlay">
           <v-divider class="mt-2 mb-2" vertical color="gray"/>
           <v-layout column class='manaCurve mt-2'>
-            <ManaCurve :manaCurve="deckManaCurve" :height="75" :showTitle="false"/>
+            <ManaCurve :manaCurve="deckManaCurve" :height="75" :width="150" :showTitle="false"/>
           </v-layout>
 
           <v-divider class="mt-2 mb-2 mr-05" vertical color="gray"/>
           <v-layout column>
-            <v-btn flat small color="white" @click="importDeck()">Import</v-btn>
-            <v-btn flat small color="white" @click="saveDeck()">Save</v-btn>
+            <v-btn flat small color="white" @click="deckImportDialogVisible = true">Import</v-btn>
+            <v-btn flat small color="white" @click="deckNameDialogVisible = true">Save</v-btn>
           </v-layout>
         </v-layout>
       </v-layout>
@@ -39,9 +39,13 @@
       <div class="box mr-0">
         <v-layout class="mainContainer boxContent mt-0 ml-0 mr-0 mb-0" column nowrap>
 
-          <v-btn flat color="primary" @click="filtersDialogVisible = true">Filters</v-btn>
+          <v-layout row nowrap class="filtersButtons">
+            <v-switch class="mt-2 mr-3" label="Only my collection" v-model="onlyOwnedCards" @change="getCards()"/>
+            <v-btn flat color="primary" @click="filtersDialogVisible = true">Filters</v-btn>
+          </v-layout>
+
           <v-layout row wrap>
-            <v-tabs class="mt-2 mb-3" color="transparent">
+            <v-tabs class="width100 mt-2 mb-3" color="transparent">
 
               <v-tab class="tabColor" v-for="color in colors" :key="`tab${color.code}`">
                 <v-tooltip top open-delay=500>
@@ -50,13 +54,16 @@
                 </v-tooltip>
               </v-tab>
               <v-tab-item v-for="color in colors" :key="`cards${color.code}`">
-                <v-layout class="cardsContainer" row wrap>
-                  <v-flex v-for="card in getCardList(color.code)" :key="card.mtgaid"
-                    class="cardContainer pointer mt-2 ml-1 mr-1">
-                    <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
-                      :multiverseid='card.multiverseid' :qtd='userCollection[card.mtgaid]'
-                      :scaleOnHover="false" :clickable="true" :clickableKey="card" @click="onLibraryCardClick"/>
-                  </v-flex>
+                <v-layout class="cardsContainer" column>
+                  <v-progress-circular v-if="isCardsLoading" class="mt-4 m-auto" color="deep-orange" :indeterminate="true"/>
+                  <v-layout v-if="!isCardsLoading" row wrap>
+                    <v-flex v-for="card in getCardList(color.code)" :key="card.mtgaid"
+                      class="cardContainer pointer mt-2 ml-1 mr-1">
+                      <Card :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
+                        :multiverseid='card.multiverseid' :qtd='getUserCardQtd(card.mtgaid)'
+                        :scaleOnHover="false" :clickable="true" :clickableKey="card" @click="onLibraryCardClick"/>
+                    </v-flex>
+                  </v-layout>
                 </v-layout>
               </v-tab-item>
 
@@ -67,22 +74,23 @@
       </div>
     </v-flex>
     <!-- Right -->
-    <v-flex class="ml-0 mb-3" xs3>
-      <div class="box">
+    <v-flex class="ml-0" xs3>
+      <div class="box currentDeck">
         <v-layout class="boxContent mt-0 ml-0 mr-0 pb-2" column nowrap>
-          <v-tabs class="mb-3" color="transparent" v-model="currentDeckTab">
 
-            <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCCost"/>
+          <WildcardsCost class="wildcardsCost mt-3 m-auto" :cost="deckWCCost"/>
+
+          <v-tabs class="mt-1 ml-2 mr-2 mb-3" color="transparent" v-model="currentDeckTab">
 
             <v-tab>Main ({{deckCardsQtd}})</v-tab>
             <v-tab-item>
-              <DeckVisualPile class="deck deckContainer mt-4" :cardsPile="deckCards"
+              <DeckVisualPile class="deck deckContainer mt-3" :cardsPile="deckCards"
                 :clickable="true" :showQtd="true" @click="onMainDeckCardClick"/>
             </v-tab-item>
 
             <v-tab>Sideboard ({{sideboardCardsQtd}})</v-tab>
             <v-tab-item>
-              <DeckVisualPile class="deck deckContainer mt-4" :cardsPile="sideboardCards"
+              <DeckVisualPile class="deck deckContainer mt-3" :cardsPile="sideboardCards"
                 :clickable="true" :showQtd="true" @click="onSideboardCardClick"/>
             </v-tab-item>
 
@@ -113,9 +121,6 @@
                 </v-layout>
               </div>
             </v-layout>
-            <div class="mt-3 m-auto">
-              <v-switch class="mt-0 mb-0" label="Only my collection" v-model="onlyOwnedCards"/>
-            </div>
           </v-layout>
         </v-card-text>
         <v-card-actions>
@@ -127,22 +132,37 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+    <v-dialog v-model="deckImportDialogVisible" max-width="350">
       <v-card>
-        <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+        <v-card-title class="headline">Deck Import</v-card-title>
+        <v-textarea class="ml-1 mr-1" no-resize rows="15"
+          v-model="importDeckText" :placeholder="importDeckHint"/>
+        <p class="text-md-center red--text darken-1" v-if="showError">{{ errorMsg }}</p>
+        <p class="text-md-center" v-if="isLoading">
+          <v-progress-circular color="deep-orange" :indeterminate="true"/>
+        </p>
+        <v-divider/>
         <v-card-actions>
           <v-spacer/>
-          <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+          <v-btn color="green darken-1" flat @click.native="importDeck()">Import</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
 
-    <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+    <v-dialog v-model="deckNameDialogVisible" max-width="350">
       <v-card>
-        <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+        <v-card-title class="headline">Deck Name</v-card-title>
+        <v-card-text>
+          <v-text-field class="ml-4 mr-4" v-model="deckName" @keyup.native.enter="saveDeck()"/>
+          <p class="text-md-center red--text darken-1" v-if="showError">{{ errorMsg }}</p>
+          <p class="text-md-center" v-if="isLoading">
+            <v-progress-circular color="deep-orange" :indeterminate="true"/>
+          </p>
+          <v-divider/>
+        </v-card-text>
         <v-card-actions>
           <v-spacer/>
-          <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+          <v-btn color="green darken-1" flat @click.native="saveDeck()">Import</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -202,15 +222,26 @@ export default {
       deckCardsQtd: 0,
       sideboardCards: [],
       sideboardCardsQtd: 0,
-      deckName: '',
       deckArch: '',
+      deckName: '',
       deckColors: '',
       deckManaCurve: {},
-      deckWCCost: {},
+      deckWCCost: {
+        'common': 0,
+        'uncommon': 0,
+        'rare': 0,
+        'mythic': 0
+      },
+      importDeckText: '',
+      importDeckHint: 'Creature (14)\n4 Arclight Phoenix\n3 Crackling Drake\n4 Enigma Drake\n3 Goblin Electromancer\nSorcery (12)\n1 Beacon Bolt\n4 Chart a Course\n1 Lava Coil\n2 Maximize Velocity\n4 Tormenting Voice\nInstant (13)\n1 Dive Down\n4 Opt\n4 Radical Idea\n4 Shock\nLand (21)\n7 Island\n6 Mountain\n4 Steam Vents\n4 Sulfur Falls',
+      errorMsg: '',
+      showError: false,
       isLoading: false,
+      isCardsLoading: false,
       filtersDialogVisible: false,
-      deckExportDialogVisible: false,
+      deckImportDialogVisible: false,
       needLoginDialogVisible: false,
+      deckNameDialogVisible: false,
       userCollection: {},
       bCards: [],
       gCards: [],
@@ -223,9 +254,10 @@ export default {
       activeRarities: '',
       activeTypes: '',
       activeSets: '',
-      onlyOwnedCards: '',
+      onlyOwnedCards: false,
       searchQuery: '',
-      currentDeckTab: 0
+      currentDeckTab: 0,
+      cardFields: 'name,mtgaid,multiverseid,cmc,colors,type,rarity,imageUrl,imageUrlTransformed'
     }
   },
   computed: {
@@ -235,10 +267,11 @@ export default {
   },
   methods: {
     getCards: function () {
-      this.isLoading = true
+      this.isCardsLoading = true
       this.$api.getCards(this.searchQuery, this.activeColors, this.activeRarities,
-        this.activeTypes, this.activeSets, this.onlyOwnedCards, 1, 10000)
+        this.activeTypes, this.activeSets, this.onlyOwnedCards, 1, 10000, this.cardFields)
         .then(res => {
+          this.isCardsLoading = false
           const cards = res.data.data
           this.bCards = this.getCardsByColor(cards, 'B')
           this.gCards = this.getCardsByColor(cards, 'G')
@@ -247,19 +280,32 @@ export default {
           this.wCards = this.getCardsByColor(cards, 'W')
           this.mCards = this.getCardsByColor(cards, 'M')
           this.cCards = this.getCardsByColor(cards, 'C')
-          this.getUserCollection()
+          if (this.onlyOwnedCards) {
+            this.getUserCollection()
+          } else {
+            this.userCollection = {}
+          }
+        })
+        .catch(error => {
+          this.isCardsLoading = false
+          console.log(error)
+        })
+    },
+    getUserCollection: function () {
+      this.isLoading = true
+      this.$api.getUserCollection()
+        .then(res => {
+          this.isLoading = false
+          this.userCollection = res.data
         })
         .catch(error => {
           this.isLoading = false
           console.log(error)
         })
     },
-    getUserCollection: function () {
-      this.$api.getUserCollection()
-        .then(res => {
-          this.isLoading = false
-          this.userCollection = res.data
-        })
+    getUserCardQtd: function (mtgaid) {
+      const qtd = this.userCollection[mtgaid]
+      return qtd !== undefined ? qtd : -1
     },
     getCardsByColor: function (cards, colorCode) {
       if (colorCode === 'C') {
@@ -281,23 +327,25 @@ export default {
     },
     onLibraryCardClick: function (card) {
       if (this.currentDeckTab === 0) {
-        this.addCard(card, this.deckCards, this.deckCardsQtd)
+        this.addCard(card, this.deckCards, true)
       } else {
-        this.addCard(card, this.sideboardCards, this.sideboardCardsQtd)
+        this.addCard(card, this.sideboardCards, false)
       }
     },
     onMainDeckCardClick: function (card) {
-        this.remCard(card, this.deckCards, this.deckCardsQtd)
+      this.remCard(card, this.deckCards, true)
     },
     onSideboardCardClick: function (card) {
-        this.remCard(card, this.sideboardCards, this.sideboardCardsQtd)
+      this.remCard(card, this.sideboardCards, false)
     },
-    addCard: function (card, pile, pileQtd) {
-      const cardQtd = this.userCollection[card.mtgaid]
-      if (cardQtd > 0) {
-        this.userCollection[card.mtgaid] -= 1
-      } else {
-        return
+    addCard: function (card, pile, mainDeck) {
+      if (this.onlyOwnedCards) {
+        const cardQtd = this.userCollection[card.mtgaid]
+        if (cardQtd > 0) {
+          this.userCollection[card.mtgaid] -= 1
+        } else {
+          return
+        }
       }
       let deckCard = pile.find(c => c.mtgaid === card.mtgaid)
       if (deckCard === undefined) {
@@ -309,24 +357,127 @@ export default {
       }
       this.$nextTick(() => {
         pile.push(deckCard)
-        pileQtd = DeckUtils.getGroupCardsQtd(pile)
         DeckUtils.sortByCmc(pile)
+        this.updateDeckInfo()
       })
+      if (mainDeck) {
+        this.deckCardsQtd += 1
+      } else {
+        this.sideboardCardsQtd += 1
+      }
     },
-    remCard: function (card, pile, pileQtd) {
-      this.userCollection[card.mtgaid] += 1
+    remCard: function (card, pile, mainDeck) {
+      if (this.onlyOwnedCards) {
+        this.userCollection[card.mtgaid] += 1
+      }
       let deckCard = pile.find(c => c.mtgaid === card.mtgaid)
       if (deckCard.qtd > 1) {
         deckCard.qtd -= 1
         Utils.remove(pile, deckCard)
         this.$nextTick(() => {
           pile.push(deckCard)
-          pileQtd = DeckUtils.getGroupCardsQtd(pile)
-          DeckUtils.sortByCmc(pile)
+          this.updateDeckInfo()
         })
       } else {
         Utils.remove(pile, deckCard)
+        this.updateDeckInfo()
       }
+      if (mainDeck) {
+        this.deckCardsQtd -= 1
+      } else {
+        this.sideboardCardsQtd -= 1
+      }
+    },
+    updateDeckInfo: function () {
+      this.deckColors = DeckUtils.getDeckColors(this.deckCards)
+      this.deckManaCurve = DeckUtils.getDeckManaCurve(this.deckCards)
+      this.deckWCCost = DeckUtils.getDeckWCCost(this.deckCards, this.sideboardCards)
+    },
+    updateFilters: function () {
+      this.filtersDialogVisible = false
+      this.getCards()
+    },
+    clearFilters: function () {
+      this.filtersDialogVisible = false
+      this.searchQuery = ''
+      this.activeColors = ''
+      this.activeRarities = ''
+      this.activeTypes = ''
+      this.activeSets = ''
+      this.onlyOwnedCards = ''
+      this.getCards()
+    },
+    importDeck: function () {
+      try {
+        this.isLoading = true
+        const deckCards = DeckUtils.parseDeckText(this.importDeckText)
+        this.$api.convertNamesToCards(deckCards.cards, deckCards.sideboard, 'true', this.cardFields)
+          .then(res => {
+            this.isLoading = false
+            this.showError = false
+            this.deckImportDialogVisible = false
+            this.deckArch = res.data.arch
+            this.deckColors = res.data.colors
+            this.deckManaCurve = res.data.ManaCurve
+            this.deckWCCost = res.data.wildcardCost
+            const cards = []
+            Object.keys(res.data.cards).forEach(mtgaid => {
+              cards.push(res.data.cards[mtgaid])
+            })
+            DeckUtils.sortByCmc(cards)
+            this.deckCards = cards
+            this.deckCardsQtd = DeckUtils.getGroupCardsQtd(cards)
+            const sideboard = []
+            Object.keys(res.data.sideboard).forEach(mtgaid => {
+              sideboard.push(res.data.sideboard[mtgaid])
+            })
+            DeckUtils.sortByCmc(sideboard)
+            this.sideboardCards = sideboard
+            this.sideboardCardsQtd = DeckUtils.getGroupCardsQtd(sideboard)
+          })
+          .catch(error => {
+            console.log(error)
+            this.isLoading = false
+            this.errorMsg = error.response.data
+            this.showError = true
+          })
+      } catch (e) {
+        console.log(e)
+        this.isLoading = false
+        this.errorMsg = 'Invalid deck list'
+        this.showError = true
+      }
+    },
+    guid: function () {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      })
+    },
+    saveDeck: function () {
+      this.isLoading = true
+      const deckId = this.guid()
+      const cards = {}
+      this.deckCards.forEach(card => {
+        cards[card.mtgaid] = card.qtd
+      })
+      const sideboard = {}
+      this.sideboardCards.forEach(card => {
+        sideboard[card.mtgaid] = card.qtd
+      })
+      this.$api.postUserDeck(deckId, this.deckName, this.deckColors, cards, sideboard)
+        .then(res => {
+          this.isLoading = false
+          this.showError = false
+          this.deckNameDialogVisible = false
+          this.$router.replace(`/user/decks/${deckId}`)
+        })
+        .catch(error => {
+          console.log(error)
+          this.isLoading = false
+          this.errorMsg = error.response.data
+          this.showError = true
+        })
     }
   }
 }
@@ -338,8 +489,8 @@ export default {
     height: 50%;
   }
   .deck {
-    margin-left: 14%;
-    margin-right: 14%;
+    margin-left: 12%;
+    margin-right: 12%;
   }
   .deckTitle {
     justify-content: center;
@@ -354,8 +505,8 @@ export default {
     white-space: nowrap;
   }
   .mana img {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
   }
   .manaCurve {
     width: 164px;
@@ -385,10 +536,6 @@ export default {
   .filterSets {
     max-width: 300px;
   }
-  .v-text-field {
-    display: inline-block;
-    max-width: 240px;
-  }
   .v-input--switch {
     height: 32px;
   }
@@ -396,10 +543,32 @@ export default {
     height: 32px;
     width: 32px;
   }
-  .cardsContainer {
-    max-height: 370px;
-    overflow-y: auto;
-    padding: 15px;
+  @media (max-height: 800px) {
+    .cardsContainer {
+      min-height: 400px;
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 15px;
+    }
+    .currentDeck {
+      height: 480px;
+      overflow-y: overlay;
+    }
+  }
+  @media (min-height: 800px) {
+    .cardsContainer {
+      min-height: 600px;
+      max-height: 600px;
+      overflow-y: auto;
+      padding: 15px;
+    }
+    .currentDeck {
+      height: 680px;
+      overflow-y: overlay;
+    }
+  }
+  .width100 {
+    width: 100%;
   }
   .cardContainer {
     width: 128px;
@@ -407,10 +576,10 @@ export default {
   .mainContainer {
     position: relative;
   }
-  .mainContainer > button {
+  .filtersButtons {
     position: absolute;
     right: 0;
-    margin-top: 12px;
+    margin-top: 8px;
     z-index: 99;
   }
   .pointer {

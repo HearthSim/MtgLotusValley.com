@@ -53,6 +53,58 @@ export default {
     }
     return group.map(card => card.qtd).reduce((acc, value) => acc + value)
   },
+  getDeckColors: function (mainCards) {
+    let colors = []
+    Object.keys(mainCards).forEach(mtgaid => {
+      const card = mainCards[mtgaid]
+      if (card.colors !== undefined) {
+        card.colors.forEach(color => {
+          if (!colors.includes(color.toLowerCase())) {
+            colors.push(color.toLowerCase())
+          }
+        })
+      }
+    })
+    const color = Utils.guilds.find(color => color.colorsOrdered === colors.sort().join(''))
+    if (color !== undefined) {
+      return color.colors
+    } else {
+      return colors.sort().join('')
+    }
+  },
+  getDeckManaCurve: function (mainCards) {
+    const manaCurveCreatures = { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7+': 0 }
+    const manaCurveNonCreatures = { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7+': 0 }
+    const manaCurveTotal = { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7+': 0 }
+    Object.keys(mainCards).forEach(cardKey => {
+      const card = mainCards[cardKey]
+      if (!card.type.includes('Land')) {
+        if (card.cmc >= 7) {
+          manaCurveTotal['7+'] += card.qtd
+        } else {
+          manaCurveTotal[card.cmc] += card.qtd
+        }
+        if (card.type.includes('Creature')) {
+          if (card.cmc >= 7) {
+            manaCurveCreatures['7+'] += card.qtd
+          } else {
+            manaCurveCreatures[card.cmc] += card.qtd
+          }
+        } else {
+          if (card.cmc >= 7) {
+            manaCurveNonCreatures['7+'] += card.qtd
+          } else {
+            manaCurveNonCreatures[card.cmc] += card.qtd
+          }
+        }
+      }
+    })
+    return {
+      creatures: manaCurveCreatures,
+      nonCreatures: manaCurveNonCreatures,
+      total: manaCurveTotal
+    }
+  },
   getDeckWCCost: function (mainCards, sideboardCards) {
     const wcCost = {}
     Object.keys(mainCards).forEach(mtgaid => {
@@ -172,5 +224,58 @@ export default {
       }
     })
     Utils.copyStringToClipboard(data)
+  },
+  parseDeckText: function (text) {
+    let deckText = text
+    const numberOfEmptySpace = ((deckText || '').match(/\n\n/g) || []).length
+    if (numberOfEmptySpace === 1) {
+      deckText = deckText.replace(/\n\n/g, '/nsideboard')
+    }
+    let mainDeckText = deckText
+      .replace(/\n\n/g, '\n')   // Remove empty line
+      .replace(/\s+x\s/g, 'x ') // Remove spaces before x
+      .replace(/[`’]/g, '\'')   // Fix
+      .replace(/\t/g, ' ')      // Replace tab for space
+      .replace(/\d+x\s/g, s => s.replace('x', ''))  // Remove qtd x
+      .replace(/SB /gi, 'sideboard')        // Lowercase short sideboard
+      .replace(/sideboard/gi, 'sideboard')  // Lowercase sideboard
+    let sideboardDeckText = ''
+    if (mainDeckText.includes('sideboard')) {
+      const sideboardIndex = mainDeckText.indexOf('sideboard')
+      sideboardDeckText = mainDeckText.substring(sideboardIndex)
+      mainDeckText = mainDeckText.substring(0, sideboardIndex)
+    }
+    const re = /^\d+\s+(['\-/,A-Za-z]+[^\S\n]*)+/gm // Match any digit plus words with space but not newline
+    const cardLines = mainDeckText.match(re)
+    let cards = cardLines.map(line => line.replace(/\s{2,10}/g, ' ')  // Trim between text
+      .replace(' ', ':')  // Use colon between qtd and card name
+      .replace(/\s\d*[bgruwx]+\s/g, '')  // Remove mana cost if has
+      .trim()
+    ).filter(cardLine => !cardLine.toUpperCase().endsWith('LANDS') &&
+      !cardLine.toUpperCase().endsWith('CREATURES') &&
+      !cardLine.toUpperCase().endsWith('INSTANTS') &&
+      !cardLine.toUpperCase().endsWith('SORCERIES') &&
+      !cardLine.toUpperCase().endsWith('SORC.') &&
+      !cardLine.toUpperCase().endsWith('SPELLS') &&
+      !cardLine.toUpperCase().endsWith('ARTIFACTS') &&
+      !cardLine.toUpperCase().endsWith('PLANESWALKERS')
+    )
+    let sideboard = []
+    if (sideboardDeckText.length > 0) {
+      const sideboardLines = sideboardDeckText.match(re)
+      if (sideboardLines !== undefined && sideboardLines.length > 0) {
+        sideboard = sideboardLines.map(line => line.replace(/\s{2,10}/g, ' ')  // Trim between text
+          .replace(' ', ':')  // Use colon between qtd and card name
+          .replace(/\s\d*[bgruwx]+\s/g, '')  // Remove mana cost if has
+          .trim()
+        )
+      }
+    }
+    console.log(cards)
+    console.log(sideboard)
+    return {
+      cards: cards.join(';'),
+      sideboard: sideboard.join(';')
+    }
   }
 }

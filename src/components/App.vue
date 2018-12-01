@@ -21,26 +21,7 @@
             <v-divider vertical/>
             <v-btn flat exact to="/decks/builder">Deck Builder</v-btn>
             <v-divider vertical/>
-            <v-btn flat @click="onDeckLoadClick()">
-              Deck Loader
-              <!-- Upload dialog -->
-              <v-dialog v-model="loadDeckDialog" max-width="350">
-                <v-card>
-                  <v-card-title class="headline">Deck Loader</v-card-title>
-                  <v-textarea class="ml-4 mr-4" no-resize rows="15"
-                    v-model="loadDeckText" :placeholder="loadDeckHint"/>
-                  <p class="text-md-center red--text darken-1" v-if="showError">{{ errorMsg }}</p>
-                  <p class="text-md-center" v-if="isLoading">
-                    <v-progress-circular color="deep-orange" :indeterminate="true"/>
-                  </p>
-                  <v-divider/>
-                  <v-card-actions>
-                    <v-spacer/>
-                    <v-btn color="green darken-1" flat @click.native="onLoadDeckLoadClick()">Load</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
-            </v-btn>
+            <v-btn flat @click="onListLoadClick()">List Loader</v-btn>
             <v-divider vertical/>
             <v-btn flat exact to="/meta">Meta</v-btn>
             <v-divider vertical/>
@@ -52,6 +33,23 @@
         </v-toolbar>
         <router-view/>
       </div>
+      <!-- Loader dialog -->
+      <v-dialog v-model="loadDeckDialog" max-width="350">
+        <v-card>
+          <v-card-title class="headline">Deck Loader</v-card-title>
+          <v-textarea class="ml-4 mr-4" no-resize rows="15"
+            v-model="loadDeckText" :placeholder="loadDeckHint"/>
+          <p class="text-md-center red--text darken-1" v-if="showError">{{ errorMsg }}</p>
+          <p class="text-md-center" v-if="isLoading">
+            <v-progress-circular color="deep-orange" :indeterminate="true"/>
+          </p>
+          <v-divider/>
+          <v-card-actions>
+            <v-spacer/>
+            <v-btn color="green darken-1" flat @click.native="onLoadDeckLoadClick()">Load</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-content>
     <!-- <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
@@ -61,13 +59,14 @@
 
 <script>
 import Auth from '@/components/Auth'
+import DeckUtils from '@/scripts/deckutils'
 import 'mana-font/css/mana.min.css'
 import 'keyrune/css/keyrune.min.css'
 
 export default {
   name: 'App',
   components: {
-    Auth
+    Auth, DeckUtils
   },
   data () {
     return {
@@ -81,7 +80,7 @@ export default {
     }
   },
   methods: {
-    onDeckLoadClick: function () {
+    onListLoadClick: function () {
       this.loadDeckText = ''
       this.loadDeckDialog = true
     },
@@ -89,61 +88,17 @@ export default {
       this.isLoading = false
       this.showError = false
       try {
-        let deckText = this.loadDeckText
-        const numberOfEmptySpace = ((deckText || '').match(/\n\n/g) || []).length
-        if (numberOfEmptySpace === 1) {
-          deckText = deckText.replace(/\n\n/g, '/nsideboard')
-        }
-        let mainDeckText = deckText
-          .replace(/\n\n/g, '\n')   // Remove empty line
-          .replace(/\s+x\s/g, 'x ') // Remove spaces before x
-          .replace(/[`’]/g, '\'')   // Fix
-          .replace(/\t/g, ' ')      // Replace tab for space
-          .replace(/\d+x\s/g, s => s.replace('x', ''))  // Remove qtd x
-          .replace(/SB /gi, 'sideboard')        // Lowercase short sideboard
-          .replace(/sideboard/gi, 'sideboard')  // Lowercase sideboard
-        let sideboardDeckText = ''
-        if (mainDeckText.includes('sideboard')) {
-          const sideboardIndex = mainDeckText.indexOf('sideboard')
-          sideboardDeckText = mainDeckText.substring(sideboardIndex)
-          mainDeckText = mainDeckText.substring(0, sideboardIndex)
-        }
-        const re = /^\d+\s+(['\-/,A-Za-z]+[^\S\n]*)+/gm // Match any digit plus words with space but not newline
-        const cardLines = mainDeckText.match(re)
-        const cards = cardLines.map(line => line.replace(/\s{2,10}/g, ' ')  // Trim between text
-          .replace(' ', ':')  // Use colon between qtd and card name
-          .replace(/\s\d*[bgruwx]+\s/g, '')  // Remove mana cost if has
-          .trim()
-        ).filter(cardLine => !cardLine.toUpperCase().endsWith('LANDS') &&
-          !cardLine.toUpperCase().endsWith('CREATURES') &&
-          !cardLine.toUpperCase().endsWith('INSTANTS') &&
-          !cardLine.toUpperCase().endsWith('SORCERIES') &&
-          !cardLine.toUpperCase().endsWith('SORC.') &&
-          !cardLine.toUpperCase().endsWith('SPELLS') &&
-          !cardLine.toUpperCase().endsWith('ARTIFACTS') &&
-          !cardLine.toUpperCase().endsWith('PLANESWALKERS')
-        )
-        let sideboard = []
-        if (sideboardDeckText.length > 0) {
-          const sideboardLines = sideboardDeckText.match(re)
-          if (sideboardLines !== undefined && sideboardLines.length > 0) {
-            sideboard = sideboardLines.map(line => line.replace(/\s{2,10}/g, ' ')  // Trim between text
-              .replace(' ', ':')  // Use colon between qtd and card name
-              .replace(/\s\d*[bgruwx]+\s/g, '')  // Remove mana cost if has
-              .trim()
-            )
-          }
-        }
-        console.log(cards)
-        console.log(sideboard)
-        this.$api.convertCardsToMtgaId(cards.join(';'), sideboard.join(';'))
+        const deckCards = DeckUtils.parseDeckText(this.loadDeckText)
+        this.$api.convertNamesToCards(deckCards.cards, deckCards.sideboard)
           .then(res => {
             this.loadDeckDialog = false
+            const cards = res.data.cards.join(';')
+            const sideboard = res.data.sideboard.join(';')
             if (this.$route.path.includes('/decks/')) {
-              this.$router.replace(`/decks/${res.data.cards}_${res.data.sideboard}?loader=true`)
+              this.$router.replace(`/decks/${cards}_${sideboard}?loader=true`)
               location.reload()
             } else {
-              this.$router.replace(`/decks/${res.data.cards}_${res.data.sideboard}?loader=true`)
+              this.$router.replace(`/decks/${cards}_${sideboard}?loader=true`)
             }
           })
           .catch(error => {
