@@ -107,7 +107,7 @@ export default {
       activeRarities: this.$route.query.rarities !== undefined ? this.$route.query.rarities : '',
       activeTypes: this.$route.query.types !== undefined ? this.$route.query.types : '',
       activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : '',
-      onlyOwnedCards: this.$route.query.onlyOwnedCards !== undefined ? this.$route.query.onlyOwnedCards : '',
+      onlyOwnedCards: this.$route.query.onlyOwnedCards !== undefined ? this.$route.query.onlyOwnedCards : false,
       searchQuery: this.$route.query.query,
       currentPageCards: [],
       isLoading: false,
@@ -171,6 +171,22 @@ export default {
       this.$router.push({
         path: 'collection',
         query: query
+      })
+      this.currentPage = 1
+      this.getCards()
+    },
+    clearFilters: function () {
+      this.searchQuery = ''
+      this.activeColors = ''
+      this.activeRarities = ''
+      this.activeTypes = ''
+      this.activeSets = ''
+      this.onlyOwnedCards = false
+      this.$router.push({
+        path: 'collection',
+        query: {
+          page: 1
+        }
       })
       this.currentPage = 1
       this.getCards()

@@ -140,6 +140,9 @@ export default {
     onHandCardClick: function (index) {
       const card = this.handCards[index]
       this.handCards.splice(index, 1)
+      if (card.multiverseid === 0) {
+        return
+      }
       if (card.type.includes('Land') && !card.type.includes('Creature')) {
         this.landCards.push(card)
       } else if (card.type.includes('Instant') || card.type.includes('Sorcery')) {

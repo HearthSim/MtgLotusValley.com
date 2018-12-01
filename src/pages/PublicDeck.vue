@@ -9,12 +9,12 @@
     <v-flex xs12>
       <v-layout row class="headerContainer mt-2 ml-2 mr-2">
         <div :class="`header header-${deckColors !== '' ? deckColors : 'default'} white--text`">
-          <v-layout class="line pt-2 ml-3" row nowrap>
+          <v-layout class="line pt-2 ml-2" row nowrap>
             <div class="mana mt-2 ml-1">
-              <img v-for="color in deckColors.split('')" :key="color"
+              <img class="mr-1" v-for="color in deckColors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
             </div>
-            <span class="title textNoWrap mt-2 ml-3">{{ deckName }}</span>
+            <span class="title textNoWrap mt-2 ml-2">{{ deckName }}</span>
           </v-layout>
           <v-layout class="line ml-3" row nowrap>
             <v-btn v-if="deckId !== ''" class="likeButton" flat small :disabled="isLoading"
@@ -28,7 +28,7 @@
         <v-layout row class="overlay">
           <v-divider class="mt-2 mb-2" vertical color="gray"/>
           <v-layout column class='manaCurve mt-2'>
-            <ManaCurve :manaCurve="deckManaCurve" :height="75" :showTitle="false"/>
+            <ManaCurve :manaCurve="deckManaCurve" :height="75" :width="150" :showTitle="false"/>
           </v-layout>
 
           <v-divider class="mt-2 mb-2 mr-05" vertical color="gray"/>
@@ -236,7 +236,7 @@ export default {
     },
     getDeckByCards: function () {
       const cardsInfo = this.deckAlias.split('_')
-      this.$api.convertCardsToObjects(cardsInfo[0], cardsInfo[1])
+      this.$api.convertMtgaIdToCards(cardsInfo[0], cardsInfo[1])
         .then(res => {
           this.isLoading = false
           this.deckCards = res.data.cards
@@ -377,8 +377,8 @@ export default {
     white-space: nowrap;
   }
   .mana img {
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
   }
   .manaCurve {
     width: 164px;

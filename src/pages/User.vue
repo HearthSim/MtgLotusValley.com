@@ -82,10 +82,10 @@
       </v-layout>
     </v-flex>
 
-    <v-flex class="pl-2 pr-2 pb-3" xs12>
+    <v-flex class="pl-2 pr-2 pb-2" xs12>
       <v-layout class="box" row wrap>
         <v-flex xs12 class="boxHeader">Events Summary</v-flex>
-        <v-layout class="boxContent" row wrap>
+        <v-layout class="boxContent pb-3" row wrap>
           <v-flex xs3 class="eventStat" v-for="eventStat in userEventsStats" :key="eventStat.name">
           <EventStats class="mt-3" :data="eventStat" :id="eventStat.name"/>
         </v-flex>
