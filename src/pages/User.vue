@@ -14,84 +14,171 @@
 
     <!-- Bottom -->
 
-    <v-flex class="center mt-2 pl-2 pr-2" xs12>
-      <v-layout class="box" row wrap>
-        <v-flex xs12 class="boxHeader">User Summary</v-flex>
-        <v-layout class="boxContent pb-1" row wrap>
+    <v-layout class="box" row wrap>
+      <v-tabs class="mt-1 ml-3 mr-3" color="transparent">
 
-          <div class="ml-1">
-            <v-layout row class="userSummary">
-              <v-layout column class="mt-2 mr-2">
-                <span class="headline">{{totalGames}} games</span>
+        <v-tab>Summary</v-tab>
+        <v-tab-item>
+
+          <v-layout row>
+            <v-flex class="center mt-2 pl-2 pr-2" xs8>
+
+              <v-timeline align-top dense>
+                <v-timeline-item v-for="(data, index) in userMatchesData" :key="index"
+                  :color="data.wins ? 'green' : 'red'" small :hide-dot="data.isHeader">
+                  <div>
+                    <v-layout v-if="data.isHeader" row xs12>
+                      {{ data.dateFormatted }}
+                    </v-layout>
+
+                    <v-card v-if="!data.isHeader" class="mt-2 py-2">
+                      <v-layout row xs12>
+                        <v-flex>
+                          <div class="ml-2">
+                            {{data.eventName}}
+                          </div>
+                        </v-flex>
+                        <v-flex>
+                          <strong class="body-2">Vs</strong>
+                        </v-flex>
+                        <v-flex>
+                          <div class="mana mt-1 ml-2">
+                            <img v-for="color in data.opponentDeckColors.split('')" :key="color"
+                              :src="require(`@/assets/mana/${color}.png`)"/>
+                          </div>
+                        </v-flex>
+                        <v-flex>
+                          <div class="ml-2">
+                            {{data.opponentDeckArch}}
+                          </div>
+                        </v-flex>
+                        <v-spacer/>
+                        <v-flex>
+                          <v-tooltip right lazy>
+                            <v-icon slot="activator" @click="showInfo(data)">info</v-icon>
+                            <v-layout column>
+                              <div>{{data.opponentName}}</div>
+                              <div>{{data.duration}}</div>
+                            </v-layout>
+                          </v-tooltip>
+                        </v-flex>
+                      </v-layout>
+                    </v-card>
+
+                  </div>
+                </v-timeline-item>
+              </v-timeline>
+
+            </v-flex>
+
+            <v-flex class="center mt-2 pl-2 pr-2" xs4>
+              <v-layout class="box" row wrap xs12>
+                <v-flex xs12 class="boxHeader">User Summary</v-flex>
+                <v-layout class="boxContent pb-1" row wrap>
+
+                  <v-layout column>
+                    <v-layout row class="userSummary">
+                      <v-layout column class="mt-2 mr-2">
+                        <span class="headline">{{totalGames}} games</span>
+                      </v-layout>
+                      <v-layout column>
+                        <span class="display-1">(</span>
+                      </v-layout>
+                      <v-layout column class="ml-2 mr-2 body-2 text-xs-center">
+                        <span>{{totalConstructed}} Constructed</span>
+                        <span>{{totalLimited}} Limited</span>
+                      </v-layout>
+                      <v-layout column>
+                        <span class="display-1">)</span>
+                      </v-layout>
+                    </v-layout>
+                  </v-layout>
+
+                  <v-layout row class="m-auto">
+                    <span class="subheading pt-1 mt-2">{{ userGold }} </span>
+                    <img class="mt-1 ml-1 icon" :src="require('@/assets/coins.png')"/>
+
+                    <span class="subheading pt-1 mt-2 ml-3">{{ userGems }} </span>
+                    <img class="mt-1 ml-1 icon" :src="require('@/assets/gems.png')"/>
+
+                    <span class="subheading pt-1 mt-2 ml-3">{{ userVault }}% </span>
+                    <img class="mt-1 ml-1 mr-2 icon" :src="require('@/assets/vault.png')"/>
+                  </v-layout>
+
+                </v-layout>
               </v-layout>
-              <v-layout column>
-                <span class="display-1">(</span>
+
+              <v-layout class="box" row wrap xs12>
+                <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
+                <v-layout class="boxContent mt-0 pb-2" row wrap>
+                  <v-card class="setSummary mt-3 pb-2 m-auto" v-for="set in userCollectionSummary" :key="set.code">
+                    <v-layout column class="summaryTitle pt-1 mb-2">
+                      <router-link :to="`/user/collection?page=1&sets=${set.code}`">
+                        <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
+                      </router-link>
+                    </v-layout>
+                    <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
+                      <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
+                        slot="activator">
+                        <v-layout class="setRarityLine" row nowrap>
+                          <SetSymbol class="setSymbol ml-3" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
+                          <v-progress-linear class="ml-2" :color="rarity.color" height="5"
+                            :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
+                          <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
+                        </v-layout>
+                      </router-link>
+                      <v-layout column>
+                        <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
+                        <span>Playset: {{set.playset[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
+                        <span>All: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}</span>
+                      </v-layout>
+                    </v-tooltip>
+                    <v-tooltip right lazy>
+                      <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
+                      <span>Chance to open a 5th rare/mythic copy</span>
+                    </v-tooltip>
+                  </v-card>
+                </v-layout>
               </v-layout>
-              <v-layout column class="ml-2 mr-2 body-2 text-xs-center">
-                <span>{{totalConstructed}} Constructed</span>
-                <span>{{totalLimited}} Limited</span>
-              </v-layout>
-              <v-layout column>
-                <span class="display-1">)</span>
+            </v-flex>
+
+          </v-layout>
+        </v-tab-item>
+
+        <v-tab>Constructed</v-tab>
+        <v-tab-item>
+
+          <v-flex class="pl-2 pr-2 pb-2" xs12>
+            <v-layout class="box" row wrap>
+              <v-flex xs12 class="boxHeader">Events Summary</v-flex>
+              <v-layout class="boxContent pb-3" row wrap>
+                <v-flex xs3 class="eventStat" v-for="eventStat in userEventsStats" :key="eventStat.name">
+                <EventStats class="mt-3" :data="eventStat" :id="eventStat.name"/>
+              </v-flex>
               </v-layout>
             </v-layout>
-          </div>
+          </v-flex>
 
-          <v-spacer/>
+        </v-tab-item>
 
-          <span class="subheading pt-1 mt-2">{{ userGold }} </span>
-          <img class="mt-1 ml-1 icon" :src="require('@/assets/coins.png')"/>
-          
-          <span class="subheading pt-1 mt-2 ml-3">{{ userGems }} </span>
-          <img class="mt-1 ml-1 icon" :src="require('@/assets/gems.png')"/>
-          
-          <span class="subheading pt-1 mt-2 ml-3">{{ userVault }}% </span>
-          <img class="mt-1 ml-1 mr-2 icon" :src="require('@/assets/vault.png')"/>
-          
-        </v-layout>
-      </v-layout>
-    </v-flex>
+        <v-tab>Draft</v-tab>
+        <v-tab-item>
 
-    <v-flex class="center pl-2 pr-2" xs12>
-      <v-layout class="box" row wrap>
-        <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
-        <v-layout class="boxContent mt-0 pb-2" row wrap>
-          <v-card class="setSummary mt-3 pb-2 m-auto" v-for="set in userCollectionSummary" :key="set.code">
-            <div class="summaryTitle pt-1 mb-2">
-              <router-link :to="`/user/collection?page=1&sets=${set.code}`">
-                <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
-              </router-link>
-            </div>
-            <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
-              <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
-                slot="activator">
-                <v-layout class="setRarityLine" row nowrap>
-                  <SetSymbol class="setSymbol ml-3" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
-                  <v-progress-linear class="ml-2" :color="rarity.color" height="5"
-                    :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
-                  <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
-                </v-layout>
-              </router-link>
-              <v-layout column>
-                <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
-                <span>Playset: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}</span>
-              </v-layout>
-            </v-tooltip>
-          </v-card>
-        </v-layout>
-      </v-layout>
-    </v-flex>
+        </v-tab-item>
 
-    <v-flex class="pl-2 pr-2 pb-2" xs12>
-      <v-layout class="box" row wrap>
-        <v-flex xs12 class="boxHeader">Events Summary</v-flex>
-        <v-layout class="boxContent pb-3" row wrap>
-          <v-flex xs3 class="eventStat" v-for="eventStat in userEventsStats" :key="eventStat.name">
-          <EventStats class="mt-3" :data="eventStat" :id="eventStat.name"/>
-        </v-flex>
-        </v-layout>
-      </v-layout>
-    </v-flex>
+        <v-tab>Sealed</v-tab>
+        <v-tab-item>
+
+        </v-tab-item>
+
+        <v-tab>Others</v-tab>
+        <v-tab-item>
+
+        </v-tab-item>
+
+      </v-tabs>
+    </v-layout>
+
   </v-layout>
 </template>
 
@@ -110,6 +197,7 @@ export default {
     this.requestUserExtras()
     this.requestUserCollectionSummary()
     this.requestUserEventsStats()
+    this.requestMatches()
   },
   data () {
     return {
@@ -132,7 +220,11 @@ export default {
       rarities: Utils.rarities,
       totalGames: 0,
       totalConstructed: 0,
-      totalLimited: 0
+      totalLimited: 0,
+      isLoading: false,
+      pagination: {},
+      totalPages: 1,
+      userMatchesData: []
     }
   },
   methods: {
@@ -159,19 +251,20 @@ export default {
           console.log(error)
         })
     },
+    getSummaryUniquePercent: function (set, rarity) {
+      const percent = set.unique[rarity] / set.all[rarity] * 100
+      return parseFloat(percent.toFixed(0))
+    },
+    getFifthCopyChance: function (set) {
+      const totalRareMythicPlayset = set.unique['rare'] + set.unique['mythic']
+      const ownedRareMythicPlayset = set.playset['rare'] + set.playset['mythic']
+      const percent = ownedRareMythicPlayset / totalRareMythicPlayset * 100
+      return parseFloat(percent.toFixed(0))
+    },
     requestUserEventsStats: function () {
       this.$api.getUserEventsStats()
         .then(res => {
-          const data = res.data.map(stat => {
-            const event = Utils.events.find(event => event.name === stat.name)
-            stat['type'] = event.type
-            return stat
-          })
-          data.sort((e1, e2) => {
-            const e1Index = Utils.events.findIndex(event => event.name === e1.name)
-            const e2Index = Utils.events.findIndex(event => event.name === e2.name)
-            return e1Index - e2Index
-          })
+          const data = res.data
           this.totalGames = data.map(stat => stat.wins + stat.losses).reduce((acc, value) => acc + value)
           this.totalConstructed = data.filter(stat => stat.type === 'Constructed')
             .map(stat => stat.wins + stat.losses).reduce((acc, value) => acc + value)
@@ -183,9 +276,30 @@ export default {
           console.log(error)
         })
     },
-    getSummaryUniquePercent: function (set, rarity) {
-      const percent = set.unique[rarity] / set.all[rarity] * 100
-      return parseFloat(percent.toFixed(0))
+    requestMatches: function () {
+      this.isLoading = true
+      this.pagination.rowsPerPage = 10
+      const { sortBy, descending, page, rowsPerPage } = this.pagination
+      this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending)
+        .then(res => {
+          this.isLoading = false
+          this.totalPages = res.data.length < rowsPerPage ? page : page + 1
+          res.data.forEach(match => {
+            const userMatchesSize = this.userMatchesData.length
+            if (userMatchesSize === 0 || this.userMatchesData[userMatchesSize - 1].date !== match.date) {
+              const date = new Date(match.date.replace('_', ':'))
+              this.userMatchesData.push({
+                isHeader: true,
+                dateFormatted: date.toLocaleString().split(' ')[0].replace(',', '')
+              })
+            }
+            this.userMatchesData.push(match)
+          })
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
     }
   }
 }
@@ -226,5 +340,12 @@ export default {
   a {
     color: black;
     text-decoration: none;
+  }
+  .mana {
+    white-space: nowrap;
+  }
+  .mana img {
+    height: 25px;
+    width: 25px;
   }
 </style>

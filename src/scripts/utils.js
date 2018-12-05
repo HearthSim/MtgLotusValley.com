@@ -33,17 +33,6 @@ export default {
     { code: 'GRN', name: 'Guilds of Ravnica' },
     { code: 'MED', name: 'Mythic Edition' }
   ],
-  events: [
-    { name: 'RankedConstructed', type: 'Constructed' },
-    { name: 'QuickConstructed', type: 'Constructed' },
-    { name: 'CompetitiveConstructed', type: 'Constructed' },
-    { name: 'Draft', type: 'Limited' },
-    { name: 'Sealed', type: 'Limited' },
-    { name: 'Singleton', type: 'Constructed' },
-    { name: 'Pauper', type: 'Constructed' },
-    { name: 'Momir', type: 'Constructed' },
-    { name: 'Exploration', type: 'Constructed' }
-  ],
   guilds: [
     { colors: 'wu', colorsOrdered: 'uw', name: 'Azorius' },
     { colors: 'wr', colorsOrdered: 'rw', name: 'Boros' },
