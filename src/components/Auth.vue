@@ -10,7 +10,8 @@
         <v-list>
           <WildcardsCost class="mt-2 ml-2 mr-2" :cost="userWildcards"/>
           <v-divider class="mt-2 mb-1"/>
-          <v-list-tile v-for="(item, i) in signedMenuItems" :key="i" @click="signedMenuClick(i)">
+          <v-list-tile v-for="(item, i) in signedMenuItems" :key="i" exact
+            :to="item.dest" @click="signedMenuClick(i)">
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
           </v-list-tile>
         </v-list>
@@ -119,10 +120,10 @@ export default {
       },
       showPassword: false,
       signedMenuItems: [
-        { title: 'My Profile' },
-        { title: 'My Collection' },
-        { title: 'My Decks' },
-        { title: 'Logout' }
+        { title: 'My Profile', dest: '/user' },
+        { title: 'My Collection', dest: '/user/collection' },
+        { title: 'My Decks', dest: '/user/decks' },
+        { title: 'Logout', dest: '/' }
       ],
       userWildcards: {}
     }
@@ -130,12 +131,6 @@ export default {
   methods: {
     signedMenuClick: function (index) {
       switch (index) {
-        case 0: this.$router.replace('/user')
-          break
-        case 1: this.$router.replace('/user/collection')
-          break
-        case 2: this.$router.replace('/user/decks')
-          break
         case 3: this.logout()
           break
       }

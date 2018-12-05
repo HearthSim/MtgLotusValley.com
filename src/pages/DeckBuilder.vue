@@ -162,7 +162,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
-          <v-btn color="green darken-1" flat @click.native="saveDeck()">Import</v-btn>
+          <v-btn color="green darken-1" :disabled="isLoading" flat
+            @click.native="saveDeck()">Save</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -449,9 +450,10 @@ export default {
       }
     },
     guid: function () {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0
+        var v = c === 'x' ? r : (r & 0x3 | 0x8)
+        return v.toString(16)
       })
     },
     saveDeck: function () {
