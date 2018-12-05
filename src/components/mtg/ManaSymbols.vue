@@ -1,5 +1,5 @@
 <template>
-  <div id="manaSymbol">
+  <v-layout id="manaSymbol" row nowrap>
     <span v-for="(mana, index) in manaSymbolsLeft" :key="cardid + mana + index">
       <i v-bind:class="'ms ms-' + mana + ' ms-cost ms-shadow'"></i>
     </span>
@@ -7,7 +7,7 @@
     <span v-for="(mana, index) in manaSymbolsRight" :key="cardid + mana + index">
       <i v-bind:class="'ms ms-' + mana + ' ms-cost ms-shadow'"></i>
     </span>
-  </div>
+  </v-layout>
 </template>
 
 <script>
@@ -47,6 +47,9 @@ export default {
 </script>
 
 <style>
+#manaSymbol {
+  justify-content: flex-end;
+}
 #manaSymbol span i {
   font-size: .8em;
 }

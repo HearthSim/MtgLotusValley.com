@@ -142,11 +142,15 @@
       <div class="box">
         <v-layout class="boxContent pb-2" column nowrap>
           <v-layout row class="deckActions">
-            <v-flex xs6>
+            <v-flex xs4>
+              <v-btn flat small color="primary" @click="deckPublishDialogVisible = true">Publish</v-btn>
+            </v-flex>
+            <v-divider class="mt-2 mb-2" vertical color="gray"/>
+            <v-flex xs4>
               <v-btn flat small color="primary" @click="editDeck()">Edit</v-btn>
             </v-flex>
-            <v-divider class="mt-2 ml-2 mr-2 mb-2" vertical color="gray"/>
-            <v-flex xs6>
+            <v-divider class="mt-2 mb-2" vertical color="gray"/>
+            <v-flex xs4>
               <v-btn flat small color="primary" @click="deleteConfirmationDialogVisible = true">Delete</v-btn>
             </v-flex>
           </v-layout>
@@ -177,7 +181,19 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog class="btExport" v-model="deckPublishedDialogVisible" width="350">
+    <v-dialog v-model="deckPublishDialogVisible" width="350">
+      <v-card>
+        <v-card-title class="headline">Publish Deck?</v-card-title>
+        <v-card-text>Publishing the Deck, will make it visible to all users.</v-card-text>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn color="green darken-1" flat @click="deckPublishDialogVisible = false">Cancel</v-btn>
+          <v-btn color="primary" flat @click="publishDeck">Yes</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="deckPublishedDialogVisible" width="350">
       <v-card>
         <v-card-text class='subheading'>Deck published!.</v-card-text>
         <v-card-actions>
@@ -187,7 +203,7 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+    <v-dialog v-model="deckExportDialogVisible" width="350">
       <v-card>
         <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
         <v-card-actions>
@@ -197,7 +213,7 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+    <v-dialog v-model="deckExportDialogVisible" width="350">
       <v-card>
         <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
         <v-card-actions>
@@ -267,6 +283,8 @@ export default {
       pagination: {},
       totalPages: 1,
       deckExportDialogVisible: false,
+      deckPublishDialogVisible: false,
+      deckPublishedDialogVisible: false,
       deleteConfirmationDialogVisible: false
     }
   },
@@ -346,6 +364,42 @@ export default {
           this.deleteConfirmationDialogVisible = false
           console.log(error)
         })
+    },
+    publishDeck: function () {
+      this.isLoading = true
+      const cards = {}
+      Object.keys(this.deckCards).forEach(mtgaid => {
+        cards[mtgaid] = this.deckCards[mtgaid].qtd
+      })
+      const sideboard = {}
+      Object.keys(this.sideboardCards).forEach(mtgaid => {
+        sideboard[mtgaid] = this.sideboardCards[mtgaid].qtd
+      })
+      let owner = localStorage.getItem('userName')
+      if (owner === undefined) {
+        const userEmail = localStorage.getItem('email')
+        owner = userEmail.substring(0, userEmail.indexOf('@'))
+      }
+      this.$api.publishUserDeck(this.deckId, this.deckName, this.deckArch,
+        this.deckColors, cards, sideboard, owner)
+        .then(res => {
+          this.isLoading = false
+          this.showError = false
+          this.deckPublishDialogVisible = false
+          this.deckPublishedDialogVisible = true
+        })
+        .catch(error => {
+          console.log(error)
+          this.isLoading = false
+          this.errorMsg = error.response.data
+          this.showError = true
+        })
+    },
+    goToPublishedDeck: function () {
+      this.deckPublishedDialogVisible = false
+      const idFirstSegment = this.deckId.substring(0, this.deckId.indexOf('-'))
+      const deckAlias = `${idFirstSegment}-${this.deckName}`
+      this.$router.replace(`/decks/${deckAlias}`)
     }
   },
   watch: {
@@ -370,9 +424,6 @@ export default {
   }
   .deckTitle {
     justify-content: center;
-  }
-  .btExport {
-    padding-right: 3%;
   }
   .mana {
     white-space: nowrap;

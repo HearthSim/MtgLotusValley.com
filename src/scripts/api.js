@@ -88,6 +88,7 @@ function saveUserToken (data) {
   localStorage.setItem('email', data.email)
   localStorage.setItem('idToken', data.idToken)
   localStorage.setItem('refreshToken', data.refreshToken)
+  localStorage.setItem('userName', data.userName)
   const date = new Date()
   date.setSeconds(date.getSeconds() + Number.parseInt(data.expiresIn))
   localStorage.setItem('expiresIn', date.toString())
@@ -249,6 +250,22 @@ export default {
       colors: deckColors,
       cards: deckCards,
       sideboard: deckSideboard
+    }, {
+      headers: {
+        Authorization: 'required'
+      }
+    })
+  },
+  publishUserDeck (deckId, deckName, deckArch, deckColors, deckCards, deckSideboard, owner) {
+    return axios.post('/users/decks/publish', {
+      userId: localStorage.getItem('localId'),
+      deckId: deckId,
+      arch: deckArch,
+      name: deckName,
+      colors: deckColors,
+      cards: deckCards,
+      sideboard: deckSideboard,
+      owner: owner
     }, {
       headers: {
         Authorization: 'required'

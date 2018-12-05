@@ -271,8 +271,6 @@ export default {
         )
       }
     }
-    console.log(cards)
-    console.log(sideboard)
     return {
       cards: cards.join(';'),
       sideboard: sideboard.join(';')
