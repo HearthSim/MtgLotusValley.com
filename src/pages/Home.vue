@@ -4,7 +4,7 @@
         <Events/>
       </v-flex>
       <v-flex xs12>
-        <v-layout class="box" row wrap>
+        <v-layout class="box mt-0" row wrap>
           <v-flex xs12 class="boxHeader">Latest Decks</v-flex>
           <v-layout class="boxContent" row wrap>
             <LatestDecks />
@@ -13,20 +13,20 @@
       </v-flex>
       <v-layout row wrap>
         <v-flex xs8>
-          <v-layout class="box" row wrap>
+          <v-layout class="box mt-0 mr-0" row wrap>
             <v-flex xs12 class="boxHeader">News</v-flex>
             <v-layout class="boxContent" row wrap>
             </v-layout>
           </v-layout>
         </v-flex>
         <v-flex xs4>
-          <v-layout class="box pb-2" row wrap>
+          <v-layout class="box mt-0 pb-2" row wrap>
             <v-flex xs12 class="boxHeader">Colors Distribution (Last 7 days)</v-flex>
             <v-layout class="boxContent" row wrap>
               <DecksColorDistribution :colors="decksByColorsBasics" :title="false"/>
             </v-layout>
           </v-layout>
-          <v-layout class="box mt-3" row wrap>
+          <v-layout class="box mt-0" row wrap>
             <v-flex xs12 class="boxHeader">Deck of Day</v-flex>
             <v-layout class="boxContent" row wrap>
               <Deck class="mt-2 mb-2 m-auto" :cards="deckOfDayCards" :name="deckOfDayName"/>

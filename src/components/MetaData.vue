@@ -1,9 +1,9 @@
 <template>
   <v-layout row nowrap>
     <!-- Left -->
-    <v-flex xs8 class="mt-2 ml-2 mb-2">
+    <v-flex xs8>
 
-      <div class="box">
+      <div class="box mr-0">
         <v-flex xs12 class="boxHeader">Top played Cards</v-flex>
         <v-layout class="boxContent line1" column nowrap>
           <v-layout class="mt-1 ml-2 mr-2" row wrap>
@@ -19,7 +19,7 @@
         </v-layout>
       </div>
 
-      <div class="box mt-3">
+      <div class="box mt-0 mr-0">
         <v-flex xs12 class="boxHeader">Deck by Archetype</v-flex>
         <v-layout class="boxContent line2" column nowrap>
           <v-layout class="ml-2 mr-2" row nowrap>
@@ -37,14 +37,14 @@
 
     </v-flex>
     <!-- Right -->
-    <v-flex xs4 class="mt-2 mr-2">
+    <v-flex xs4>
       <div class="box">
         <v-flex xs12 class="boxHeader">Color Distribution</v-flex>
         <v-layout class="boxContent line1" column nowrap>
           <DecksColorDistribution class="pie mt-4" :id="index" :colors="decksByColorsBasics" :title="false"/>
         </v-layout>
       </div>
-      <div class="box mt-3">
+      <div class="box mt-0">
         <v-flex xs12 class="boxHeader">Guilds Distribution</v-flex>
         <v-layout class="boxContent line2" column nowrap>
           <DecksGuildsDistribution class="pie mt-4" :id="index" :colors="decksByColorsGuilds" :title="false"/>

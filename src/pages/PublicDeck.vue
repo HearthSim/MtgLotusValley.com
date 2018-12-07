@@ -7,7 +7,7 @@
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
-      <v-layout row class="headerContainer mt-2 ml-2 mr-2">
+      <v-layout row class="headerContainer mt-2_5 ml-2_5 mr-2_5">
         <div :class="`header header-${deckColors !== '' ? deckColors : 'default'} white--text`">
           <v-layout class="line pt-2 ml-2" row nowrap>
             <div class="mana mt-2 ml-1">
@@ -101,7 +101,7 @@
       </div>
     </v-flex>
     <!-- Right -->
-    <v-flex class="ml-0 mb-3" xs4>
+    <v-flex class="ml-0" xs4>
       <div class="box">
         <v-layout class="boxContent pb-2" column nowrap>
           <DeckPresenting v-if="Object.keys(deckCards).length > 0"

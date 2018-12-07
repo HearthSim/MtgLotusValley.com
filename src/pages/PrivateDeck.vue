@@ -7,7 +7,7 @@
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
-      <v-layout row class="headerContainer mt-2 ml-2 mr-2">
+      <v-layout row class="headerContainer mt-2_5 ml-2_5 mr-2_5">
         <div :class="`header header-${deckColors !== '' ? deckColors : 'default'} white--text`">
           <v-layout class="line pt-2 ml-2" row nowrap>
             <div class="mana mt-2 ml-1">
@@ -69,7 +69,7 @@
                   <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
                 </v-layout>
                 <v-divider class="mt-1 ml-5 mr-5"/>
-                <DeckVisual class="deck mt-3" :cards="deckCards"/>
+                <DeckVisual class="mt-3 m-auto" :cards="deckCards"/>
               </div>
               <div v-if="Object.keys(sideboardCards).length > 0">
                 <v-layout row class="mt-4 ml-5">
@@ -156,8 +156,7 @@
           </v-layout>
 
           <DeckPresenting v-if="Object.keys(deckCards).length > 0" class="mt-2 ml-1 mr-1" :cards="deckCards"/>
-          <Deck class="deck deckContainer mt-4" :cards="deckCards"
-            :sideboard="sideboardCards" largeName/>
+          <Deck class="deck deckContainer mt-4" :cards="deckCards" :sideboard="sideboardCards"/>
         </v-layout>
       </div>
     </v-flex>
@@ -417,10 +416,6 @@ export default {
 <style scoped>
   .line {
     height: 50%;
-  }
-  .deck {
-    padding-left: 3%;
-    padding-right: 3%;
   }
   .deckTitle {
     justify-content: center;

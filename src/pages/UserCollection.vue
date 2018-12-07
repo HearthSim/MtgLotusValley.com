@@ -43,7 +43,7 @@
       </v-flex>
       <!-- Center -->
       <v-flex xs12>
-        <v-layout class="box" row wrap>
+        <v-layout class="box mt-0" row wrap>
           <v-layout class="boxContent mb-0" row wrap>
             <v-container class="pt-2 pl-2 pr-2 pb-2" grid-list-md fluid>
               <v-layout row wrap>

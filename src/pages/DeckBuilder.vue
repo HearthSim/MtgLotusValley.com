@@ -7,7 +7,7 @@
       </v-breadcrumbs>
     </v-flex>
     <v-flex xs12>
-      <v-layout row class="headerContainer mt-2 ml-2 mr-2">
+      <v-layout row class="headerContainer mt-2_5 ml-2_5 mr-2_5">
         <div :class="`header header-${deckColors !== '' ? deckColors : 'default'} white--text`">
           <v-layout class="line pt-2 ml-3" row nowrap>
             <div class="mana mt-2 ml-1">

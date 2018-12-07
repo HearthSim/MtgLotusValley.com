@@ -162,7 +162,7 @@ export default {
 
 .box {
   border: 4px solid grey;
-  margin: 8px;
+  margin: 12px;
   background: url('~@/assets/bg_box.jpg') repeat;
 }
 .boxHeader {
@@ -182,7 +182,20 @@ export default {
 
 .m-auto { margin: auto; }
 .mr-05 { margin-right: 2px !important }
+.mt-2_5 { margin-top: 12px; }
+.ml-2_5 { margin-left: 12px; }
+.mr-2_5 { margin-right: 12px; }
+.mb-2_5 { margin-bottom: 12px; }
 .d-block { display: block; }
+.text-valign-center {
+  justify-content: center;
+}
+.height100 {
+  height: 100%;
+}
+.width100 {
+  width: 100%;
+}
 
 .textNoSelect {
   -webkit-touch-callout: none; /* iOS Safari */
