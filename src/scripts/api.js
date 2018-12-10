@@ -201,7 +201,7 @@ export default {
     })
   },
   getUserEventsStats () {
-    return axios.get('/users/stats', {
+    return axios.get('/users/events/stats', {
       headers: {
         Authorization: 'required'
       },
@@ -272,7 +272,7 @@ export default {
       }
     })
   },
-  getUserDeckMatches (id, page, pageSize, sortBy, descending) {
+  getUserDeckMatches (id, page, pageSize, sortBy, descending, eventName, everGreen) {
     return axios.get('/users/matches', {
       headers: {
         Authorization: 'required'
@@ -280,6 +280,8 @@ export default {
       params: {
         deckId: id,
         userId: localStorage.getItem('localId'),
+        eventName: eventName,
+        eventEverGreen: everGreen,
         pageNumber: page,
         pageSize: pageSize,
         sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`

@@ -15,165 +15,121 @@
     <!-- Bottom -->
 
     <v-layout class="box" row wrap>
-      <v-tabs class="mt-1 ml-3 mr-3" color="transparent">
+      <v-tabs class="width100" color="transparent">
 
-        <v-tab>Summary</v-tab>
+        <v-tab>General</v-tab>
         <v-tab-item>
 
-          <v-layout row>
-            <v-flex class="center mt-2 pl-2 pr-2" xs8>
+          <v-layout class="box" row wrap>
+            <v-flex xs12 class="boxHeader">User Summary</v-flex>
+            <v-layout class="boxContent pb-1" row wrap>
 
-              <v-timeline align-top dense>
-                <v-timeline-item v-for="(data, index) in userMatchesData" :key="index"
-                  :color="data.wins ? 'green' : 'red'" small :hide-dot="data.isHeader">
-                  <div>
-                    <v-layout v-if="data.isHeader" row xs12>
-                      {{ data.dateFormatted }}
-                    </v-layout>
-
-                    <v-card v-if="!data.isHeader" class="mt-2 py-2">
-                      <v-layout row xs12>
-                        <v-flex>
-                          <div class="ml-2">
-                            {{data.eventName}}
-                          </div>
-                        </v-flex>
-                        <v-flex>
-                          <strong class="body-2">Vs</strong>
-                        </v-flex>
-                        <v-flex>
-                          <div class="mana mt-1 ml-2">
-                            <img v-for="color in data.opponentDeckColors.split('')" :key="color"
-                              :src="require(`@/assets/mana/${color}.png`)"/>
-                          </div>
-                        </v-flex>
-                        <v-flex>
-                          <div class="ml-2">
-                            {{data.opponentDeckArch}}
-                          </div>
-                        </v-flex>
-                        <v-spacer/>
-                        <v-flex>
-                          <v-tooltip right lazy>
-                            <v-icon slot="activator" @click="showInfo(data)">info</v-icon>
-                            <v-layout column>
-                              <div>{{data.opponentName}}</div>
-                              <div>{{data.duration}}</div>
-                            </v-layout>
-                          </v-tooltip>
-                        </v-flex>
-                      </v-layout>
-                    </v-card>
-
-                  </div>
-                </v-timeline-item>
-              </v-timeline>
-
-            </v-flex>
-
-            <v-flex class="center mt-2 pl-2 pr-2" xs4>
-              <v-layout class="box" row wrap xs12>
-                <v-flex xs12 class="boxHeader">User Summary</v-flex>
-                <v-layout class="boxContent pb-1" row wrap>
-
+              <div class="ml-2">
+                <v-layout row class="userSummary">
+                  <v-layout column class="mt-2">
+                    <span class="headline">{{totalGames}} games</span>
+                  </v-layout>
                   <v-layout column>
-                    <v-layout row class="userSummary">
-                      <v-layout column class="mt-2 mr-2">
-                        <span class="headline">{{totalGames}} games</span>
-                      </v-layout>
-                      <v-layout column>
-                        <span class="display-1">(</span>
-                      </v-layout>
-                      <v-layout column class="ml-2 mr-2 body-2 text-xs-center">
-                        <span>{{totalConstructed}} Constructed</span>
-                        <span>{{totalLimited}} Limited</span>
-                      </v-layout>
-                      <v-layout column>
-                        <span class="display-1">)</span>
-                      </v-layout>
-                    </v-layout>
+                    <span class="display-1 ml-2">(</span>
                   </v-layout>
-
-                  <v-layout row class="m-auto">
-                    <span class="subheading pt-1 mt-2">{{ userGold }} </span>
-                    <img class="mt-1 ml-1 icon" :src="require('@/assets/coins.png')"/>
-
-                    <span class="subheading pt-1 mt-2 ml-3">{{ userGems }} </span>
-                    <img class="mt-1 ml-1 icon" :src="require('@/assets/gems.png')"/>
-
-                    <span class="subheading pt-1 mt-2 ml-3">{{ userVault }}% </span>
-                    <img class="mt-1 ml-1 mr-2 icon" :src="require('@/assets/vault.png')"/>
+                  <v-layout column class="body-2 text-xs-center ml-2">
+                    <span>{{totalConstructed}} Constructed</span>
+                    <span>{{totalLimited}} Limited</span>
                   </v-layout>
-
+                  <v-layout column>
+                    <span class="display-1 ml-2">)</span>
+                  </v-layout>
                 </v-layout>
+              </div>
+              <v-spacer/>
+              <div class="mr-2">
+                <v-layout row class="mt-2">
+                  <span class="subheading pt-1 mt-2">{{ userGold }} </span>
+                  <img class="mt-1 ml-1 icon" :src="require('@/assets/coins.png')"/>
+
+                  <span class="subheading pt-1 mt-2 ml-3">{{ userGems }} </span>
+                  <img class="mt-1 ml-1 icon" :src="require('@/assets/gems.png')"/>
+
+                  <span class="subheading pt-1 mt-2 ml-3">{{ userVault }}% </span>
+                  <img class="mt-1 ml-1 icon" :src="require('@/assets/vault.png')"/>
+                </v-layout>
+              </div>
+
+            </v-layout>
+          </v-layout>
+
+          <v-layout class="box" row wrap>
+            <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
+            <v-layout class="boxContent mt-0 pb-2" row wrap>
+              <v-card class="setSummary mt-3 pb-2 m-auto" v-for="set in userCollectionSummary" :key="set.code">
+                <v-layout column class="summaryTitle pt-1 mb-2">
+                  <router-link :to="`/user/collection?page=1&sets=${set.code}`">
+                    <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
+                  </router-link>
+                </v-layout>
+                <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
+                  <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
+                    slot="activator">
+                    <v-layout class="setRarityLine" row nowrap>
+                      <SetSymbol class="setSymbol ml-3" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
+                      <v-progress-linear class="ml-2" :color="rarity.color" height="5"
+                        :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
+                      <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
+                    </v-layout>
+                  </router-link>
+                  <v-layout column>
+                    <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
+                    <span>Playset: {{set.playset[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
+                    <span>All: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}</span>
+                  </v-layout>
+                </v-tooltip>
+                <v-tooltip right lazy>
+                  <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
+                  <span>Chance to open a 5th rare/mythic copy</span>
+                </v-tooltip>
+              </v-card>
+            </v-layout>
+          </v-layout>
+          
+          <v-layout class="box mr-0" row wrap>
+            <v-flex xs12 class="boxHeader">Ever-Green Constructed Matches</v-flex>
+            <v-layout class="boxContent pb-3" row wrap>
+
+              <MatchesTimeline :matches="userEverGreenMatchesData"/>
+
+              <v-layout row xs12 class="mt-1">
+                <v-spacer/>
+                <v-pagination v-model="paginationEverGreen.page" @input="requestEverGreenUserMatches"
+                  :length="totalEverGreenPages" :total-visible="5"/>
               </v-layout>
 
-              <v-layout class="box" row wrap xs12>
-                <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
-                <v-layout class="boxContent mt-0 pb-2" row wrap>
-                  <v-card class="setSummary mt-3 pb-2 m-auto" v-for="set in userCollectionSummary" :key="set.code">
-                    <v-layout column class="summaryTitle pt-1 mb-2">
-                      <router-link :to="`/user/collection?page=1&sets=${set.code}`">
-                        <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
-                      </router-link>
-                    </v-layout>
-                    <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
-                      <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
-                        slot="activator">
-                        <v-layout class="setRarityLine" row nowrap>
-                          <SetSymbol class="setSymbol ml-3" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
-                          <v-progress-linear class="ml-2" :color="rarity.color" height="5"
-                            :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
-                          <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
-                        </v-layout>
-                      </router-link>
-                      <v-layout column>
-                        <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
-                        <span>Playset: {{set.playset[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
-                        <span>All: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}</span>
-                      </v-layout>
-                    </v-tooltip>
-                    <v-tooltip right lazy>
-                      <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
-                      <span>Chance to open a 5th rare/mythic copy</span>
-                    </v-tooltip>
-                  </v-card>
-                </v-layout>
+            </v-layout>
+          </v-layout>
+
+        </v-tab-item>
+
+        <v-tab>Events</v-tab>
+        <v-tab-item lazy>
+          <v-layout class="box" row nowrap>
+
+            <v-flex xs3>
+              <v-layout column nowrap>
+                <EventStats class="mt-3" :data="userEventsStats[0]" :id="userEventsStats[0].name"/>
               </v-layout>
+            </v-flex>
+            
+            <v-flex xs9>
+              <MatchesTimeline class="pr-3" :matches="userEventsMatchesData"/>
+              
+              <v-layout row xs12 class="mt-1">
+                <v-spacer/>
+                <v-pagination v-model="paginationEvents.page" @input="requestEventsUserMatches"
+                  :length="totalEventsPages" :total-visible="5"/>
+              </v-layout>
+
             </v-flex>
 
           </v-layout>
-        </v-tab-item>
-
-        <v-tab>Constructed</v-tab>
-        <v-tab-item>
-
-          <v-flex class="pl-2 pr-2 pb-2" xs12>
-            <v-layout class="box" row wrap>
-              <v-flex xs12 class="boxHeader">Events Summary</v-flex>
-              <v-layout class="boxContent pb-3" row wrap>
-                <v-flex xs3 class="eventStat" v-for="eventStat in userEventsStats" :key="eventStat.name">
-                <EventStats class="mt-3" :data="eventStat" :id="eventStat.name"/>
-              </v-flex>
-              </v-layout>
-            </v-layout>
-          </v-flex>
-
-        </v-tab-item>
-
-        <v-tab>Draft</v-tab>
-        <v-tab-item>
-
-        </v-tab-item>
-
-        <v-tab>Sealed</v-tab>
-        <v-tab-item>
-
-        </v-tab-item>
-
-        <v-tab>Others</v-tab>
-        <v-tab-item>
-
         </v-tab-item>
 
       </v-tabs>
@@ -185,19 +141,21 @@
 <script>
 import EventStats from '@/components/charts/EventStats'
 import SetSymbol from '@/components/mtg/SetSymbol'
+import MatchesTimeline from '@/components/MatchesTimeline'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import Utils from '@/scripts/utils'
 
 export default {
   name: 'PublicDeck',
   components: {
-    EventStats, SetSymbol, WildcardsCost
+    EventStats, SetSymbol, MatchesTimeline, WildcardsCost, Utils
   },
   created () {
     this.requestUserExtras()
     this.requestUserCollectionSummary()
     this.requestUserEventsStats()
-    this.requestMatches()
+    this.requestEverGreenUserMatches()
+    this.requestEventsUserMatches()
   },
   data () {
     return {
@@ -222,9 +180,17 @@ export default {
       totalConstructed: 0,
       totalLimited: 0,
       isLoading: false,
-      pagination: {},
-      totalPages: 1,
-      userMatchesData: []
+      paginationEverGreen: {
+        page: 1
+      },
+      totalEverGreenPages: 1,
+      userEverGreenMatchesData: [],
+      currentEvent: 'QuickDraft',
+      paginationEvents: {
+        page: 1
+      },
+      totalEventsPages: 1,
+      userEventsMatchesData: []
     }
   },
   methods: {
@@ -276,24 +242,51 @@ export default {
           console.log(error)
         })
     },
-    requestMatches: function () {
+    requestEverGreenUserMatches: function () {
       this.isLoading = true
-      this.pagination.rowsPerPage = 10
-      const { sortBy, descending, page, rowsPerPage } = this.pagination
-      this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending)
+      this.paginationEverGreen.rowsPerPage = 10
+      const { sortBy, descending, page, rowsPerPage } = this.paginationEverGreen
+      this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending, undefined, true)
         .then(res => {
           this.isLoading = false
-          this.totalPages = res.data.length < rowsPerPage ? page : page + 1
+          this.userEverGreenMatchesData = []
+          this.totalEverGreenPages = res.data.length < rowsPerPage ? page : page + 1
           res.data.forEach(match => {
-            const userMatchesSize = this.userMatchesData.length
-            if (userMatchesSize === 0 || this.userMatchesData[userMatchesSize - 1].date !== match.date) {
+            const userMatchesSize = this.userEverGreenMatchesData.length
+            if (userMatchesSize === 0 || this.userEverGreenMatchesData[userMatchesSize - 1].date !== match.date) {
               const date = new Date(match.date.replace('_', ':'))
-              this.userMatchesData.push({
+              this.userEverGreenMatchesData.push({
                 isHeader: true,
                 dateFormatted: date.toLocaleString().split(' ')[0].replace(',', '')
               })
             }
-            this.userMatchesData.push(match)
+            this.userEverGreenMatchesData.push(match)
+          })
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
+    },
+    requestEventsUserMatches: function () {
+      this.isLoading = true
+      this.paginationEvents.rowsPerPage = 10
+      const { sortBy, descending, page, rowsPerPage } = this.paginationEvents
+      this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending, this.currentEvent)
+        .then(res => {
+          this.isLoading = false
+          this.userEventsMatchesData = []
+          this.totalEventsPages = res.data.length < rowsPerPage ? page : page + 1
+          res.data.forEach(match => {
+            const userMatchesSize = this.userEventsMatchesData.length
+            if (userMatchesSize === 0 || this.userEventsMatchesData[userMatchesSize - 1].date !== match.date) {
+              const date = new Date(match.date.replace('_', ':'))
+              this.userEventsMatchesData.push({
+                isHeader: true,
+                dateFormatted: date.toLocaleString().split(' ')[0].replace(',', '')
+              })
+            }
+            this.userEventsMatchesData.push(match)
           })
         })
         .catch(error => {
@@ -308,7 +301,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .eventStat {
-    min-height: 200px;
+    min-height: 150px;
   }
   .setLogo {
     max-height: 30px;
@@ -340,12 +333,5 @@ export default {
   a {
     color: black;
     text-decoration: none;
-  }
-  .mana {
-    white-space: nowrap;
-  }
-  .mana img {
-    height: 25px;
-    width: 25px;
   }
 </style>

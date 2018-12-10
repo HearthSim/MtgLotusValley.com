@@ -35,8 +35,7 @@ export default {
       const total = this.data.wins + this.data.losses
       const percent = this.data.wins / total * 100
       const winRate = parseFloat(percent.toFixed(1))
-      let name = this.id.replace('Constructed', ' Constructed')
-      this.title = [name, `${winRate}% WinRate of ${total} games`]
+      this.title = [this.id, `${winRate}% WinRate of ${total} games`]
       return data
     }
   },
