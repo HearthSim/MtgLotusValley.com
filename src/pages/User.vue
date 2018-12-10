@@ -60,9 +60,9 @@
 
           <v-layout class="box" row wrap>
             <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
-            <v-layout class="boxContent mt-0 pb-2" row wrap>
-              <v-card class="setSummary mt-3 pb-2 m-auto" v-for="set in userCollectionSummary" :key="set.code">
-                <v-layout column class="summaryTitle pt-1 mb-2">
+            <v-layout class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
+              <v-card class="setSummary mt-3 pb-2" v-for="set in userCollectionSummary" :key="set.code">
+                <v-layout column class="summaryTitle pt-1 mb-1">
                   <router-link :to="`/user/collection?page=1&sets=${set.code}`">
                     <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
                   </router-link>
@@ -93,7 +93,7 @@
           
           <v-layout class="box mr-0" row wrap>
             <v-flex xs12 class="boxHeader">Ever-Green Constructed Matches</v-flex>
-            <v-layout class="boxContent pb-3" row wrap>
+            <v-layout class="boxContent pb-2" row wrap>
 
               <MatchesTimeline :matches="userEverGreenMatchesData"/>
 
@@ -111,24 +111,54 @@
         <v-tab>Events</v-tab>
         <v-tab-item lazy>
           <v-layout class="box" row nowrap>
+            <v-layout class="boxContent pb-2" row wrap>
 
-            <v-flex xs3>
-              <v-layout column nowrap>
-                <EventStats class="mt-3" :data="userEventsStats[0]" :id="userEventsStats[0].name"/>
-              </v-layout>
-            </v-flex>
-            
-            <v-flex xs9>
-              <MatchesTimeline class="pr-3" :matches="userEventsMatchesData"/>
+              <v-flex xs3>
+                <v-layout column nowrap>
+                  <EventStats :data="userEventsSummaryData" id="userEventSummary"/>
+                  <v-divider class="mt-3"/>
+                  <strong class="mt-3">Runs</strong>
+                  <v-card class="mx-2 my-1 px-2 py-2" v-for="eventRun in userEventsRunsData" :key="eventRun.id">
+                    <v-layout row nowrap>              
+                      <router-link :to="`/user/decks/${eventRun.deckId}`">        
+                        <div class="pt-1 mana">
+                          <img v-for="color in eventRun.deckColors? eventRun.deckColors.split('') : []" :key="color"
+                            :src="require(`@/assets/mana/${color}.png`)"/>
+                        </div>
+                      </router-link>
+                      <span :class="`mt-1 ml-1 body-2 ${eventRun.wins > eventRun.losses ? 'green--text' : ''}`">{{eventRun.wins}}</span>
+                      <span class="mt-1"> x </span>
+                      <span :class="`mt-1 body-2 ${eventRun.losses > eventRun.wins ? 'red--text' : ''}`">{{eventRun.losses}}</span>
+                      <v-spacer/>
+                      <span class="caption mt-2">
+                        {{ new Date(eventRun.date.replace('_', ':')).toLocaleString().replace(':00', '') }}
+                      </span>
+                    </v-layout>
+                  </v-card>
+                  <v-layout row xs12 class="mt-1">
+                    <v-spacer/>
+                    <v-pagination v-model="paginationEventsRuns.page" @input="requestUserEventsRuns"
+                      :length="totalEventsRunsPages" :total-visible="5"/>
+                  </v-layout>
+                </v-layout>
+              </v-flex>
               
-              <v-layout row xs12 class="mt-1">
-                <v-spacer/>
-                <v-pagination v-model="paginationEvents.page" @input="requestEventsUserMatches"
-                  :length="totalEventsPages" :total-visible="5"/>
-              </v-layout>
+              <v-flex xs9>
+                <v-layout row xs12 class="mt-1">
+                  <v-spacer/>
+                  <v-select class="ml-2 mt-1" v-model="currentEventName" :items="userEventsNames"
+                    @change="onEventChange" label="Event" solo dense hide-details/>
+                </v-layout>
+                <MatchesTimeline class="pr-3" :matches="userEventsMatchesData"/>                
+                <v-layout row xs12 class="mt-1">
+                  <v-spacer/>
+                  <v-pagination v-model="paginationEvents.page" @input="requestUserEventsMatches"
+                    :length="totalEventsPages" :total-visible="5"/>
+                </v-layout>
 
-            </v-flex>
+              </v-flex>
 
+            </v-layout>
           </v-layout>
         </v-tab-item>
 
@@ -153,9 +183,8 @@ export default {
   created () {
     this.requestUserExtras()
     this.requestUserCollectionSummary()
-    this.requestUserEventsStats()
+    this.requestUserEventsSummary()
     this.requestEverGreenUserMatches()
-    this.requestEventsUserMatches()
   },
   data () {
     return {
@@ -170,7 +199,6 @@ export default {
         }
       ],
       userCollectionSummary: [],
-      userEventsStats: [],
       userGold: 0,
       userGems: 0,
       userVault: 0.0,
@@ -180,17 +208,20 @@ export default {
       totalConstructed: 0,
       totalLimited: 0,
       isLoading: false,
-      paginationEverGreen: {
-        page: 1
-      },
+      userEventsSummary: [],
+      userEventsNames: [],
+      paginationEverGreen: { page: 1 },
       totalEverGreenPages: 1,
       userEverGreenMatchesData: [],
-      currentEvent: 'QuickDraft',
-      paginationEvents: {
-        page: 1
-      },
+      paginationEvents: { page: 1 },
       totalEventsPages: 1,
-      userEventsMatchesData: []
+      currentEvent: '',
+      currentEventName: '',
+      userEventsSummaryData: {},
+      userEventsMatchesData: [],
+      paginationEventsRuns: { page: 1 },
+      userEventsRunsData: [],
+      totalEventsRunsPages: 1
     }
   },
   methods: {
@@ -227,20 +258,34 @@ export default {
       const percent = ownedRareMythicPlayset / totalRareMythicPlayset * 100
       return parseFloat(percent.toFixed(0))
     },
-    requestUserEventsStats: function () {
-      this.$api.getUserEventsStats()
+    requestUserEventsSummary: function () {
+      this.$api.getUserEventsSummary()
         .then(res => {
           const data = res.data
-          this.totalGames = data.map(stat => stat.wins + stat.losses).reduce((acc, value) => acc + value)
-          this.totalConstructed = data.filter(stat => stat.type === 'Constructed')
-            .map(stat => stat.wins + stat.losses).reduce((acc, value) => acc + value)
-          this.totalLimited = data.filter(stat => stat.type === 'Limited')
-            .map(stat => stat.wins + stat.losses).reduce((acc, value) => acc + value)
-          this.userEventsStats = data
+          this.totalGames = data.map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
+          this.totalConstructed = data.filter(summary => summary.type === 'Constructed')
+            .map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
+          this.totalLimited = data.filter(summary => summary.type === 'Limited')
+            .map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
+          const events = data.filter(summary => !Utils.everGreenEvents.includes(summary.event))
+          this.userEventsSummary = events
+          this.userEventsNames = events.map(summary => summary.name)
+          if (events.length > 0) {
+            this.currentEventName = events[0].name
+            this.onEventChange(events[0].name)
+          }
         })
         .catch(error => {
           console.log(error)
         })
+    },
+    onEventChange: function (newValue) {
+      this.userEventsMatchesData = []
+      this.userEventsRunsData = []
+      this.userEventsSummaryData = this.userEventsSummary.find(summary => summary.name === newValue)
+      this.currentEvent = this.userEventsSummaryData.event
+      this.requestUserEventsMatches()
+      this.requestUserEventsRuns()
     },
     requestEverGreenUserMatches: function () {
       this.isLoading = true
@@ -268,7 +313,7 @@ export default {
           console.log(error)
         })
     },
-    requestEventsUserMatches: function () {
+    requestUserEventsMatches: function () {
       this.isLoading = true
       this.paginationEvents.rowsPerPage = 10
       const { sortBy, descending, page, rowsPerPage } = this.paginationEvents
@@ -293,6 +338,22 @@ export default {
           this.isLoading = false
           console.log(error)
         })
+    },
+    requestUserEventsRuns: function () {
+      this.isLoading = true
+      this.paginationEvents.rowsPerPage = 5
+      const page = this.paginationEvents.page
+      const rowsPerPage = this.paginationEvents.rowsPerPage
+      this.$api.getUserEvents(this.currentEvent, page, rowsPerPage)
+        .then(res => {
+          this.isLoading = false
+          this.userEventsRunsData = res.data
+          this.totalEventsRunsPages = res.data.length < rowsPerPage ? page : page + 1
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
     }
   }
 }
@@ -310,7 +371,10 @@ export default {
     background-color: lightgray !important;
   }
   .setSummary {
-    width: 220px;
+    width: 210px;
+  }
+  .setSummary:not(:first-child) {
+    margin-left: 16px !important;
   }
   .setSymbol {
     transform: translateY(5px);
@@ -325,6 +389,13 @@ export default {
   }
   .summaryTitle {
     background-color: darkorange;
+  }
+  .collections {
+    justify-content: center;
+  }
+  .mana img {
+    height: 20px;
+    width: 20px;
   }
   .icon {
     height: 32px;

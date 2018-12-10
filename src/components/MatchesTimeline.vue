@@ -68,6 +68,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .v-timeline {
+    padding-top: 8px !important;
+  }
   .v-timeline-item {
     padding-bottom: 8px !important;
   }

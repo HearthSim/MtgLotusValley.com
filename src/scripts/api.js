@@ -200,8 +200,22 @@ export default {
       }
     })
   },
-  getUserEventsStats () {
-    return axios.get('/users/events/stats', {
+  getUserEvents (event) {
+    const params = {
+      userId: localStorage.getItem('localId')
+    }
+    if (event !== undefined) {
+      params['event'] = event
+    }
+    return axios.get('/users/events', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: params
+    })
+  },
+  getUserEventsSummary () {
+    return axios.get('/users/events/summary', {
       headers: {
         Authorization: 'required'
       },

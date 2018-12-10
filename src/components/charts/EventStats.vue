@@ -1,6 +1,6 @@
 <template>
   <div id="canvas-container">
-    <canvas :id="`${id}EventStats-chart`"/>
+    <canvas :id="`${id}EventSummary-chart`"/>
   </div>
 </template>
 
@@ -21,34 +21,22 @@ export default {
   },
   data () {
     return {
-      title: '',
-      statsLabels: ['Wins', 'Losses'],
+      chart: undefined,
+      SummaryLabels: ['Wins', 'Losses'],
       colorsHexValue: ['#4CAF50', '#F44336'],
       colorsHexHoverValue: ['#66BB6A', '#EF5350']
     }
   },
-  computed: {
-    statsData: function () {
-      const data = []
-      data.push(this.data.wins)
-      data.push(this.data.losses)
-      const total = this.data.wins + this.data.losses
-      const percent = this.data.wins / total * 100
-      const winRate = parseFloat(percent.toFixed(1))
-      this.title = [this.id, `${winRate}% WinRate of ${total} games`]
-      return data
-    }
-  },
   mounted () {
-    const ctx = document.getElementById(`${this.id}EventStats-chart`)
-    ctx.height = 250
-    new Chart(ctx, { // eslint-disable-line no-new
+    const canvas = document.getElementById(`${this.id}EventSummary-chart`)
+    canvas.height = 250
+    this.chart = new Chart(canvas, { // eslint-disable-line no-new
       type: 'pie',
       data: {
-        labels: this.statsLabels,
+        labels: this.SummaryLabels,
         datasets: [
           {
-            data: this.statsData,
+            data: this.getSummaryData(),
             backgroundColor: this.colorsHexValue,
             borderColor: this.colorsHexValue,
             borderWidth: 1,
@@ -63,11 +51,32 @@ export default {
           display: true
         },
         title: {
-          text: this.title,
+          text: this.getSummaryTitle(),
           display: true
         }
       }
     })
+  },
+  watch: {
+    data: function () {
+      this.chart.data.datasets[0].data = this.getSummaryData()
+      this.chart.options.title.text = this.getSummaryTitle()
+      this.chart.update()
+    }
+  },
+  methods: {
+    getSummaryData: function () {
+      const data = []
+      data.push(this.data.wins)
+      data.push(this.data.losses)
+      return data
+    },
+    getSummaryTitle: function () {
+      const total = this.data.wins + this.data.losses
+      const percent = this.data.wins / total * 100
+      const winRate = parseFloat(percent.toFixed(1))
+      return [this.data.name, `${winRate}% WinRate of ${total} games`]
+    }
   }
 }
 </script>
