@@ -1,15 +1,17 @@
 <template>
   <div>
-    <a v-if="!clickable" class="cardContainer" v-for='(card, index) in cardsPile' v-bind:key='index'
-       target="_blank" :href="cardLink(card.multiverseid, card.name)">
-      <Card class="card" :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
-        :multiverseid='card.multiverseid' :qtd="getCardQtd(card)" qtdPosition="top" :scaleOnHover="false"
-        :clickable="false" :clickableKey="index" @click="cardClick" />
+    <a v-if="!clickable" class="cardContainer" v-for='(card, index) in cardsPile'
+      v-bind:key='index' target="_blank" :href="cardLink(card.multiverseid, card.name)">
+      <Card class="card" :name='card.name' :imageUrl='card.imageUrl'
+        :imageUrlTransformed='card.imageUrlTransformed' :multiverseid='card.multiverseid'
+        :qtd="getCardQtd(card)" qtdPosition="top" :scaleOnHover="false" />
     </a>
-    <Card v-if="clickable" class="card" v-for='(card, index) in cardsPile' v-bind:key='index'
-      :name='card.name' :imageUrl='card.imageUrl' :imageUrlTransformed='card.imageUrlTransformed'
-      :multiverseid='card.multiverseid' :qtd="getCardQtd(card)" qtdPosition="top" :scaleOnHover="false"
-      :clickable="true" :clickableKey="index" @click="cardClick" />
+    <div v-if="clickable" class="cardContainer" v-for='(card, index) in cardsPile'
+      v-bind:key='index' @click="cardClick(index)">
+      <Card class="card" :name='card.name' :imageUrl='card.imageUrl'
+        :imageUrlTransformed='card.imageUrlTransformed' :multiverseid='card.multiverseid'
+        :qtd="getCardQtd(card)" qtdPosition="top" :scaleOnHover="false" :clickable="true" />
+    </div>
   </div>
 </template>
 

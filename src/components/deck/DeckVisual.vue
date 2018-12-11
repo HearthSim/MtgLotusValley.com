@@ -225,9 +225,6 @@ export default {
     display: flex;
     width: 100%;
   }
-  tr {
-    width: 100%;
-  }
   .pileContainer {
     font-size: 11pt;
     display: flex;
@@ -238,27 +235,5 @@ export default {
     padding: 2px;
     flex: 1;
     max-width: 250px;
-  }
-  .wildcard {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 28px;
-    margin-right: -3px;
-    margin-top: -3px;
-  }
-  .cardBorder {
-    padding: 4px;
-    border-radius: 12px;
-    background-color: #14130e;
-  }
-  table {
-    margin: auto;
-    text-align: right;
-    table-layout: fixed;
-    border-spacing: 0;
-  }
-  table td {
-    padding: 0;
   }
 </style>
