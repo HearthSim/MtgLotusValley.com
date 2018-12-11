@@ -26,6 +26,7 @@ Vue.use(VueAnalytics, {
 })
 Vue.use(VueLazyload, {
   loading: require('@/assets/card.png'),
+  error: require('@/assets/card.png'),
   attempt: 1
 })
 Vue.use(Vuetify)

@@ -250,7 +250,7 @@ export default {
         deckId: id,
         userId: localStorage.getItem('localId'),
         cardDetails: true,
-        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,colorIdentity,qtd',
+        fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,colorIdentity,qtd',
         updates: true,
         winRate: true
       }

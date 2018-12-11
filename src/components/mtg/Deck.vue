@@ -3,6 +3,11 @@
     <div class='deck'>
       <span class='body-2'>{{ name }}</span>
       <table>
+        <tr class="text-xs-center">
+          <td colspan="4">
+            Main Deck ({{mainDeckQtd}})
+          </td>
+        </tr>
         <DeckGroup v-if='lands.length > 0'         :groupSize="landsQtd"         groupName="Lands" />
         <DeckCard  v-if='lands.length > 0'         v-for='card in lands'          :key='`M${card.id}`'
           :card='card' :largeName="largeName"/>
@@ -21,8 +26,11 @@
         <DeckGroup v-if='planeswalkers.length > 0' :groupSize="planeswalkersQtd" groupName="Planeswalkers" />
         <DeckCard  v-if='planeswalkers.length > 0' v-for='card in planeswalkers'  :key='`M${card.id}`'
           :card='card' :largeName="largeName"/>
-        <DeckGroup v-if='cardsGrouped.length > 0 && sideboardQtd > 0' :groupSize="sideboardQtd"
-          groupName="Sideboard" marginTop />
+        <tr v-if='cardsGrouped.length > 0 && sideboardQtd > 0' class="text-xs-center">
+          <td class="pt-3" colspan="4">
+            Sideboard ({{sideboardQtd}})
+          </td>
+        </tr>
         <DeckCard  v-if='sideboardQtd > 0' v-for='card in sideboardCards' :key='`S${card.id}`'
           :card='card' :largeName="largeName"/>
       </table>
@@ -73,6 +81,7 @@ export default {
       enchantmentsQtd: 0,
       artifactsQtd: 0,
       planeswalkersQtd: 0,
+      mainDeckQtd: 0,
       sideboardCards: [],
       sideboardQtd: 0
     }
@@ -122,6 +131,8 @@ export default {
       this.enchantmentsQtd = DeckUtils.getGroupCardsQtd(this.enchantments)
       this.artifactsQtd = DeckUtils.getGroupCardsQtd(this.artifacts)
       this.planeswalkersQtd = DeckUtils.getGroupCardsQtd(this.planeswalkers)
+      this.mainDeckQtd = this.landsQtd + this.creaturesQtd + this.spellsQtd +
+        this.enchantmentsQtd + this.artifactsQtd + this.planeswalkersQtd
     },
     updateSideboardCards: function () {
       if (this.sideboard !== undefined) {
