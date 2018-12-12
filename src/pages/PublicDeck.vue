@@ -43,7 +43,7 @@
     <v-flex xs8>
       <div class="box mr-0">
         <v-layout class="mainContainer boxContent" column nowrap>
-          <v-tabs class="mb-3" color="transparent">
+          <v-tabs class="mb-3 ml-3 mr-3" color="transparent">
 
             <v-tab>Overview</v-tab>
             <v-tab-item>
@@ -71,14 +71,14 @@
                   <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
                 </v-layout>
                 <v-divider class="mt-1 ml-5 mr-5"/>
-                <DeckVisual class="deck mt-3" :cards="deckCards"/>
+                <DeckVisual class="mt-3 m-auto" :cards="deckCards"/>
               </div>
               <div v-if="Object.keys(sideboardCards).length > 0">
                 <v-layout row class="mt-4 ml-5">
                   <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
                 </v-layout>
                 <v-divider class="mt-1 ml-5 mr-5"/>
-                <DeckVisual class="deck mt-3" :sideboard="sideboardCards"/>
+                <DeckVisual class="mt-3" :sideboard="sideboardCards"/>
               </div>
             </v-tab-item>
 
@@ -104,6 +104,15 @@
     <v-flex class="ml-0" xs4>
       <div class="box">
         <v-layout class="boxContent pb-2" column nowrap>
+          <v-layout v-if="isUserDeckOwner" row class="deckActions">
+            <v-flex xs6>
+              <v-btn flat small color="primary" @click="editDeck()">Edit</v-btn>
+            </v-flex>
+            <v-divider class="mt-2 mb-2" vertical color="gray"/>
+            <v-flex xs6>
+            </v-flex>
+          </v-layout>
+
           <DeckPresenting v-if="Object.keys(deckCards).length > 0"
             class="ml-1 mr-1" :cards="deckCards"/>
           <Deck class="deck deckContainer mt-4" :cards="deckCards"
@@ -194,7 +203,8 @@ export default {
       deckExportDialogVisible: false,
       needLoginDialogVisible: false,
       deckLiked: false,
-      deckLikes: 0
+      deckLikes: 0,
+      isUserDeckOwner: false,
     }
   },
   methods: {
@@ -225,6 +235,7 @@ export default {
           this.deckUpdates = res.data.updates
           this.deckLiked = res.data.liked
           this.deckLikes = res.data.likes
+          this.isUserDeckOwner = localStorage.getItem('localId').startsWith(res.data.ownerId)
           if (this.$isUserLogged()) {
             this.getDeckMissingCards()
           }
@@ -350,6 +361,10 @@ export default {
             console.log(error)
           })
       }
+    },
+    editDeck: function () {
+      this.$router.replace(`/decks/${this.deckAlias}/edit?public=true`)
+    },
     }
   }
 }
@@ -359,10 +374,6 @@ export default {
 <style scoped>
   .line {
     height: 50%;
-  }
-  .deck {
-    padding-left: 3%;
-    padding-right: 3%;
   }
   .deckTitle {
     justify-content: center;

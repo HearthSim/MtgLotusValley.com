@@ -51,7 +51,7 @@ const router = new Router({
     },
     {
       path: '/user/decks/:id/edit',
-      name: 'DeckBuilderEdit',
+      name: 'DeckBuilderUserDeckEdit',
       component: DeckBuilder,
       meta: {
         requiresAuth: true
@@ -74,6 +74,14 @@ const router = new Router({
       path: '/decks',
       name: 'PublicDeckList',
       component: PublicDeckList
+    },
+    {
+      path: '/decks/:alias/edit',
+      name: 'DeckBuilderPublicDeckEdit',
+      component: DeckBuilder,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/decks/:alias',

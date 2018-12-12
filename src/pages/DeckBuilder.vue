@@ -36,7 +36,7 @@
     </v-flex>
     <!-- Left -->
     <v-flex xs9>
-      <div class="box mr-0">
+      <div class="box">
         <v-layout class="mainContainer boxContent mt-0 ml-0 mr-0 mb-0" column nowrap>
 
           <v-layout row nowrap class="filtersButtons">
@@ -75,22 +75,22 @@
     </v-flex>
     <!-- Right -->
     <v-flex class="ml-0" xs3>
-      <div class="box currentDeck">
+      <div class="box currentDeck ml-0">
         <v-layout class="boxContent mt-0 ml-0 mr-0 pb-2" column nowrap>
 
-          <WildcardsCost class="wildcardsCost mt-3 m-auto" :cost="deckWCCost"/>
+          <WildcardsCost class="wildcardsCost mt-3 mr-4 m-auto" :cost="deckWCCost"/>
 
-          <v-tabs class="mt-1 ml-2 mr-2 mb-3" color="transparent" v-model="currentDeckTab">
+          <v-tabs class="mt-1 mb-3" color="transparent" v-model="currentDeckTab">
 
             <v-tab>Main ({{deckCardsQtd}})</v-tab>
-            <v-tab-item>
-              <DeckVisualPile class="deck deckContainer mt-3" :cardsPile="deckCards"
+            <v-tab-item class="ml-2 mr-2">
+              <DeckVisualPile class="deck mt-3" :cardsPile="deckCards"
                 :clickable="true" :showQtd="true" @click="onMainDeckCardClick"/>
             </v-tab-item>
 
             <v-tab>Sideboard ({{sideboardCardsQtd}})</v-tab>
-            <v-tab-item>
-              <DeckVisualPile class="deck deckContainer mt-3" :cardsPile="sideboardCards"
+            <v-tab-item class="ml-2 mr-2">
+              <DeckVisualPile class="deck mt-3" :cardsPile="sideboardCards"
                 :clickable="true" :showQtd="true" @click="onSideboardCardClick"/>
             </v-tab-item>
 
@@ -199,9 +199,6 @@ export default {
   components: {
     Card, DeckVisualPile, ManaCurve, WildcardsCost, ColorFilter, RarityFilter, TypeFilter, SetFilter, QueryFilter, DeckUtils, Utils
   },
-  created () {
-    this.getCards()
-  },
   data () {
     return {
       breadcrumbs: [
@@ -223,6 +220,8 @@ export default {
       deckCardsQtd: 0,
       sideboardCards: [],
       sideboardCardsQtd: 0,
+      deckId: this.$route.params.id,
+      deckAlias: this.$route.params.alias,
       deckArch: '',
       deckName: '',
       deckColors: '',
@@ -259,6 +258,15 @@ export default {
       searchQuery: '',
       currentDeckTab: 0,
       cardFields: 'name,mtgaid,multiverseid,cmc,colors,type,rarity,imageUrl,imageUrlTransformed'
+    }
+  },
+  created () {
+    this.getCards()
+    if (this.deckAlias !== undefined && this.deckAlias !== '') {
+      this.requestPublicDeckToEdit()
+    }
+    if (this.deckId !== undefined && this.deckId !== '') {
+      this.requestUserDeckToEdit()
     }
   },
   computed: {
@@ -326,6 +334,41 @@ export default {
       if (colorCode === 'c') return this.cCards
       if (colorCode === 'm') return this.mCards
     },
+    requestPublicDeckToEdit: function () {
+      this.isLoading = true
+      this.$api.getPublicDeck(this.deckAlias)
+        .then(res => {
+          this.isLoading = false
+          this.breadcrumbs.push({
+            text: res.data.name,
+            disabled: true
+          })
+          this.deckId = res.data.id
+          this.deckName = res.data.name
+          this.loadDeckData(res.data)
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
+    },
+    requestUserDeckToEdit: function () {
+      this.isLoading = true
+      this.$api.getUserDeck(this.deckId)
+        .then(res => {
+          this.isLoading = false
+          this.breadcrumbs.push({
+            text: res.data.name,
+            disabled: true
+          })
+          this.deckName = res.data.name
+          this.loadDeckData(res.data)
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
+    },
     onLibraryCardClick: function (card) {
       if (this.currentDeckTab === 0) {
         this.addCard(card, this.deckCards, true)
@@ -377,6 +420,7 @@ export default {
         Utils.remove(pile, deckCard)
         this.$nextTick(() => {
           pile.push(deckCard)
+          DeckUtils.sortByCmc(pile)
           this.updateDeckInfo()
         })
       } else {
@@ -417,24 +461,7 @@ export default {
             this.isLoading = false
             this.showError = false
             this.deckImportDialogVisible = false
-            this.deckArch = res.data.arch
-            this.deckColors = res.data.colors
-            this.deckManaCurve = res.data.ManaCurve
-            this.deckWCCost = res.data.wildcardCost
-            const cards = []
-            Object.keys(res.data.cards).forEach(mtgaid => {
-              cards.push(res.data.cards[mtgaid])
-            })
-            DeckUtils.sortByCmc(cards)
-            this.deckCards = cards
-            this.deckCardsQtd = DeckUtils.getGroupCardsQtd(cards)
-            const sideboard = []
-            Object.keys(res.data.sideboard).forEach(mtgaid => {
-              sideboard.push(res.data.sideboard[mtgaid])
-            })
-            DeckUtils.sortByCmc(sideboard)
-            this.sideboardCards = sideboard
-            this.sideboardCardsQtd = DeckUtils.getGroupCardsQtd(sideboard)
+            this.loadDeckData(res.data)
           })
           .catch(error => {
             console.log(error)
@@ -449,16 +476,28 @@ export default {
         this.showError = true
       }
     },
-    guid: function () {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = Math.random() * 16 | 0
-        var v = c === 'x' ? r : (r & 0x3 | 0x8)
-        return v.toString(16)
+    loadDeckData: function (data) {
+      this.deckArch = data.arch
+      this.deckColors = data.colors
+      this.deckManaCurve = data.manaCurve
+      this.deckWCCost = data.wildcardCost
+      const cards = []
+      Object.keys(data.cards).forEach(mtgaid => {
+        cards.push(data.cards[mtgaid])
       })
+      DeckUtils.sortByCmc(cards)
+      this.deckCards = cards
+      this.deckCardsQtd = DeckUtils.getGroupCardsQtd(cards)
+      const sideboard = []
+      Object.keys(data.sideboard).forEach(mtgaid => {
+        sideboard.push(data.sideboard[mtgaid])
+      })
+      DeckUtils.sortByCmc(sideboard)
+      this.sideboardCards = sideboard
+      this.sideboardCardsQtd = DeckUtils.getGroupCardsQtd(sideboard)
     },
     saveDeck: function () {
       this.isLoading = true
-      const deckId = this.guid()
       const cards = {}
       this.deckCards.forEach(card => {
         cards[card.mtgaid] = card.qtd
@@ -467,12 +506,25 @@ export default {
       this.sideboardCards.forEach(card => {
         sideboard[card.mtgaid] = card.qtd
       })
-      this.$api.postUserDeck(deckId, this.deckName, this.deckColors, cards, sideboard)
+      if (this.deckAlias !== undefined) {
+        this.savePublicDeck(cards, sideboard)
+      } else {
+        this.saveUserDeck(cards, sideboard)
+      }
+    },
+    savePublicDeck: function (cards, sideboard) {
+      let owner = localStorage.getItem('userName')
+      if (owner === undefined) {
+        const userEmail = localStorage.getItem('email')
+        owner = userEmail.substring(0, userEmail.indexOf('@'))
+      }
+      this.$api.publishUserDeck(this.deckId, this.deckName, this.deckArch,
+        this.deckColors, cards, sideboard, owner)
         .then(res => {
           this.isLoading = false
           this.showError = false
           this.deckNameDialogVisible = false
-          this.$router.replace(`/user/decks/${deckId}`)
+          this.$router.replace(`/decks/${this.deckAlias}`)
         })
         .catch(error => {
           console.log(error)
@@ -480,6 +532,31 @@ export default {
           this.errorMsg = error.response.data
           this.showError = true
         })
+    },
+    saveUserDeck: function (cards, sideboard) {
+      if (this.deckId === undefined || this.deckId === '') {
+        this.deckId = this.guid()
+      }
+      this.$api.postUserDeck(this.deckId, this.deckName, this.deckColors, cards, sideboard)
+        .then(res => {
+          this.isLoading = false
+          this.showError = false
+          this.deckNameDialogVisible = false
+          this.$router.replace(`/user/decks/${this.deckId}`)
+        })
+        .catch(error => {
+          console.log(error)
+          this.isLoading = false
+          this.errorMsg = error.response.data
+          this.showError = true
+        })
+    },
+    guid: function () {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0
+        var v = c === 'x' ? r : (r & 0x3 | 0x8)
+        return v.toString(16)
+      })
     }
   }
 }
@@ -573,7 +650,7 @@ export default {
     width: 100%;
   }
   .cardContainer {
-    width: 128px;
+    width: 125px;
   }
   .mainContainer {
     position: relative;

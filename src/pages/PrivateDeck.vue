@@ -76,7 +76,7 @@
                   <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
                 </v-layout>
                 <v-divider class="mt-1 ml-5 mr-5"/>
-                <DeckVisual class="deck mt-3" :sideboard="sideboardCards"/>
+                <DeckVisual class="mt-3" :sideboard="sideboardCards"/>
               </div>
             </v-tab-item>
 
