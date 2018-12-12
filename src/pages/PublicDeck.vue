@@ -110,6 +110,7 @@
             </v-flex>
             <v-divider class="mt-2 mb-2" vertical color="gray"/>
             <v-flex xs6>
+              <v-btn flat small color="primary" @click="deleteConfirmationDialogVisible = true">Delete</v-btn>
             </v-flex>
           </v-layout>
 
@@ -122,6 +123,24 @@
     </v-flex>
 
     <!-- Dialogs -->
+    <v-dialog v-model="deleteConfirmationDialogVisible" width="250">
+      <v-card>
+        <v-card-title class='subheading'>Are you Sure?</v-card-title>
+        <v-card-text>
+          <p class="text-md-center" v-if="isLoading">
+            <v-progress-circular color="deep-orange" :indeterminate="true"/>
+          </p>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn :disabled="isLoading" color="primary" flat
+            @click="deleteConfirmationDialogVisible = false">No</v-btn>
+          <v-btn :disabled="isLoading" color="primary" flat
+            @click="deleteDeck()">Yes</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
     <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
       <v-card>
         <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
@@ -205,6 +224,7 @@ export default {
       deckLiked: false,
       deckLikes: 0,
       isUserDeckOwner: false,
+      deleteConfirmationDialogVisible: false
     }
   },
   methods: {
@@ -365,6 +385,19 @@ export default {
     editDeck: function () {
       this.$router.replace(`/decks/${this.deckAlias}/edit?public=true`)
     },
+    deleteDeck: function () {
+      this.isLoading = true
+      this.$api.deletePublicDeck(this.deckId)
+        .then(res => {
+          this.isLoading = false
+          this.deleteConfirmationDialogVisible = false
+          this.$router.replace('/decks')
+        })
+        .catch(error => {
+          this.isLoading = false
+          this.deleteConfirmationDialogVisible = false
+          console.log(error)
+        })
     }
   }
 }

@@ -359,6 +359,17 @@ export default {
       }
     })
   },
+  deletePublicDeck (id) {
+    return axios.delete('/decks', {
+      headers: {
+        Authorization: 'required'
+      },
+      params: {
+        deckId: id,
+        userId: localStorage.getItem('localId')
+      }
+    })
+  },
   postUserDeckLike (deckId) {
     return axios.post('/decks/like', {
       userId: localStorage.getItem('localId'),
