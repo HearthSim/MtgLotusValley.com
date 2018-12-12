@@ -1,10 +1,11 @@
 <template>
-  <v-layout id="manaSymbol" row nowrap>
+  <v-layout class="manaSymbol" row nowrap>
     <span v-for="(mana, index) in manaSymbolsLeft" :key="cardid + mana + index">
       <i v-bind:class="'ms ms-' + mana + ' ms-cost ms-shadow'"></i>
     </span>
-    <span v-if="manaSymbolsRight.length > 0">//</span>
-    <span v-for="(mana, index) in manaSymbolsRight" :key="cardid + mana + index">
+    <span v-if="showSplitMana && manaSymbolsRight.length > 0">//</span>
+    <span v-if="showSplitMana && manaSymbolsRight.length > 0"
+      v-for="(mana, index) in manaSymbolsRight" :key="cardid + mana + index">
       <i v-bind:class="'ms ms-' + mana + ' ms-cost ms-shadow'"></i>
     </span>
   </v-layout>
@@ -40,6 +41,10 @@ export default {
     },
     cost: {
       required: true
+    },
+    showSplitMana: {
+      required: false,
+      default: false
     }
   },
   methods: {}
@@ -47,10 +52,10 @@ export default {
 </script>
 
 <style>
-#manaSymbol {
+.manaSymbol {
   justify-content: flex-end;
 }
-#manaSymbol span i {
+.manaSymbol span i {
   font-size: .8em;
 }
 .ms-cost {

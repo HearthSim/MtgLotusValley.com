@@ -74,6 +74,6 @@ export default {
     z-index: 9999;
   }
   .cardContainer:not(:first-child) {
-    margin-top: -129%;
+    margin-top: -128%;
   }
 </style>

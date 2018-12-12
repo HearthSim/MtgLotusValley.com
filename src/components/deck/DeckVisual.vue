@@ -5,7 +5,7 @@
     </v-flex>
     <v-flex xl12 class="types">
       <DeckGroup align="center" v-if='lands.length > 0'
-        :groupSize="lands.length"         groupName="Lands" />
+        :groupSize="landsQtd"             groupName="Lands" />
       <DeckGroup align="center" v-if='creatures.length > 0'
         :groupSize="creatures.length"     groupName="Creatures" />
       <DeckGroup align="center" v-if='spells.length > 0'
@@ -65,7 +65,8 @@ export default {
   data () {
     return {
       allCards: [],
-      allSideboard: []
+      allSideboard: [],
+      landsQtd: []
     }
   },
   computed: {
@@ -76,9 +77,11 @@ export default {
       return this.groupCards(this.cards, true)
     },
     lands: function () {
-      return this.cardsGrouped.filter(card => {
+      const lands = this.cardsGrouped.filter(card => {
         return card.type.includes('Land') && !card.type.includes('Creature')
       })
+      this.landsQtd = DeckUtils.getGroupCardsQtd(lands)
+      return lands
     },
     creatures: function () {
       return this.cardsGrouped.filter(card => card.type.includes('Creature'))
@@ -223,6 +226,7 @@ export default {
   }
   .types {
     display: flex;
+    justify-content: space-between;
     width: 100%;
   }
   .pileContainer {

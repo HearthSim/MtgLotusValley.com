@@ -54,13 +54,15 @@ table #card_qtd {
 table #card_name {
   text-align: left;
   padding-right: 8px;
+  max-width: 150px;
 }
 table #card_cost {
   padding-right: 8px;
+  max-width: 65px;
 }
 table #card_set {
   text-align: center;
-  padding-right: 12px;
+  padding-right: 8px;
 }
 table #card_missing div {
   text-align: center;

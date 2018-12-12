@@ -3,7 +3,7 @@
     <td :class="marginTop ? 'pt-3' : ''">
       <i v-bind:class="'ms ms-' + groupSymbol + ' ms-shadow'"></i>
     </td>
-    <td :class="`body-2 group_name ${marginTop ? 'pt-3' : ''}`">
+    <td :class="`caption group_name ${marginTop ? 'pt-3' : ''}`">
       &nbsp;{{groupName}} ({{groupSize}})
     </td>
   </tr>
