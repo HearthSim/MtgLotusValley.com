@@ -119,18 +119,18 @@
                   <v-divider class="mt-3"/>
                   <strong class="mt-3">Runs</strong>
                   <v-card class="mx-2 my-1 px-2 py-2" v-for="eventRun in userEventsRunsData" :key="eventRun.id">
-                    <v-layout row nowrap>              
+                    <v-layout row nowrap>
+                      <span :class="`mt-1 body-2 ${eventRun.wins > eventRun.losses ? 'green--text' : ''}`">{{eventRun.wins}}</span>
+                      <span class="mt-1"> x </span>
+                      <span :class="`mt-1 body-2 ${eventRun.losses > eventRun.wins ? 'red--text' : ''}`">{{eventRun.losses}}</span>
                       <router-link :to="`/user/decks/${eventRun.deckId}`">        
-                        <div class="pt-1 mana">
+                        <div class="ml-2 pt-1 mana">
                           <img v-for="color in eventRun.deckColors? eventRun.deckColors.split('') : []" :key="color"
                             :src="require(`@/assets/mana/${color}.png`)"/>
                         </div>
                       </router-link>
-                      <span :class="`mt-1 ml-1 body-2 ${eventRun.wins > eventRun.losses ? 'green--text' : ''}`">{{eventRun.wins}}</span>
-                      <span class="mt-1"> x </span>
-                      <span :class="`mt-1 body-2 ${eventRun.losses > eventRun.wins ? 'red--text' : ''}`">{{eventRun.losses}}</span>
                       <v-spacer/>
-                      <span class="caption mt-2">
+                      <span class="caption mt-1 pt-1">
                         {{ new Date(eventRun.date.replace('_', ':')).toLocaleString().replace(':00', '') }}
                       </span>
                     </v-layout>
@@ -180,12 +180,6 @@ export default {
   components: {
     EventStats, SetSymbol, MatchesTimeline, WildcardsCost, Utils
   },
-  created () {
-    this.requestUserExtras()
-    this.requestUserCollectionSummary()
-    this.requestUserEventsSummary()
-    this.requestEverGreenUserMatches()
-  },
   data () {
     return {
       breadcrumbs: [
@@ -198,6 +192,12 @@ export default {
           disabled: true
         }
       ],
+      localId: this.$route.query.localId,
+      email: this.$route.query.email,
+      idToken: this.$route.query.idToken,
+      refreshToken: this.$route.query.refreshToken,
+      userName: this.$route.query.userName,
+      expiresIn: this.$route.query.expiresIn,
       userCollectionSummary: [],
       userGold: 0,
       userGems: 0,
@@ -224,7 +224,34 @@ export default {
       totalEventsRunsPages: 1
     }
   },
+  created () {
+    this.checkAuthQueryParams()
+    this.requestUserExtras()
+    this.requestUserCollectionSummary()
+    this.requestUserEventsSummary()
+    this.requestEverGreenUserMatches()
+  },
   methods: {
+    checkAuthQueryParams: function () {
+      this.$router.push({
+        path: 'user'
+      })
+      if (!this.$isUserLogged()) {
+        if (this.idToken === undefined || this.idToken === '') {
+          this.$router.replace('/')
+        } else {
+          this.$api.saveUserToken({
+            localId: this.localId,
+            email: this.email,
+            idToken: this.idToken,
+            refreshToken: this.refreshToken,
+            userName: this.userName,
+            expiresIn: this.expiresIn
+          })
+          this.$router.replace('/user')
+        }
+      }
+    },
     requestUserExtras: function () {
       this.$api.getUserExtras(this.deckAlias)
         .then(res => {

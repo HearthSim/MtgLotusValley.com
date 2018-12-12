@@ -28,10 +28,7 @@ const router = new Router({
     {
       path: '/user',
       name: 'User',
-      component: User,
-      meta: {
-        requiresAuth: true
-      }
+      component: User
     },
     {
       path: '/user/collection',
