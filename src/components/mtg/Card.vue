@@ -15,7 +15,9 @@
       <a class='body-1' target="_blank" :href="cardLink()" slot="activator">
         {{ name }}
       </a>
-      <img class="cardBorder" v-lazy="imageUrl" alt="Loading..." width="250px" />
+      <img class="cardBorder" v-lazy="imageUrl" :alt="name" width="250px" />
+      <img v-if="imageUrlTransformed !== undefined" class="cardBorder"
+        :alt="name" v-lazy="imageUrlTransformed" width="250px" ref="cardImageTransformed"/>
     </v-tooltip>
   </div>
 </template>

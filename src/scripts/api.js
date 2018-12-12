@@ -250,7 +250,7 @@ export default {
         deckId: id,
         userId: localStorage.getItem('localId'),
         cardDetails: true,
-        fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,colorIdentity,qtd',
+        fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,imageUrlTransformed,colorIdentity,qtd',
         updates: true,
         winRate: true
       }
@@ -353,7 +353,7 @@ export default {
       params: {
         alias: escape(alias),
         cardDetails: true,
-        fields: 'cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,colorIdentity,qtd',
+        fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,imageUrlTransformed,colorIdentity,qtd',
         updates: true,
         userLikeId: localStorage.getItem('localId')
       }
@@ -402,7 +402,7 @@ export default {
       sideboard: escape(sideboard),
       format: 'mtga',
       cardDetails: 'true',
-      fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,colorIdentity,qtd'
+      fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,imageUrlTransformed,colorIdentity,qtd'
     })
   }
 }
