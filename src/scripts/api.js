@@ -355,6 +355,7 @@ export default {
         cardDetails: true,
         fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,imageUrlTransformed,colorIdentity,qtd',
         updates: true,
+        deckGuide: true,
         userLikeId: localStorage.getItem('localId')
       }
     })
@@ -367,6 +368,17 @@ export default {
       params: {
         deckId: id,
         userId: localStorage.getItem('localId')
+      }
+    })
+  },
+  postUserDeckGuide (deckId, deckGuide) {
+    return axios.post('/decks/guide', {
+      userId: localStorage.getItem('localId'),
+      deckId: deckId,
+      deckGuide: deckGuide
+    }, {
+      headers: {
+        Authorization: 'required'
       }
     })
   },
@@ -413,7 +425,7 @@ export default {
       sideboard: escape(sideboard),
       format: 'mtga',
       cardDetails: 'true',
-      fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,type,imageUrl,imageUrlTransformed,colorIdentity,qtd'
+      fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,imageUrlTransformed,colorIdentity,qtd'
     })
   }
 }

@@ -1,9 +1,11 @@
 <template>
   <div class="wildcards">
     <div v-for="wcCost in wcCosts" :key="wcCost.rarity">
-      <span :class="`${small ? 'textSizeSmall' : 'textSizeNormal mr-1 ml-2'}`">{{ wcCost.qtd }} </span>
+      <span :class="`text-xs-right ${medium ? 'textSizeMedium' : small ? 'textSizeSmall' : 'textSizeNormal mr-1 ml-2'}`">
+        {{ wcCost.qtd }}
+      </span>
       <v-tooltip bottom>
-        <img :class="small ? 'imgSizeSmall' : 'imgSizeNormal'" slot="activator"
+        <img :class="medium ? 'imgSizeMedium' : small ? 'imgSizeSmall' : 'imgSizeNormal'" slot="activator"
           :src="require(`@/assets/wildcards/${wcCost.rarity}.png`)"/>
         {{`${captalize(wcCost.rarity)} wildcard`}}
       </v-tooltip>
@@ -19,6 +21,11 @@ export default {
     cost: {
       type: Object,
       required: true
+    },
+    medium: {
+      type: Boolean,
+      required: false,
+      default: false
     },
     small: {
       type: Boolean,
@@ -71,16 +78,28 @@ export default {
     font-size: 14pt;
     margin-left: 5px;
     margin-right: 4px;
+    min-width: 24px;
     transform: translateY(4px);
+  }
+  .textSizeMedium {
+    font-size: 11pt;
+    margin-left: 4px;
+    margin-right: 3px;
+    min-width: 19px;
+    transform: translateY(3px);
   }
   .textSizeSmall {
     font-size: 9pt;
     margin-left: 4px;
     margin-right: 2px;
+    min-width: 18px;
     transform: translateY(2px);
   }
   .imgSizeNormal {
     width: 22px;
+  }
+  .imgSizeMedium {
+    width: 16px;
   }
   .imgSizeSmall {
     width: 14px;

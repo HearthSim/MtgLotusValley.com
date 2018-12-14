@@ -26,6 +26,19 @@
           </v-layout>
         </div>
         <v-layout row class="overlay">
+          
+          <v-layout class="mt-2_5 mr-2 white--text" column nowrap>
+            <v-layout row nowrap v-if="$isUserLogged()">
+              <span class='mt-0_5 subheading'>Build Cost</span>
+              <WildcardsCost class="wildcardsCost ml-2" :cost="deckWCMissingCost" medium/>
+            </v-layout>
+            <v-layout row nowrap class="mt-1">
+              <span class='mt-0_5 subheading'>Total Cost</span>
+              <WildcardsCost class="wildcardsCost ml-2" :cost="deckWCCost" medium/>
+            </v-layout>
+            <v-spacer/>
+          </v-layout>
+
           <v-divider class="mt-2 mb-2" vertical color="gray"/>
           <v-layout column class='manaCurve mt-2'>
             <ManaCurve :manaCurve="deckManaCurve" :height="75" :width="150" :showTitle="false"/>
@@ -43,24 +56,25 @@
     <v-flex xs8>
       <div class="box mr-0">
         <v-layout class="mainContainer boxContent" column nowrap>
-          <v-tabs class="mb-3 ml-3 mr-3" color="transparent">
+          <v-tabs class="mb-3 ml-2 mr-2" color="transparent">
 
             <v-tab>Overview</v-tab>
             <v-tab-item>
               <v-layout class="overview" column wrap>
-                <v-layout class="mt-2" row nowrap>
-                  <v-spacer/>
-                  <v-flex v-if="$isUserLogged()" class="mt-4">
-                    <span class='subheading'>Build Cost</span>
-                    <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCMissingCost"/>
-                  </v-flex>
-                  <v-spacer/>
-                  <v-flex class="mt-4">
-                    <span class='subheading'>Total Cost</span>
-                    <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCCost"/>
-                  </v-flex>
-                  <v-spacer/>
-                </v-layout>
+                <div>
+                  <div v-if="isUserDeckOwner" class="deckGuideButton">
+                    <v-btn v-if="!deckGuideEditing && !isLoading" flat icon color="primary"
+                      @click="deckGuideEditing = true"><v-icon>edit</v-icon></v-btn> 
+                    <v-btn v-if="deckGuideEditing && !isLoading" flat icon color="primary"
+                      @click="onDeckGuideSave()"><v-icon>done</v-icon></v-btn>
+                    <p class="text-md-center" v-if="isLoading">
+                      <v-progress-circular color="deep-orange" :indeterminate="true"/>
+                    </p>
+                  </div>
+                  <v-textarea v-if="deckGuideEditing" class="mt-3" box rows="10"
+                    v-model="deckGuide" label="Markdown Text" no-resize/>
+                  <vue-markdown class="mt-4" :source="deckGuide"/>
+                </div>
               </v-layout>
             </v-tab-item>
 
@@ -184,11 +198,12 @@ import PlayTest from '@/components/deck/PlayTest'
 import ManaCurve from '@/components/charts/ManaCurve'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import DeckUtils from '@/scripts/deckutils'
+import VueMarkdown from 'vue-markdown'
 
 export default {
   name: 'PublicDeck',
   components: {
-    Deck, DeckPresenting, DeckVisual, Stats, Updates, PlayTest, ManaCurve, WildcardsCost
+    Deck, DeckPresenting, DeckVisual, Stats, Updates, PlayTest, ManaCurve, WildcardsCost, VueMarkdown
   },
   created () {
     this.requestDeck()
@@ -218,7 +233,11 @@ export default {
       deckWCCost: {},
       deckWCMissingCost: {},
       deckUpdates: [],
+      deckGuide: 'No **deck guide** yet',
+      deckGuideOrg: '',
+      deckGuideEditing: false,
       isLoading: false,
+      errorMsg: '',
       deckExportDialogVisible: false,
       needLoginDialogVisible: false,
       deckLiked: false,
@@ -255,6 +274,9 @@ export default {
           this.deckUpdates = res.data.updates
           this.deckLiked = res.data.liked
           this.deckLikes = res.data.likes
+          if (res.data.deckGuide !== undefined) {
+            this.deckGuide = res.data.deckGuide
+          }
           this.isUserDeckOwner = localStorage.getItem('localId').startsWith(res.data.ownerId)
           if (this.$isUserLogged()) {
             this.getDeckMissingCards()
@@ -398,6 +420,18 @@ export default {
           this.deleteConfirmationDialogVisible = false
           console.log(error)
         })
+    },
+    onDeckGuideSave: function () {
+      this.isLoading = true
+      this.$api.postUserDeckGuide(this.deckId, this.deckGuide)
+        .then(res => {
+          this.isLoading = false
+          this.deckGuideEditing = false
+        })
+        .catch(error => {
+          this.isLoading = false
+          console.log(error)
+        })
     }
   }
 }
@@ -425,7 +459,7 @@ export default {
     width: 25px;
   }
   .manaCurve {
-    width: 164px;
+    width: 156px;
   }
   .wildcardsCost {
     transform: translateX(-5px);
@@ -441,6 +475,12 @@ export default {
   }
   .overview {
     min-height: 600px;
+    position: relative;
+  }
+  .deckGuideButton {
+    position: absolute;
+    top: -24px;
+    left: calc(100% - 40px);
   }
   .likeButton {
     min-width: 50px;

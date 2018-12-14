@@ -4,7 +4,7 @@
       <span class='body-2'>{{ name }}</span>
       <table>
         <tr class="text-xs-center">
-          <td colspan="4">
+          <td colspan="6">
             Main Deck ({{mainDeckQtd}})
           </td>
         </tr>
