@@ -10,9 +10,10 @@ axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 axios.interceptors.request.use(
   config => {
-    if (config.headers.Authorization === 'required') {
+    if (config.headers.Authorization === 'required' ||
+          config.headers.Authorization === 'optional') {
       const token = localStorage.getItem('idToken')
-      if (token) {
+      if (token && token !== '') {
         config.headers.Authorization = `Bearer ${token}`
       }
     }
@@ -182,7 +183,7 @@ export default {
     }
     if (onlyOwnedCards === true) {
       headers['Authorization'] = 'required'
-      params['onlyUserIdCards'] = localStorage.getItem('localId')
+      params['onlyOwnedCards'] = true
     }
     return axios.get('/cards', {
       headers: headers,
@@ -195,15 +196,12 @@ export default {
         Authorization: 'required'
       },
       params: {
-        userId: localStorage.getItem('localId'),
         summarized: summarized
       }
     })
   },
   getUserEvents (event) {
-    const params = {
-      userId: localStorage.getItem('localId')
-    }
+    const params = {}
     if (event !== undefined) {
       params['event'] = event
     }
@@ -218,9 +216,6 @@ export default {
     return axios.get('/users/events/summary', {
       headers: {
         Authorization: 'required'
-      },
-      params: {
-        userId: localStorage.getItem('localId')
       }
     })
   },
@@ -230,7 +225,6 @@ export default {
         Authorization: 'required'
       },
       params: {
-        userId: localStorage.getItem('localId'),
         pageNumber: page,
         pageSize: pageSize,
         sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`,
@@ -248,7 +242,6 @@ export default {
       },
       params: {
         deckId: id,
-        userId: localStorage.getItem('localId'),
         cardDetails: true,
         fields: 'mtgaid,cmc,colors,manaCost,name,multiverseid,rarity,set,number,type,imageUrl,imageUrlTransformed,colorIdentity,qtd',
         updates: true,
@@ -259,7 +252,6 @@ export default {
   postUserDeck (deckId, deckName, deckColors, deckCards, deckSideboard) {
     return axios.post('/users/decks', {
       deckId: deckId,
-      userId: localStorage.getItem('localId'),
       name: deckName,
       colors: deckColors,
       cards: deckCards,
@@ -272,7 +264,6 @@ export default {
   },
   publishUserDeck (deckId, deckName, deckArch, deckColors, deckCards, deckSideboard, owner) {
     return axios.post('/users/decks/publish', {
-      userId: localStorage.getItem('localId'),
       deckId: deckId,
       arch: deckArch,
       name: deckName,
@@ -293,7 +284,6 @@ export default {
       },
       params: {
         deckId: id,
-        userId: localStorage.getItem('localId'),
         eventName: eventName,
         eventEverGreen: everGreen,
         pageNumber: page,
@@ -308,8 +298,7 @@ export default {
         Authorization: 'required'
       },
       params: {
-        deckId: id,
-        userId: localStorage.getItem('localId')
+        deckId: id
       }
     })
   },
@@ -319,8 +308,7 @@ export default {
         Authorization: 'required'
       },
       params: {
-        deckIds: ids,
-        userId: localStorage.getItem('localId')
+        deckIds: ids
       }
     })
   },
@@ -328,9 +316,6 @@ export default {
     return axios.get('/users/extras', {
       headers: {
         Authorization: 'required'
-      },
-      params: {
-        userId: localStorage.getItem('localId')
       }
     })
   },
@@ -350,6 +335,9 @@ export default {
   },
   getPublicDeck (alias) {
     return axios.get('/decks/published', {
+      headers: {
+        Authorization: 'optional'
+      },
       params: {
         alias: escape(alias),
         cardDetails: true,
@@ -366,14 +354,12 @@ export default {
         Authorization: 'required'
       },
       params: {
-        deckId: id,
-        userId: localStorage.getItem('localId')
+        deckId: id
       }
     })
   },
   postUserDeckGuide (deckId, deckGuide) {
     return axios.post('/decks/guide', {
-      userId: localStorage.getItem('localId'),
       deckId: deckId,
       deckGuide: deckGuide
     }, {
@@ -384,7 +370,6 @@ export default {
   },
   postUserDeckLike (deckId) {
     return axios.post('/decks/like', {
-      userId: localStorage.getItem('localId'),
       deckId: deckId
     }, {
       headers: {
@@ -398,7 +383,6 @@ export default {
         Authorization: 'required'
       },
       params: {
-        userId: localStorage.getItem('localId'),
         deckId: deckId
       }
     })

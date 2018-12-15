@@ -74,9 +74,9 @@
                       @click="onDeckGuideCancel()"><v-icon>close</v-icon></v-btn>
                     <v-btn v-if="deckGuideEditing && !isLoading" flat icon color="primary"
                       @click="onDeckGuideSave()"><v-icon>done</v-icon></v-btn>
-                    <p class="text-md-center" v-if="isLoading">
-                      <v-progress-circular color="deep-orange" :indeterminate="true"/>
-                    </p>
+                  </v-layout>
+                  <v-layout row v-if="isUserDeckOwner && isLoading" class="deckGuideButtons">
+                    <v-progress-circular color="deep-orange" :indeterminate="true"/>
                   </v-layout>
                   <v-textarea v-if="deckGuideEditing" class="mt-3" box rows="10"
                     v-model="deckGuide" label="Markdown Text" no-resize/>
