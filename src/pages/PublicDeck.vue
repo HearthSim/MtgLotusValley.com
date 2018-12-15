@@ -28,11 +28,11 @@
         <v-layout row class="overlay">
           
           <v-layout class="mt-2_5 mr-2 white--text" column nowrap>
-            <v-layout row nowrap v-if="$isUserLogged()">
+            <v-layout row nowrap v-if="$isUserLogged()" justify-end>
               <span class='mt-0_5 subheading'>Build Cost</span>
               <WildcardsCost class="wildcardsCost ml-2" :cost="deckWCMissingCost" medium/>
             </v-layout>
-            <v-layout row nowrap class="mt-1">
+            <v-layout row nowrap class="mt-1" justify-end>
               <span class='mt-0_5 subheading'>Total Cost</span>
               <WildcardsCost class="wildcardsCost ml-2" :cost="deckWCCost" medium/>
             </v-layout>
@@ -61,20 +61,28 @@
             <v-tab>Overview</v-tab>
             <v-tab-item>
               <v-layout class="overview" column wrap>
-                <div>
-                  <div v-if="isUserDeckOwner" class="deckGuideButton">
+                <div class="deckGuideContainer">
+                  <v-layout row v-if="isUserDeckOwner" :class="deckGuideEditing ? 'deckGuideEditingButtons' : 'deckGuideButtons'">
                     <v-btn v-if="!deckGuideEditing && !isLoading" flat icon color="primary"
-                      @click="deckGuideEditing = true"><v-icon>edit</v-icon></v-btn> 
+                      @click="deckGuideEditing = true"><v-icon>edit</v-icon></v-btn>
+                    <v-tooltip v-if="deckGuideEditing && !isLoading" top lazy>                         
+                      <v-btn v-if="deckGuideEditing && !isLoading" flat icon color="primary" slot="activator"
+                        href="https://commonmark.org/help/" target="_blank"><v-icon>info</v-icon></v-btn>
+                      <span>Text formatting info</span>
+                    </v-tooltip>
+                    <v-btn v-if="deckGuideEditing && !isLoading" flat icon color="primary"
+                      @click="onDeckGuideCancel()"><v-icon>close</v-icon></v-btn>
                     <v-btn v-if="deckGuideEditing && !isLoading" flat icon color="primary"
                       @click="onDeckGuideSave()"><v-icon>done</v-icon></v-btn>
                     <p class="text-md-center" v-if="isLoading">
                       <v-progress-circular color="deep-orange" :indeterminate="true"/>
                     </p>
-                  </div>
+                  </v-layout>
                   <v-textarea v-if="deckGuideEditing" class="mt-3" box rows="10"
                     v-model="deckGuide" label="Markdown Text" no-resize/>
                   <vue-markdown class="mt-4" :source="deckGuide"/>
                 </div>
+                <vue-disqus shortname="mtglotusvalley"/>
               </v-layout>
             </v-tab-item>
 
@@ -205,9 +213,6 @@ export default {
   components: {
     Deck, DeckPresenting, DeckVisual, Stats, Updates, PlayTest, ManaCurve, WildcardsCost, VueMarkdown
   },
-  created () {
-    this.requestDeck()
-  },
   data () {
     return {
       breadcrumbs: [
@@ -233,7 +238,7 @@ export default {
       deckWCCost: {},
       deckWCMissingCost: {},
       deckUpdates: [],
-      deckGuide: 'No **deck guide** yet',
+      deckGuide: '',
       deckGuideOrg: '',
       deckGuideEditing: false,
       isLoading: false,
@@ -246,7 +251,15 @@ export default {
       deleteConfirmationDialogVisible: false
     }
   },
+  created () {
+    this.requestDeck()
+    this.scrollToTop()
+  },
   methods: {
+    scrollToTop: function () {
+      document.body.scrollTop = 0 // For Safari
+      document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+    },
     requestDeck: function () {
       this.isLoading = true
       if (this.deckLoader) {
@@ -274,9 +287,8 @@ export default {
           this.deckUpdates = res.data.updates
           this.deckLiked = res.data.liked
           this.deckLikes = res.data.likes
-          if (res.data.deckGuide !== undefined) {
-            this.deckGuide = res.data.deckGuide
-          }
+          this.deckGuide = res.data.deckGuide !== undefined ? res.data.deckGuide : 'No **deck guide** yet'
+          this.deckGuideOrg = this.deckGuide
           this.isUserDeckOwner = localStorage.getItem('localId').startsWith(res.data.ownerId)
           if (this.$isUserLogged()) {
             this.getDeckMissingCards()
@@ -421,11 +433,16 @@ export default {
           console.log(error)
         })
     },
+    onDeckGuideCancel: function () {
+      this.deckGuide = this.deckGuideOrg
+      this.deckGuideEditing = false
+    },
     onDeckGuideSave: function () {
       this.isLoading = true
       this.$api.postUserDeckGuide(this.deckId, this.deckGuide)
         .then(res => {
           this.isLoading = false
+          this.deckGuideOrg = this.deckGuide
           this.deckGuideEditing = false
         })
         .catch(error => {
@@ -477,10 +494,18 @@ export default {
     min-height: 600px;
     position: relative;
   }
-  .deckGuideButton {
+  .deckGuideContainer {
+    min-height: 400px;
+  }
+  .deckGuideButtons {
     position: absolute;
     top: -24px;
     left: calc(100% - 40px);
+  }
+  .deckGuideEditingButtons {
+    position: absolute;
+    top: -24px;
+    left: calc(100% - 150px);
   }
   .likeButton {
     min-width: 50px;
