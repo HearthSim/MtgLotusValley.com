@@ -12,7 +12,7 @@
     <v-layout class="line line2 mt-1" row nowrap>
       <v-flex sm7>
         <div>
-          <span class="caption">{{ event.format }}</span>
+          <span class="subcaption">{{ event.format }}</span>
         </div>
       </v-flex>
       <v-flex sm5>
@@ -109,5 +109,8 @@ export default {
   }
   .line1 {
     background-color: darkorange;
+  }
+  .subcaption {
+    font-size: 11px!important;
   }
 </style>

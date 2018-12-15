@@ -62,6 +62,16 @@
               </v-layout>
             </v-tab-item>
 
+            <v-tab>Stats</v-tab>
+            <v-tab-item>
+              <Stats class='mt-3' :cards="deckCards"/>
+            </v-tab-item>
+
+            <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
+            <v-tab-item>
+              <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
+            </v-tab-item>
+
             <v-tab>Visual Mode</v-tab>
             <v-tab-item lazy>
               <div>
@@ -78,16 +88,6 @@
                 <v-divider class="mt-1 ml-5 mr-5"/>
                 <DeckVisual class="mt-3" :sideboard="sideboardCards"/>
               </div>
-            </v-tab-item>
-
-            <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
-            <v-tab-item>
-              <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
-            </v-tab-item>
-
-            <v-tab>Stats</v-tab>
-            <v-tab-item>
-              <Stats class='mt-3' :cards="deckCards"/>
             </v-tab-item>
 
             <v-tab>Matches</v-tab>

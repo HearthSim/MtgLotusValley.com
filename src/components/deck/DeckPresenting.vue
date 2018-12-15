@@ -52,7 +52,12 @@ export default {
           return card2RarityIndex - card1RarityIndex
         }
       })
-      const data = cardsSorted.slice(1, 5)
+      while (cardsSorted.length < 5) {
+        cardsSorted.push({})
+      }
+      const data = cardsSorted.slice(3, 5)
+      data.splice(1, 0, cardsSorted[1])
+      data.splice(2, 0, cardsSorted[2])
       data.splice(2, 0, cardsSorted[0])
       return data
     }
@@ -75,6 +80,8 @@ export default {
   }
   .card {
     z-index: 999;
+    max-width: 90px;
+    min-width: 85px;
   }
   .card:hover {
     z-index: 9999;
@@ -84,13 +91,13 @@ export default {
     margin-top: 10%;
   }
   .card2 {
-    transform: rotate(-20deg);
+    transform: rotate(-20deg) scale(1.05);
   }
   .card3 {
-    transform: scale(1.075);
+    transform: scale(1.1);
   }
   .card4 {
-    transform: rotate(20deg);
+    transform: rotate(20deg) scale(1.05);
     z-index: 99;
   }
   .card5 {
