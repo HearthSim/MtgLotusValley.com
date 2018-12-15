@@ -8,12 +8,12 @@
 
       <v-card v-if="!data.isHeader" class="mt-2 py-2">
         <v-layout row nowrap xs12>
-          <v-flex xs2>
+          <v-flex xs2 v-if="eventName">
             <v-layout class="text-valign-center" column fill-height>
               <span class="ml-2">{{data.eventPublicName}}</span>
             </v-layout>
           </v-flex>
-          <v-flex xs3>
+          <v-flex :class="eventName ? 'flex xs3' : 'flex xs4 pl-3'">
             <v-layout class="text-xs-center" row nowrap fill-height>
               <v-layout class="text-valign-center" column>
                 <router-link :to="`/user/decks/${data.deck}`">
@@ -34,7 +34,7 @@
               </v-layout>
             </v-layout>
           </v-flex>
-          <v-flex xs3>
+          <v-flex :class="eventName ? 'flex xs3' : 'flex xs4'">
             <v-layout class="text-xs-center" row nowrap fill-height>
               <v-layout class="text-valign-center" column fill-height>
                   <span>{{data.opponentDeckArch}}</span>
@@ -61,6 +61,11 @@ export default {
     matches: {
       type: Array,
       required: true
+    },
+    eventName: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   }
 }

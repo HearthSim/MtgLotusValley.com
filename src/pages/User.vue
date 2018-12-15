@@ -58,6 +58,28 @@
             </v-layout>
           </v-layout>
 
+          <v-layout class="box mr-0" row wrap>
+            <v-flex xs12 class="boxHeader">Evergreen Constructed Summary</v-flex>
+            <v-layout class="boxContent pb-2" column nowrap>
+              <v-layout row nowrap>
+                <EventStats v-for="(summary, index) in userEvergreenConstructedSummary"
+                  v-bind:key="index" :data="summary" :id="summary.event"/>
+              </v-layout>
+              <MatchesTimeline class="mt-4" :matches="userEverGreenMatchesData"/>
+              <v-layout row xs12 class="mt-1">
+                <v-spacer/>
+                <v-pagination v-model="paginationEverGreen.page" @input="requestEverGreenUserMatches"
+                  :length="totalEverGreenPages" :total-visible="5"/>
+              </v-layout>
+
+            </v-layout>
+          </v-layout>
+
+        </v-tab-item>
+        
+        <v-tab>Collection</v-tab>
+        <v-tab-item lazy>
+
           <v-layout class="box" row wrap>
             <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
             <v-layout class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
@@ -91,21 +113,6 @@
             </v-layout>
           </v-layout>
           
-          <v-layout class="box mr-0" row wrap>
-            <v-flex xs12 class="boxHeader">Ever-Green Constructed Matches</v-flex>
-            <v-layout class="boxContent pb-2" row wrap>
-
-              <MatchesTimeline :matches="userEverGreenMatchesData"/>
-
-              <v-layout row xs12 class="mt-1">
-                <v-spacer/>
-                <v-pagination v-model="paginationEverGreen.page" @input="requestEverGreenUserMatches"
-                  :length="totalEverGreenPages" :total-visible="5"/>
-              </v-layout>
-
-            </v-layout>
-          </v-layout>
-
         </v-tab-item>
 
         <v-tab>Events</v-tab>
@@ -149,7 +156,7 @@
                   <v-select class="ml-2 mt-1" v-model="currentEventName" :items="userEventsNames"
                     @change="onEventChange" label="Event" solo dense hide-details/>
                 </v-layout>
-                <MatchesTimeline class="pr-3" :matches="userEventsMatchesData"/>                
+                <MatchesTimeline class="pr-3" :matches="userEventsMatchesData" :eventName="false"/>                
                 <v-layout row xs12 class="mt-1">
                   <v-spacer/>
                   <v-pagination v-model="paginationEvents.page" @input="requestUserEventsMatches"
@@ -208,6 +215,7 @@ export default {
       totalConstructed: 0,
       totalLimited: 0,
       isLoading: false,
+      userEvergreenConstructedSummary: [],
       userEventsSummary: [],
       userEventsNames: [],
       paginationEverGreen: { page: 1 },
@@ -294,6 +302,7 @@ export default {
             .map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
           this.totalLimited = data.filter(summary => summary.type === 'Limited')
             .map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
+          this.userEvergreenConstructedSummary = data.filter(summary => Utils.everGreenEvents.includes(summary.event))
           const events = data.filter(summary => !Utils.everGreenEvents.includes(summary.event))
           this.userEventsSummary = events
           this.userEventsNames = events.map(summary => summary.name)
