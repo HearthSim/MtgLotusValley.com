@@ -59,7 +59,8 @@ export default {
     'NPE',
     'DirectChallenge',
     'RankedConstructed',
-    'ConstructedBestOf3'
+    'ConstructedBestOf3',
+    'Ladder'
   ],
   captalize: function (value) {
     return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
