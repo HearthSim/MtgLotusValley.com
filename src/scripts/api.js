@@ -277,7 +277,7 @@ export default {
       }
     })
   },
-  getUserDeckMatches (id, page, pageSize, sortBy, descending, eventName, everGreen) {
+  getUserDeckMatches (id, page, pageSize, sortBy, descending, eventName, casual) {
     return axios.get('/users/matches', {
       headers: {
         Authorization: 'required'
@@ -285,7 +285,7 @@ export default {
       params: {
         deckId: id,
         eventName: eventName,
-        eventEverGreen: everGreen,
+        eventCasual: casual,
         pageNumber: page,
         pageSize: pageSize,
         sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`

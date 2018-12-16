@@ -1,10 +1,12 @@
 <template>
-  <v-tabs class="box" color="transparent">
-    <v-tab v-for="tab in tabs" :key="tab.title">{{tab.title}}</v-tab>
-    <v-tab-item v-for="(tab, index) in tabs" :key="tab.title">
-      <MetaData :index="index" :startsDate="tab.startsDate" :endsDate="tab.endsDate"/>
-    </v-tab-item>
-  </v-tabs>
+  <v-layout class="mb-3" column>
+    <v-tabs class="box" color="transparent">
+      <v-tab v-for="tab in tabs" :key="tab.title">{{tab.title}}</v-tab>
+      <v-tab-item v-for="(tab, index) in tabs" :key="tab.title">
+        <MetaData :index="index" :startsDate="tab.startsDate" :endsDate="tab.endsDate"/>
+      </v-tab-item>
+    </v-tabs>
+  </v-layout>
 </template>
 
 <script>

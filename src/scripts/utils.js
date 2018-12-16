@@ -55,13 +55,6 @@ export default {
     { colors: 'ubg', colorsOrdered: 'bgu', name: 'Sultai' },
     { colors: 'urg', colorsOrdered: 'gru', name: 'Temur' }
   ],
-  everGreenEvents: [
-    'NPE',
-    'DirectChallenge',
-    'RankedConstructed',
-    'ConstructedBestOf3',
-    'Ladder'
-  ],
   captalize: function (value) {
     return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
   },

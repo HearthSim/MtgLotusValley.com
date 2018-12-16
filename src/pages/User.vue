@@ -58,18 +58,18 @@
             </v-layout>
           </v-layout>
 
-          <v-layout class="box mr-0" row wrap>
-            <v-flex xs12 class="boxHeader">Evergreen Constructed Summary</v-flex>
+          <v-layout class="box" row wrap>
+            <v-flex xs12 class="boxHeader">Casual Matches Summary</v-flex>
             <v-layout class="boxContent pb-2" column nowrap>
               <v-layout row nowrap>
-                <EventStats v-for="(summary, index) in userEvergreenConstructedSummary"
+                <EventStats v-for="(summary, index) in userCasualConstructedSummary"
                   v-bind:key="index" :data="summary" :id="summary.event"/>
               </v-layout>
-              <MatchesTimeline class="mt-4" :matches="userEverGreenMatchesData"/>
+              <MatchesTimeline class="mt-4 pr-2" :matches="userCasualMatchesData"/>
               <v-layout row xs12 class="mt-1">
                 <v-spacer/>
-                <v-pagination v-model="paginationEverGreen.page" @input="requestEverGreenUserMatches"
-                  :length="totalEverGreenPages" :total-visible="5"/>
+                <v-pagination v-model="paginationCasual.page" @input="requestCasualUserMatches"
+                  :length="totalCasualPages" :total-visible="5"/>
               </v-layout>
 
             </v-layout>
@@ -215,12 +215,12 @@ export default {
       totalConstructed: 0,
       totalLimited: 0,
       isLoading: false,
-      userEvergreenConstructedSummary: [],
+      userCasualConstructedSummary: [],
       userEventsSummary: [],
       userEventsNames: [],
-      paginationEverGreen: { page: 1 },
-      totalEverGreenPages: 1,
-      userEverGreenMatchesData: [],
+      paginationCasual: { page: 1 },
+      totalCasualPages: 1,
+      userCasualMatchesData: [],
       paginationEvents: { page: 1 },
       totalEventsPages: 1,
       currentEvent: '',
@@ -237,7 +237,7 @@ export default {
     this.requestUserExtras()
     this.requestUserCollectionSummary()
     this.requestUserEventsSummary()
-    this.requestEverGreenUserMatches()
+    this.requestCasualUserMatches()
   },
   methods: {
     checkAuthQueryParams: function () {
@@ -302,8 +302,8 @@ export default {
             .map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
           this.totalLimited = data.filter(summary => summary.type === 'Limited')
             .map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
-          this.userEvergreenConstructedSummary = data.filter(summary => Utils.everGreenEvents.includes(summary.event))
-          const events = data.filter(summary => !Utils.everGreenEvents.includes(summary.event))
+          this.userCasualConstructedSummary = data.filter(summary => summary.casual)
+          const events = data.filter(summary => !summary.casual)
           this.userEventsSummary = events
           this.userEventsNames = events.map(summary => summary.name)
           if (events.length > 0) {
@@ -323,25 +323,25 @@ export default {
       this.requestUserEventsMatches()
       this.requestUserEventsRuns()
     },
-    requestEverGreenUserMatches: function () {
+    requestCasualUserMatches: function () {
       this.isLoading = true
-      this.paginationEverGreen.rowsPerPage = 10
-      const { sortBy, descending, page, rowsPerPage } = this.paginationEverGreen
+      this.paginationCasual.rowsPerPage = 10
+      const { sortBy, descending, page, rowsPerPage } = this.paginationCasual
       this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending, undefined, true)
         .then(res => {
           this.isLoading = false
-          this.userEverGreenMatchesData = []
-          this.totalEverGreenPages = res.data.length < rowsPerPage ? page : page + 1
+          this.userCasualMatchesData = []
+          this.totalCasualPages = res.data.length < rowsPerPage ? page : page + 1
           res.data.forEach(match => {
-            const userMatchesSize = this.userEverGreenMatchesData.length
-            if (userMatchesSize === 0 || this.userEverGreenMatchesData[userMatchesSize - 1].date !== match.date) {
+            const userMatchesSize = this.userCasualMatchesData.length
+            if (userMatchesSize === 0 || this.userCasualMatchesData[userMatchesSize - 1].date !== match.date) {
               const date = new Date(match.date.replace('_', ':'))
-              this.userEverGreenMatchesData.push({
+              this.userCasualMatchesData.push({
                 isHeader: true,
                 dateFormatted: date.toLocaleString().split(' ')[0].replace(',', '')
               })
             }
-            this.userEverGreenMatchesData.push(match)
+            this.userCasualMatchesData.push(match)
           })
         })
         .catch(error => {
