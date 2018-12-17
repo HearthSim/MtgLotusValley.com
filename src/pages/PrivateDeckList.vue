@@ -15,11 +15,17 @@
           <CardsFilter class="filter mt-1 pl-2 pr-2" v-model="containsCards" ref="cardsFilter"/>
           <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
           <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors" simple/>
+          <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+          <FormatFilter class="filter mt-1 pl-3 pr-2" v-model="deckFormat"/>
           <v-spacer/>
           <div>
             <v-layout column>
-              <v-btn class="mt-0" color="primary" flat @click="requestDecks()">Apply Filters</v-btn>
-              <v-btn class="mt-1" color="primary" flat @click="clearFilters()">Clear Filters</v-btn>
+              <v-btn class="mt-0" color="primary" flat icon @click="clearFilters()">
+                <v-icon>close</v-icon>
+              </v-btn>
+              <v-btn class="mt-1" color="primary" flat icon @click="requestDecks()">
+                <v-icon>done</v-icon>
+              </v-btn>
             </v-layout>
           </div>
         </v-layout>
@@ -95,6 +101,7 @@
 <script>
 import CardsFilter from '@/components/filters/CardsFilter'
 import ColorFilter from '@/components/filters/ColorFilter'
+import FormatFilter from '@/components/filters/FormatFilter'
 import QueryFilter from '@/components/filters/QueryFilter'
 import ManaCurveCompact from '@/components/charts/ManaCurveCompact'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
@@ -102,7 +109,7 @@ import WildcardsCost from '@/components/mtg/WildcardsCost'
 export default {
   name: 'PrivateDeckList',
   components: {
-    CardsFilter, ColorFilter, QueryFilter, ManaCurveCompact, WildcardsCost
+    CardsFilter, ColorFilter, FormatFilter, QueryFilter, ManaCurveCompact, WildcardsCost
   },
   data () {
     return {
@@ -136,6 +143,7 @@ export default {
       currentDecks: [],
       activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,g,r,u,w',
       containsCards: this.$route.query.cards !== undefined ? this.$route.query.cards : '',
+      deckFormat: this.$route.query.format !== undefined ? this.$route.query.format : 'Constructed',
       searchQuery: this.$route.query.query !== undefined ? this.$route.query.query : '',
       deleteConfirmationDialogVisible: false
     }
@@ -152,7 +160,7 @@ export default {
       this.selectedDecks = []
       this.isLoading = true
       const { sortBy, descending, page, rowsPerPage } = this.pagination
-      this.$api.getUserDecks(page, rowsPerPage, sortBy, descending,
+      this.$api.getUserDecks(page, rowsPerPage, sortBy, descending, this.deckFormat,
         this.activeColors, this.searchQuery, this.containsCards, true)
         .then(res => {
           this.isLoading = false
@@ -166,10 +174,18 @@ export default {
           console.log(error)
         })
     },
+    clearFilters: function () {
+      this.activeColors = 'b,g,r,u,w'
+      this.deckFormat = 'Constructed'
+      this.searchQuery = ''
+      this.containsCards = ''
+      this.requestDecks()
+    },
     updateRouter: function () {
       const queryParams = {
         page: this.pagination.page,
-        colors: this.activeColors
+        colors: this.activeColors,
+        format: this.deckFormat
       }
       if (this.containsCards !== '') {
         queryParams['cards'] = this.containsCards
@@ -214,11 +230,8 @@ export default {
   .filters {
     height: 110px;
   }
-  .filters button {
-    width: 150px;
-  }
   .filter {
-    min-width: 210px;
+    width: 200px;
   }
   .wildcards {
     justify-content: space-between;

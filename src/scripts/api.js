@@ -219,20 +219,24 @@ export default {
       }
     })
   },
-  getUserDecks (page, pageSize, sortBy, descending, colors, query, cards, cardDetails) {
+  getUserDecks (page, pageSize, sortBy, descending, format, colors, query, cards, cardDetails) {
+    const params = {
+      pageNumber: page,
+      pageSize: pageSize,
+      sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`,
+      cardDetails: cardDetails,
+      containsCards: cards,
+      colors: colors,
+      query: query
+    }
+    if (format === 'Constructed' || format === 'Limited') {
+      params['format'] = format
+    }
     return axios.get('/users/decks', {
       headers: {
         Authorization: 'required'
       },
-      params: {
-        pageNumber: page,
-        pageSize: pageSize,
-        sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`,
-        cardDetails: cardDetails,
-        containsCards: cards,
-        colors: colors,
-        query: query
-      }
+      params: params
     })
   },
   getUserDeck (id) {
@@ -319,18 +323,22 @@ export default {
       }
     })
   },
-  getPublicDecks (page, pageSize, sortBy, descending, colors, query, cards, cardDetails, fields) {
+  getPublicDecks (page, pageSize, sortBy, descending, format, colors, query, cards, cardDetails, fields) {
+    const params = {
+      pageNumber: page,
+      pageSize: pageSize,
+      sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`,
+      containsCards: cards,
+      colors: colors === '' ? 'b,g,r,u,w' : colors,
+      query: query,
+      cardDetails: cardDetails,
+      fields: fields
+    }
+    if (format === 'Constructed' || format === 'Limited') {
+      params['format'] = format
+    }
     return axios.get('/decks/published', {
-      params: {
-        pageNumber: page,
-        pageSize: pageSize,
-        sortBy: `${descending ? '-' : ''}${sortBy !== undefined ? sortBy : '-date'}`,
-        containsCards: cards,
-        colors: colors === '' ? 'b,g,r,u,w' : colors,
-        query: query,
-        cardDetails: cardDetails,
-        fields: fields
-      }
+      params: params
     })
   },
   getPublicDeck (alias) {

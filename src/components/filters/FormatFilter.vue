@@ -3,9 +3,7 @@
     <div class="text-xs-left body-1 font-weight-bold">
       <span>{{title}}</span>
     </div>
-    <v-text-field class="field mt-0 pt-2" label="Search" v-model="searchQuery"
-      @keyup.native.enter="applyQuery()"
-      flat single-line hide-details clearable />
+    <v-select :items="formats" v-model="deckFormat" @change="applyQuery" solo/>
   </div>
 </template>
 
@@ -19,27 +17,28 @@ export default {
     title: {
       type: String,
       required: false,
-      default: 'Search'
+      default: 'Format'
     }
   },
   data () {
     return {
-      searchQuery: ''
+      deckFormat: 'Constructed',
+      formats: ['Constructed', 'Limited', 'All Formats']
     }
   },
   mounted () {
-    this.searchQuery = this.value
+    this.deckFormat = this.value
   },
   methods: {
     applyQuery () {
-      this.$emit('onQuery')
+      this.$emit('input', this.deckFormat)
     }
   },
   watch: {
     value: function (value) {
-      this.searchQuery = value
+      this.deckFormat = value
     },
-    searchQuery: function (value) {
+    deckFormat: function (value) {
       this.$emit('input', value)
     }
   }

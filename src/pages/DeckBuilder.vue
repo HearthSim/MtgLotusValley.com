@@ -650,7 +650,7 @@ export default {
     width: 100%;
   }
   .cardContainer {
-    width: 125px;
+    width: 150px;
   }
   .mainContainer {
     position: relative;

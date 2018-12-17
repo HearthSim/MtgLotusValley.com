@@ -80,7 +80,6 @@ export default {
   }
   .card {
     z-index: 999;
-    max-width: 90px;
     min-width: 85px;
   }
   .card:hover {
