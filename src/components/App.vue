@@ -27,10 +27,15 @@
             <v-divider vertical/>
           </v-toolbar-items>
           <v-spacer/>
-          <v-btn icon href="https://www.reddit.com/r/LotusTracker" target="_blank">
+          <v-toolbar-items>
+            <v-divider vertical/>
+            <v-btn flat exact to="/lotustracker">Lotus Tracker</v-btn>
+            <v-divider vertical/>
+          </v-toolbar-items>
+          <v-btn class="ml-3" icon href="https://www.reddit.com/r/LotusTracker" target="_blank">
             <img src="@/assets/reddit.png" alt="Reddit" height="28px">
           </v-btn>
-          <v-btn icon href="https://twitter.com/MtgLotusValley" target="_blank">
+          <v-btn class="mr-1" icon href="https://twitter.com/MtgLotusValley" target="_blank">
             <img src="@/assets/twitter.png" alt="Twitter" height="24px">
           </v-btn>
         </v-toolbar>

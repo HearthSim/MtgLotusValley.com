@@ -9,6 +9,7 @@ import PrivateDeckList from '@/pages/PrivateDeckList'
 import PrivateDeck from '@/pages/PrivateDeck'
 import PublicDeckList from '@/pages/PublicDeckList'
 import PublicDeck from '@/pages/PublicDeck'
+import LotusTracker from '@/pages/LotusTracker'
 
 Vue.use(Router)
 
@@ -84,6 +85,11 @@ const router = new Router({
       path: '/decks/:alias',
       name: 'PublicDeck',
       component: PublicDeck
+    },
+    {
+      path: '/lotustracker',
+      name: 'LotusTracker',
+      component: LotusTracker
     },
     {
       path: '*',
