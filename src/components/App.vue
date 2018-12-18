@@ -59,6 +59,17 @@
         </v-card>
       </v-dialog>
     </v-content>
+    <v-bottom-sheet v-model="cookieMsg" inset hide-overlay persistent>
+      <v-card>
+        <v-layout row nowrap>
+          <v-layout class="ml-2" column nowrap justify-center>
+            <span>We use Cookies for user authentication and may also be used by third party analytics tools.</span>
+          </v-layout>
+          <v-spacer/>
+          <v-btn class="mr-2" flat color="primary" @click="acceptCookie">Sure</v-btn>
+        </v-layout>
+      </v-card>
+    </v-bottom-sheet>
     <!-- <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer> -->
@@ -84,10 +95,18 @@ export default {
       loadDeckHint: 'Creature (14)\n4 Arclight Phoenix\n3 Crackling Drake\n4 Enigma Drake\n3 Goblin Electromancer\nSorcery (12)\n1 Beacon Bolt\n4 Chart a Course\n1 Lava Coil\n2 Maximize Velocity\n4 Tormenting Voice\nInstant (13)\n1 Dive Down\n4 Opt\n4 Radical Idea\n4 Shock\nLand (21)\n7 Island\n6 Mountain\n4 Steam Vents\n4 Sulfur Falls',
       isLoading: false,
       showError: false,
+      cookieMsg: false,
       errorMsg: ''
     }
   },
+  mounted () {
+    this.cookieMsg = localStorage.getItem('userAcceptsCookie', true)
+  },
   methods: {
+    acceptCookie: function () {
+      this.cookieMsg = false
+      localStorage.getItem('userAcceptsCookie', true)
+    },
     onListLoadClick: function () {
       this.loadDeckText = ''
       this.loadDeckDialog = true
