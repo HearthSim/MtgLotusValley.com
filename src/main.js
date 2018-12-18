@@ -42,6 +42,11 @@ Vue.prototype.$isUserLogged = function () {
   return date < tokenDate
 }
 
+Vue.prototype.$scrollToTop = function () {
+  document.body.scrollTop = 0 // For Safari
+  document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -28,13 +28,13 @@
         <v-layout row class="overlay">
           
           <v-layout class="mt-2_5 mr-2 white--text" column nowrap>
-            <v-layout row nowrap v-if="$isUserLogged()" justify-end>
-              <span class='mt-0_5 subheading'>Build Cost</span>
-              <WildcardsCost class="wildcardsCost ml-2" :cost="deckWCMissingCost" medium/>
-            </v-layout>
-            <v-layout row nowrap class="mt-1" justify-end>
+            <v-layout row nowrap justify-end>
               <span class='mt-0_5 subheading'>Total Cost</span>
               <WildcardsCost class="wildcardsCost ml-2" :cost="deckWCCost" medium/>
+            </v-layout>
+            <v-layout row nowrap class="mt-1" v-if="$isUserLogged()" justify-end>
+              <span class='mt-0_5 subheading'>Build Cost</span>
+              <WildcardsCost class="wildcardsCost ml-2" :cost="deckWCMissingCost" medium/>
             </v-layout>
             <v-spacer/>
           </v-layout>
@@ -253,13 +253,9 @@ export default {
   },
   created () {
     this.requestDeck()
-    this.scrollToTop()
+    this.$scrollToTop()
   },
   methods: {
-    scrollToTop: function () {
-      document.body.scrollTop = 0 // For Safari
-      document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
-    },
     requestDeck: function () {
       this.isLoading = true
       if (this.deckLoader) {

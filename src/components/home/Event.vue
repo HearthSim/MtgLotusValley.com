@@ -10,12 +10,12 @@
     </v-layout>
     <!-- Line 2 -->
     <v-layout class="line line2 mt-1" row nowrap>
-      <v-flex sm7>
+      <v-flex sm8>
         <div>
           <span class="subcaption">{{ event.format }}</span>
         </div>
       </v-flex>
-      <v-flex sm5>
+      <v-flex sm4>
         <div class="eventCost" v-if="event.entry.gems !== undefined">
           <img :src="require('@/assets/gems.png')"/>
           <span class="caption">{{ event.entry.gems }}</span>
@@ -24,12 +24,12 @@
     </v-layout>
     <!-- Line 3 -->
     <v-layout class="line line3" row nowrap>
-      <v-flex sm7>
+      <v-flex sm8>
         <div>
           <span class="caption">{{ remainingTime }}</span>
         </div>
       </v-flex>
-      <v-flex sm5>
+      <v-flex sm4>
         <div class="eventCost" v-if="event.entry.gold !== undefined">
           <img :src="require('@/assets/coins.png')"/>
           <span class="caption">{{ event.entry.gold }}</span>
