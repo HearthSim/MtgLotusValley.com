@@ -82,6 +82,27 @@ export default {
           subtitle: 'Play MTG Arena with a deck overlay and sync your data and matches with Mtg Lotus Valley.',
           date: '2018-12-15 00:00',
           link: '/lotustracker'
+        },
+        {
+          cover: require('@/assets/pages-headers/Healers-Hawk.jpg'),
+          title: 'Exploring MTG Lotus Valley - Deck builder',
+          subtitle: 'A little tour by public and private decks page\'s features.',
+          date: '2018-12-14 00:00',
+          link: '/mtglv_deck_build'
+        },
+        {
+          cover: require('@/assets/pages-headers/Island1.jpg'),
+          title: 'Exploring MTG Lotus Valley - Decks page',
+          subtitle: 'A little tour by public and private decks page\'s features.',
+          date: '2018-12-14 00:00',
+          link: '/mtglv_decks'
+        },
+        {
+          cover: require('@/assets/pages-headers/EmmaraSoulOfTheAccord.jpg'),
+          title: 'Announcing MTG Lotus Valley!',
+          subtitle: 'What\'s the purpose of this site? What it offer to MTGA players?',
+          date: '2018-12-14 00:00',
+          link: '/mtglv'
         }
       ]
     }
