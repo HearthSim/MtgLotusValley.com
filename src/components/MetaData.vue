@@ -39,13 +39,13 @@
     <!-- Right -->
     <v-flex xs4>
       <div class="box">
-        <v-flex xs12 class="boxHeader">Color Distribution</v-flex>
+        <v-flex xs12 class="boxHeader">Constructed Color Distribution</v-flex>
         <v-layout class="boxContent line1" column nowrap>
           <DecksColorDistribution class="pie mt-4" :id="index" :colors="decksByColorsBasics" :title="false"/>
         </v-layout>
       </div>
       <div class="box mt-0">
-        <v-flex xs12 class="boxHeader">Guilds Distribution</v-flex>
+        <v-flex xs12 class="boxHeader">Constructed Guilds Distribution</v-flex>
         <v-layout class="boxContent line2" column nowrap>
           <DecksGuildsDistribution class="pie mt-4" :id="index" :colors="decksByColorsGuilds" :title="false"/>
         </v-layout>
@@ -94,7 +94,7 @@ export default {
   },
   methods: {
     requestDeckByColorsBasics: function () {
-      this.$api.getDecksByColors(this.startsDate, this.endsDate, true)
+      this.$api.getDecksByColors(this.startsDate, this.endsDate, true, 'Constructed')
         .then(res => {
           this.decksByColorsBasics = res.data
         })
@@ -103,7 +103,7 @@ export default {
         })
     },
     requestDeckByColorsGuilds: function () {
-      this.$api.getDecksByColors(this.startsDate, this.endsDate, false)
+      this.$api.getDecksByColors(this.startsDate, this.endsDate, false, 'Constructed')
         .then(res => {
           const data = {}
           Object.keys(res.data).forEach(colors => {

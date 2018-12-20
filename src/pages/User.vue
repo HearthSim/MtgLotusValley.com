@@ -83,7 +83,7 @@
           <v-layout class="box" row wrap>
             <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
             <v-layout class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
-              <v-card class="setSummary mt-3 pb-2" v-for="set in userCollectionSummary" :key="set.code">
+              <v-card class="setSummary mt-4 pb-2" v-for="set in userCollectionSummary" :key="set.code">
                 <v-layout column class="summaryTitle pt-1 mb-1">
                   <router-link :to="`/user/collection?page=1&sets=${set.code}`">
                     <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
@@ -377,9 +377,9 @@ export default {
     },
     requestUserEventsRuns: function () {
       this.isLoading = true
-      this.paginationEvents.rowsPerPage = 5
-      const page = this.paginationEvents.page
-      const rowsPerPage = this.paginationEvents.rowsPerPage
+      this.paginationEventsRuns.rowsPerPage = 4
+      const page = this.paginationEventsRuns.page
+      const rowsPerPage = this.paginationEventsRuns.rowsPerPage
       this.$api.getUserEvents(this.currentEvent, page, rowsPerPage)
         .then(res => {
           this.isLoading = false
@@ -410,7 +410,7 @@ export default {
     width: 210px;
   }
   .setSummary:not(:first-child) {
-    margin-left: 16px !important;
+    margin-left: 24px !important;
   }
   .setSymbol {
     transform: translateY(5px);

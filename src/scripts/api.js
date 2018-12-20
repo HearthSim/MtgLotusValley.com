@@ -150,12 +150,13 @@ export default {
       }
     })
   },
-  getDecksByColors (dateMin, dateMax, onlyBasics) {
+  getDecksByColors (dateMin, dateMax, onlyBasics, eventType) {
     return axios.get('/stats/decksByColors', {
       params: {
         dateMin: dateMin,
         dateMax: dateMax,
-        onlyBasics: onlyBasics
+        onlyBasics: onlyBasics,
+        eventType: eventType
       }
     })
   },
@@ -200,8 +201,11 @@ export default {
       }
     })
   },
-  getUserEvents (event) {
-    const params = {}
+  getUserEvents (event, page, pageSize) {
+    const params = {
+      pageNumber: page,
+      pageSize: pageSize
+    }
     if (event !== undefined) {
       params['event'] = event
     }

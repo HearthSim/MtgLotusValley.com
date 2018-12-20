@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     getDecks: function () {
-      this.$api.getPublicDecks(1, 15)
+      this.$api.getPublicDecks(1, 15, undefined, undefined, 'Constructed')
         .then(res => {
           this.currentDecks = res.data
           this.decksLoaded = true
