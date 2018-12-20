@@ -5,7 +5,7 @@
       </v-flex>
       <v-flex xs12>
         <v-layout class="box mt-0" row wrap>
-          <v-flex xs12 class="boxHeader">Latest Decks</v-flex>
+          <v-flex xs12 class="boxHeader">Latest Constructed Decks</v-flex>
           <v-layout class="boxContent" row wrap>
             <LatestDecks />
           </v-layout>
@@ -28,8 +28,9 @@
                       {{ new Date(news.date).toLocaleString().split(' ')[0].replace(',', '') }}
                     </span>
                   </v-layout>
-                  <v-layout class="mt-2 ml-3 mr-3 pb-3" row nowrap>
+                  <v-layout class="text-xs-left mt-2 ml-3 mr-3 pb-3" column nowrap>
                     <span class="body-1">{{news.subtitle}}</span>
+                    <span class="body-1">{{news.details}}</span>
                   </v-layout>
                 </v-card>
               </router-link>
@@ -77,30 +78,26 @@ export default {
       decksByColorsBasics: {},
       latestNews: [
         {
+          cover: require('@/assets/pages-headers/Healers-Hawk.jpg'),
+          title: 'Exploring MTG Lotus Valley Decks',
+          subtitle: 'A little tour by public and private decks page\'s features.',
+          details: 'Check the differences between public and private decks.',
+          date: '2018-12-16 00:00',
+          link: '/mtglv_decks'
+        },
+        {
           cover: require('@/assets/pages-headers/League-guildmage.jpg'),
           title: 'Announcing MTG Arena deck tracker Lotus Tracker!',
           subtitle: 'Play MTG Arena with a deck overlay and sync your data and matches with Mtg Lotus Valley.',
+          details: 'Keep all your game data synchronized to easily access anytime.',
           date: '2018-12-15 00:00',
           link: '/lotustracker'
-        },
-        {
-          cover: require('@/assets/pages-headers/Healers-Hawk.jpg'),
-          title: 'Exploring MTG Lotus Valley - Deck builder',
-          subtitle: 'A little tour by public and private decks page\'s features.',
-          date: '2018-12-14 00:00',
-          link: '/mtglv_deck_build'
-        },
-        {
-          cover: require('@/assets/pages-headers/Island1.jpg'),
-          title: 'Exploring MTG Lotus Valley - Decks page',
-          subtitle: 'A little tour by public and private decks page\'s features.',
-          date: '2018-12-14 00:00',
-          link: '/mtglv_decks'
         },
         {
           cover: require('@/assets/pages-headers/EmmaraSoulOfTheAccord.jpg'),
           title: 'Announcing MTG Lotus Valley!',
           subtitle: 'What\'s the purpose of this site? What it offer to MTGA players?',
+          details: 'Track your MTGA data, share Decks and analyse the Meta.',
           date: '2018-12-14 00:00',
           link: '/mtglv'
         }

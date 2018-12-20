@@ -20,32 +20,43 @@
           <span class="body-1 mt-2">
             With Lotus Tracker installed on your PC, you will be able to check directly on Mtg Lotus Valley:
           </span>
-          <v-layout row nowrap>
-            <ul>
-              <li>
-                <span class="subheading font-weight-bold mt-3">Your Collection</span><br/>
-                <i class="caption">Check how many copies you have of a specific card</i>
-              </li>
-              <li>
-                <span class="subheading font-weight-bold mt-3">Player items</span><br/>
-                <i class="caption">Gold, gems, wildcards and Vault progress</i>
-              </li>
-              <li>
-                <span class="subheading font-weight-bold mt-3">Player matches</span><br/>
-                <i class="caption">History of your played matches with Win Rate by events</i>
-              </li>
-              <li>
-                <span class="subheading font-weight-bold mt-3">Events results</span><br/>
-                <i class="caption">Event runs history with deck used and result</i>
-              </li>
-            </ul>
-            <img class="mt-2" src="static/images/lotus_tracker_overlay.jpg" style="height: 100%;"/>
-          </v-layout>
+
+          <span class="subheading font-weight-bold mt-3">Player data and matches</span>
+          <span class="body-1 mt-2">Gold, gems, wildcards and Vault progress and History of your played matches with Win Rate by events</span>
+          <a class="ta-center" href="static/images/user_summary.jpg" target="_blank">
+            <img class="mt-2" src="static/images/user_summary.jpg" style="width: 80%;"/>
+          </a>
+
+          <span class="subheading font-weight-bold mt-3">Your Collection</span>
+          <span class="body-1 mt-2">Check how many copies you have of a specific card</span>
+          <a class="ta-center" href="static/images/user_collection.jpg" target="_blank">
+            <img class="mt-2" src="static/images/user_collection.jpg" style="width: 80%;"/>
+          </a>
+
+          <span class="subheading font-weight-bold mt-3">Events results</span>
+          <span class="body-1 mt-2">Event runs history with deck used and result</span>
+          <a class="ta-center" href="static/images/user_events.jpg" target="_blank">
+            <img class="mt-2" src="static/images/user_events.jpg" style="width: 80%;"/>
+          </a>
+
           <span class="title mt-4">Meta</span>
           <span class="body-1 mt-2">
             In <a href="/meta">meta</a>'s page, you can check some info like the mostly used cards in the last day or last week.
             You can also check some graphs of mostly used colors, guilds or deck archetypes!
           </span>
+          <a class="ta-center" href="static/images/meta.jpg" target="_blank">
+            <img class="mt-2" src="static/images/meta.jpg" style="width: 80%;"/>
+          </a>
+          
+          <span class="title mt-4">Decks</span>
+          <span class="body-1 mt-2">
+            Lear more about decks <a href="/mtglv_decks">here</a>
+          </span>
+          <v-layout class="mt-5" row nowrap>
+            <v-spacer/>
+            <span class="subheading">And more coming! Keep stay on Mtg Lotus Valley and Lotus Tracker updates</span>
+            <v-spacer/>
+          </v-layout>
         </v-layout>
       </v-layout>
     </div>
