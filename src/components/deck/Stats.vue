@@ -7,10 +7,10 @@
       <CardsColorDistribution :cards="cards"/>
     </v-flex>
 
-    <v-flex xs6 class="mt-4">
+    <v-flex xs6 class="mt-5">
       <CardsManaDistribution :cards="cards" type="symbol"/>
     </v-flex>
-    <v-flex xs6 class="mt-4">
+    <v-flex xs6 class="mt-5">
       <CardsManaDistribution :cards="cards" type="source"/>
     </v-flex>
   </v-layout>

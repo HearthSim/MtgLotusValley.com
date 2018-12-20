@@ -109,7 +109,7 @@ export default {
           href: '/'
         },
         {
-          text: 'Tests',
+          text: 'Decks',
           disabled: true
         }
       ],

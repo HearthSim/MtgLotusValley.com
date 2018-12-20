@@ -112,12 +112,13 @@ export default {
       this.loadDeckDialog = true
     },
     onLoadDeckLoadClick: function () {
-      this.isLoading = false
+      this.isLoading = true
       this.showError = false
       try {
         const deckCards = DeckUtils.parseDeckText(this.loadDeckText)
         this.$api.convertNamesToCards(deckCards.cards, deckCards.sideboard)
           .then(res => {
+            this.isLoading = false
             this.loadDeckDialog = false
             const cards = res.data.cards.join(';')
             const sideboard = res.data.sideboard.join(';')
@@ -214,6 +215,7 @@ export default {
 .mr-2_5 { margin-right: 12px; }
 .mb-2_5 { margin-bottom: 12px; }
 .d-block { display: block; }
+.ta-center { text-align: center; }
 .text-valign-center {
   justify-content: center;
 }

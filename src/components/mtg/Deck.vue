@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class='deck'>
-      <span class='body-2'>{{ name }}</span>
-      <table>
+      <span class='body-2 font-weight-bold'>{{ name }}</span>
+      <table class="mt-2">
         <tr class="text-xs-center">
           <td colspan="6">
-            Main Deck ({{mainDeckQtd}})
+            <span class='body-1'>Main Deck ({{mainDeckQtd}})</span>
           </td>
         </tr>
         <DeckGroup v-if='lands.length > 0'         :groupSize="landsQtd"         groupName="Lands" />
@@ -28,7 +28,7 @@
           :card='card' :largeName="largeName"/>
         <tr v-if='cardsGrouped.length > 0 && sideboardQtd > 0' class="text-xs-center">
           <td class="pt-3" colspan="4">
-            Sideboard ({{sideboardQtd}})
+            <span class='body-1'>Sideboard ({{sideboardQtd}})</span>
           </td>
         </tr>
         <DeckCard  v-if='sideboardQtd > 0' v-for='card in sideboardCards' :key='`S${card.id}`'
