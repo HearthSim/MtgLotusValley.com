@@ -62,7 +62,7 @@
                   <WildcardsCost class="mt-1" :cost="props.item.wildcardCost" :small="true"/>
                 </td>
                 <td class="text-xs-center">
-                  {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
+                  {{ new Date(props.item.updated.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
                 </td>
               </template>
             </v-data-table>
@@ -133,7 +133,7 @@ export default {
         { text: 'Archetype', value: 'arch' },
         { text: 'Mana Curve', align: 'center', value: 'mana_curve', sortable: false },
         { text: 'Total Cost', align: 'center', value: 'total_cost', sortable: false },
-        { text: 'Last Update', align: 'center', value: 'date' }
+        { text: 'Last Update', align: 'center', value: 'updated' }
       ],
       isLoading: false,
       pagination: {},
@@ -150,7 +150,7 @@ export default {
   },
   mounted () {
     this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
-    this.pagination.sortBy = 'date'
+    this.pagination.sortBy = 'updated'
     this.pagination.descending = true
     this.pagination.rowsPerPage = 10
   },
