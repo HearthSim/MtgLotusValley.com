@@ -266,6 +266,12 @@ export default {
         { text: 'Date', align: 'center', value: 'date' },
         { text: 'Details', align: 'center', value: 'details', sortable: false }
       ],
+      localId: this.$route.query.localId,
+      email: this.$route.query.email,
+      idToken: this.$route.query.idToken,
+      refreshToken: this.$route.query.refreshToken,
+      userName: this.$route.query.userName,
+      expiresIn: this.$route.query.expiresIn,
       deckId: this.$route.params.id,
       deckCards: {},
       sideboardCards: {},
@@ -287,7 +293,8 @@ export default {
       deleteConfirmationDialogVisible: false
     }
   },
-  mounted () {
+  created () {
+    this.checkAuthQueryParams()
     this.pagination.page = this.$route.query.page !== undefined ? parseInt(this.$route.query.page) : 1
     this.pagination.sortBy = 'date'
     this.pagination.descending = true
@@ -295,6 +302,27 @@ export default {
     this.requestDeckMatches()
   },
   methods: {
+    checkAuthQueryParams: function () {
+      this.$router.push({
+        path: `/user/decks/${this.deckId}`
+      })
+      if (!this.$isUserLogged()) {
+        if (this.idToken === undefined || this.idToken === '') {
+          this.$router.replace('/')
+        } else {
+          const emailUserName = this.email.substring(0, this.email.indexOf('@'))
+          this.$api.saveUserToken({
+            localId: this.localId,
+            email: this.email,
+            idToken: this.idToken,
+            refreshToken: this.refreshToken,
+            userName: this.userName.length > 0 ? this.userName : emailUserName,
+            expiresIn: this.expiresIn
+          })
+          this.$router.replace(`/user/decks/${this.deckId}`)
+        }
+      }
+    },
     requestDeck: function () {
       this.isLoading = true
       this.$api.getUserDeck(this.deckId)

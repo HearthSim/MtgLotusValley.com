@@ -84,10 +84,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .scrollDiv {
-    height: 175px;
+    height: 185px;
   }
   .deck {
-    height: 75px;
+    height: 80px;
     width: 210px;
     float: left;
     transform: scale(1);

@@ -217,8 +217,11 @@ export default {
         })
     },
     setUserAsLogged: function () {
-      const userEmail = localStorage.getItem('email')
-      const userName = userEmail.substring(0, userEmail.indexOf('@'))
+      let userName = localStorage.getItem('userName')
+      if (userName === undefined || userName === '') {
+        const userEmail = localStorage.getItem('email')
+        userName = userEmail.substring(0, userEmail.indexOf('@'))
+      }
       this.loggedUserName = Utils.captalize(userName)
       this.logged = true
       this.requestUserExtras()

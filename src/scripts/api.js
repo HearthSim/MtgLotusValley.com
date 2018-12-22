@@ -109,6 +109,8 @@ function deleteUserToken () {
   localStorage.removeItem('idToken')
   localStorage.removeItem('refreshToken')
   localStorage.removeItem('expiresIn')
+  localStorage.removeItem('email')
+  localStorage.removeItem('userName')
 }
 
 export default {

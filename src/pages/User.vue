@@ -62,8 +62,9 @@
             <v-flex xs12 class="boxHeader">Casual Matches Summary</v-flex>
             <v-layout class="boxContent pb-2" column nowrap>
               <v-layout row nowrap>
-                <EventStats v-for="(summary, index) in userCasualConstructedSummary"
-                  v-bind:key="index" :data="summary" :id="summary.event"/>
+                <v-flex v-for="(summary, index) in userCasualConstructedSummary" v-bind:key="index">
+                  <EventStats :data="summary" :id="summary.event"/>
+                </v-flex>
               </v-layout>
               <MatchesTimeline class="mt-4 pr-2" :matches="userCasualMatchesData"/>
               <v-layout row xs12 class="mt-1">
@@ -248,12 +249,13 @@ export default {
         if (this.idToken === undefined || this.idToken === '') {
           this.$router.replace('/')
         } else {
+          const emailUserName = this.email.substring(0, this.email.indexOf('@'))
           this.$api.saveUserToken({
             localId: this.localId,
             email: this.email,
             idToken: this.idToken,
             refreshToken: this.refreshToken,
-            userName: this.userName,
+            userName: this.userName.length > 0 ? this.userName : emailUserName,
             expiresIn: this.expiresIn
           })
           this.$router.replace('/user')

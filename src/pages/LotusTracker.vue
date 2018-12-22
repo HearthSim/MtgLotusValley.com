@@ -19,7 +19,7 @@
             Lotus Tracker is a <a href="https://www.mtgarena.com" target="_blank">MTG Arena</a> deck tracker written
             in c++ using QT5. Based on sources of the Hearthstone deck tracker
             <a href="https://trackobot.com" target="_blank">Track-o-Bot</a> created by Steven Schmid,
-            Lotus tracker is also a <a href="https://github.com/edipo2s/LotusTracker" target="_blank">open source</a>
+            Lotus tracker is also an <a href="https://github.com/edipo2s/LotusTracker" target="_blank">open source</a>
             project allowing you to verify, study and contribute with the project.
           </span>
           <span class="title mt-4">Multiplatform</span>
@@ -32,6 +32,10 @@
           <v-layout row nowrap>
             <v-layout class="mt-2_5" column wrap>
               <ul>
+                <li>
+                  <span class="subheading font-weight-bold mt-3">Basic features</span><br/>
+                  <i class="caption">Tray-icon, Auto-Start with System, Auto-Update, Auto-Hide when game lose focus</i>
+                </li>
                 <li>
                   <span class="subheading font-weight-bold mt-3">Player data sync</span><br/>
                   <i class="caption">Collection, Decks, Wildcards, Gold, Gems and Vault progress</i>
@@ -46,7 +50,7 @@
                 </li>
                 <li>
                   <span class="subheading font-weight-bold mt-3">Player deck win rate</span><br/>
-                  <i class="caption">For events, can also be the event's wins/losses</i>
+                  <i class="caption">For events, it also means the event's wins/losses</i>
                 </li>
                 <li>
                   <span class="subheading font-weight-bold mt-3">Opponent cards overlay</span><br/>
@@ -58,7 +62,7 @@
                 </li>
               </ul>
             </v-layout>
-            <img class="mt-2" src="static/images/lotus_tracker_overlay.jpg" style="height: 100%;"/>
+            <img class="mt-2" src="static/images/lotus_tracker_overlay.jpg" style="height: 330px;"/>
           </v-layout>
           <v-layout class="mt-3" row nowrap>
             <v-layout class="mt-2_5" column nowrap>

@@ -41,8 +41,10 @@
         <v-flex xs4>
           <v-layout class="box mt-0 pb-2" row wrap>
             <v-flex xs12 class="boxHeader">Colors Distribution (Last 7 days)</v-flex>
-            <v-layout class="boxContent" row wrap>
-              <DecksColorDistribution :colors="decksByColorsBasics" :title="false"/>
+            <v-layout class="boxContent" row nowrap>
+              <div class="m-auto">
+                <DecksColorDistribution :colors="decksByColorsBasics" :title="false"/>
+              </div>
             </v-layout>
           </v-layout>
           <v-layout class="box mt-0" row wrap>

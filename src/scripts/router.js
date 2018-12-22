@@ -31,7 +31,10 @@ const router = new Router({
     {
       path: '/user',
       name: 'User',
-      component: User
+      component: User,
+      meta: {
+        requiresAuth: false
+      }
     },
     {
       path: '/user/collection',
@@ -62,7 +65,7 @@ const router = new Router({
       name: 'PrivateDeck',
       component: PrivateDeck,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {

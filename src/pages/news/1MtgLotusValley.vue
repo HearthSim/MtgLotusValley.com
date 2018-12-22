@@ -13,10 +13,10 @@
         <v-layout class="text-xs-left pb-3" column wrap>
           <span class="title">About</span>
           <span class="body-1 mt-2">
-            Mtg Lotus Valley is a place where you can check the current and future events in Magic Arena, take a look a current meta, search for decks lists and build your own deck list too.
-            But the real power of this website is on the syncronization of game data provided by <a href="/lotustracker">Lotus Tracker</a>.
+            Mtg Lotus Valley is a place where you can check the current and future events in Magic Arena, take a look at some info about current meta, search for decks lists and build your own deck list too.
+            But the real power of this website is on the synchronisation of game data provided by <a href="/lotustracker">Lotus Tracker</a>.
           </span>
-          <span class="title mt-4">Lotus Tracker data syncronization</span>
+          <span class="title mt-4">Lotus Tracker data synchronisation</span>
           <span class="body-1 mt-2">
             With Lotus Tracker installed on your PC, you will be able to check directly on Mtg Lotus Valley:
           </span>
