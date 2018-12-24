@@ -46,7 +46,7 @@
                 </li>
                 <li>
                   <span class="subheading font-weight-bold mt-3">Player deck overlay</span><br/>
-                  <i class="caption">Configurable to show/hide cards with 0 copies remaining</i>
+                  <i class="caption">Configurable to show/hide cards with 0 copies remaining. Also pos sideboard</i>
                 </li>
                 <li>
                   <span class="subheading font-weight-bold mt-3">Player deck win rate</span><br/>
@@ -122,7 +122,7 @@ export default {
   },
   data () {
     return {
-      lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.0.0/Lotus.Tracker.1.0.2.exe'
+      lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.0.3/Lotus.Tracker.1.0.3.zip'
     }
   },
   created () {

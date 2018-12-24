@@ -5,6 +5,25 @@
         <description>Most recent updates changes.</description>
         <language>en</language>
         <item>
+            <title>Arena Tracker 1.0.3</title>
+            <description>
+              <![CDATA[
+              <style type="text/css">* { font-family: Arial, Helvetica, sans-serif; }</style>
+              <ul>
+              <li>Add dual monitor support</li>
+              <li>Hide overlay after close the game</li>
+              <li>Fixe deck color when using multicolor cards</li>
+              <li>Fixe event result upload</li>
+              <li>Fixe match info when not logged</li>
+              <li>Other minor fixes and improvements</li>
+              </ul>
+              ]]>
+            </description>
+            <pubDate>Sat, 22 Dec 2018</pubDate>
+            <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.0.3/Lotus.Tracker.1.0.3.exe" 
+                    sparkle:version="1.0.3" length="24577" type="application/x-msdownload"/>
+        </item>
+        <item>
             <title>Arena Tracker 1.0.2</title>
             <description>
               <![CDATA[
@@ -21,8 +40,8 @@
               ]]>
             </description>
             <pubDate>Sun, 16 Dec 2018</pubDate>
-            <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.0.0/Lotus.Tracker.1.0.2.exe" 
-                    sparkle:version="1.0.2" length="24219" type="application/x-msdownload"/>
+            <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.0.2/Lotus.Tracker.1.0.2.exe" 
+                    sparkle:version="1.0.2" length="24229" type="application/x-msdownload"/>
         </item>
         <item>
             <title>Arena Tracker 1.0.1</title>
@@ -40,7 +59,7 @@
               ]]>
             </description>
             <pubDate>Thu, 23 Oct 2018</pubDate>
-            <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.0.0/Lotus.Tracker.1.0.1.exe" 
+            <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.0.1/Lotus.Tracker.1.0.1.exe" 
                     sparkle:version="1.0.1" length="24191" type="application/x-msdownload"/>
         </item>
         <item>
