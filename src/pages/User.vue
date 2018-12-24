@@ -300,10 +300,14 @@ export default {
         .then(res => {
           const data = res.data
           this.totalGames = data.map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
-          this.totalConstructed = data.filter(summary => summary.type === 'Constructed')
-            .map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
-          this.totalLimited = data.filter(summary => summary.type === 'Limited')
-            .map(summary => summary.wins + summary.losses).reduce((acc, value) => acc + value)
+          const totalConstructedData = data.filter(summary => summary.type === 'Constructed')
+            .map(summary => summary.wins + summary.losses)
+          this.totalConstructed = totalConstructedData.length > 0
+            ? totalConstructedData.reduce((acc, value) => acc + value) : 0
+          const totalLimitedData = data.filter(summary => summary.type === 'Limited')
+            .map(summary => summary.wins + summary.losses)
+          this.totalLimited = totalLimitedData.length > 0
+            ? totalLimitedData.reduce((acc, value) => acc + value) : 0
           this.userCasualConstructedSummary = data.filter(summary => summary.casual)
           const events = data.filter(summary => !summary.casual)
           this.userEventsSummary = events
