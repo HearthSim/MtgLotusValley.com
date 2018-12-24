@@ -33,10 +33,22 @@
             <v-divider vertical/>
           </v-toolbar-items>
           <v-btn class="ml-3" icon href="https://www.reddit.com/r/LotusTracker" target="_blank">
-            <img src="@/assets/reddit.png" alt="Reddit" height="28px">
+            <v-tooltip top lazy>
+              <img src="@/assets/reddit.png" alt="Reddit" height="28px" slot="activator">
+            <span>Reddit</span>
+            </v-tooltip>
           </v-btn>
           <v-btn class="mr-1" icon href="https://twitter.com/MtgLotusValley" target="_blank">
-            <img src="@/assets/twitter.png" alt="Twitter" height="24px">
+            <v-tooltip top lazy>
+              <img src="@/assets/twitter.png" alt="Twitter" height="24px" slot="activator">
+            <span>Twitter</span>
+            </v-tooltip>
+          </v-btn>
+          <v-btn class="mr-1" icon href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JQWPQH3EE5RZW" target="_blank">
+            <v-tooltip top lazy>
+              <img src="@/assets/donate.png" alt="Donate" height="24px" slot="activator">
+              <span>Donate</span>
+            </v-tooltip>
           </v-btn>
         </v-toolbar>
         <router-view/>
