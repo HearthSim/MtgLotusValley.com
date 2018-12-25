@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueMeta from 'vue-meta'
 import Home from '@/pages/Home'
 import User from '@/pages/User'
 import Meta from '@/pages/Meta'
@@ -16,6 +17,7 @@ import NewsMtgLVDecks from '@/pages/news/2MtgLVDecks'
 import NewsHoliday2018 from '@/pages/news/3Holiday2018'
 
 Vue.use(Router)
+Vue.use(VueMeta)
 
 const router = new Router({
   mode: 'history',
