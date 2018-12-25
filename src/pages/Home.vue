@@ -80,6 +80,14 @@ export default {
       decksByColorsBasics: {},
       latestNews: [
         {
+          cover: require('@/assets/pages-headers/Mountain1.jpg'),
+          title: 'Holiday special event starts!',
+          subtitle: 'A new special pauper event starts and it has free entry.',
+          details: 'The event Rewards are promo Llanowar Elves and Firemind\'s Research.',
+          date: '2018-12-24 00:00',
+          link: '/holiday_2018'
+        },
+        {
           cover: require('@/assets/pages-headers/Healers-Hawk.jpg'),
           title: 'Exploring MTG Lotus Valley Decks',
           subtitle: 'A little tour by public and private decks page\'s features.',

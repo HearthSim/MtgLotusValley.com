@@ -10,8 +10,10 @@ import PrivateDeck from '@/pages/PrivateDeck'
 import PublicDeckList from '@/pages/PublicDeckList'
 import PublicDeck from '@/pages/PublicDeck'
 import LotusTracker from '@/pages/LotusTracker'
+
 import NewsMtgLotusValley from '@/pages/news/1MtgLotusValley'
 import NewsMtgLVDecks from '@/pages/news/2MtgLVDecks'
+import NewsHoliday2018 from '@/pages/news/3Holiday2018'
 
 Vue.use(Router)
 
@@ -105,6 +107,11 @@ const router = new Router({
       path: '/mtglv_decks',
       name: 'MtgLVDecks',
       component: NewsMtgLVDecks
+    },
+    {
+      path: '/holiday_2018',
+      name: 'NewsHoliday2018',
+      component: NewsHoliday2018
     },
     {
       path: '*',
