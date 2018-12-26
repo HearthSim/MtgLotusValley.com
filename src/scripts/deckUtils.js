@@ -200,6 +200,9 @@ export default {
         if (number === 'GR6') {
           set = 'DAR'
         }
+        if (set.startsWith('P') && set.length === 4) {
+          set = set.substring(1, 4)
+        }
         if (number.endsWith('a')) {
           number = number.replace('a', '')
         }
