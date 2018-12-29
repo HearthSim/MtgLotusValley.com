@@ -340,7 +340,8 @@ export default {
           this.totalCasualPages = res.data.length < rowsPerPage ? page : page + 1
           res.data.forEach(match => {
             const userMatchesSize = this.userCasualMatchesData.length
-            if (userMatchesSize === 0 || this.userCasualMatchesData[userMatchesSize - 1].date !== match.date) {
+            const lastUserMatch = this.userCasualMatchesData[userMatchesSize - 1]
+            if (userMatchesSize === 0 || lastUserMatch.date.substring(0, 10) !== match.date.substring(0, 10)) {
               const date = new Date(match.date.replace('_', ':'))
               this.userCasualMatchesData.push({
                 isHeader: true,
@@ -366,7 +367,8 @@ export default {
           this.totalEventsPages = res.data.length < rowsPerPage ? page : page + 1
           res.data.forEach(match => {
             const userMatchesSize = this.userEventsMatchesData.length
-            if (userMatchesSize === 0 || this.userEventsMatchesData[userMatchesSize - 1].date !== match.date) {
+            const lastUserMatch = this.userEventsMatchesData[userMatchesSize - 1]
+            if (userMatchesSize === 0 || lastUserMatch.date.substring(0, 10) !== match.date.substring(0, 10)) {
               const date = new Date(match.date.replace('_', ':'))
               this.userEventsMatchesData.push({
                 isHeader: true,
