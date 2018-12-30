@@ -20,7 +20,57 @@ export default {
       default: 'symbol'
     }
   },
-  computed: {
+  data () {
+    return {
+      chart: undefined,
+      colorsData: [],
+      colorsLabels: [],
+      colorsHexValue: [],
+      colorsHexHoverValue: []
+    }
+  },
+  mounted () {
+    const ctx = document.getElementById(`mana${this.type}Distribution-chart`)
+    ctx.height = 250
+    this.chart = new Chart(ctx, { // eslint-disable-line no-new
+      type: 'pie',
+      data: {
+        labels: this.colorsLabels,
+        datasets: [
+          {
+            data: this.colorsData,
+            backgroundColor: this.colorsHexValue,
+            borderColor: this.colorsHexValue,
+            borderWidth: 1,
+            hoverBackgroundColor: this.colorsHexHoverValue,
+            labelText: this.type === 'symbol' ? 'Symbols' : 'Lands'
+          }
+        ]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: true,
+        legend: {
+          display: true
+        },
+        title: {
+          text: `Mana ${this.type === 'symbol' ? 'Symbols' : 'Sources'} Distribution`,
+          display: true
+        },
+        tooltips: {
+          callbacks: {
+            label: function (tooltipItem, data) {
+              const index = tooltipItem.index
+              const qtd = data.datasets[0].data[index]
+              const text = data.datasets[0].labelText
+              return `${qtd} ${text}`
+            }
+          }
+        }
+      }
+    })
+  },
+  methods: {
     cardsByColors: function () {
       const data = {}
       Object.keys(this.cards).forEach(mtgaId => {
@@ -60,80 +110,30 @@ export default {
         orderedData[colorCode] = data[colorCode]
       })
       return orderedData
-    },
-    colorsData: function () {
-      const data = []
-      Object.keys(this.cardsByColors).forEach(color => {
-        data.push(this.cardsByColors[color])
-      })
-      return data
-    },
-    colorsLabels: function () {
-      const data = []
-      Object.keys(this.cardsByColors).forEach(color => {
-        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
-        data.push(colorObj.name)
-      })
-      return data
-    },
-    colorsHexValue: function () {
-      const data = []
-      Object.keys(this.cardsByColors).forEach(color => {
-        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
-        data.push(colorObj.hexValue)
-      })
-      return data
-    },
-    colorsHexHoverValue: function () {
-      const data = []
-      Object.keys(this.cardsByColors).forEach(color => {
-        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
-        data.push(colorObj.hexHoverValue)
-      })
-      return data
     }
   },
   watch: {
     cards: function () {
-      const ctx = document.getElementById(`mana${this.type}Distribution-chart`)
-      ctx.height = 250
-      new Chart(ctx, { // eslint-disable-line no-new
-        type: 'pie',
-        data: {
-          labels: this.colorsLabels,
-          datasets: [
-            {
-              data: this.colorsData,
-              backgroundColor: this.colorsHexValue,
-              borderColor: this.colorsHexValue,
-              borderWidth: 1,
-              hoverBackgroundColor: this.colorsHexHoverValue,
-              labelText: this.type === 'symbol' ? 'Symbols' : 'Lands'
-            }
-          ]
-        },
-        options: {
-          responsive: false,
-          maintainAspectRatio: true,
-          legend: {
-            display: true
-          },
-          title: {
-            text: `Mana ${this.type === 'symbol' ? 'Symbols' : 'Sources'} Distribution`,
-            display: true
-          },
-          tooltips: {
-            callbacks: {
-              label: function (tooltipItem, data) {
-                const index = tooltipItem.index
-                const qtd = data.datasets[0].data[index]
-                const text = data.datasets[0].labelText
-                return `${qtd} ${text}`
-              }
-            }
-          }
-        }
-      })
+      const cardsByColors = this.cardsByColors()
+      Utils.clear(this.colorsData)
+      Utils.clear(this.colorsLabels)
+      Utils.clear(this.colorsHexValue)
+      Utils.clear(this.colorsHexHoverValue)
+      const cardsColors = Object.keys(cardsByColors)
+      this.colorsData.push(...cardsColors.map(color => cardsByColors[color]))
+      this.colorsLabels.push(...cardsColors.map(color => {
+        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
+        return colorObj.name
+      }))
+      this.colorsHexValue.push(...cardsColors.map(color => {
+        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
+        return colorObj.hexValue
+      }))
+      this.colorsHexHoverValue.push(...cardsColors.map(color => {
+        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
+        return colorObj.hexHoverValue
+      }))
+      this.chart.update()
     }
   }
 }

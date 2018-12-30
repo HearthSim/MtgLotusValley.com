@@ -68,6 +68,9 @@ export default {
     document.execCommand('copy')
     document.body.removeChild(el)
   },
+  clear: function (array) {
+    array.splice(0, array.length)
+  },
   remove: function (array, element) {
     const index = array.indexOf(element)
     if (index !== -1) {

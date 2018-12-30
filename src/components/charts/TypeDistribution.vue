@@ -7,12 +7,14 @@
 <script>
 import Chart from 'chart.js'
 import DeckUtils from '@/scripts/deckutils'
+import Utils from '@/scripts/utils'
 
 export default {
   props: {
     cards: {
       type: Object,
-      required: true
+      required: true,
+      default: {}
     }
   },
   data () {
@@ -24,76 +26,71 @@ export default {
         'Enchantments': {hexValue: '#2196F3', hexHoverValue: '#42A5F5'},
         'Artifacts': {hexValue: '#9E9E9E', hexHoverValue: '#BDBDBD'},
         'Planeswalkers': {hexValue: '#FFC107', hexHoverValue: '#FFCA28'}
-      }
+      },
+      chart: undefined,
+      typeData: [],
+      typeLabels: [],
+      typeHexValue: [],
+      typeHexHoverValue: []
     }
   },
-  computed: {
-    cardsByType: function () {
-      let data = {}
-      const cardsByType = DeckUtils.groupCardsByType(this.cards)
-      Object.keys(cardsByType).forEach(type => {
-        const cardsQtd = cardsByType[type].map(card => card.qtd)
-        data[type] = cardsQtd.length > 0 ? cardsQtd.reduce((acc, value) => acc + value) : 0
-      })
-      return data
-    },
-    typeData: function () {
-      const data = []
-      this.typeLabels.forEach(type => {
-        data.push(this.cardsByType[type])
-      })
-      return data
-    },
-    typeLabels: function () {
-      return Object.keys(this.cardsByType).filter(type => this.cardsByType[type] > 0)
-    },
-    typeHexValue: function () {
-      return this.typeLabels.map(type => this.colors[type].hexValue)
-    },
-    typeHexHoverValue: function () {
-      return this.typeLabels.map(type => this.colors[type].hexHoverValue)
-    }
-  },
-  watch: {
-    cards: function () {
-      const ctx = document.getElementById('typeDistribution-chart')
-      ctx.height = 250
-      new Chart(ctx, { // eslint-disable-line no-new
-        type: 'pie',
-        data: {
-          labels: this.typeLabels,
-          datasets: [
-            {
-              data: this.typeData,
-              backgroundColor: this.typeHexValue,
-              borderColor: this.typeHexValue,
-              borderWidth: 1,
-              hoverBackgroundColor: this.typeHexHoverValue
-            }
-          ]
+  mounted () {
+    const ctx = document.getElementById('typeDistribution-chart')
+    ctx.height = 250
+    this.chart = new Chart(ctx, { // eslint-disable-line no-new
+      type: 'pie',
+      data: {
+        labels: this.typeLabels,
+        datasets: [
+          {
+            data: this.typeData,
+            backgroundColor: this.typeHexValue,
+            borderColor: this.typeHexValue,
+            borderWidth: 1,
+            hoverBackgroundColor: this.typeHexHoverValue
+          }
+        ]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: true,
+        legend: {
+          display: true
         },
-        options: {
-          responsive: false,
-          maintainAspectRatio: true,
-          legend: {
-            display: true
-          },
-          title: {
-            text: 'Type Distribution',
-            display: true
-          },
-          tooltips: {
-            callbacks: {
-              label: function (tooltipItem, data) {
-                const index = tooltipItem.index
-                const qtd = data.datasets[0].data[index]
-                const text = data.labels[index]
-                return `${qtd} ${text}`
-              }
+        title: {
+          text: 'Type Distribution',
+          display: true
+        },
+        tooltips: {
+          callbacks: {
+            label: function (tooltipItem, data) {
+              const index = tooltipItem.index
+              const qtd = data.datasets[0].data[index]
+              const text = data.labels[index]
+              return `${qtd} ${text}`
             }
           }
         }
+      }
+    })
+  },
+  watch: {
+    cards: function () {
+      const cardsByType = DeckUtils.groupCardsByType(this.cards)
+      const cardsByTypeQtd = {}
+      Object.keys(cardsByType).forEach(type => {
+        const cardsQtd = cardsByType[type].map(card => card.qtd)
+        cardsByTypeQtd[type] = cardsQtd.length > 0 ? cardsQtd.reduce((acc, value) => acc + value) : 0
       })
+      Utils.clear(this.typeLabels)
+      Utils.clear(this.typeData)
+      Utils.clear(this.typeHexValue)
+      Utils.clear(this.typeHexHoverValue)
+      this.typeLabels.push(...Object.keys(cardsByTypeQtd).filter(type => cardsByTypeQtd[type] > 0))
+      this.typeData.push(...this.typeLabels.map(type => cardsByTypeQtd[type]))
+      this.typeHexValue.push(...this.typeLabels.map(type => this.colors[type].hexValue))
+      this.typeHexHoverValue.push(...this.typeLabels.map(type => this.colors[type].hexHoverValue))
+      this.chart.update()
     }
   }
 }

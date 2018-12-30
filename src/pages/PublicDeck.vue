@@ -56,7 +56,7 @@
     <v-flex xs8>
       <div class="box mr-0">
         <v-layout class="mainContainer boxContent" column nowrap>
-          <v-tabs class="mb-3 ml-2 mr-2" color="transparent">
+          <v-tabs class="mb-3 ml-2 mr-2" color="transparent" v-model="currentTab">
 
             <v-tab>Overview</v-tab>
             <v-tab-item>
@@ -225,6 +225,7 @@ export default {
           href: '/decks'
         }
       ],
+      currentTab: 0,
       deckAlias: this.$route.params.alias,
       deckLoader: this.$route.query.loader,
       deckCards: {},
@@ -259,6 +260,7 @@ export default {
     requestDeck: function () {
       this.isLoading = true
       if (this.deckLoader) {
+        this.currentTab = 3
         this.getDeckByCards()
       } else {
         this.getDeckByAlias()
