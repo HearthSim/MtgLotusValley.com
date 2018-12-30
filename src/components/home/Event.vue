@@ -16,6 +16,9 @@
         </div>
       </v-flex>
       <v-flex sm4>
+        <div class="eventCost" v-if="event.entry.gems === undefined && event.entry.gold === undefined">
+          <span class="caption">Free</span>
+        </div>
         <div class="eventCost" v-if="event.entry.gems !== undefined">
           <img :src="require('@/assets/gems.png')"/>
           <span class="caption">{{ event.entry.gems }}</span>
@@ -30,6 +33,9 @@
         </div>
       </v-flex>
       <v-flex sm4>
+        <div class="eventCost" v-if="event.entry.gems === undefined && event.entry.gold === undefined">
+          <span class="caption">Entry</span>
+        </div>
         <div class="eventCost" v-if="event.entry.gold !== undefined">
           <img :src="require('@/assets/coins.png')"/>
           <span class="caption">{{ event.entry.gold }}</span>
@@ -85,7 +91,7 @@ export default {
     height: 80px;
     display: inline-block;
   }
-  @media (min-width: 1024px) {
+  @media (max-width: 1279px) {
     .event {
       width: 205px;
       margin-left: 4px !important;

@@ -1,53 +1,75 @@
 <template>
   <v-app>
+    <v-navigation-drawer app dark clipped class="hidden-md-and-up" v-model="drawer">
+      <v-list>
+        <v-list-tile>
+        </v-list-tile>
+        <v-list-tile v-for="menu in mainMenu" :key="menu.title" exact :to="menu.link">
+          <v-list-tile-content>
+            <v-list-tile-title>{{menu.title}}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-divider/>
+        <v-list-tile @click="onListLoadClick()">
+          <v-list-tile-content>
+            <v-list-tile-title>List Loader</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile exact to="/lotustracker">
+          <v-list-tile-content>
+            <v-list-tile-title>Lotus Tracker</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-divider/>
+        <v-list-tile v-for="menu in linksMenu" :key="menu.title"
+          :href="menu.link" target="_blank">
+          <v-list-tile-content>
+            <v-list-tile-title>{{menu.title}}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
     <v-toolbar id="toolbar" app dark dense>
       <v-toolbar-items>
-        <router-link to="/">
-          <img class="mt-1" src="@/assets/home.png" alt="Logo" height="38px">
+        <v-btn small class="btMenu hidden-md-and-up" @click="drawer = !drawer">
+          <v-icon>menu</v-icon>
+        </v-btn>
+        <router-link to="/" class="hidden-sm-and-down">
+          <img class="mt-1" src="@/assets/home.png" alt="Logo" height="38px"/>
         </router-link>
       </v-toolbar-items>
       <v-spacer/>
       <Auth/>
     </v-toolbar>
     <v-content id="body">
-      <div id="content" class="mt-4 mb-4">
-        <v-toolbar id="menu" dark dense>
+      <div id="content" :class="$vuetify.breakpoint.xs ? 'pt-2 mb-4' : 'mt-4 mb-4'">
+        <v-toolbar dark dense id="menu" class="hidden-sm-and-down">
           <v-toolbar-items>
             <v-btn flat icon href="/">
               <img src="@/assets/logo.png" alt="Home" height="38px">
             </v-btn>
             <v-divider class="ml-2" vertical/>
-            <v-btn flat exact to="/decks">Decks</v-btn>
-            <v-divider vertical/>
-            <v-btn flat exact to="/decks/builder">Deck Builder</v-btn>
-            <v-divider vertical/>
-            <v-btn flat @click="onListLoadClick()">List Loader</v-btn>
-            <v-divider vertical/>
-            <v-btn flat exact to="/meta">Meta</v-btn>
+            <template v-for="(menu, index) in mainMenu">
+              <v-btn flat :class="$vuetify.breakpoint.md ? 'v-btn--small' : ''"
+                exact :to="menu.link" :key="`mainMenuBt${index}`">{{menu.title}}</v-btn>
+              <v-divider vertical :key="menu.title"/>
+            </template>
+            <v-btn flat :class="$vuetify.breakpoint.md ? 'v-btn--small' : ''"
+              @click="onListLoadClick()">List Loader</v-btn>
             <v-divider vertical/>
           </v-toolbar-items>
           <v-spacer/>
           <v-toolbar-items>
             <v-divider vertical/>
-            <v-btn flat exact to="/lotustracker">Lotus Tracker</v-btn>
+            <v-btn flat :class="$vuetify.breakpoint.md ? 'v-btn--small' : ''"
+              exact to="/lotustracker">Lotus Tracker</v-btn>
             <v-divider vertical/>
           </v-toolbar-items>
-          <v-btn class="ml-3" icon href="https://www.reddit.com/r/LotusTracker" target="_blank">
+          <v-btn v-for="menu in linksMenu" :key="menu.title" class="ml-3"
+            icon :href="menu.link" target="_blank">
             <v-tooltip top lazy>
-              <img src="@/assets/reddit.png" alt="Reddit" height="28px" slot="activator">
-            <span>Reddit</span>
-            </v-tooltip>
-          </v-btn>
-          <v-btn class="mr-1" icon href="https://twitter.com/MtgLotusValley" target="_blank">
-            <v-tooltip top lazy>
-              <img src="@/assets/twitter.png" alt="Twitter" height="24px" slot="activator">
-            <span>Twitter</span>
-            </v-tooltip>
-          </v-btn>
-          <v-btn class="mr-1" icon href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JQWPQH3EE5RZW" target="_blank">
-            <v-tooltip top lazy>
-              <img src="@/assets/donate.png" alt="Donate" height="24px" slot="activator">
-              <span>Donate</span>
+              <img class="mt-2" :src="menu.icon" :alt="menu.title" height="28px" slot="activator">
+            <span>{{menu.title}}</span>
             </v-tooltip>
           </v-btn>
         </v-toolbar>
@@ -82,7 +104,7 @@
         </v-layout>
       </v-card>
     </v-bottom-sheet>
-    <!-- <v-footer :fixed="fixed" app>
+    <!-- <v-footer :fixed="false" app>
       <span>&copy; 2017</span>
     </v-footer> -->
   </v-app>
@@ -101,14 +123,37 @@ export default {
   },
   data () {
     return {
-      fixed: false,
+      drawer: false,
       loadDeckDialog: false,
       loadDeckText: '',
       loadDeckHint: 'Creature (14)\n4 Arclight Phoenix\n3 Crackling Drake\n4 Enigma Drake\n3 Goblin Electromancer\nSorcery (12)\n1 Beacon Bolt\n4 Chart a Course\n1 Lava Coil\n2 Maximize Velocity\n4 Tormenting Voice\nInstant (13)\n1 Dive Down\n4 Opt\n4 Radical Idea\n4 Shock\nLand (21)\n7 Island\n6 Mountain\n4 Steam Vents\n4 Sulfur Falls',
       isLoading: false,
       showError: false,
       cookieMsg: false,
-      errorMsg: ''
+      errorMsg: '',
+      mainMenu: [
+        { title: 'Home', link: '/home' },
+        { title: 'Decks', link: '/decks' },
+        { title: 'Deck Builder', link: '/decks/builder' },
+        { title: 'Meta', link: '/meta' }
+      ],
+      linksMenu: [
+        {
+          title: 'Reddit',
+          icon: require('@/assets/reddit.png'),
+          link: 'https://www.reddit.com/r/LotusTracker'
+        },
+        {
+          title: 'Twitter',
+          icon: require('@/assets/twitter.png'),
+          link: 'https://twitter.com/MtgLotusValley'
+        },
+        {
+          title: 'Donate',
+          icon: require('@/assets/donate.png'),
+          link: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JQWPQH3EE5RZW'
+        }
+      ]
     }
   },
   mounted () {
@@ -183,6 +228,12 @@ export default {
 #content {
   background: url('~@/assets/bg_content.jpg') repeat;
   margin: auto;
+}
+@media (max-width: 768px) {
+  .v-toolbar__content, .btMenu {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 @media (min-width: 762px) {
   #content {

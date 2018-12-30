@@ -12,8 +12,8 @@
         </v-layout>
       </v-flex>
       <v-layout row wrap>
-        <v-flex xs8>
-          <v-layout class="box mt-0 mr-0" row wrap>
+        <v-flex sm12 md8>
+          <v-layout :class="`box mt-0 ${$vuetify.breakpoint.smAndDown ? '' : 'mr-0'}`" row wrap>
             <v-flex xs12 class="boxHeader">News</v-flex>
             <v-layout class="boxContent newsContainer mt-0" row wrap>
 
@@ -23,14 +23,23 @@
                   <img :src="news.cover" width="100%"/>
                   <v-layout class="mt-2 ml-3 mr-3" row nowrap>
                     <span class="title deep-orange--text text--lighten-1 font-weight-bold">{{news.title}}</span>
-                    <v-spacer/>
-                    <span class="subtitle font-weight-bold">
-                      {{ new Date(news.date).toLocaleString().split(' ')[0].replace(',', '') }}
-                    </span>
                   </v-layout>
-                  <v-layout class="text-xs-left mt-2 ml-3 mr-3 pb-3" column nowrap>
-                    <span class="body-1">{{news.subtitle}}</span>
-                    <span class="body-1">{{news.details}}</span>
+                  <v-layout class="mt-2 ml-3 mr-3 pb-3" row nowrap>
+                    <v-layout class="text-xs-left" column nowrap>
+                      <span class="body-1">{{news.subtitle}}</span>
+                      <span class="body-1">{{news.details}}</span>
+                      <v-layout column justify-center class="text-xs-right hidden-sm-and-up">
+                        <span class="ml-2 subtitle font-weight-bold">
+                          {{ new Date(news.date).toLocaleString().split(' ')[0].replace(',', '') }}
+                        </span>
+                      </v-layout>
+                    </v-layout>
+                    <v-spacer/>
+                    <v-layout column justify-center class="hidden-xs-only">
+                      <span class="ml-2 subtitle font-weight-bold">
+                        {{ new Date(news.date).toLocaleString().split(' ')[0].replace(',', '') }}
+                      </span>
+                    </v-layout>
                   </v-layout>
                 </v-card>
               </router-link>
@@ -38,7 +47,7 @@
             </v-layout>
           </v-layout>
         </v-flex>
-        <v-flex xs4>
+        <v-flex sm12 md4>
           <v-layout class="box mt-0 pb-2" row wrap>
             <v-flex xs12 class="boxHeader">Colors Distribution (Last 7 days)</v-flex>
             <v-layout class="boxContent" row nowrap>

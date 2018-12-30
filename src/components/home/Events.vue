@@ -1,6 +1,6 @@
 <template>
-  <v-layout class="events" row nowrap>
-    <v-flex xs6 class="mr-1">
+  <v-layout class="events" row wrap>
+    <v-flex sm12 md6 :class="$vuetify.breakpoint.smAndDown ? 'mr-2_5' : 'pr-1'">
       <v-layout class="box mr-0" row wrap>
         <v-flex xs12 class="boxHeader">Current Events</v-flex>
         <v-layout class="boxContent" row wrap>
@@ -12,7 +12,7 @@
         </v-layout>
       </v-layout>
     </v-flex>
-    <v-flex xs6 class="ml-1">
+    <v-flex sm12 md6 :class="$vuetify.breakpoint.smAndDown ? 'ml-2_5' : 'pl-1'">
       <v-layout class="box ml-0" row wrap>
         <v-flex xs12 class="boxHeader">Upcoming Events</v-flex>
         <v-layout class="boxContent" row wrap>

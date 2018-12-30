@@ -1,7 +1,7 @@
 <template>
   <v-layout row>
     <div class="btArrowContainer textNoSelect">
-      <div v-if="overflowAlways || overflow" class="btArrow" v-on:click="scrollLeft()">
+      <div v-if="overflowAlways || overflow" class="btArrow" @click="scrollLeft()">
         <v-icon>keyboard_arrow_left</v-icon>
       </div>
     </div>
@@ -9,7 +9,7 @@
       <slot/>
     </v-flex>
     <div class="btArrowContainer textNoSelect">
-      <div v-if="overflowAlways || overflow" class="btArrow" v-on:click="scrollRight()">
+      <div v-if="overflowAlways || overflow" class="btArrow" @click="scrollRight()">
         <v-icon>keyboard_arrow_right</v-icon>
       </div>
     </div>
