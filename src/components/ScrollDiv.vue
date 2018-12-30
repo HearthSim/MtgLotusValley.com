@@ -54,21 +54,42 @@ export default {
   },
   methods: {
     scrollLeft: function () {
-      this.$refs.scrollView.scrollBy({
-        left: this.step * -1,
-        behavior: 'smooth'
-      })
+      try {
+        this.$refs.scrollView.scrollBy({
+          left: this.step * -1,
+          behavior: 'smooth'
+        })
+      } catch (e) {
+        this.smoothScrollHorizontal(this.$refs.scrollView, this.step * -1)
+      }
     },
     scrollRight: function () {
-      this.$refs.scrollView.scrollBy({
-        left: this.step,
-        behavior: 'smooth'
-      })
+      try {
+        this.$refs.scrollView.scrollBy({
+          left: this.step,
+          behavior: 'smooth'
+        })
+      } catch (e) {
+        this.smoothScrollHorizontal(this.$refs.scrollView, this.step)
+      }
     },
     updateOverflow: function () {
       const scrollView = this.$refs.scrollView
       const hasMoreContent = scrollView.scrollWidth > scrollView.clientWidth
       this.overflow = hasMoreContent && scrollView.scrollWidth > 0
+    },
+    smoothScrollHorizontal: function (view, x) {
+      setTimeout(() => {
+        const acc = Math.floor(Math.abs(x) / 100) + 1
+        view.scrollLeft += x > 0 ? acc : acc * -1
+        if (x > 0 && x - acc <= 0) {
+          return
+        }
+        if (x < 0 && x + acc >= 0) {
+          return
+        }
+        this.smoothScrollHorizontal(view, x > 0 ? x - acc : x + acc)
+      }, 1)
     }
   }
 }
@@ -85,17 +106,19 @@ export default {
     justify-content: center;
   }
   .btArrow:hover {
-    background-color: #DDDDDDAA;
+    background-color: rgba(220, 220, 220, 170);
   }
   .scroll {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: hidden;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
   }
   .scroll::-webkit-scrollbar {
     display: none;
+    width: 0 !important;
   }
   .multiline {
     flex-direction: column;
