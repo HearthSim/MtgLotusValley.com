@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class='deck'>
-      <span class='body-2 font-weight-bold'>{{ name }}</span>
+      <router-link :to="link" v-if="link !== undefined">
+        <span class='body-2 font-weight-bold'>{{ name }}</span>
+      </router-link>
+      <span v-if="link === undefined" class='body-2 font-weight-bold'>{{ name }}</span>
       <table class="mt-2">
         <tr class="text-xs-center">
           <td colspan="6">
@@ -64,6 +67,10 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    link: {
+      type: String,
+      required: false
     }
   },
   data () {

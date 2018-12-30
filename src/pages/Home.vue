@@ -50,7 +50,8 @@
           <v-layout class="box mt-0" row wrap>
             <v-flex xs12 class="boxHeader">Deck of Day</v-flex>
             <v-layout class="boxContent" row wrap>
-              <Deck class="mt-2 mb-2 m-auto" :cards="deckOfDayCards" :name="deckOfDayName"/>
+              <Deck class="mt-2 mb-2 m-auto" :cards="deckOfDayCards"
+                :name="deckOfDayName" :link="deckOfDayLink"/>
             </v-layout>
           </v-layout>
         </v-flex>
@@ -76,6 +77,7 @@ export default {
   data () {
     return {
       deckOfDayName: '',
+      deckOfDayLink: '',
       deckOfDayCards: {},
       decksByColorsBasics: {},
       latestNews: [
@@ -127,6 +129,19 @@ export default {
         .then(res => {
           this.deckOfDayCards = res.data.cards
           this.deckOfDayName = `${res.data.name} | ${res.data.wins}-${res.data.losses} (${res.data.winRate}%)`
+          const cards = []
+          Object.keys(res.data.cards).forEach(mtgaId => {
+            const card = res.data.cards[mtgaId]
+            cards.push(`${card.qtd}:${mtgaId}`)
+          })
+          const sideboard = []
+          if (res.data.sideboard !== undefined) {
+            Object.keys(res.data.sideboard).forEach(mtgaId => {
+              const card = res.data.sideboard[mtgaId]
+              sideboard.push(`${card.qtd}:${mtgaId}`)
+            })
+          }
+          this.deckOfDayLink = `/decks/${cards.join(';')}_${sideboard.join(';')}?loader=true`
         })
         .catch(error => {
           console.log(error)
