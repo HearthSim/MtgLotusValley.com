@@ -269,6 +269,7 @@ export default {
   background: url('~@/assets/bg_box.jpg') repeat;
   height: 36px;
   width: 100%;
+  flex-wrap: nowrap;
 }
 
 .m-auto { margin: auto; }

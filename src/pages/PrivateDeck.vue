@@ -1,5 +1,5 @@
 <template>
-  <v-layout class="mb-3" row wrap>
+  <v-layout class="mb-3" column wrap>
     <!-- Top -->
     <v-flex class="text-xs-left" xs12>
       <v-breadcrumbs class="breadcrumbs" :items="breadcrumbs">
@@ -10,7 +10,7 @@
       <v-layout row class="headerContainer mt-2_5 ml-2_5 mr-2_5">
         <div :class="`header header-${deckColors !== '' ? deckColors : 'default'} white--text`">
           <v-layout class="line pt-2 ml-2" row nowrap>
-            <div class="mana mt-2 ml-1">
+            <div class="mana mt-2 ml-1 hidden-xs-onl">
               <img class="mr-1" v-for="color in deckColors.split('')" :key="color"
                 :src="require(`@/assets/mana/${color}.png`)"/>
             </div>
@@ -18,148 +18,238 @@
           </v-layout>
           <v-layout class="line pt-2 ml-3" row nowrap>
             <span class='subheading'>{{ deckArch }}</span>
+            <v-spacer class="hidden-sm-and-up"/>
+            <div class="mana mr-2 hidden-sm-and-up">
+              <img class="mr-1" v-for="color in deckColors.split('')" :key="color"
+                :src="require(`@/assets/mana/${color}.png`)"/>
+            </div>
           </v-layout>
         </div>
         <v-layout row class="overlay">
-          <v-divider class="mt-2 mb-2" vertical color="gray"/>
-          <v-layout column class='manaCurve mt-2'>
-            <ManaCurve :manaCurve="deckManaCurve" :height="75" :width="150" :showTitle="false"/>
+          <v-divider class="mt-2 mb-2 hidden-sm-and-down" vertical color="gray"/>
+          <v-layout column class='manaCurve mt-2 hidden-sm-and-down'>
+            <ManaCurve :manaCurve="deckManaCurve" :id="1"
+              :height="75" :width="150" :showTitle="false"/>
           </v-layout>
 
-          <v-divider class="mt-2 mb-2 mr-05" vertical color="gray"/>
-          <v-layout column>
+          <v-divider class="mt-2 mb-2 mr-05 hidden-xs-only" vertical color="gray"/>
+          <v-layout column class="hidden-xs-only">
             <v-btn flat small color="white" @click="exportDeckToArena()">Export to Arena</v-btn>
             <v-btn flat small color="white" @click="exportDeckToText()">Export to Text</v-btn>
           </v-layout>
         </v-layout>
       </v-layout>
     </v-flex>
-    <!-- Left -->
-    <v-flex xs8>
-      <div class="box mr-0">
-        <v-layout class="boxContent pb-2" column nowrap>
-          <v-tabs class="mt-1 ml-3 mr-3" color="transparent">
 
-            <v-tab>Overview</v-tab>
-            <v-tab-item>
-              <v-layout column wrap>
-                <v-layout class="mt-1" row nowrap>
+    <v-layout row wrap justify-end :class="$vuetify.breakpoint.smAndDown ? 'column-reverse' : ''">
+      <!-- Left / Bottom -->
+      <v-flex xs12 sm12 md8>
+        <div :class="`box ${$vuetify.breakpoint.mdAndUp ? 'mr-0' : ''}`">
+          <v-layout class="boxContent pb-2" column nowrap>
+            <v-tabs class="mt-1 ml-3 mr-3" color="transparent">
+
+              <v-tab>Overview</v-tab>
+              <v-tab-item>
+                <v-layout column wrap>
+                  <v-layout class="mt-1 hidden-sm-and-down" row nowrap>
+                    <v-spacer/>
+                    <v-layout v-if="winRateTotal !== undefined" column wrap class="mt-4">
+                      <span class='subheading'>Deck WinRate</span>
+                      <span class='title mt-2'>
+                        {{winRateTotal.wins}}-{{winRateTotal.losses}} ({{winRateTotal.winrate}}%)
+                      </span>
+                    </v-layout>
+                    <v-spacer/>
+                    <v-flex class="mt-4">
+                      <span class='subheading'>Total Cost</span>
+                      <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCCost"/>
+                    </v-flex>
+                    <v-spacer/>
+                  </v-layout>
+                  <Overview class='mt-4' :winrate="deckWinRate"/>
+                </v-layout>
+              </v-tab-item>
+
+              <v-tab>Stats</v-tab>
+              <v-tab-item>
+                <Stats class='mt-3' :cards="deckCards"/>
+              </v-tab-item>
+
+              <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
+              <v-tab-item>
+                <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
+              </v-tab-item>
+
+              <v-tab>Visual Mode</v-tab>
+              <v-tab-item lazy>
+                <div>
+                  <v-layout row class="mt-4 ml-5">
+                    <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
+                  </v-layout>
+                  <v-divider class="mt-1 ml-5 mr-5"/>
+                  <DeckVisual class="mt-3 m-auto" :cards="deckCards"/>
+                </div>
+                <div v-if="Object.keys(sideboardCards).length > 0">
+                  <v-layout row class="mt-4 ml-5">
+                    <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
+                  </v-layout>
+                  <v-divider class="mt-1 ml-5 mr-5"/>
+                  <DeckVisual class="mt-3" :sideboard="sideboardCards"/>
+                </div>
+              </v-tab-item>
+
+              <v-tab>Matches</v-tab>
+              <v-tab-item lazy>
+                <v-data-table class="elevation-1 mt-2" :headers="matchesHeaders" :items="deckMatches" hide-actions
+                  :loading="isLoading" :pagination.sync="pagination" :total-items="deckMatches.length">
+                  <template slot="items" slot-scope="props">
+                    <td :class="`text-xs-center ${props.item.wins ? 'green--text' : 'red--text'}`">
+                      {{ props.item.wins ? 'Won' : 'Lost' }}
+                    </td>
+                    <td class="text-xs-center">
+                      <div class="mana mt-1 ml-2">
+                        <img v-for="color in props.item.opponentDeckColors.split('')" :key="color"
+                          :src="require(`@/assets/mana/${color}.png`)"/>
+                      </div>
+                    </td>
+                    <td class="text-xs-center">                    
+                      <div class="ml-2">
+                        {{props.item.opponentDeckArch}}
+                      </div>
+                    </td>
+                    <td class="text-xs-center">
+                      {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
+                    </td>
+                    <td class="text-xs-center">
+                      <v-tooltip right lazy>
+                        <v-icon slot="activator" @click="showInfo(props.item)">info</v-icon>
+                        <v-layout column>
+                          <div>{{props.item.opponentName}}</div>
+                          <div>{{props.item.duration}}</div>
+                        </v-layout>
+                      </v-tooltip>
+                    </td>
+                  </template>
+                </v-data-table>
+                <v-layout row xs12 class="mt-2 mb-2">
                   <v-spacer/>
+                  <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="5"/>
+                </v-layout>
+              </v-tab-item>
+
+              <v-tab>Play Test</v-tab>
+              <v-tab-item>
+                <PlayTest class="mt-3" :cards="deckCards"/>
+              </v-tab-item>
+            </v-tabs>
+          </v-layout>
+        </div>
+      </v-flex>
+      <!-- Right / Top -->
+      <v-flex class="ml-0" xs12 sm12 md4>
+        <div class="box">
+          <v-layout class="boxContent pb-2" column nowrap>
+            <v-layout row class="deckActions hidden-sm-and-down">
+              <v-flex xs4>
+                <v-btn flat small color="primary" @click="deckPublishDialogVisible = true">Publish</v-btn>
+              </v-flex>
+              <v-divider class="mt-2 mb-2" vertical color="gray"/>
+              <v-flex xs4>
+                <v-btn flat small color="primary" @click="editDeck()">Edit</v-btn>
+              </v-flex>
+              <v-divider class="mt-2 mb-2" vertical color="gray"/>
+              <v-flex xs4>
+                <v-btn flat small color="primary" @click="deleteConfirmationDialogVisible = true">Delete</v-btn>
+              </v-flex>
+            </v-layout>
+
+            <!-- Desktop Layout -->
+            <v-layout column class="hidden-sm-and-down">
+              <DeckPresenting v-if="Object.keys(deckCards).length > 0" class="mt-2 ml-1 mr-1" :cards="deckCards"/>
+              <Deck class="deck deckContainer mt-4" :cards="deckCards" :sideboard="sideboardCards"/>
+            </v-layout>
+            <!-- Tablet Layout -->
+            <v-layout row wrap class="hidden-xs-only hidden-md-and-up">
+              <v-flex xs12 sm7>
+                <Deck class="deck deckContainer mt-4" :cards="deckCards"
+                  :sideboard="sideboardCards"/>
+                <v-layout row class="deckActions mt-2 ml-4 mr-4">
+                  <v-flex xs4>
+                    <v-btn flat small color="primary" @click="deckPublishDialogVisible = true">Publish</v-btn>
+                  </v-flex>
+                  <v-divider class="mt-2 mb-2" vertical color="gray"/>
+                  <v-flex xs4>
+                    <v-btn flat small color="primary" @click="editDeck()">Edit</v-btn>
+                  </v-flex>
+                  <v-divider class="mt-2 mb-2" vertical color="gray"/>
+                  <v-flex xs4>
+                    <v-btn flat small color="primary" @click="deleteConfirmationDialogVisible = true">Delete</v-btn>
+                  </v-flex>
+                </v-layout>
+              </v-flex>
+              <v-flex xs12 sm5>
+                <v-layout column nowrap>
+                  <DeckPresenting v-if="Object.keys(deckCards).length > 0"
+                    class="mt-4 ml-1 mr-1" :cards="deckCards"/>                  
+                  <v-layout row class='mt-4 m-auto'>
+                    <ManaCurve :manaCurve="deckManaCurve" :id="2"
+                      :height="150" :width="250" :showTitle="true"/>
+                  </v-layout>
                   <v-layout v-if="winRateTotal !== undefined" column wrap class="mt-4">
                     <span class='subheading'>Deck WinRate</span>
                     <span class='title mt-2'>
                       {{winRateTotal.wins}}-{{winRateTotal.losses}} ({{winRateTotal.winrate}}%)
                     </span>
                   </v-layout>
-                  <v-spacer/>
-                  <v-flex class="mt-4">
+                  <v-layout class="mt-4 mr-3" column wrap justify-center>
                     <span class='subheading'>Total Cost</span>
-                    <WildcardsCost class="wildcardsCost mt-1 ml-1 mr-1" :cost="deckWCCost"/>
-                  </v-flex>
-                  <v-spacer/>
+                    <WildcardsCost class="wildcardsCost mt-2" :cost="deckWCCost"/>
+                  </v-layout>
                 </v-layout>
-                <Overview class='mt-4' :winrate="deckWinRate"/>
+              </v-flex>
+            </v-layout>
+            <!-- Mobile Layout -->
+            <v-layout column nowrap class="hidden-sm-and-up">
+              <DeckPresenting v-if="Object.keys(deckCards).length > 0"
+                class="mt-4 ml-1 mr-1" :cards="deckCards"/>   
+              <Deck class="deck deckContainer mt-3" :cards="deckCards"
+                :sideboard="sideboardCards"/>               
+              <v-layout row class='mt-4 m-auto'>
+                <ManaCurve :manaCurve="deckManaCurve" :id="3"
+                  :height="150" :width="250" :showTitle="true"/>
               </v-layout>
-            </v-tab-item>
-
-            <v-tab>Stats</v-tab>
-            <v-tab-item>
-              <Stats class='mt-3' :cards="deckCards"/>
-            </v-tab-item>
-
-            <v-tab :disabled="deckUpdates.length === 0">Updates</v-tab>
-            <v-tab-item>
-              <Updates class='mt-3 ml-3 mr-3' :updates="deckUpdates"/>
-            </v-tab-item>
-
-            <v-tab>Visual Mode</v-tab>
-            <v-tab-item lazy>
-              <div>
-                <v-layout row class="mt-4 ml-5">
-                  <span class="subheading mt-2">Main Deck - {{cardsTotal(deckCards)}} cards</span>
-                </v-layout>
-                <v-divider class="mt-1 ml-5 mr-5"/>
-                <DeckVisual class="mt-3 m-auto" :cards="deckCards"/>
-              </div>
-              <div v-if="Object.keys(sideboardCards).length > 0">
-                <v-layout row class="mt-4 ml-5">
-                  <span class="subheading mt-2">Sideboard - {{cardsTotal(sideboardCards)}} cards</span>
-                </v-layout>
-                <v-divider class="mt-1 ml-5 mr-5"/>
-                <DeckVisual class="mt-3" :sideboard="sideboardCards"/>
-              </div>
-            </v-tab-item>
-
-            <v-tab>Matches</v-tab>
-            <v-tab-item lazy>
-              <v-data-table class="elevation-1 mt-2" :headers="matchesHeaders" :items="deckMatches" hide-actions
-                :loading="isLoading" :pagination.sync="pagination" :total-items="deckMatches.length">
-                <template slot="items" slot-scope="props">
-                  <td :class="`text-xs-center ${props.item.wins ? 'green--text' : 'red--text'}`">
-                    {{ props.item.wins ? 'Won' : 'Lost' }}
-                  </td>
-                  <td class="text-xs-center">
-                    <div class="mana mt-1 ml-2">
-                      <img v-for="color in props.item.opponentDeckColors.split('')" :key="color"
-                        :src="require(`@/assets/mana/${color}.png`)"/>
-                    </div>
-                  </td>
-                  <td class="text-xs-center">                    
-                    <div class="ml-2">
-                      {{props.item.opponentDeckArch}}
-                    </div>
-                  </td>
-                  <td class="text-xs-center">
-                    {{ new Date(props.item.date.replace('_', ':')).toLocaleString().split(' ')[0].replace(',', '') }}
-                  </td>
-                  <td class="text-xs-center">
-                    <v-tooltip right lazy>
-                      <v-icon slot="activator" @click="showInfo(props.item)">info</v-icon>
-                      <v-layout column>
-                        <div>{{props.item.opponentName}}</div>
-                        <div>{{props.item.duration}}</div>
-                      </v-layout>
-                    </v-tooltip>
-                  </td>
-                </template>
-              </v-data-table>
-              <v-layout row xs12 class="mt-2 mb-2">
-                <v-spacer/>
-                <v-pagination v-model="pagination.page" :length="totalPages" :total-visible="5"/>
+              <v-layout v-if="winRateTotal !== undefined" column wrap class="mt-2">
+                <span class='subheading'>Deck WinRate</span>
+                <span class='title mt-2'>
+                  {{winRateTotal.wins}}-{{winRateTotal.losses}} ({{winRateTotal.winrate}}%)
+                </span>
               </v-layout>
-            </v-tab-item>
-
-            <v-tab>Play Test</v-tab>
-            <v-tab-item>
-              <PlayTest class="mt-3" :cards="deckCards"/>
-            </v-tab-item>
-          </v-tabs>
-        </v-layout>
-      </div>
-    </v-flex>
-    <!-- Right -->
-    <v-flex class="mb-3" xs4>
-      <div class="box">
-        <v-layout class="boxContent pb-2" column nowrap>
-          <v-layout row class="deckActions">
-            <v-flex xs4>
-              <v-btn flat small color="primary" @click="deckPublishDialogVisible = true">Publish</v-btn>
-            </v-flex>
-            <v-divider class="mt-2 mb-2" vertical color="gray"/>
-            <v-flex xs4>
-              <v-btn flat small color="primary" @click="editDeck()">Edit</v-btn>
-            </v-flex>
-            <v-divider class="mt-2 mb-2" vertical color="gray"/>
-            <v-flex xs4>
-              <v-btn flat small color="primary" @click="deleteConfirmationDialogVisible = true">Delete</v-btn>
-            </v-flex>
+              <v-layout class="mt-4 mr-3" column wrap justify-center>
+                <span class='subheading'>Total Cost</span>
+                <WildcardsCost class="wildcardsCost mt-2" :cost="deckWCCost"/>
+              </v-layout>
+              <v-layout row class="m-auto mt-4">
+                <v-btn flat small color="primary" @click="exportDeckToArena()">Export to Arena</v-btn>
+                <v-btn flat small color="primary" @click="exportDeckToText()">Export to Text</v-btn>
+              </v-layout>
+              <v-layout row class="deckActions">
+                <v-flex xs4>
+                  <v-btn flat small color="primary" @click="deckPublishDialogVisible = true">Publish</v-btn>
+                </v-flex>
+                <v-divider class="mt-2 mb-2" vertical color="gray"/>
+                <v-flex xs4>
+                  <v-btn flat small color="primary" @click="editDeck()">Edit</v-btn>
+                </v-flex>
+                <v-divider class="mt-2 mb-2" vertical color="gray"/>
+                <v-flex xs4>
+                  <v-btn flat small color="primary" @click="deleteConfirmationDialogVisible = true">Delete</v-btn>
+                </v-flex>
+              </v-layout>
+            </v-layout>
           </v-layout>
-
-          <DeckPresenting v-if="Object.keys(deckCards).length > 0" class="mt-2 ml-1 mr-1" :cards="deckCards"/>
-          <Deck class="deck deckContainer mt-4" :cards="deckCards" :sideboard="sideboardCards"/>
-        </v-layout>
-      </div>
-    </v-flex>
+        </div>
+      </v-flex>
+    </v-layout>
 
     <!-- Dialogs -->
     <v-dialog v-model="deleteConfirmationDialogVisible" width="250">
@@ -460,6 +550,9 @@ export default {
   }
   .headerContainer {
     position: relative;
+  }
+  .column-reverse {
+    flex-direction: column-reverse;
   }
   .overlay {
     position: absolute;

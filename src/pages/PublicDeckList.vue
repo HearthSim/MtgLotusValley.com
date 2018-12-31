@@ -9,14 +9,16 @@
     <v-flex xs12>
       <div class="box filters">
         <v-layout class="boxContent" row nowrap>
-          <QueryFilter class="filter mt-1 pl-2 pr-2" v-model="searchQuery"
-            v-on:onQuery="requestDecks()" title="Name or Archetype"/>
-          <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
-          <CardsFilter class="filter mt-1 pl-2 pr-2" v-model="containsCards" ref="cardsFilter"/>
-          <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
-          <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors" simple/>
-          <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
-          <FormatFilter class="filter mt-1 pl-3 pr-2" v-model="deckFormat"/>
+          <ScrollDiv :overflowAlways="false" :step="300">
+            <QueryFilter class="filter mt-1 pl-2 pr-2" v-model="searchQuery"
+              v-on:onQuery="requestDecks()" title="Name or Archetype"/>
+            <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+            <CardsFilter class="filter mt-1 pl-2 pr-2" v-model="containsCards" ref="cardsFilter"/>
+            <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+            <ColorFilter class="filter mt-1 pl-2 pr-2" v-model="activeColors" simple/>
+            <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
+            <FormatFilter class="filter mt-1 pl-3 pr-2" v-model="deckFormat"/>
+          </ScrollDiv>
           <v-spacer/>
           <div>
             <v-layout column>
@@ -93,13 +95,14 @@ import ColorFilter from '@/components/filters/ColorFilter'
 import FormatFilter from '@/components/filters/FormatFilter'
 import QueryFilter from '@/components/filters/QueryFilter'
 import ManaCurveCompact from '@/components/charts/ManaCurveCompact'
+import ScrollDiv from '@/components/ScrollDiv'
 import WildcardsCost from '@/components/mtg/WildcardsCost'
 import DeckUtils from '@/scripts/deckutils'
 
 export default {
   name: 'PublicDecks',
   components: {
-    CardsFilter, ColorFilter, FormatFilter, QueryFilter, ManaCurveCompact, WildcardsCost
+    CardsFilter, ColorFilter, FormatFilter, QueryFilter, ManaCurveCompact, ScrollDiv, WildcardsCost
   },
   data () {
     return {
@@ -232,7 +235,7 @@ export default {
     height: 110px;
   }
   .filter {
-    width: 200px;
+    min-width: 200px;
   }
   .wildcards {
     justify-content: space-between;
