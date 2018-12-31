@@ -29,76 +29,88 @@
             have a low memory and CPU usage.
           </span>
           <span class="title mt-4">Features</span>
-          <v-layout row nowrap>
-            <v-layout class="mt-2_5" column wrap>
-              <ul>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Basic features</span><br/>
-                  <i class="caption">Tray-icon, Auto-Start with System, Auto-Update, Auto-Hide when game lose focus</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Player data sync</span><br/>
-                  <i class="caption">Collection, Decks, Wildcards, Gold, Gems and Vault progress</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Player games sync</span><br/>
-                  <i class="caption">Matches and Events result</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Player deck overlay</span><br/>
-                  <i class="caption">Configurable to show/hide cards with 0 copies remaining. Also pos sideboard</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Player deck win rate</span><br/>
-                  <i class="caption">For events, it also means the event's wins/losses</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Opponent cards overlay</span><br/>
-                  <i class="caption">Based on cards used</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Opponent deck archetype</span><br/>
-                  <i class="caption">Based on cards used</i>
-                </li>
-              </ul>
-            </v-layout>
-            <img class="mt-2" src="static/images/lotus_tracker_overlay.jpg" style="height: 330px;"/>
+          <v-layout row wrap>
+            <v-flex xs12 sm6>
+              <v-layout class="mt-2_5" column wrap>
+                <ul>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Basic features</span><br/>
+                    <i class="caption">Tray-icon, Auto-Start with System, Auto-Update, Auto-Hide when game lose focus</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Player data sync</span><br/>
+                    <i class="caption">Collection, Decks, Wildcards, Gold, Gems and Vault progress</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Player games sync</span><br/>
+                    <i class="caption">Matches and Events result</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Player deck overlay</span><br/>
+                    <i class="caption">Configurable to show/hide cards with 0 copies remaining. Also pos sideboard</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Player deck win rate</span><br/>
+                    <i class="caption">For events, it also means the event's wins/losses</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Opponent cards overlay</span><br/>
+                    <i class="caption">Based on cards used</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Opponent deck archetype</span><br/>
+                    <i class="caption">Based on cards used</i>
+                  </li>
+                </ul>
+              </v-layout>
+            </v-flex>
+            <v-flex xs12 sm6>
+              <a class="mt-2 ml-2" href="static/images/lotus_tracker_overlay.jpg" target="_blank">
+                <img src="static/images/lotus_tracker_overlay.jpg" style="width: 100%;"/>
+              </a>
+            </v-flex>
           </v-layout>
-          <v-layout class="mt-3" row nowrap>
-            <v-layout class="mt-2_5" column nowrap>
-              <ul>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Show card image</span><br/>
-                  <i class="caption">On mouse Hover</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Configurable zoom</span><br/>
-                  <i class="caption">5 levels</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Collapse/Expand overlay</span><br/>
-                  <i class="caption">On mouse right click</i><br/>
-                  <i class="caption">Configurable collapsed duration</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Configurable overlay cards layout</span><br/>
-                  <i class="caption">Magic Arena card and Magic the Gathering layouts</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Configurable overlay opacity</span><br/>
-                  <i class="caption">For both player and opponent overlay</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Configurable deck remaining cards</span><br/>
-                  <i class="caption">Show/Hide deck cards with 0 copies on deck</i>
-                </li>
-                <li>
-                  <span class="subheading font-weight-bold mt-3">Player draw statistics</span><br/>
-                  <i class="caption">Percent chances to draw a land or card by remaining qtd</i>
-                </li>
-              </ul>
-            </v-layout>
-            <img class="mt-2" src="static/images/lotus_tracker_preferences.jpg" style="height: 350px;"/>
+          <v-layout class="mt-3" row wrap>
+            <v-flex xs12 sm6>
+              <v-layout class="mt-2_5" column nowrap>
+                <ul>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Show card image</span><br/>
+                    <i class="caption">On mouse Hover</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Configurable zoom</span><br/>
+                    <i class="caption">5 levels</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Collapse/Expand overlay</span><br/>
+                    <i class="caption">On mouse right click</i><br/>
+                    <i class="caption">Configurable collapsed duration</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Configurable overlay cards layout</span><br/>
+                    <i class="caption">Magic Arena card and Magic the Gathering layouts</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Configurable overlay opacity</span><br/>
+                    <i class="caption">For both player and opponent overlay</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Configurable deck remaining cards</span><br/>
+                    <i class="caption">Show/Hide deck cards with 0 copies on deck</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Player draw statistics</span><br/>
+                    <i class="caption">Percent chances to draw a land or card by remaining qtd</i>
+                  </li>
+                </ul>
+              </v-layout>
+            </v-flex>
+            <v-flex xs12 sm6>
+              <a href="static/images/lotus_tracker_preferences.jpg" target="_blank">
+                <img class="mt-2" src="static/images/lotus_tracker_preferences.jpg" style="width: 100%;"/>
+              </a>
+            </v-flex>
           </v-layout>
           <v-layout class="mt-5" row nowrap>
             <v-spacer/>

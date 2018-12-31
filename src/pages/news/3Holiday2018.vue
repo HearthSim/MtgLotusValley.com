@@ -19,7 +19,7 @@
             The event ends with 5 wins or 2 losses and the rewards for 1-4 wins are one copy of full alt Llanowar Elves and for 5 wins you will receive one copy of promo Firemind\'s Research.
           </span>
           <a class="ta-center mt-3" href="static/images/holiday_2018.jpg" target="_blank">
-            <img src="static/images/holiday_2018.jpg" style="height: 100%;"/>
+            <img src="static/images/holiday_2018.jpg" style="width: 100%;"/>
           </a>
         </v-layout>
       </v-layout>
@@ -49,10 +49,19 @@ export default {
     height: 250px !important;
     position: relative;
   }
-  .date {
-    position: absolute;
-    left: calc(100% - 145px);
-    top: calc(100% - 40px);
+  @media (max-width: 767px) {
+    .date {
+      position: absolute;
+      left: calc(100% - 145px);
+      top: calc(20px);
+    } 
+  }
+  @media (min-width: 768px) {
+    .date {
+      position: absolute;
+      left: calc(100% - 145px);
+      top: calc(100% - 40px);
+    } 
   }
   .newsTitle {
     position: absolute;

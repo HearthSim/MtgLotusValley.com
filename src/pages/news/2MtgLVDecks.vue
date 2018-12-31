@@ -95,10 +95,19 @@ export default {
     height: 250px !important;
     position: relative;
   }
-  .date {
-    position: absolute;
-    left: calc(100% - 145px);
-    top: calc(100% - 40px);
+  @media (max-width: 767px) {
+    .date {
+      position: absolute;
+      left: calc(100% - 145px);
+      top: calc(20px);
+    } 
+  }
+  @media (min-width: 768px) {
+    .date {
+      position: absolute;
+      left: calc(100% - 145px);
+      top: calc(100% - 40px);
+    } 
   }
   .newsTitle {
     position: absolute;

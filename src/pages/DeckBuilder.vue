@@ -22,8 +22,9 @@
         </div>
         <v-layout row class="overlay">
           <v-divider class="mt-2 mb-2" vertical color="gray"/>
-          <v-layout column class='manaCurve mt-2'>
-            <ManaCurve :manaCurve="deckManaCurve" :height="75" :width="150" :showTitle="false"/>
+          <v-layout column class='manaCurve mt-2 hidden-sm-and-down'>
+            <ManaCurve :manaCurve="deckManaCurve" :id="1"
+              :height="75" :width="150" :showTitle="false"/>
           </v-layout>
 
           <v-divider class="mt-2 mb-2 mr-05" vertical color="gray"/>
@@ -35,16 +36,17 @@
       </v-layout>
     </v-flex>
     <!-- Left -->
-    <v-flex xs9>
+    <v-flex xs12 sm12 md8 lg9>
       <div class="box">
         <v-layout class="mainContainer boxContent mt-0 ml-0 mr-0 mb-0" column nowrap>
 
-          <v-layout row nowrap class="filtersButtons">
-            <v-switch class="mt-2 mr-3" label="Only my collection" v-model="onlyOwnedCards" @change="getCards()"/>
+          <v-layout row nowrap :class="`filtersButtons ${$vuetify.breakpoint.xs ? '' : 'mt-2'}`">
+            <v-switch class="mt-2 mr-3 hidden-md-and-down"
+              label="Only my collection" v-model="onlyOwnedCards" @change="getCards()"/>
             <v-btn flat color="primary" @click="filtersDialogVisible = true">Filters</v-btn>
           </v-layout>
 
-          <v-layout row wrap>
+          <v-layout row wrap :class="$vuetify.breakpoint.xs ? 'mt-4' : ''">
             <v-tabs class="width100 mt-2 mb-3" color="transparent">
 
               <v-tab class="tabColor" v-for="color in colors" :key="`tab${color.code}`">
@@ -74,27 +76,40 @@
       </div>
     </v-flex>
     <!-- Right -->
-    <v-flex class="ml-0" xs3>
+    <v-flex class="ml-0" xs12 sm12 md4 lg3>
       <div class="box currentDeck ml-0">
         <v-layout class="boxContent mt-0 ml-0 mr-0 pb-2" column nowrap>
 
-          <WildcardsCost class="wildcardsCost mt-3 mr-4 m-auto" :cost="deckWCCost"/>
+          <ManaCurve class="mt-3 hidden-sm-and-up" :manaCurve="deckManaCurve" :id="2"
+            :height="75" :width="150" :showTitle="false"/>
+          <WildcardsCost class="wildcardsCost mt-3 m-auto hidden-sm-only" :cost="deckWCCost"/>
 
-          <v-tabs class="mt-1 mb-3" color="transparent" v-model="currentDeckTab">
+          <v-layout row>
+            <v-flex xs8 sm7 md12>
+              <v-tabs class="mt-1 mb-3" color="transparent" v-model="currentDeckTab">
+                <v-tab>Main ({{deckCardsQtd}})</v-tab>
+                <v-tab-item class="ml-2 mr-2">
+                  <DeckVisualPile class="deck mt-3" :cardsPile="deckCards"
+                    :clickable="true" :showQtd="true" @click="onMainDeckCardClick"/>
+                </v-tab-item>
 
-            <v-tab>Main ({{deckCardsQtd}})</v-tab>
-            <v-tab-item class="ml-2 mr-2">
-              <DeckVisualPile class="deck mt-3" :cardsPile="deckCards"
-                :clickable="true" :showQtd="true" @click="onMainDeckCardClick"/>
-            </v-tab-item>
+                <v-tab>Sideboard ({{sideboardCardsQtd}})</v-tab>
+                <v-tab-item class="ml-2 mr-2">
+                  <DeckVisualPile class="deck mt-3" :cardsPile="sideboardCards"
+                    :clickable="true" :showQtd="true" @click="onSideboardCardClick"/>
+                </v-tab-item>
+              </v-tabs>
+            </v-flex>
 
-            <v-tab>Sideboard ({{sideboardCardsQtd}})</v-tab>
-            <v-tab-item class="ml-2 mr-2">
-              <DeckVisualPile class="deck mt-3" :cardsPile="sideboardCards"
-                :clickable="true" :showQtd="true" @click="onSideboardCardClick"/>
-            </v-tab-item>
+            <v-flex xs4 sm5 column class="hidden-xs-only hidden-md-and-up">            
+              <v-layout column class='manaCurve mt-5 m-auto'>
+                <ManaCurve class="mt-3" :manaCurve="deckManaCurve" :id="3"
+                  :height="75" :width="150" :showTitle="false"/>
+              </v-layout>
+              <WildcardsCost class="wildcardsCost mt-4 mr-4 m-auto" :cost="deckWCCost"/>
+            </v-flex>
 
-          </v-tabs>
+          </v-layout>
         </v-layout>
       </div>
     </v-flex>
@@ -111,6 +126,8 @@
                   <QueryFilter class="filterQuery m-auto" v-model="searchQuery"
                     v-on:onQuery="updateFilters()" title="Name or Archetype"/>
                   <RarityFilter class="filterRarity pl-2 pr-2" v-model="activeRarities"/>
+                  <v-switch class="mt-4 ml-3 hidden-lg-and-up" label="Only my collection"
+                    v-model="onlyOwnedCards" @change="getCards()"/>
                 </v-layout>
               </div>
               <v-divider class="pt-2 ml-2 mr-2 pb-2" vertical/>
@@ -618,9 +635,32 @@ export default {
   .v-input--switch {
     height: 32px;
   }
-  .tabColor img {
-    height: 32px;
-    width: 32px;
+  @media (max-width: 424px) {
+    .tabColor img {
+      height: 18px;
+      width: 18px;
+    }
+    .cardContainer {
+      width: 130px;
+    }
+  }
+  @media (min-width: 425px) and (max-width: 767px) {
+    .tabColor img {
+      height: 24px;
+      width: 24px;
+    }
+    .cardContainer {
+      width: 140px;
+    }
+  }
+  @media (min-width: 768px) {
+    .tabColor img {
+      height: 32px;
+      width: 32px;
+    }
+    .cardContainer {
+      width: 150px;
+    }
   }
   @media (max-height: 800px) {
     .cardsContainer {
@@ -649,16 +689,12 @@ export default {
   .width100 {
     width: 100%;
   }
-  .cardContainer {
-    width: 150px;
-  }
   .mainContainer {
     position: relative;
   }
   .filtersButtons {
     position: absolute;
     right: 0;
-    margin-top: 8px;
     z-index: 99;
   }
   .pointer {

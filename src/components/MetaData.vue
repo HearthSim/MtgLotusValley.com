@@ -1,9 +1,9 @@
 <template>
-  <v-layout row nowrap>
+  <v-layout row wrap>
     <!-- Left -->
-    <v-flex xs8>
+    <v-flex xs12 sm12 md8>
 
-      <div class="box mr-0">
+      <div :class="`box ${$vuetify.breakpoint.mdAndUp ? 'mr-0' : ''}`">
         <v-flex xs12 class="boxHeader">Top played Cards</v-flex>
         <v-layout class="boxContent line1" column nowrap>
           <v-layout class="mt-1 ml-2 mr-2" row wrap>
@@ -19,10 +19,10 @@
         </v-layout>
       </div>
 
-      <div class="box mt-0 mr-0">
+      <div :class="`box mt-0 ${$vuetify.breakpoint.mdAndUp ? 'mr-0' : ''}`">
         <v-flex xs12 class="boxHeader">Deck by Archetype</v-flex>
         <v-layout class="boxContent line2" column nowrap>
-          <v-layout class="ml-2 mr-2" row nowrap>
+          <v-layout class="ml-2 mr-2" row wrap>
             <v-flex xs12 sm6>
               <DecksByArch class="ml-3 mr-3" :dateMin="startsDate" 
                 :dateMax="endsDate" eventType="Constructed" title="Constructed"/>
@@ -37,7 +37,7 @@
 
     </v-flex>
     <!-- Right -->
-    <v-flex xs4>
+    <v-flex xs12 sm12 md4>
       <div class="box">
         <v-flex xs12 class="boxHeader">Constructed Color Distribution</v-flex>
         <v-layout class="boxContent line1" column nowrap>
