@@ -57,6 +57,9 @@
             <span class="subheading">And more coming! Keep stay on Mtg Lotus Valley and Lotus Tracker updates</span>
             <v-spacer/>
           </v-layout>
+          
+          <vue-disqus class="mt-5" shortname="mtglotusvalley"/>
+
         </v-layout>
       </v-layout>
     </div>

@@ -21,6 +21,9 @@
           <a class="ta-center mt-3" href="static/images/holiday_2018.jpg" target="_blank">
             <img src="static/images/holiday_2018.jpg" style="width: 100%;"/>
           </a>
+          
+          <vue-disqus class="mt-5" shortname="mtglotusvalley"/>
+
         </v-layout>
       </v-layout>
     </div>
