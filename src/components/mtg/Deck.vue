@@ -1,10 +1,13 @@
 <template>
   <div>
     <div class='deck'>
-      <router-link :to="link" v-if="link !== undefined">
-        <span class='body-2 font-weight-bold'>{{ name }}</span>
-      </router-link>
-      <span v-if="link === undefined" class='body-2 font-weight-bold'>{{ name }}</span>
+      <v-layout column wrap>
+        <router-link v-if="link === true" :to="deckLink">
+          <span class='body-2 font-weight-bold'>{{ name }}</span>
+        </router-link>
+        <span v-if="link === undefined" class='body-2 font-weight-bold'>{{ name }}</span>
+        <span v-if="details !== undefined" class='caption font-weight-bold'>{{ details }}</span>
+      </v-layout>
       <table class="mt-2">
         <tr class="text-xs-center">
           <td colspan="6">
@@ -63,18 +66,24 @@ export default {
       type: String,
       required: false
     },
+    details: {
+      type: String,
+      required: false
+    },
     largeName: {
       type: Boolean,
       required: false,
       default: false
     },
     link: {
-      type: String,
-      required: false
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   data () {
     return {
+      deckLink: '',
       cardsGrouped: [],
       lands: [],
       creatures: [],
@@ -146,6 +155,21 @@ export default {
         this.sideboardCards = this.groupCards(this.sideboard)
       }
       this.sideboardQtd = DeckUtils.getGroupCardsQtd(this.sideboardCards)
+    },
+    updateDeckLink: function () {
+      const cards = []
+      Object.keys(this.cards).forEach(mtgaId => {
+        const card = this.cards[mtgaId]
+        cards.push(`${card.qtd}:${mtgaId}`)
+      })
+      const sideboard = []
+      if (this.sideboard !== undefined) {
+        Object.keys(this.sideboard).forEach(mtgaId => {
+          const card = this.sideboard[mtgaId]
+          sideboard.push(`${card.qtd}:${mtgaId}`)
+        })
+      }
+      this.deckLink = `/decks/${cards.join(';')}_${sideboard.join(';')}?loader=true`
     }
   },
   watch: {
@@ -159,6 +183,7 @@ export default {
       this.$nextTick(() => {
         this.updateDeckCards()
       })
+      this.updateDeckLink()
     },
     sideboard: function () {
       this.sideboardCards = []

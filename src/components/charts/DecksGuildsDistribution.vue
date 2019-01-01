@@ -60,7 +60,7 @@ export default {
       type: Object,
       required: true
     },
-    title: {
+    showTitle: {
       type: Boolean,
       required: false,
       default: true
@@ -118,7 +118,7 @@ export default {
           },
           title: {
             text: 'Guilds Distribution (Last 7 days)',
-            display: this.title
+            display: this.showTitle
           },
           tooltips: {
             callbacks: {

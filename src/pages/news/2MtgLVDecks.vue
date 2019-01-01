@@ -91,7 +91,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .header-bg {
-    background-image: url('~@/assets/pages-headers/Healers-Hawk.jpg');
+    background-image: url('~@/assets/pages-headers/HealersHawk.jpg');
     height: 250px !important;
     position: relative;
   }

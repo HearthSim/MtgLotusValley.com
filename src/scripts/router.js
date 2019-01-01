@@ -15,6 +15,7 @@ import LotusTracker from '@/pages/LotusTracker'
 import NewsMtgLotusValley from '@/pages/news/1MtgLotusValley'
 import NewsMtgLVDecks from '@/pages/news/2MtgLVDecks'
 import NewsHoliday2018 from '@/pages/news/3Holiday2018'
+import NewsHoliday2018Analysis from '@/pages/news/4Holiday2018Analysis'
 
 Vue.use(Router)
 Vue.use(VueMeta)
@@ -114,6 +115,11 @@ const router = new Router({
       path: '/holiday_2018',
       name: 'NewsHoliday2018',
       component: NewsHoliday2018
+    },
+    {
+      path: '/holiday_2018_analysis',
+      name: 'NewsHoliday2018Analysis',
+      component: NewsHoliday2018Analysis
     },
     {
       path: '*',

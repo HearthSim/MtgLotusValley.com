@@ -26,17 +26,16 @@
                   </v-layout>
                   <v-layout class="mt-2 ml-3 mr-3 pb-3" row nowrap>
                     <v-layout class="text-xs-left" column nowrap>
-                      <span class="body-1">{{news.subtitle}}</span>
-                      <span class="body-1">{{news.details}}</span>
-                      <v-layout column justify-center class="text-xs-right hidden-sm-and-up">
-                        <span class="ml-2 subtitle font-weight-bold">
+                      <span class="body-1 pr-3">{{news.subtitle}}</span>
+                      <v-layout row justify-center class="text-xs-right hidden-sm-and-up">
+                        <span class="mr-1 subtitle font-weight-bold">
                           {{ new Date(news.date).toLocaleString().split(' ')[0].replace(',', '') }}
                         </span>
                       </v-layout>
                     </v-layout>
                     <v-spacer/>
-                    <v-layout column justify-center class="hidden-xs-only">
-                      <span class="ml-2 subtitle font-weight-bold">
+                    <v-layout row justify-center class="hidden-xs-only">
+                      <span class="mr-1 subtitle font-weight-bold">
                         {{ new Date(news.date).toLocaleString().split(' ')[0].replace(',', '') }}
                       </span>
                     </v-layout>
@@ -52,7 +51,8 @@
             <v-flex xs12 class="boxHeader">Colors Distribution (Last 7 days)</v-flex>
             <v-layout class="boxContent" row nowrap>
               <div class="m-auto">
-                <DecksColorDistribution :colors="decksByColorsBasics" :title="false"/>
+                <DecksColorDistribution :colors="decksByColorsBasics"
+                  :showTitle="false" :height="250" :width="250"/>
               </div>
             </v-layout>
           </v-layout>
@@ -60,7 +60,7 @@
             <v-flex xs12 class="boxHeader">Deck of Day</v-flex>
             <v-layout class="boxContent" row wrap>
               <Deck class="mt-2 mb-2 m-auto" :cards="deckOfDayCards"
-                :name="deckOfDayName" :link="deckOfDayLink"/>
+                :name="deckOfDayName" :link="true"/>
             </v-layout>
           </v-layout>
         </v-flex>
@@ -86,39 +86,41 @@ export default {
   data () {
     return {
       deckOfDayName: '',
-      deckOfDayLink: '',
       deckOfDayCards: {},
       decksByColorsBasics: {},
       latestNews: [
         {
+          cover: require('@/assets/pages-headers/RatColony.jpg'),
+          title: 'Pauper analysis after first week of Holiday event',
+          subtitle: 'After one week of Pauper format in Holiday event, here some analysis of what was going.',
+          date: '2018-12-31 00:00',
+          link: '/holiday_2018_analysis'
+        },
+        {
           cover: require('@/assets/pages-headers/Mountain1.jpg'),
           title: 'Holiday special event starts!',
-          subtitle: 'A new special pauper event starts and it has free entry.',
-          details: 'The event Rewards are promo Llanowar Elves and Firemind\'s Research.',
+          subtitle: 'A new special pauper event starts and it has free entry. The event Rewards are promo Llanowar Elves and Firemind\'s Research.',
           date: '2018-12-24 00:00',
           link: '/holiday_2018'
         },
         {
-          cover: require('@/assets/pages-headers/Healers-Hawk.jpg'),
+          cover: require('@/assets/pages-headers/HealersHawk.jpg'),
           title: 'Exploring MTG Lotus Valley Decks',
-          subtitle: 'A little tour by public and private decks page\'s features.',
-          details: 'Check the differences between public and private decks.',
+          subtitle: 'A little tour by public and private decks page\'s features. Check the differences between public and private decks.',
           date: '2018-12-16 00:00',
           link: '/mtglv_decks'
         },
         {
-          cover: require('@/assets/pages-headers/League-guildmage.jpg'),
+          cover: require('@/assets/pages-headers/LeagueGuildmage.jpg'),
           title: 'Announcing MTG Arena deck tracker Lotus Tracker!',
-          subtitle: 'Play MTG Arena with a deck overlay and sync your data and matches with Mtg Lotus Valley.',
-          details: 'Keep all your game data synchronized to easily access anytime.',
+          subtitle: 'Play MTG Arena with a deck overlay and sync your data and matches with Mtg Lotus Valley. Keep all your game data synchronized to easily access anytime.',
           date: '2018-12-15 00:00',
           link: '/lotustracker'
         },
         {
           cover: require('@/assets/pages-headers/EmmaraSoulOfTheAccord.jpg'),
           title: 'Announcing MTG Lotus Valley!',
-          subtitle: 'What\'s the purpose of this site? What it offer to MTGA players?',
-          details: 'Track your MTGA data, share Decks and analyse the Meta.',
+          subtitle: 'What\'s the purpose of this site? What it offer to MTGA players? Track your MTGA data, share Decks and analyse the Meta.',
           date: '2018-12-14 00:00',
           link: '/mtglv'
         }
@@ -138,19 +140,6 @@ export default {
         .then(res => {
           this.deckOfDayCards = res.data.cards
           this.deckOfDayName = `${res.data.name} | ${res.data.wins}-${res.data.losses} (${res.data.winRate}%)`
-          const cards = []
-          Object.keys(res.data.cards).forEach(mtgaId => {
-            const card = res.data.cards[mtgaId]
-            cards.push(`${card.qtd}:${mtgaId}`)
-          })
-          const sideboard = []
-          if (res.data.sideboard !== undefined) {
-            Object.keys(res.data.sideboard).forEach(mtgaId => {
-              const card = res.data.sideboard[mtgaId]
-              sideboard.push(`${card.qtd}:${mtgaId}`)
-            })
-          }
-          this.deckOfDayLink = `/decks/${cards.join(';')}_${sideboard.join(';')}?loader=true`
         })
         .catch(error => {
           console.log(error)

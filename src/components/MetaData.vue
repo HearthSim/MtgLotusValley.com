@@ -41,13 +41,15 @@
       <div class="box">
         <v-flex xs12 class="boxHeader">Constructed Color Distribution</v-flex>
         <v-layout class="boxContent line1" column nowrap>
-          <DecksColorDistribution class="pie mt-4" :id="index" :colors="decksByColorsBasics" :title="false"/>
+          <DecksColorDistribution class="pie mt-4" :id="index"
+            :colors="decksByColorsBasics" :showTitle="false"/>
         </v-layout>
       </div>
       <div class="box mt-0">
         <v-flex xs12 class="boxHeader">Constructed Guilds Distribution</v-flex>
         <v-layout class="boxContent line2" column nowrap>
-          <DecksGuildsDistribution class="pie mt-4" :id="index" :colors="decksByColorsGuilds" :title="false"/>
+          <DecksGuildsDistribution class="pie mt-4" :id="index"
+            :colors="decksByColorsGuilds" :showTitle="false"/>
         </v-layout>
       </div>
     </v-flex>

@@ -15,6 +15,11 @@ export default {
       required: true
     },
     title: {
+      type: String,
+      required: false,
+      default: 'Color Distribution'
+    },
+    showTitle: {
       type: Boolean,
       required: false,
       default: true
@@ -23,87 +28,80 @@ export default {
       type: Number,
       required: false,
       default: 0
+    },
+    height: {
+      type: Number,
+      required: false,
+      default: 250
     }
   },
-  computed: {
-    colorsData: function () {
-      const data = []
-      Object.keys(this.colors).forEach(color => {
-        data.push(this.colors[color])
-      })
-      return data
-    },
-    colorsLabels: function () {
-      const data = []
-      Object.keys(this.colors).forEach(color => {
-        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
-        data.push(colorObj.name)
-      })
-      return data
-    },
-    colorsHexValue: function () {
-      const data = []
-      Object.keys(this.colors).forEach(color => {
-        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
-        if (colorObj !== undefined) {
-          data.push(colorObj.hexValue)
-        } else {
-          data.push('#FFC107')
-        }
-      })
-      return data
-    },
-    colorsHexHoverValue: function () {
-      const data = []
-      Object.keys(this.colors).forEach(color => {
-        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
-        if (colorObj !== undefined) {
-          data.push(colorObj.hexHoverValue)
-        } else {
-          data.push('#FFCA28')
-        }
-      })
-      return data
+  data () {
+    return {
+      chart: undefined,
+      colorsLabels: [],
+      colorsData: [],
+      colorsHexValue: [],
+      colorsHexHoverValue: []
     }
   },
-  watch: {
-    colors: function () {
-      const ctx = document.getElementById(`decksColorDistribution${this.id}-chart`)
-      ctx.height = 250
-      ctx.width = 250
-      new Chart(ctx, { // eslint-disable-line no-new
-        type: 'pie',
-        data: {
-          labels: this.colorsLabels,
-          datasets: [
-            {
-              data: this.colorsData,
-              backgroundColor: this.colorsHexValue,
-              borderColor: this.colorsHexValue,
-              borderWidth: 1,
-              hoverBackgroundColor: this.colorsHexHoverValue
-            }
-          ]
+  mounted () {
+    const ctx = document.getElementById(`decksColorDistribution${this.id}-chart`)
+    ctx.height = this.height
+    this.chart = new Chart(ctx, { // eslint-disable-line no-new
+      type: 'pie',
+      data: {
+        labels: this.colorsLabels,
+        datasets: [
+          {
+            data: this.colorsData,
+            backgroundColor: this.colorsHexValue,
+            borderColor: this.colorsHexValue,
+            borderWidth: 1,
+            hoverBackgroundColor: this.colorsHexHoverValue
+          }
+        ]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: true,
+        legend: {
+          display: true
         },
-        options: {
-          responsive: false,
-          maintainAspectRatio: true,
-          legend: {
-            display: true
-          },
-          title: {
-            text: 'Color Distribution (Last 7 days)',
-            display: this.title
-          },
-          tooltips: {
-            callbacks: {
-              label: function (tooltipItem, data) {
-                return data.datasets[0].data[tooltipItem.index] + '%'
-              }
+        title: {
+          text: this.title,
+          display: this.showTitle
+        },
+        tooltips: {
+          callbacks: {
+            label: function (tooltipItem, data) {
+              return data.datasets[0].data[tooltipItem.index] + '%'
             }
           }
         }
-      })
+      }
+    })
+  },
+  watch: {
+    colors: function () {
+      Utils.clear(this.colorsData)
+      Utils.clear(this.colorsLabels)
+      Utils.clear(this.colorsHexValue)
+      Utils.clear(this.colorsHexHoverValue)
+      const cardsColors = Object.keys(this.colors)
+      this.colorsData.push(...cardsColors.map(color => this.colors[color]))
+      this.colorsLabels.push(...cardsColors.map(color => {
+        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
+        return colorObj.name
+      }))
+      this.colorsHexValue.push(...cardsColors.map(color => {
+        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
+        return colorObj.hexValue
+      }))
+      this.colorsHexHoverValue.push(...cardsColors.map(color => {
+        const colorObj = Utils.colors.find(colorObj => colorObj.code === color)
+        return colorObj.hexHoverValue
+      }))
+      this.chart.update()
     }
   }
 }

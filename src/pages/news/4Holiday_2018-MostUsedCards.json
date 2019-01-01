@@ -1,0 +1,3812 @@
+[
+	{
+		"mtgaid": 67015,
+		"multiverseid": 439856,
+		"name": "Plains",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/192.jpg?1524752775",
+		"type": "Basic Land — Plains",
+		"presence": 32,
+		"copies": 753,
+		"copiesAverage": 15.4
+	},
+	{
+		"mtgaid": 67019,
+		"multiverseid": 439858,
+		"name": "Swamp",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/194.jpg?1524752803",
+		"type": "Basic Land — Swamp",
+		"presence": 34.6,
+		"copies": 531,
+		"copiesAverage": 10
+	},
+	{
+		"mtgaid": 67017,
+		"multiverseid": 439857,
+		"name": "Island",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/193.jpg?1524752791",
+		"type": "Basic Land — Island",
+		"presence": 31.4,
+		"copies": 422,
+		"copiesAverage": 8.8
+	},
+	{
+		"mtgaid": 67021,
+		"multiverseid": 439859,
+		"name": "Mountain",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/195.jpg?1524752819",
+		"type": "Basic Land — Mountain",
+		"presence": 16.3,
+		"copies": 305,
+		"copiesAverage": 12.2
+	},
+	{
+		"mtgaid": 67023,
+		"multiverseid": 439860,
+		"name": "Forest",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/196.jpg?1524752831",
+		"type": "Basic Land — Forest",
+		"presence": 14.4,
+		"copies": 285,
+		"copiesAverage": 13
+	},
+	{
+		"mtgaid": 68475,
+		"multiverseid": 452764,
+		"name": "Healer's Hawk",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/3/3/3313bd5c-b657-47a3-822a-dd0d9165492a.jpg?1538878333",
+		"type": "Creature — Bird",
+		"presence": 32,
+		"copies": 186,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 67306,
+		"multiverseid": 442989,
+		"name": "Rat Colony",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/101.jpg?1525276279",
+		"type": "Creature — Rat",
+		"presence": 3.3,
+		"copies": 138,
+		"copiesAverage": 27.6
+	},
+	{
+		"mtgaid": 67718,
+		"multiverseid": 447155,
+		"name": "Knight's Pledge",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/19.jpg?1531450867",
+		"type": "Enchantment — Aura",
+		"presence": 22.2,
+		"copies": 127,
+		"copiesAverage": 3.7
+	},
+	{
+		"mtgaid": 66641,
+		"multiverseid": 439669,
+		"name": "Luminous Bonds",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/12.jpg?1524750165",
+		"type": "Enchantment — Aura",
+		"presence": 22.2,
+		"copies": 108,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 67992,
+		"multiverseid": 447292,
+		"name": "Shock",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/156.jpg?1531452592",
+		"type": "Instant",
+		"presence": 19,
+		"copies": 107,
+		"copiesAverage": 3.7
+	},
+	{
+		"mtgaid": 68196,
+		"multiverseid": 447394,
+		"name": "Submerged Boneyard",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/257.jpg?1531451554",
+		"type": "Land",
+		"presence": 19.6,
+		"copies": 105,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 66505,
+		"multiverseid": 435424,
+		"name": "Plains",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/263.jpg?1527431569",
+		"type": "Basic Land — Plains",
+		"presence": 5.9,
+		"copies": 104,
+		"copiesAverage": 11.6
+	},
+	{
+		"mtgaid": 68726,
+		"multiverseid": 452995,
+		"name": "Dimir Guildgate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/7/b7129bdf-de02-4ed2-b5de-f774b8a7d302.jpg?1538881135",
+		"type": "Land — Gate",
+		"presence": 17,
+		"copies": 100,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 67292,
+		"multiverseid": 442982,
+		"name": "Fungal Infection",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/94.jpg?1524790909",
+		"type": "Instant",
+		"presence": 22.2,
+		"copies": 97,
+		"copiesAverage": 2.9
+	},
+	{
+		"mtgaid": 66775,
+		"multiverseid": 439736,
+		"name": "Moment of Craving",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/79.jpg?1524751048",
+		"type": "Instant",
+		"presence": 19.6,
+		"copies": 95,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 66507,
+		"multiverseid": 435425,
+		"name": "Island",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/264.jpg?1527431586",
+		"type": "Basic Land — Island",
+		"presence": 8.5,
+		"copies": 92,
+		"copiesAverage": 7.1
+	},
+	{
+		"mtgaid": 68483,
+		"multiverseid": 452772,
+		"name": "Parhelion Patrol",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/e/e/eef126f2-7e72-4338-8021-3ad95e4ab982.jpg?1538878449",
+		"type": "Creature — Human Knight",
+		"presence": 20.3,
+		"copies": 90,
+		"copiesAverage": 2.9
+	},
+	{
+		"mtgaid": 66531,
+		"multiverseid": 435437,
+		"name": "Forest",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/276.jpg?1527431779",
+		"type": "Basic Land — Forest",
+		"presence": 3.9,
+		"copies": 90,
+		"copiesAverage": 15
+	},
+	{
+		"mtgaid": 68528,
+		"multiverseid": 452817,
+		"name": "Dead Weight",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/a/1/a1a81554-50d4-4fe0-bf0d-5304f215d19e.jpg?1538878989",
+		"type": "Enchantment — Aura",
+		"presence": 20.9,
+		"copies": 87,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 68476,
+		"multiverseid": 452765,
+		"name": "Hunted Witness",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/8/c/8c31b8e5-2349-4119-9dc2-3e41c5364a78.jpg?1538878352",
+		"type": "Creature — Human",
+		"presence": 17,
+		"copies": 86,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 67224,
+		"multiverseid": 442948,
+		"name": "Opt",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/60.jpg?1524790589",
+		"type": "Instant",
+		"presence": 16.3,
+		"copies": 84,
+		"copiesAverage": 3.4
+	},
+	{
+		"mtgaid": 67324,
+		"multiverseid": 442998,
+		"name": "Vicious Offering",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/110.jpg?1524791071",
+		"type": "Instant",
+		"presence": 19,
+		"copies": 82,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 67788,
+		"multiverseid": 447190,
+		"name": "Essence Scatter",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/54.jpg?1531451298",
+		"type": "Instant",
+		"presence": 22.9,
+		"copies": 80,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 68012,
+		"multiverseid": 447302,
+		"name": "Viashino Pyromancer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/166.jpg?1531450696",
+		"type": "Creature — Viashino Wizard",
+		"presence": 13.1,
+		"copies": 75,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 67200,
+		"multiverseid": 442936,
+		"name": "Cold-Water Snapper",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/48.jpg?1524790474",
+		"type": "Creature — Turtle",
+		"presence": 22.2,
+		"copies": 74,
+		"copiesAverage": 2.2
+	},
+	{
+		"mtgaid": 67700,
+		"multiverseid": 447146,
+		"name": "Daybreak Chaplain",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/10.jpg?1531450745",
+		"type": "Creature — Human Cleric",
+		"presence": 15,
+		"copies": 72,
+		"copiesAverage": 3.1
+	},
+	{
+		"mtgaid": 68252,
+		"multiverseid": 450232,
+		"name": "Silverbeak Griffin",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/285.jpg?1531451942",
+		"type": "Creature — Griffin",
+		"presence": 17,
+		"copies": 72,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 67752,
+		"multiverseid": 447172,
+		"name": "Rustwing Falcon",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/36.jpg?1531451081",
+		"type": "Creature — Bird",
+		"presence": 13.7,
+		"copies": 70,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 65971,
+		"multiverseid": 435157,
+		"name": "Bishop's Soldier",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/6.jpg?1527427542",
+		"type": "Creature — Vampire Soldier",
+		"presence": 16.3,
+		"copies": 70,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 68681,
+		"multiverseid": 452970,
+		"name": "Whisper Agent",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/f/6/f6d318e7-f49e-49f8-98b6-d62c34aa4af2.jpg?1538880813",
+		"type": "Creature — Human Rogue",
+		"presence": 16.3,
+		"copies": 70,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 66515,
+		"multiverseid": 435429,
+		"name": "Swamp",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/268.jpg?1527431644",
+		"type": "Basic Land — Swamp",
+		"presence": 5.9,
+		"copies": 70,
+		"copiesAverage": 7.8
+	},
+	{
+		"mtgaid": 66645,
+		"multiverseid": 439671,
+		"name": "Martyr of Dusk",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/14.jpg?1524750195",
+		"type": "Creature — Vampire Soldier",
+		"presence": 15.7,
+		"copies": 68,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 68464,
+		"multiverseid": 452753,
+		"name": "Candlelight Vigil",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/e/9/e920a75f-7dec-4815-a358-e174401da83b.jpg?1538878165",
+		"type": "Enchantment — Aura",
+		"presence": 15,
+		"copies": 67,
+		"copiesAverage": 2.9
+	},
+	{
+		"mtgaid": 67760,
+		"multiverseid": 447176,
+		"name": "Take Vengeance",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/40.jpg?1531451135",
+		"type": "Sorcery",
+		"presence": 15,
+		"copies": 65,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 67196,
+		"multiverseid": 442934,
+		"name": "Blink of an Eye",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/46.jpg?1524790452",
+		"type": "Instant",
+		"presence": 18.3,
+		"copies": 62,
+		"copiesAverage": 2.2
+	},
+	{
+		"mtgaid": 67388,
+		"multiverseid": 443030,
+		"name": "Shivan Fire",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/142.jpg?1524791410",
+		"type": "Instant",
+		"presence": 12.4,
+		"copies": 58,
+		"copiesAverage": 3.1
+	},
+	{
+		"mtgaid": 67358,
+		"multiverseid": 443015,
+		"name": "Ghitu Lavarunner",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/127.jpg?1524791248",
+		"type": "Creature — Human Wizard",
+		"presence": 9.8,
+		"copies": 53,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 68612,
+		"multiverseid": 452901,
+		"name": "Artful Takedown",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/4/c/4c9e8f24-af62-4d13-bfed-a8b3294b64c3.jpg?1538879932",
+		"type": "Instant",
+		"presence": 14.4,
+		"copies": 53,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 67694,
+		"multiverseid": 447143,
+		"name": "Angel of the Dawn",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/7.jpg?1531450698",
+		"type": "Creature — Angel",
+		"presence": 14.4,
+		"copies": 52,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 68654,
+		"multiverseid": 452943,
+		"name": "Notion Rain",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/f/4/f4db287e-34c1-459b-882d-3db58f13eade.jpg?1538880466",
+		"type": "Sorcery",
+		"presence": 12.4,
+		"copies": 52,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 68520,
+		"multiverseid": 452809,
+		"name": "Watcher in the Mist",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/f/b/fb971f49-8898-444a-a17c-caeb1696c62a.jpg?1538878907",
+		"type": "Creature — Spirit",
+		"presence": 11.8,
+		"copies": 49,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 68496,
+		"multiverseid": 452785,
+		"name": "Devious Cover-Up",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/2/1/21ac6b0a-b1a5-439d-b65e-5f04e1826c80.jpg?1538878627",
+		"type": "Instant",
+		"presence": 14.4,
+		"copies": 47,
+		"copiesAverage": 2.1
+	},
+	{
+		"mtgaid": 68537,
+		"multiverseid": 452826,
+		"name": "Mephitic Vapors",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/6/7/675640ba-37e7-4231-8524-87e8b87ea46f.jpg?1538879098",
+		"type": "Sorcery",
+		"presence": 15.7,
+		"copies": 46,
+		"copiesAverage": 1.9
+	},
+	{
+		"mtgaid": 66667,
+		"multiverseid": 439682,
+		"name": "Squire's Devotion",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/25.jpg?1524750343",
+		"type": "Enchantment — Aura",
+		"presence": 10.5,
+		"copies": 45,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 67440,
+		"multiverseid": 443056,
+		"name": "Llanowar Elves",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/168.jpg?1524791669",
+		"type": "Creature — Elf Druid",
+		"presence": 9.2,
+		"copies": 44,
+		"copiesAverage": 3.1
+	},
+	{
+		"mtgaid": 67820,
+		"multiverseid": 447206,
+		"name": "Salvager of Secrets",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/70.jpg?1531451447",
+		"type": "Creature — Merfolk Wizard",
+		"presence": 11.1,
+		"copies": 44,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 66091,
+		"multiverseid": 435217,
+		"name": "Opt",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/65.jpg?1527428386",
+		"type": "Instant",
+		"presence": 7.8,
+		"copies": 44,
+		"copiesAverage": 3.7
+	},
+	{
+		"mtgaid": 66891,
+		"multiverseid": 439794,
+		"name": "Jungleborn Pioneer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/137.jpg?1524751871",
+		"type": "Creature — Merfolk Scout",
+		"presence": 8.5,
+		"copies": 44,
+		"copiesAverage": 3.4
+	},
+	{
+		"mtgaid": 67964,
+		"multiverseid": 447278,
+		"name": "Goblin Instigator",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/142.jpg?1531452429",
+		"type": "Creature — Goblin Rogue",
+		"presence": 7.8,
+		"copies": 44,
+		"copiesAverage": 3.7
+	},
+	{
+		"mtgaid": 67238,
+		"multiverseid": 442955,
+		"name": "Syncopate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/67.jpg?1524790655",
+		"type": "Instant",
+		"presence": 14.4,
+		"copies": 42,
+		"copiesAverage": 1.9
+	},
+	{
+		"mtgaid": 68727,
+		"multiverseid": 452996,
+		"name": "Dimir Guildgate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/3/6/3694ac90-e71e-4736-8945-7dbf5b5fd6a9.jpg?1538881146",
+		"type": "Land — Gate",
+		"presence": 7.8,
+		"copies": 41,
+		"copiesAverage": 3.4
+	},
+	{
+		"mtgaid": 67630,
+		"multiverseid": 443151,
+		"name": "Mountain",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/263.jpg?1524792605",
+		"type": "Basic Land — Mountain",
+		"presence": 1.3,
+		"copies": 41,
+		"copiesAverage": 20.5
+	},
+	{
+		"mtgaid": 68034,
+		"multiverseid": 447313,
+		"name": "Druid of the Cowl",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/177.jpg?1531450783",
+		"type": "Creature — Elf Druid",
+		"presence": 7.2,
+		"copies": 40,
+		"copiesAverage": 3.6
+	},
+	{
+		"mtgaid": 66089,
+		"multiverseid": 435216,
+		"name": "One With the Wind",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/64.jpg?1527428370",
+		"type": "Enchantment — Aura",
+		"presence": 9.8,
+		"copies": 39,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 67866,
+		"multiverseid": 447229,
+		"name": "Doomed Dissenter",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/93.jpg?1531451864",
+		"type": "Creature — Human",
+		"presence": 7.8,
+		"copies": 39,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 67782,
+		"multiverseid": 447187,
+		"name": "Divination",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/51.jpg?1531451266",
+		"type": "Sorcery",
+		"presence": 7.8,
+		"copies": 38,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 67162,
+		"multiverseid": 442917,
+		"name": "Pegasus Courser",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/29.jpg?1524790269",
+		"type": "Creature — Pegasus",
+		"presence": 7.8,
+		"copies": 37,
+		"copiesAverage": 3.1
+	},
+	{
+		"mtgaid": 67272,
+		"multiverseid": 442972,
+		"name": "Deathbloom Thallid",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/84.jpg?1524790806",
+		"type": "Creature — Fungus",
+		"presence": 6.5,
+		"copies": 35,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 67198,
+		"multiverseid": 442935,
+		"name": "Cloudreader Sphinx",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/47.jpg?1524790461",
+		"type": "Creature — Sphinx",
+		"presence": 10.5,
+		"copies": 35,
+		"copiesAverage": 2.2
+	},
+	{
+		"mtgaid": 67890,
+		"multiverseid": 447241,
+		"name": "Lich's Caress",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/105.jpg?1531452022",
+		"type": "Sorcery",
+		"presence": 11.1,
+		"copies": 35,
+		"copiesAverage": 2.1
+	},
+	{
+		"mtgaid": 66647,
+		"multiverseid": 439672,
+		"name": "Moment of Triumph",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/15.jpg?1524750207",
+		"type": "Instant",
+		"presence": 9.2,
+		"copies": 34,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 67460,
+		"multiverseid": 443066,
+		"name": "Saproling Migration",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/178.jpg?1538666048",
+		"type": "Sorcery",
+		"presence": 5.9,
+		"copies": 34,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 67618,
+		"multiverseid": 443145,
+		"name": "Island",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/257.jpg?1524792547",
+		"type": "Basic Land — Island",
+		"presence": 2,
+		"copies": 34,
+		"copiesAverage": 11.3
+	},
+	{
+		"mtgaid": 66523,
+		"multiverseid": 435433,
+		"name": "Mountain",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/272.jpg?1527431712",
+		"type": "Basic Land — Mountain",
+		"presence": 2,
+		"copies": 33,
+		"copiesAverage": 11
+	},
+	{
+		"mtgaid": 68557,
+		"multiverseid": 452846,
+		"name": "Direct Current",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/1/6/166b0d75-824c-4c04-833b-7f7c69569a18.jpg?1538879363",
+		"type": "Sorcery",
+		"presence": 7.8,
+		"copies": 33,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 67142,
+		"multiverseid": 442907,
+		"name": "Gideon's Reproach",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/19.jpg?1524790173",
+		"type": "Instant",
+		"presence": 7.8,
+		"copies": 32,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 66357,
+		"multiverseid": 435350,
+		"name": "Jade Guardian",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/194.jpg?1527430450",
+		"type": "Creature — Merfolk Shaman",
+		"presence": 5.2,
+		"copies": 32,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67134,
+		"multiverseid": 442903,
+		"name": "Dub",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/15.jpg?1525862216",
+		"type": "Enchantment — Aura",
+		"presence": 8.5,
+		"copies": 32,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 68625,
+		"multiverseid": 452914,
+		"name": "Darkblade Agent",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/f/0/f0b610c5-61e5-43df-a87b-3eaaa915402b.jpg?1538880093",
+		"type": "Creature — Human Assassin",
+		"presence": 6.5,
+		"copies": 32,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 66757,
+		"multiverseid": 439727,
+		"name": "Dusk Legion Zealot",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/70.jpg?1524750925",
+		"type": "Creature — Vampire Soldier",
+		"presence": 6.5,
+		"copies": 32,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 66819,
+		"multiverseid": 439758,
+		"name": "Fanatical Firebrand",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/101.jpg?1524751379",
+		"type": "Creature — Goblin Pirate",
+		"presence": 5.9,
+		"copies": 31,
+		"copiesAverage": 3.4
+	},
+	{
+		"mtgaid": 68188,
+		"multiverseid": 447390,
+		"name": "Meandering River",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/253.jpg?1531451515",
+		"type": "Land",
+		"presence": 6.5,
+		"copies": 31,
+		"copiesAverage": 3.1
+	},
+	{
+		"mtgaid": 68062,
+		"multiverseid": 447327,
+		"name": "Oakenform",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/191.jpg?1531450904",
+		"type": "Enchantment — Aura",
+		"presence": 5.9,
+		"copies": 30,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 67286,
+		"multiverseid": 442979,
+		"name": "Eviscerate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/91.jpg?1524790878",
+		"type": "Sorcery",
+		"presence": 7.8,
+		"copies": 29,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 68070,
+		"multiverseid": 447331,
+		"name": "Rabid Bite",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/195.jpg?1531450937",
+		"type": "Sorcery",
+		"presence": 5.9,
+		"copies": 29,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 66631,
+		"multiverseid": 439664,
+		"name": "Exultant Skymarcher",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/7.jpg?1524750098",
+		"type": "Creature — Vampire Soldier",
+		"presence": 5.9,
+		"copies": 28,
+		"copiesAverage": 3.1
+	},
+	{
+		"mtgaid": 66213,
+		"multiverseid": 435278,
+		"name": "Skymarch Bloodletter",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/124.jpg?1527429291",
+		"type": "Creature — Vampire Soldier",
+		"presence": 5.2,
+		"copies": 28,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 67384,
+		"multiverseid": 443028,
+		"name": "Run Amok",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/140.jpg?1524791390",
+		"type": "Instant",
+		"presence": 5.9,
+		"copies": 27,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66191,
+		"multiverseid": 435267,
+		"name": "Mark of the Vampire",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/113.jpg?1527429145",
+		"type": "Enchantment — Aura",
+		"presence": 5.9,
+		"copies": 27,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68525,
+		"multiverseid": 452814,
+		"name": "Burglar Rat",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/e/9/e9f7f218-fd2a-4233-8753-065ddc314f2d.jpg?1538878966",
+		"type": "Creature — Rat",
+		"presence": 6.5,
+		"copies": 26,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 66067,
+		"multiverseid": 435205,
+		"name": "Dive Down",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/53.jpg?1527428220",
+		"type": "Instant",
+		"presence": 5.2,
+		"copies": 26,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 67316,
+		"multiverseid": 442994,
+		"name": "Thallid Omnivore",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/106.jpg?1524791027",
+		"type": "Creature — Fungus",
+		"presence": 5.2,
+		"copies": 26,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 68529,
+		"multiverseid": 452818,
+		"name": "Deadly Visit",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/4/6/462fe190-5264-42d8-bd27-23c5aa0c641f.jpg?1538878998",
+		"type": "Sorcery",
+		"presence": 9.8,
+		"copies": 26,
+		"copiesAverage": 1.7
+	},
+	{
+		"mtgaid": 67208,
+		"multiverseid": 442940,
+		"name": "Divination",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/52.jpg?1524790515",
+		"type": "Sorcery",
+		"presence": 9.8,
+		"copies": 25,
+		"copiesAverage": 1.7
+	},
+	{
+		"mtgaid": 68462,
+		"multiverseid": 452751,
+		"name": "Blade Instructor",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/9/b/9b1c7f07-8d39-425b-8ae9-b3ab317cc0fe.jpg?1538878130",
+		"type": "Creature — Human Soldier",
+		"presence": 5.2,
+		"copies": 25,
+		"copiesAverage": 3.1
+	},
+	{
+		"mtgaid": 67770,
+		"multiverseid": 447181,
+		"name": "Aven Wind Mage",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/45.jpg?1531451191",
+		"type": "Creature — Bird Wizard",
+		"presence": 5.2,
+		"copies": 24,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66011,
+		"multiverseid": 435177,
+		"name": "Paladin of the Bloodstained",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/25.jpg?1527427839",
+		"type": "Creature — Vampire Knight",
+		"presence": 5.2,
+		"copies": 23,
+		"copiesAverage": 2.9
+	},
+	{
+		"mtgaid": 67482,
+		"multiverseid": 443077,
+		"name": "Yavimaya Sapherd",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/189.jpg?1524791894",
+		"type": "Creature — Fungus",
+		"presence": 3.9,
+		"copies": 23,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 67776,
+		"multiverseid": 447184,
+		"name": "Cancel",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/48.jpg?1531451223",
+		"type": "Instant",
+		"presence": 6.5,
+		"copies": 23,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 68482,
+		"multiverseid": 452771,
+		"name": "Luminous Bonds",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/5/d/5d471de4-a7b2-4e13-9492-3fa94f5867ac.jpg?1538878437",
+		"type": "Enchantment — Aura",
+		"presence": 4.6,
+		"copies": 22,
+		"copiesAverage": 3.1
+	},
+	{
+		"mtgaid": 68172,
+		"multiverseid": 447382,
+		"name": "Skyscanner",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/245.jpg?1531451440",
+		"type": "Artifact Creature — Thopter",
+		"presence": 6.5,
+		"copies": 22,
+		"copiesAverage": 2.2
+	},
+	{
+		"mtgaid": 68605,
+		"multiverseid": 452894,
+		"name": "Siege Wurm",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/2/d/2d1dfd96-8e17-4ba8-b786-a5cc0ae2ff2d.jpg?1538879877",
+		"type": "Creature — Wurm",
+		"presence": 5.9,
+		"copies": 22,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 67750,
+		"multiverseid": 447171,
+		"name": "Revitalize",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/35.jpg?1531451066",
+		"type": "Instant",
+		"presence": 4.6,
+		"copies": 22,
+		"copiesAverage": 3.1
+	},
+	{
+		"mtgaid": 68556,
+		"multiverseid": 452845,
+		"name": "Cosmotronic Wave",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/6/9/69c5bafa-8cd8-4158-98e0-46dc74c027c0.jpg?1538879352",
+		"type": "Sorcery",
+		"presence": 6.5,
+		"copies": 21,
+		"copiesAverage": 2.1
+	},
+	{
+		"mtgaid": 67356,
+		"multiverseid": 443014,
+		"name": "Ghitu Journeymage",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/126.jpg?1525862543",
+		"type": "Creature — Human Wizard",
+		"presence": 4.6,
+		"copies": 21,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68677,
+		"multiverseid": 452966,
+		"name": "Fresh-Faced Recruit",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/a/8/a8b19518-7752-4673-a7d8-ae2e0070129c.jpg?1538880767",
+		"type": "Creature — Human Soldier",
+		"presence": 4.6,
+		"copies": 21,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66509,
+		"multiverseid": 435426,
+		"name": "Island",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/265.jpg?1527431601",
+		"type": "Basic Land — Island",
+		"presence": 1.3,
+		"copies": 21,
+		"copiesAverage": 10.5
+	},
+	{
+		"mtgaid": 68210,
+		"multiverseid": 447401,
+		"name": "Plains",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/264.jpg?1531451610",
+		"type": "Basic Land — Plains",
+		"presence": 0.7,
+		"copies": 21,
+		"copiesAverage": 21
+	},
+	{
+		"mtgaid": 68546,
+		"multiverseid": 452835,
+		"name": "Severed Strands",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/c/bce654d6-fcf1-40a8-8bdb-5c37e561f7dc.jpg?1538879207",
+		"type": "Sorcery",
+		"presence": 5.2,
+		"copies": 21,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 67730,
+		"multiverseid": 447161,
+		"name": "Luminous Bonds",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/25.jpg?1531450949",
+		"type": "Enchantment — Aura",
+		"presence": 3.3,
+		"copies": 20,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68581,
+		"multiverseid": 452870,
+		"name": "Wojek Bodyguard",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/e/b/ebff5313-e325-47c3-814b-38fdb4c6c8d2.jpg?1538879641",
+		"type": "Creature — Human Soldier",
+		"presence": 4.6,
+		"copies": 20,
+		"copiesAverage": 2.9
+	},
+	{
+		"mtgaid": 67410,
+		"multiverseid": 443041,
+		"name": "Adventurous Impulse",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/153.jpg?1525864687",
+		"type": "Sorcery",
+		"presence": 4.6,
+		"copies": 20,
+		"copiesAverage": 2.9
+	},
+	{
+		"mtgaid": 67406,
+		"multiverseid": 443039,
+		"name": "Warlord's Fury",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/151.jpg?1524791509",
+		"type": "Sorcery",
+		"presence": 3.9,
+		"copies": 19,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 68732,
+		"multiverseid": 453001,
+		"name": "Izzet Guildgate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/2/0/2055a83a-99c8-4808-90b9-1c2fdcda79b4.jpg?1538881208",
+		"type": "Land — Gate",
+		"presence": 3.3,
+		"copies": 19,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 68507,
+		"multiverseid": 452796,
+		"name": "Muse Drake",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/c/5/c5df7a96-6548-41c0-85a6-e0c4566e0fe6.jpg?1538878771",
+		"type": "Creature — Drake",
+		"presence": 5.2,
+		"copies": 19,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 67916,
+		"multiverseid": 447254,
+		"name": "Skeleton Archer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/118.jpg?1531452173",
+		"type": "Creature — Skeleton Archer",
+		"presence": 6.5,
+		"copies": 19,
+		"copiesAverage": 1.9
+	},
+	{
+		"mtgaid": 67628,
+		"multiverseid": 443150,
+		"name": "Mountain",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/262.jpg?1524792595",
+		"type": "Basic Land — Mountain",
+		"presence": 0.7,
+		"copies": 19,
+		"copiesAverage": 19
+	},
+	{
+		"mtgaid": 68661,
+		"multiverseid": 452950,
+		"name": "Sumala Woodshaper",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/8/c/8c4e427e-c061-43c5-9e8e-34bf5b447ab1.jpg?1538880567",
+		"type": "Creature — Elf Druid",
+		"presence": 4.6,
+		"copies": 19,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 68090,
+		"multiverseid": 447341,
+		"name": "Titanic Growth",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/205.jpg?1531451044",
+		"type": "Instant",
+		"presence": 3.9,
+		"copies": 19,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 67312,
+		"multiverseid": 442992,
+		"name": "Soul Salvage",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/104.jpg?1524791008",
+		"type": "Sorcery",
+		"presence": 4.6,
+		"copies": 19,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 67278,
+		"multiverseid": 442975,
+		"name": "Divest",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/87.jpg?1524790842",
+		"type": "Sorcery",
+		"presence": 4.6,
+		"copies": 18,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 66137,
+		"multiverseid": 435240,
+		"name": "Watertrap Weaver",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/87.jpg?1527428746",
+		"type": "Creature — Merfolk Wizard",
+		"presence": 3.9,
+		"copies": 18,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 67928,
+		"multiverseid": 447260,
+		"name": "Vampire Neonate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/124.jpg?1531452231",
+		"type": "Creature — Vampire",
+		"presence": 5.2,
+		"copies": 18,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 67772,
+		"multiverseid": 447182,
+		"name": "Aviation Pioneer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/46.jpg?1531451203",
+		"type": "Creature — Human Artificer",
+		"presence": 4.6,
+		"copies": 18,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 68517,
+		"multiverseid": 452806,
+		"name": "Unexplained Disappearance",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/9/c/9c99b239-50d2-4393-80ec-94dbfaa6ae70.jpg?1538878860",
+		"type": "Instant",
+		"presence": 4.6,
+		"copies": 18,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 67942,
+		"multiverseid": 447267,
+		"name": "Boggart Brute",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/131.jpg?1531452291",
+		"type": "Creature — Goblin Warrior",
+		"presence": 5.2,
+		"copies": 18,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 68587,
+		"multiverseid": 452876,
+		"name": "Crushing Canopy",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/c/0/c0c4f213-0ea4-44c0-8429-172a317b77f5.jpg?1538879693",
+		"type": "Instant",
+		"presence": 4.6,
+		"copies": 18,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 68743,
+		"multiverseid": 455602,
+		"name": "Swamp",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/d/bdd5a7f0-5ad3-44e8-a103-07739fd53630.jpg?1538881339",
+		"type": "Basic Land — Swamp",
+		"presence": 1.3,
+		"copies": 17,
+		"copiesAverage": 8.5
+	},
+	{
+		"mtgaid": 68659,
+		"multiverseid": 452948,
+		"name": "Skyknight Legionnaire",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/3/c/3c27f2ce-702a-4ec2-a470-982171a9ec73.jpg?1538880539",
+		"type": "Creature — Human Knight",
+		"presence": 4.6,
+		"copies": 17,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 68310,
+		"multiverseid": 450261,
+		"name": "Llanowar Elves",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/314.jpg?1531860934",
+		"type": "Creature — Elf Druid",
+		"presence": 4.6,
+		"copies": 17,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 67190,
+		"multiverseid": 442931,
+		"name": "Arcane Flight",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/43.jpg?1524790424",
+		"type": "Enchantment — Aura",
+		"presence": 4.6,
+		"copies": 17,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 69781,
+		"multiverseid": 0,
+		"name": "Llanowar Elves",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/pdom/168.jpg?1525399106",
+		"type": "Creature — Elf Druid",
+		"presence": 3.3,
+		"copies": 17,
+		"copiesAverage": 3.4
+	},
+	{
+		"mtgaid": 68608,
+		"multiverseid": 452897,
+		"name": "Vigorspore Wurm",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/6/b62625de-3a2f-43d6-8cf7-ea38f038f3b6.jpg?1538879900",
+		"type": "Creature — Wurm",
+		"presence": 3.9,
+		"copies": 17,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 67432,
+		"multiverseid": 443052,
+		"name": "Grow from the Ashes",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/164.jpg?1524791630",
+		"type": "Sorcery",
+		"presence": 3.3,
+		"copies": 17,
+		"copiesAverage": 3.4
+	},
+	{
+		"mtgaid": 67416,
+		"multiverseid": 443044,
+		"name": "Baloth Gorger",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/156.jpg?1524791556",
+		"type": "Creature — Beast",
+		"presence": 3.3,
+		"copies": 17,
+		"copiesAverage": 3.4
+	},
+	{
+		"mtgaid": 67870,
+		"multiverseid": 447231,
+		"name": "Epicure of Blood",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/95.jpg?1531451887",
+		"type": "Creature — Vampire",
+		"presence": 3.9,
+		"copies": 16,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 68184,
+		"multiverseid": 447388,
+		"name": "Foul Orchard",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/251.jpg?1531451498",
+		"type": "Land",
+		"presence": 2.6,
+		"copies": 16,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68182,
+		"multiverseid": 447387,
+		"name": "Forsaken Sanctuary",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/250.jpg?1531451489",
+		"type": "Land",
+		"presence": 2.6,
+		"copies": 16,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67710,
+		"multiverseid": 447151,
+		"name": "Inspired Charge",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/15.jpg?1531450817",
+		"type": "Instant",
+		"presence": 5.9,
+		"copies": 16,
+		"copiesAverage": 1.8
+	},
+	{
+		"mtgaid": 67808,
+		"multiverseid": 447200,
+		"name": "Omenspeaker",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/64.jpg?1531451384",
+		"type": "Creature — Human Wizard",
+		"presence": 3.3,
+		"copies": 16,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 68580,
+		"multiverseid": 452869,
+		"name": "Torch Courier",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/d/4/d4c9fc8c-e68f-4636-84b8-877f6ec04b09.jpg?1538879627",
+		"type": "Creature — Goblin",
+		"presence": 2.6,
+		"copies": 16,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67158,
+		"multiverseid": 442915,
+		"name": "Mesa Unicorn",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/27.jpg?1524790249",
+		"type": "Creature — Unicorn",
+		"presence": 4.6,
+		"copies": 16,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 67003,
+		"multiverseid": 439850,
+		"name": "Evolving Wilds",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/186.jpg?1524752681",
+		"type": "Land",
+		"presence": 2.6,
+		"copies": 16,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68002,
+		"multiverseid": 447297,
+		"name": "Sure Strike",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/161.jpg?1531450660",
+		"type": "Instant",
+		"presence": 3.3,
+		"copies": 16,
+		"copiesAverage": 3.2
+	},
+	{
+		"mtgaid": 68186,
+		"multiverseid": 447389,
+		"name": "Highland Lake",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/252.jpg?1531451507",
+		"type": "Land",
+		"presence": 2.6,
+		"copies": 15,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 66699,
+		"multiverseid": 439698,
+		"name": "Kitesail Corsair",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/41.jpg?1524750551",
+		"type": "Creature — Human Pirate",
+		"presence": 2.6,
+		"copies": 15,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 67172,
+		"multiverseid": 442922,
+		"name": "Serra Disciple",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/34.jpg?1525862218",
+		"type": "Creature — Bird Cleric",
+		"presence": 3.3,
+		"copies": 15,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68724,
+		"multiverseid": 452993,
+		"name": "Boros Guildgate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/c/5/c52ceefc-90d0-49d1-ae54-9a4eab819849.jpg?1538881116",
+		"type": "Land — Gate",
+		"presence": 2.6,
+		"copies": 15,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 68513,
+		"multiverseid": 452802,
+		"name": "Radical Idea",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/c/9/c9570734-5e9b-46ff-b606-9759b5195756.jpg?1538878819",
+		"type": "Instant",
+		"presence": 3.9,
+		"copies": 15,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 68736,
+		"multiverseid": 453005,
+		"name": "Selesnya Guildgate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/6/d/6d5ee7a5-937a-4c2b-af8c-6e5734677c53.jpg?1538881269",
+		"type": "Land — Gate",
+		"presence": 2.6,
+		"copies": 15,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 68658,
+		"multiverseid": 452947,
+		"name": "Rosemane Centaur",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/c/e/cee30585-f7b1-4ca4-8171-dc5a837f2b93.jpg?1538880521",
+		"type": "Creature — Centaur Soldier",
+		"presence": 2.6,
+		"copies": 15,
+		"copiesAverage": 3.8
+	},
+	{
+		"mtgaid": 68200,
+		"multiverseid": 447396,
+		"name": "Tranquil Expanse",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/259.jpg?1531451569",
+		"type": "Land",
+		"presence": 2.6,
+		"copies": 14,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 68497,
+		"multiverseid": 452786,
+		"name": "Dimir Informant",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/0/2/0230afeb-5ce8-436e-9afc-73cdd7baf424.jpg?1538878637",
+		"type": "Creature — Human Rogue",
+		"presence": 2.6,
+		"copies": 14,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 65999,
+		"multiverseid": 435171,
+		"name": "Legion Conquistador",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/20.jpg?1527427750",
+		"type": "Creature — Vampire Soldier",
+		"presence": 2.6,
+		"copies": 14,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 66729,
+		"multiverseid": 439713,
+		"name": "Soul of the Rapids",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/56.jpg?1524750742",
+		"type": "Creature — Elemental",
+		"presence": 3.9,
+		"copies": 14,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 68040,
+		"multiverseid": 447316,
+		"name": "Elvish Rejuvenator",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/180.jpg?1531450806",
+		"type": "Creature — Elf Druid",
+		"presence": 2.6,
+		"copies": 14,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 68639,
+		"multiverseid": 452928,
+		"name": "Hypothesizzle",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/d/5/d5690329-feb8-49c0-8f59-ee13782e8d3b.jpg?1538880284",
+		"type": "Instant",
+		"presence": 3.3,
+		"copies": 14,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 67108,
+		"multiverseid": 442890,
+		"name": "Adamant Will",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/2.jpg?1525862131",
+		"type": "Instant",
+		"presence": 5.2,
+		"copies": 13,
+		"copiesAverage": 1.6
+	},
+	{
+		"mtgaid": 68178,
+		"multiverseid": 447385,
+		"name": "Cinder Barrens",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/248.jpg?1531451472",
+		"type": "Land",
+		"presence": 2.6,
+		"copies": 13,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 68020,
+		"multiverseid": 447306,
+		"name": "Bristling Boar",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/170.jpg?1531450725",
+		"type": "Creature — Boar",
+		"presence": 2.6,
+		"copies": 13,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 67124,
+		"multiverseid": 442898,
+		"name": "Charge",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/10.jpg?1525862305",
+		"type": "Instant",
+		"presence": 3.3,
+		"copies": 13,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 68553,
+		"multiverseid": 452842,
+		"name": "Barging Sergeant",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/5/2/52a54ebc-008a-4180-a023-2e1d5318780c.jpg?1538879316",
+		"type": "Creature — Minotaur Soldier",
+		"presence": 3.3,
+		"copies": 13,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 67780,
+		"multiverseid": 447186,
+		"name": "Disperse",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/50.jpg?1531451252",
+		"type": "Instant",
+		"presence": 3.3,
+		"copies": 13,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 68202,
+		"multiverseid": 447397,
+		"name": "Woodland Stream",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/260.jpg?1531451577",
+		"type": "Land",
+		"presence": 2.6,
+		"copies": 13,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 68604,
+		"multiverseid": 452893,
+		"name": "Prey Upon",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/1/6/16979827-4011-454a-9886-18326cfa3e77.jpg?1538879869",
+		"type": "Sorcery",
+		"presence": 3.3,
+		"copies": 13,
+		"copiesAverage": 2.6
+	},
+	{
+		"mtgaid": 66327,
+		"multiverseid": 435335,
+		"name": "Colossal Dreadmaw",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/180.jpg?1527430202",
+		"type": "Creature — Dinosaur",
+		"presence": 3.3,
+		"copies": 12,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 68607,
+		"multiverseid": 452896,
+		"name": "Urban Utopia",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/4/5/45d7ab0e-db37-4051-86dd-3ab09c047a2b.jpg?1538879892",
+		"type": "Enchantment — Aura",
+		"presence": 2,
+		"copies": 12,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68579,
+		"multiverseid": 452868,
+		"name": "Sure Strike",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/8/d/8d01f1ce-9931-4712-a907-72c2c6d5ee76.jpg?1538879610",
+		"type": "Instant",
+		"presence": 3.3,
+		"copies": 12,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 68728,
+		"multiverseid": 452997,
+		"name": "Gateway Plaza",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/7/d/7d3d5162-126d-4430-9884-8e79afa974c2.jpg?1538881157",
+		"type": "Land — Gate",
+		"presence": 2,
+		"copies": 12,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67756,
+		"multiverseid": 447174,
+		"name": "Star-Crowned Stag",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/38.jpg?1531451113",
+		"type": "Creature — Elk",
+		"presence": 3.3,
+		"copies": 12,
+		"copiesAverage": 2.4
+	},
+	{
+		"mtgaid": 67148,
+		"multiverseid": 442910,
+		"name": "Invoke the Divine",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/22.jpg?1529460262",
+		"type": "Instant",
+		"presence": 2.6,
+		"copies": 11,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 68590,
+		"multiverseid": 452879,
+		"name": "Generous Stray",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/3/2/3289db66-231f-4370-aca6-644d75bee293.jpg?1538879716",
+		"type": "Creature — Cat",
+		"presence": 2,
+		"copies": 11,
+		"copiesAverage": 3.7
+	},
+	{
+		"mtgaid": 66533,
+		"multiverseid": 435438,
+		"name": "Forest",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/277.jpg?1527431791",
+		"type": "Basic Land — Forest",
+		"presence": 0.7,
+		"copies": 11,
+		"copiesAverage": 11
+	},
+	{
+		"mtgaid": 67568,
+		"multiverseid": 443120,
+		"name": "Sparring Construct",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/232.jpg?1524792330",
+		"type": "Artifact Creature — Construct",
+		"presence": 2,
+		"copies": 11,
+		"copiesAverage": 3.7
+	},
+	{
+		"mtgaid": 66503,
+		"multiverseid": 435423,
+		"name": "Plains",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/262.jpg?1527431556",
+		"type": "Basic Land — Plains",
+		"presence": 0.7,
+		"copies": 11,
+		"copiesAverage": 11
+	},
+	{
+		"mtgaid": 68637,
+		"multiverseid": 452926,
+		"name": "Hammer Dropper",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/9/e/9efac789-587b-45c1-b16e-616e9486b59b.jpg?1538880264",
+		"type": "Creature — Giant Soldier",
+		"presence": 3.3,
+		"copies": 11,
+		"copiesAverage": 2.2
+	},
+	{
+		"mtgaid": 67972,
+		"multiverseid": 447282,
+		"name": "Havoc Devils",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/146.jpg?1531452478",
+		"type": "Creature — Devil",
+		"presence": 2.6,
+		"copies": 11,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 67768,
+		"multiverseid": 447180,
+		"name": "Anticipate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/44.jpg?1531451180",
+		"type": "Instant",
+		"presence": 3.3,
+		"copies": 11,
+		"copiesAverage": 2.2
+	},
+	{
+		"mtgaid": 66663,
+		"multiverseid": 439680,
+		"name": "Snubhorn Sentry",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/23.jpg?1524750315",
+		"type": "Creature — Dinosaur",
+		"presence": 2,
+		"copies": 11,
+		"copiesAverage": 3.7
+	},
+	{
+		"mtgaid": 66765,
+		"multiverseid": 439731,
+		"name": "Grasping Scoundrel",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/74.jpg?1524750981",
+		"type": "Creature — Human Pirate",
+		"presence": 2.6,
+		"copies": 11,
+		"copiesAverage": 2.8
+	},
+	{
+		"mtgaid": 68550,
+		"multiverseid": 452839,
+		"name": "Vicious Rumors",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/1/b1939952-608e-4786-beeb-a6ff0fa36624.jpg?1538879278",
+		"type": "Sorcery",
+		"presence": 2,
+		"copies": 10,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 66525,
+		"multiverseid": 435434,
+		"name": "Mountain",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/273.jpg?1527431734",
+		"type": "Basic Land — Mountain",
+		"presence": 0.7,
+		"copies": 10,
+		"copiesAverage": 10
+	},
+	{
+		"mtgaid": 67546,
+		"multiverseid": 443109,
+		"name": "Jousting Lance",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/221.jpg?1524792224",
+		"type": "Artifact — Equipment",
+		"presence": 3.3,
+		"copies": 10,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66501,
+		"multiverseid": 435422,
+		"name": "Plains",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/261.jpg?1527431540",
+		"type": "Basic Land — Plains",
+		"presence": 0.7,
+		"copies": 10,
+		"copiesAverage": 10
+	},
+	{
+		"mtgaid": 67458,
+		"multiverseid": 443065,
+		"name": "Primordial Wurm",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/177.jpg?1524791763",
+		"type": "Creature — Wurm",
+		"presence": 3.9,
+		"copies": 10,
+		"copiesAverage": 1.7
+	},
+	{
+		"mtgaid": 66043,
+		"multiverseid": 435193,
+		"name": "Territorial Hammerskull",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/41.jpg?1527428056",
+		"type": "Creature — Dinosaur",
+		"presence": 3.3,
+		"copies": 10,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68562,
+		"multiverseid": 452851,
+		"name": "Fire Urchin",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/3/b3a843ff-6bd0-42d5-9348-44b774d438b1.jpg?1538879429",
+		"type": "Creature — Elemental",
+		"presence": 2.6,
+		"copies": 10,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 67704,
+		"multiverseid": 447148,
+		"name": "Gallant Cavalry",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/12.jpg?1531450774",
+		"type": "Creature — Human Knight",
+		"presence": 2.6,
+		"copies": 10,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 68084,
+		"multiverseid": 447338,
+		"name": "Talons of Wildwood",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/202.jpg?1531450999",
+		"type": "Enchantment — Aura",
+		"presence": 3.3,
+		"copies": 10,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68729,
+		"multiverseid": 452998,
+		"name": "Golgari Guildgate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/8/6/86706d8e-de08-4778-94ba-ae75ed522472.jpg?1538881169",
+		"type": "Land — Gate",
+		"presence": 2,
+		"copies": 10,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 67352,
+		"multiverseid": 443012,
+		"name": "Frenzied Rage",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/124.jpg?1524791218",
+		"type": "Enchantment — Aura",
+		"presence": 2.6,
+		"copies": 10,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 67980,
+		"multiverseid": 447286,
+		"name": "Lava Axe",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/150.jpg?1531452526",
+		"type": "Sorcery",
+		"presence": 3.3,
+		"copies": 10,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68730,
+		"multiverseid": 452999,
+		"name": "Golgari Guildgate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/f/0/f0a021e9-b11a-4028-86c9-01b62eae1877.jpg?1538881180",
+		"type": "Land — Gate",
+		"presence": 2,
+		"copies": 10,
+		"copiesAverage": 3.3
+	},
+	{
+		"mtgaid": 66211,
+		"multiverseid": 435277,
+		"name": "Skulduggery",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/123.jpg?1527429279",
+		"type": "Instant",
+		"presence": 3.3,
+		"copies": 10,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66785,
+		"multiverseid": 439741,
+		"name": "Recover",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/84.jpg?1524751129",
+		"type": "Sorcery",
+		"presence": 2.6,
+		"copies": 9,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 67380,
+		"multiverseid": 443026,
+		"name": "Radiating Lightning",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/138.jpg?1525862551",
+		"type": "Instant",
+		"presence": 2.6,
+		"copies": 9,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 68678,
+		"multiverseid": 452967,
+		"name": "Piston-Fist Cyclops",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/2/e/2ec7523a-a9c4-4b76-8f9e-b591a88e2e37.jpg?1538880779",
+		"type": "Creature — Cyclops",
+		"presence": 2,
+		"copies": 9,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 67934,
+		"multiverseid": 447263,
+		"name": "Act of Treason",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/127.jpg?1531452252",
+		"type": "Sorcery",
+		"presence": 2,
+		"copies": 9,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68733,
+		"multiverseid": 453002,
+		"name": "Izzet Guildgate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/f/c/fc36bb2a-115d-4e24-a1e9-02b21773e945.jpg?1538881223",
+		"type": "Land — Gate",
+		"presence": 2.6,
+		"copies": 9,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 68660,
+		"multiverseid": 452949,
+		"name": "Sonic Assault",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/c/c/cc61a398-cf16-415b-b3cf-897217dc7cc9.jpg?1538880557",
+		"type": "Instant",
+		"presence": 2,
+		"copies": 9,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 67858,
+		"multiverseid": 447225,
+		"name": "Child of Night",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/89.jpg?1531451814",
+		"type": "Creature — Vampire",
+		"presence": 2,
+		"copies": 9,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 67414,
+		"multiverseid": 443043,
+		"name": "Arbor Armament",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/155.jpg?1528770889",
+		"type": "Instant",
+		"presence": 2.6,
+		"copies": 9,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 68635,
+		"multiverseid": 452924,
+		"name": "Goblin Electromancer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/0/a/0ae987da-e4b5-4b82-843c-6aaa87262fc8.jpg?1538880243",
+		"type": "Creature — Goblin Wizard",
+		"presence": 2,
+		"copies": 9,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 67186,
+		"multiverseid": 442929,
+		"name": "Academy Journeymage",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/41.jpg?1524790406",
+		"type": "Creature — Human Wizard",
+		"presence": 2,
+		"copies": 9,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66157,
+		"multiverseid": 435250,
+		"name": "Costly Plunder",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/96.jpg?1527428894",
+		"type": "Instant",
+		"presence": 2.6,
+		"copies": 9,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 67696,
+		"multiverseid": 447144,
+		"name": "Cavalry Drillmaster",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/8.jpg?1531450713",
+		"type": "Creature — Human Knight",
+		"presence": 2.6,
+		"copies": 8,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66107,
+		"multiverseid": 435225,
+		"name": "Sailor of Means",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/73.jpg?1527428488",
+		"type": "Creature — Human Pirate",
+		"presence": 1.3,
+		"copies": 8,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68488,
+		"multiverseid": 452777,
+		"name": "Sworn Companions",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/2/c/2ccfa5c1-69f9-4351-aba3-883fe92c9b98.jpg?1538878516",
+		"type": "Sorcery",
+		"presence": 1.3,
+		"copies": 8,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68725,
+		"multiverseid": 452994,
+		"name": "Boros Guildgate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/9/5/95f52d32-c04b-4711-9edc-8fd1d3547a44.jpg?1538881126",
+		"type": "Land — Gate",
+		"presence": 1.3,
+		"copies": 8,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67946,
+		"multiverseid": 447269,
+		"name": "Crash Through",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/133.jpg?1531452316",
+		"type": "Sorcery",
+		"presence": 2,
+		"copies": 8,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 67652,
+		"multiverseid": 445852,
+		"name": "Meandering River",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/274.jpg?1525863009",
+		"type": "Land",
+		"presence": 1.3,
+		"copies": 8,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68216,
+		"multiverseid": 447404,
+		"name": "Island",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/267.jpg?1531451651",
+		"type": "Basic Land — Island",
+		"presence": 0.7,
+		"copies": 8,
+		"copiesAverage": 8
+	},
+	{
+		"mtgaid": 68573,
+		"multiverseid": 452862,
+		"name": "Ornery Goblin",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/e/be1c1353-b315-4a0e-80b5-0d9a2962e35f.jpg?1538879541",
+		"type": "Creature — Goblin Warrior",
+		"presence": 2.6,
+		"copies": 8,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68748,
+		"multiverseid": 455607,
+		"name": "Precision Bolt",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/a/5/a59b4e5b-e9e0-4507-b9e7-8fba7e3a54f9.jpg?1538881396",
+		"type": "Sorcery",
+		"presence": 2,
+		"copies": 8,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 66721,
+		"multiverseid": 439709,
+		"name": "Secrets of the Golden City",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/52.jpg?1524750687",
+		"type": "Sorcery",
+		"presence": 2,
+		"copies": 8,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 67918,
+		"multiverseid": 447255,
+		"name": "Skymarch Bloodletter",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/119.jpg?1531452185",
+		"type": "Creature — Vampire Soldier",
+		"presence": 2.6,
+		"copies": 8,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68526,
+		"multiverseid": 452815,
+		"name": "Child of Night",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/a/f/afebf1a5-eb9a-48c6-a26a-55b75408992b.jpg?1538878974",
+		"type": "Creature — Vampire",
+		"presence": 2,
+		"copies": 8,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 67850,
+		"multiverseid": 447221,
+		"name": "Abnormal Endurance",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/85.jpg?1531451690",
+		"type": "Instant",
+		"presence": 2,
+		"copies": 8,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 68236,
+		"multiverseid": 447414,
+		"name": "Forest",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/277.jpg?1533307092",
+		"type": "Basic Land — Forest",
+		"presence": 0.7,
+		"copies": 8,
+		"copiesAverage": 8
+	},
+	{
+		"mtgaid": 67264,
+		"multiverseid": 442968,
+		"name": "Caligo Skin-Witch",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/80.jpg?1524790770",
+		"type": "Creature — Human Wizard",
+		"presence": 2,
+		"copies": 8,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 68028,
+		"multiverseid": 447310,
+		"name": "Daggerback Basilisk",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/174.jpg?1531450757",
+		"type": "Creature — Basilisk",
+		"presence": 2,
+		"copies": 8,
+		"copiesAverage": 2.7
+	},
+	{
+		"mtgaid": 68212,
+		"multiverseid": 447402,
+		"name": "Island",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/265.jpg?1533307085",
+		"type": "Basic Land — Island",
+		"presence": 0.7,
+		"copies": 8,
+		"copiesAverage": 8
+	},
+	{
+		"mtgaid": 68234,
+		"multiverseid": 447413,
+		"name": "Mountain",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/276.jpg?1531451858",
+		"type": "Basic Land — Mountain",
+		"presence": 0.7,
+		"copies": 7,
+		"copiesAverage": 7
+	},
+	{
+		"mtgaid": 66517,
+		"multiverseid": 435430,
+		"name": "Swamp",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/269.jpg?1527431656",
+		"type": "Basic Land — Swamp",
+		"presence": 0.7,
+		"copies": 7,
+		"copiesAverage": 7
+	},
+	{
+		"mtgaid": 68571,
+		"multiverseid": 452860,
+		"name": "Maniacal Rage",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/8/8/882f8dcf-b361-4dc9-8329-e7d1f807acd6.jpg?1538879525",
+		"type": "Enchantment — Aura",
+		"presence": 2,
+		"copies": 7,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 68588,
+		"multiverseid": 452877,
+		"name": "Devkarin Dissident",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/4/9/490cd287-5f09-442f-9150-4a6ac2cf3e2e.jpg?1538879700",
+		"type": "Creature — Elf Warrior",
+		"presence": 2,
+		"copies": 7,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 67392,
+		"multiverseid": 443032,
+		"name": "Skirk Prospector",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/144.jpg?1524791433",
+		"type": "Creature — Goblin",
+		"presence": 1.3,
+		"copies": 7,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 67660,
+		"multiverseid": 445856,
+		"name": "Pyromantic Pilgrim",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/278.jpg?1525862908",
+		"type": "Creature — Human Wizard",
+		"presence": 1.3,
+		"copies": 7,
+		"copiesAverage": 3.5
+	},
+	{
+		"mtgaid": 67372,
+		"multiverseid": 443022,
+		"name": "Keldon Overseer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/134.jpg?1524791330",
+		"type": "Creature — Human Warrior",
+		"presence": 2,
+		"copies": 7,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 67744,
+		"multiverseid": 447168,
+		"name": "Pegasus Courser",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/32.jpg?1531451027",
+		"type": "Creature — Pegasus",
+		"presence": 2.6,
+		"copies": 7,
+		"copiesAverage": 1.8
+	},
+	{
+		"mtgaid": 68715,
+		"multiverseid": 452984,
+		"name": "Dimir Locket",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/d/f/dfb6810b-9bc9-43c5-8cd9-817b12ee3110.jpg?1538880995",
+		"type": "Artifact",
+		"presence": 2.6,
+		"copies": 7,
+		"copiesAverage": 1.8
+	},
+	{
+		"mtgaid": 66377,
+		"multiverseid": 435360,
+		"name": "River Heralds' Boon",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/204.jpg?1527430598",
+		"type": "Instant",
+		"presence": 2,
+		"copies": 7,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 67614,
+		"multiverseid": 443143,
+		"name": "Island",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/255.jpg?1524792528",
+		"type": "Basic Land — Island",
+		"presence": 0.7,
+		"copies": 7,
+		"copiesAverage": 7
+	},
+	{
+		"mtgaid": 68302,
+		"multiverseid": 450257,
+		"name": "Mist-Cloaked Herald",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/310.jpg?1531860964",
+		"type": "Creature — Merfolk Warrior",
+		"presence": 2,
+		"copies": 7,
+		"copiesAverage": 2.3
+	},
+	{
+		"mtgaid": 66739,
+		"multiverseid": 439718,
+		"name": "Waterknot",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/61.jpg?1524750815",
+		"type": "Enchantment — Aura",
+		"presence": 1.3,
+		"copies": 6,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66333,
+		"multiverseid": 435338,
+		"name": "Crushing Canopy",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/183.jpg?1527430248",
+		"type": "Instant",
+		"presence": 2,
+		"copies": 6,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67210,
+		"multiverseid": 442941,
+		"name": "Homarid Explorer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/53.jpg?1524790524",
+		"type": "Creature — Homarid Scout",
+		"presence": 1.3,
+		"copies": 6,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68076,
+		"multiverseid": 447334,
+		"name": "Rhox Oracle",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/198.jpg?1531450962",
+		"type": "Creature — Rhino Monk",
+		"presence": 1.3,
+		"copies": 6,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68549,
+		"multiverseid": 452838,
+		"name": "Veiled Shade",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/3/5/35cb18ae-0229-40a1-8838-ffb678ab2ed9.jpg?1538879261",
+		"type": "Creature — Shade",
+		"presence": 2.6,
+		"copies": 6,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 66685,
+		"multiverseid": 439691,
+		"name": "Crashing Tide",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/34.jpg?1524750464",
+		"type": "Sorcery",
+		"presence": 2,
+		"copies": 6,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66703,
+		"multiverseid": 439700,
+		"name": "Mist-Cloaked Herald",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/43.jpg?1524750572",
+		"type": "Creature — Merfolk Warrior",
+		"presence": 1.3,
+		"copies": 6,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68054,
+		"multiverseid": 447323,
+		"name": "Greenwood Sentinel",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/187.jpg?1531450871",
+		"type": "Creature — Elf Scout",
+		"presence": 1.3,
+		"copies": 6,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66125,
+		"multiverseid": 435234,
+		"name": "Spell Pierce",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/81.jpg?1527428633",
+		"type": "Instant",
+		"presence": 2,
+		"copies": 6,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68680,
+		"multiverseid": 452969,
+		"name": "Vernadi Shieldmate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/e/f/efddad21-553e-4947-80d2-833b42c45f77.jpg?1539629366",
+		"type": "Creature — Human Soldier",
+		"presence": 1.3,
+		"copies": 6,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66885,
+		"multiverseid": 439791,
+		"name": "Jade Bearer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/134.jpg?1524751831",
+		"type": "Creature — Merfolk Shaman",
+		"presence": 1.3,
+		"copies": 6,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 67122,
+		"multiverseid": 442897,
+		"name": "Call the Cavalry",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/9.jpg?1526413084",
+		"type": "Sorcery",
+		"presence": 2,
+		"copies": 6,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67274,
+		"multiverseid": 442973,
+		"name": "Demonic Vigor",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/85.jpg?1524790816",
+		"type": "Enchantment — Aura",
+		"presence": 1.3,
+		"copies": 6,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68769,
+		"multiverseid": 0,
+		"name": "Tactical Advantage",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/mtga/12.jpg?1531792083",
+		"type": "Instant",
+		"presence": 2,
+		"copies": 6,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66141,
+		"multiverseid": 435242,
+		"name": "Anointed Deacon",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/89.jpg?1527428773",
+		"type": "Creature — Vampire Cleric",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 68481,
+		"multiverseid": 452770,
+		"name": "Loxodon Restorer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/1/e/1ead2166-a7ca-49cb-bf93-2f59c37b4cb9.jpg?1538878425",
+		"type": "Creature — Elephant Cleric",
+		"presence": 2,
+		"copies": 5,
+		"copiesAverage": 1.7
+	},
+	{
+		"mtgaid": 66705,
+		"multiverseid": 439701,
+		"name": "Negate",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/44.jpg?1524750585",
+		"type": "Instant",
+		"presence": 3.3,
+		"copies": 5,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67846,
+		"multiverseid": 447219,
+		"name": "Wall of Mist",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/83.jpg?1531451661",
+		"type": "Creature — Wall",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 67438,
+		"multiverseid": 443055,
+		"name": "Krosan Druid",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/167.jpg?1524791659",
+		"type": "Creature — Centaur Druid",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 66985,
+		"multiverseid": 439841,
+		"name": "Gleaming Barrier",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/178.jpg?1524752548",
+		"type": "Artifact Creature — Wall",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 67354,
+		"multiverseid": 443013,
+		"name": "Ghitu Chronicler",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/125.jpg?1525862538",
+		"type": "Creature — Human Wizard",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 67822,
+		"multiverseid": 447207,
+		"name": "Scholar of Stars",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/71.jpg?1531451458",
+		"type": "Creature — Human Artificer",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 68024,
+		"multiverseid": 447308,
+		"name": "Colossal Dreadmaw",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/172.jpg?1531450740",
+		"type": "Creature — Dinosaur",
+		"presence": 2.6,
+		"copies": 5,
+		"copiesAverage": 1.3
+	},
+	{
+		"mtgaid": 68522,
+		"multiverseid": 452811,
+		"name": "Barrier of Bones",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/2/8/28129aaf-aaff-47f4-8dd2-8c576c55052c.jpg?1538878938",
+		"type": "Creature — Skeleton Wall",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 67966,
+		"multiverseid": 447279,
+		"name": "Goblin Motivator",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/143.jpg?1531452442",
+		"type": "Creature — Goblin Warrior",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 66347,
+		"multiverseid": 435345,
+		"name": "Grazing Whiptail",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/190.jpg?1527430368",
+		"type": "Creature — Dinosaur",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 68594,
+		"multiverseid": 452883,
+		"name": "Hitchclaw Recluse",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/f/e/fe349432-8726-49cf-ad07-6f8add8f78c8.jpg?1538879748",
+		"type": "Creature — Spider",
+		"presence": 1.3,
+		"copies": 5,
+		"copiesAverage": 2.5
+	},
+	{
+		"mtgaid": 66899,
+		"multiverseid": 439798,
+		"name": "Overgrown Armasaur",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/141.jpg?1524751938",
+		"type": "Creature — Dinosaur",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68657,
+		"multiverseid": 452946,
+		"name": "Rhizome Lurcher",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/d/b/db9ce92b-79cc-4e26-b511-30ae8ea6a2a1.jpg?1538880505",
+		"type": "Creature — Fungus Zombie",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67374,
+		"multiverseid": 443023,
+		"name": "Keldon Raider",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/135.jpg?1524791340",
+		"type": "Creature — Human Warrior",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68498,
+		"multiverseid": 452787,
+		"name": "Disdainful Stroke",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/0/1/0193dfa3-8409-44be-b4be-6c3cad42d4a4.jpg?1538878647",
+		"type": "Instant",
+		"presence": 2.6,
+		"copies": 4,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67920,
+		"multiverseid": 447256,
+		"name": "Sovereign's Bite",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/120.jpg?1531452193",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 66893,
+		"multiverseid": 439795,
+		"name": "Knight of the Stampede",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/138.jpg?1524751882",
+		"type": "Creature — Human Knight",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67228,
+		"multiverseid": 442950,
+		"name": "Relic Runner",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/62.jpg?1524790607",
+		"type": "Creature — Human Rogue",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67118,
+		"multiverseid": 442895,
+		"name": "Blessed Light",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/7.jpg?1525862134",
+		"type": "Instant",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67282,
+		"multiverseid": 442977,
+		"name": "Drudge Sentinel",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/89.jpg?1524790860",
+		"type": "Creature — Skeleton Warrior",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 66047,
+		"multiverseid": 435195,
+		"name": "Vampire's Zeal",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/43.jpg?1527428080",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68484,
+		"multiverseid": 452773,
+		"name": "Righteous Blow",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/4/b4501520-acf4-438f-9e96-4a649875ffdd.jpg?1538878460",
+		"type": "Instant",
+		"presence": 2,
+		"copies": 4,
+		"copiesAverage": 1.3
+	},
+	{
+		"mtgaid": 67262,
+		"multiverseid": 442967,
+		"name": "Cabal Paladin",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/79.jpg?1524790762",
+		"type": "Creature — Human Knight",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 65975,
+		"multiverseid": 435159,
+		"name": "Demystify",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/8.jpg?1527427570",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67184,
+		"multiverseid": 442928,
+		"name": "Academy Drake",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/40.jpg?1524790396",
+		"type": "Creature — Drake",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67270,
+		"multiverseid": 442971,
+		"name": "Dark Bargain",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/83.jpg?1524790796",
+		"type": "Instant",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66769,
+		"multiverseid": 439733,
+		"name": "Impale",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/76.jpg?1524751009",
+		"type": "Sorcery",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66297,
+		"multiverseid": 435320,
+		"name": "Sure Strike",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/166.jpg?1527429942",
+		"type": "Instant",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66055,
+		"multiverseid": 435199,
+		"name": "Cancel",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/47.jpg?1527428137",
+		"type": "Instant",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66639,
+		"multiverseid": 439668,
+		"name": "Legion Conquistador",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/11.jpg?1524750149",
+		"type": "Creature — Vampire Soldier",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67562,
+		"multiverseid": 443117,
+		"name": "Short Sword",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/229.jpg?1525862815",
+		"type": "Artifact — Equipment",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67178,
+		"multiverseid": 442925,
+		"name": "Tragic Poet",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/37.jpg?1524790362",
+		"type": "Creature — Human",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68533,
+		"multiverseid": 452822,
+		"name": "Hired Poisoner",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/f/bf97e572-90d6-46fc-81c3-956a7ef88983.jpg?1538879039",
+		"type": "Creature — Human Assassin",
+		"presence": 2,
+		"copies": 4,
+		"copiesAverage": 1.3
+	},
+	{
+		"mtgaid": 67192,
+		"multiverseid": 442932,
+		"name": "Artificer's Assistant",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/44.jpg?1524790433",
+		"type": "Creature — Bird",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 67868,
+		"multiverseid": 447230,
+		"name": "Duress",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/94.jpg?1531451876",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 66759,
+		"multiverseid": 439728,
+		"name": "Fathom Fleet Boarder",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/71.jpg?1524750940",
+		"type": "Creature — Orc Pirate",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67314,
+		"multiverseid": 442993,
+		"name": "Stronghold Confessor",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/105.jpg?1524791018",
+		"type": "Creature — Human Cleric",
+		"presence": 1.3,
+		"copies": 4,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68619,
+		"multiverseid": 452908,
+		"name": "Centaur Peacemaker",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/0/e/0e630e9b-7817-4255-9de1-795b2a788d80.jpg?1538880027",
+		"type": "Creature — Centaur Cleric",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68718,
+		"multiverseid": 452987,
+		"name": "Golgari Locket",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/1/c/1c2e7843-9a87-46cb-be06-6db58649db85.jpg?1538881032",
+		"type": "Artifact",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 68572,
+		"multiverseid": 452861,
+		"name": "Maximize Velocity",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/e/b/ebb7a2aa-f002-4f05-b9ec-8adee4c65e46.jpg?1538879533",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 4,
+		"copiesAverage": 4
+	},
+	{
+		"mtgaid": 66169,
+		"multiverseid": 435256,
+		"name": "Dire Fleet Hoarder",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/102.jpg?1527428984",
+		"type": "Creature — Human Pirate",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 67712,
+		"multiverseid": 447152,
+		"name": "Invoke the Divine",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/16.jpg?1531450833",
+		"type": "Instant",
+		"presence": 2,
+		"copies": 3,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67250,
+		"multiverseid": 442961,
+		"name": "Vodalian Arcanist",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/73.jpg?1524790709",
+		"type": "Creature — Merfolk Wizard",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 67288,
+		"multiverseid": 442980,
+		"name": "Feral Abomination",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/92.jpg?1524790888",
+		"type": "Creature — Thrull",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 66019,
+		"multiverseid": 435181,
+		"name": "Queen's Commission",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/29.jpg?1527427891",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66387,
+		"multiverseid": 435365,
+		"name": "Spike-Tailed Ceratops",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/209.jpg?1527430675",
+		"type": "Creature — Dinosaur",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 67446,
+		"multiverseid": 443059,
+		"name": "Mammoth Spider",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/171.jpg?1524791697",
+		"type": "Creature — Spider",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66867,
+		"multiverseid": 439782,
+		"name": "Colossal Dreadmaw",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/125.jpg?1524751731",
+		"type": "Creature — Dinosaur",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 67564,
+		"multiverseid": 443118,
+		"name": "Skittering Surveyor",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/230.jpg?1524792310",
+		"type": "Artifact Creature — Construct",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 66827,
+		"multiverseid": 439762,
+		"name": "Goblin Trailblazer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/105.jpg?1524751429",
+		"type": "Creature — Goblin Pirate",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 68595,
+		"multiverseid": 452884,
+		"name": "Ironshell Beetle",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/5/7/57f8b6b0-f858-41d5-9839-fd1247b9477f.jpg?1538879761",
+		"type": "Creature — Insect",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 68162,
+		"multiverseid": 447377,
+		"name": "Marauder's Axe",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/240.jpg?1531451395",
+		"type": "Artifact — Equipment",
+		"presence": 2,
+		"copies": 3,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68486,
+		"multiverseid": 452775,
+		"name": "Skyline Scout",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/0/b052b641-fce9-45c1-a15b-1e22f1a64e4d.jpg?1538878484",
+		"type": "Creature — Human Scout",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 67794,
+		"multiverseid": 447193,
+		"name": "Gearsmith Prodigy",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/57.jpg?1531451330",
+		"type": "Creature — Human Artificer",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68566,
+		"multiverseid": 452855,
+		"name": "Gravitic Punch",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/0/5/05fe0428-6e7d-49d4-9a29-80a3589f565a.jpg?1538879483",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 66175,
+		"multiverseid": 435259,
+		"name": "Duress",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/105.jpg?1527429026",
+		"type": "Sorcery",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 68539,
+		"multiverseid": 452828,
+		"name": "Moodmark Painter",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/8/2/82903e5f-c10f-4767-a2c0-6f8cc7280fa0.jpg?1538879126",
+		"type": "Creature — Human Shaman",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 68008,
+		"multiverseid": 447300,
+		"name": "Tormenting Voice",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/164.jpg?1531450681",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68078,
+		"multiverseid": 447335,
+		"name": "Root Snare",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/199.jpg?1531450970",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68531,
+		"multiverseid": 452820,
+		"name": "Douser of Lights",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/7/c/7c554be7-6fd4-4642-aaa0-2781d9c388e4.jpg?1538879016",
+		"type": "Creature — Horror",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 68504,
+		"multiverseid": 452793,
+		"name": "Maximize Altitude",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/3/b/3b5a08a0-b002-4bfe-9cac-d2bf96175f8e.jpg?1538878732",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68523,
+		"multiverseid": 452812,
+		"name": "Bartizan Bats",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/2/1/210da4ad-d8c5-436b-b1a4-5233e8074a1b.jpg?1538878949",
+		"type": "Creature — Bat",
+		"presence": 1.3,
+		"copies": 3,
+		"copiesAverage": 1.5
+	},
+	{
+		"mtgaid": 68022,
+		"multiverseid": 447307,
+		"name": "Centaur Courser",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/171.jpg?1531450732",
+		"type": "Creature — Centaur Warrior",
+		"presence": 0.7,
+		"copies": 3,
+		"copiesAverage": 3
+	},
+	{
+		"mtgaid": 68600,
+		"multiverseid": 452889,
+		"name": "Pack's Favor",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/0/f/0f88c3aa-63e1-4617-bf1f-48f44988e7d6.jpg?1538879831",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66257,
+		"multiverseid": 435300,
+		"name": "Frenzied Raptor",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/146.jpg?1527429598",
+		"type": "Creature — Dinosaur",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66261,
+		"multiverseid": 435302,
+		"name": "Hijack",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/148.jpg?1527429626",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66627,
+		"multiverseid": 439662,
+		"name": "Divine Verdict",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/5.jpg?1524750079",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66233,
+		"multiverseid": 435288,
+		"name": "Brazen Buccaneers",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/134.jpg?1527429430",
+		"type": "Creature — Human Pirate",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68010,
+		"multiverseid": 447301,
+		"name": "Trumpet Blast",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/165.jpg?1531450688",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68495,
+		"multiverseid": 452784,
+		"name": "Dazzling Lights",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/a/9/a9d4639a-b634-469e-a848-35e3a3dfd47e.jpg?1538878616",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66189,
+		"multiverseid": 435266,
+		"name": "March of the Drowned",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/112.jpg?1527429127",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68547,
+		"multiverseid": 452836,
+		"name": "Spinal Centipede",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/7/4/74d579fb-615a-43a6-a1c1-c535087abf2a.jpg?1538879223",
+		"type": "Creature — Insect",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66179,
+		"multiverseid": 435261,
+		"name": "Fathom Fleet Cutthroat",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/107.jpg?1527429056",
+		"type": "Creature — Human Pirate",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67924,
+		"multiverseid": 447258,
+		"name": "Strangling Spores",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/122.jpg?1531452213",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67882,
+		"multiverseid": 447237,
+		"name": "Infectious Horror",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/101.jpg?1531451957",
+		"type": "Creature — Zombie Horror",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67880,
+		"multiverseid": 447236,
+		"name": "Hired Blade",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/100.jpg?1531451944",
+		"type": "Creature — Human Assassin",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66171,
+		"multiverseid": 435257,
+		"name": "Dire Fleet Interloper",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/103.jpg?1527428998",
+		"type": "Creature — Human Pirate",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67844,
+		"multiverseid": 447218,
+		"name": "Uncomfortable Chill",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/82.jpg?1531451644",
+		"type": "Instant",
+		"presence": 1.3,
+		"copies": 2,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66715,
+		"multiverseid": 439706,
+		"name": "Sailor of Means",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/49.jpg?1524750646",
+		"type": "Creature — Human Pirate",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68150,
+		"multiverseid": 447371,
+		"name": "Field Creeper",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/234.jpg?1531451343",
+		"type": "Artifact Creature — Scarecrow",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66435,
+		"multiverseid": 435389,
+		"name": "Cobbled Wings",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/233.jpg?1527431027",
+		"type": "Artifact — Equipment",
+		"presence": 1.3,
+		"copies": 2,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68596,
+		"multiverseid": 452885,
+		"name": "Kraul Foragers",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/5/b5ed4b08-8583-4ad4-b0ba-0463d367efc8.jpg?1538879776",
+		"type": "Creature — Insect Scout",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68046,
+		"multiverseid": 447319,
+		"name": "Giant Spider",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/183.jpg?1531450832",
+		"type": "Creature — Spider",
+		"presence": 1.3,
+		"copies": 2,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68601,
+		"multiverseid": 452890,
+		"name": "Pause for Reflection",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/3/c/3cfcf84c-a30c-4c4f-9f8c-ee807661e499.jpg?1538879844",
+		"type": "Instant",
+		"presence": 1.3,
+		"copies": 2,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66161,
+		"multiverseid": 435252,
+		"name": "Deadeye Tormentor",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/98.jpg?1527428923",
+		"type": "Creature — Human Pirate",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66249,
+		"multiverseid": 435296,
+		"name": "Fathom Fleet Firebrand",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/142.jpg?1527429540",
+		"type": "Creature — Human Pirate",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66155,
+		"multiverseid": 435249,
+		"name": "Contract Killing",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/95.jpg?1527428880",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67742,
+		"multiverseid": 447167,
+		"name": "Oreskos Swiftclaw",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/31.jpg?1531451014",
+		"type": "Creature — Cat Warrior",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67716,
+		"multiverseid": 447154,
+		"name": "Knight of the Tusk",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/18.jpg?1531450855",
+		"type": "Creature — Human Knight",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66317,
+		"multiverseid": 435330,
+		"name": "Ancient Brontodon",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/175.jpg?1527430126",
+		"type": "Creature — Dinosaur",
+		"presence": 1.3,
+		"copies": 2,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66855,
+		"multiverseid": 439776,
+		"name": "Swaggering Corsair",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/119.jpg?1524751652",
+		"type": "Creature — Human Pirate",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66119,
+		"multiverseid": 435231,
+		"name": "Siren Lookout",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/78.jpg?1527428574",
+		"type": "Creature — Siren Pirate",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 66391,
+		"multiverseid": 435367,
+		"name": "Tishana's Wayfinder",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/211.jpg?1527430710",
+		"type": "Creature — Merfolk Scout",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68679,
+		"multiverseid": 452968,
+		"name": "Pitiless Gorgon",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/c/1/c1a925a0-9d26-441b-8b4a-0614a0485fe6.jpg?1538880790",
+		"type": "Creature — Gorgon",
+		"presence": 1.3,
+		"copies": 2,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67522,
+		"multiverseid": 443097,
+		"name": "Aesthir Glider",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/209.jpg?1524792106",
+		"type": "Artifact Creature — Bird Construct",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68479,
+		"multiverseid": 452768,
+		"name": "Ledev Guardian",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/c/b/cbeb4ae3-2a7a-44e1-923b-20c772fd1b8b.jpg?1538878401",
+		"type": "Creature — Human Knight",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68478,
+		"multiverseid": 452767,
+		"name": "Intrusive Packbeast",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/4/9/49266f3c-4b43-4175-8bac-16789ba6f4b9.jpg?1538878385",
+		"type": "Creature — Beast",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67430,
+		"multiverseid": 443051,
+		"name": "Gift of Growth",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/163.jpg?1524791621",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68719,
+		"multiverseid": 452988,
+		"name": "Izzet Locket",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/3/4/348f3bec-ad16-4bc7-8da9-3956c9900f95.jpg?1538881046",
+		"type": "Artifact",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67110,
+		"multiverseid": 442891,
+		"name": "Aven Sentry",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/3.jpg?1525862133",
+		"type": "Creature — Bird Soldier",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67168,
+		"multiverseid": 442920,
+		"name": "Sergeant-at-Arms",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/32.jpg?1525862217",
+		"type": "Creature — Human Soldier",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 68296,
+		"multiverseid": 450254,
+		"name": "Sun Sentinel",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/307.jpg?1531860958",
+		"type": "Creature — Human Soldier",
+		"presence": 0.7,
+		"copies": 2,
+		"copiesAverage": 2
+	},
+	{
+		"mtgaid": 67896,
+		"multiverseid": 447244,
+		"name": "Macabre Waltz",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/108.jpg?1531452056",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68611,
+		"multiverseid": 452900,
+		"name": "Wild Ceratok",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/4/4/4464e11a-c5b9-40ea-8be0-dab29d14e289.jpg?1538879925",
+		"type": "Creature — Rhino",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66247,
+		"multiverseid": 435295,
+		"name": "Dual Shot",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/141.jpg?1527429526",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66747,
+		"multiverseid": 439722,
+		"name": "Dark Inquiry",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/65.jpg?1524750863",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66219,
+		"multiverseid": 435281,
+		"name": "Vanquish the Weak",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/127.jpg?1527429331",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67736,
+		"multiverseid": 447164,
+		"name": "Mighty Leap",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/28.jpg?1531450981",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67854,
+		"multiverseid": 447223,
+		"name": "Bogstomper",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/87.jpg?1531451729",
+		"type": "Creature — Beast",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66825,
+		"multiverseid": 439761,
+		"name": "Frilled Deathspitter",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/104.jpg?1524751419",
+		"type": "Creature — Dinosaur",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68066,
+		"multiverseid": 447329,
+		"name": "Plummet",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/193.jpg?1531450922",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66829,
+		"multiverseid": 439763,
+		"name": "Mutiny",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/106.jpg?1524751441",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68300,
+		"multiverseid": 450256,
+		"name": "Befuddle",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/309.jpg?1531860960",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67958,
+		"multiverseid": 447275,
+		"name": "Electrify",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/139.jpg?1531452394",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66861,
+		"multiverseid": 439779,
+		"name": "Aggressive Urge",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/122.jpg?1524751691",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66689,
+		"multiverseid": 439693,
+		"name": "Deadeye Rig-Hauler",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/36.jpg?1524750488",
+		"type": "Creature — Human Pirate",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67556,
+		"multiverseid": 443114,
+		"name": "Pardic Wanderer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/226.jpg?1524792271",
+		"type": "Artifact Creature — Golem",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67528,
+		"multiverseid": 443100,
+		"name": "Bloodtallow Candle",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/212.jpg?1524792134",
+		"type": "Artifact",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67926,
+		"multiverseid": 447259,
+		"name": "Two-Headed Zombie",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/123.jpg?1531452222",
+		"type": "Creature — Zombie",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66353,
+		"multiverseid": 435348,
+		"name": "Ixalli's Diviner",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/192.jpg?1527430420",
+		"type": "Creature — Human Druid",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68492,
+		"multiverseid": 452781,
+		"name": "Capture Sphere",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/5/a/5a799ac8-5798-4a26-81c1-763d6dcfcbe8.jpg?1538878584",
+		"type": "Enchantment — Aura",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68712,
+		"multiverseid": 452981,
+		"name": "Boros Locket",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/5/e/5e972d97-0df2-44e4-8ff2-cc8707316dc1.jpg?1538880965",
+		"type": "Artifact",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66291,
+		"multiverseid": 435317,
+		"name": "Storm Fleet Pyromancer",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/163.jpg?1527429896",
+		"type": "Creature — Human Pirate Wizard",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68489,
+		"multiverseid": 452778,
+		"name": "Take Heart",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/b/2/b26f10d5-b826-45b0-abed-80d86e1335c9.jpg?1538878532",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68603,
+		"multiverseid": 452892,
+		"name": "Portcullis Vine",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/5/b/5b6dab62-b747-4d76-9fa8-4914582fc212.jpg?1538879861",
+		"type": "Creature — Plant Wall",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68721,
+		"multiverseid": 452990,
+		"name": "Selesnya Locket",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/e/a/ea0c04b9-c7fc-4204-9af2-5d1987bdd97e.jpg?1538881072",
+		"type": "Artifact",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67418,
+		"multiverseid": 443045,
+		"name": "Broken Bond",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/157.jpg?1524791565",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66903,
+		"multiverseid": 439800,
+		"name": "Plummet",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/143.jpg?1524751966",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67013,
+		"multiverseid": 439855,
+		"name": "Woodland Stream",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/191.jpg?1524752758",
+		"type": "Land",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66329,
+		"multiverseid": 435336,
+		"name": "Commune with Dinosaurs",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/181.jpg?1527430214",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66731,
+		"multiverseid": 439714,
+		"name": "Spire Winder",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/57.jpg?1524750752",
+		"type": "Creature — Snake",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67114,
+		"multiverseid": 442893,
+		"name": "Benalish Honor Guard",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/5.jpg?1528770903",
+		"type": "Creature — Human Knight",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67338,
+		"multiverseid": 443005,
+		"name": "Fervent Strike",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/117.jpg?1524791147",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66013,
+		"multiverseid": 435178,
+		"name": "Pious Interdiction",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/xln/26.jpg?1527427850",
+		"type": "Enchantment — Aura",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67328,
+		"multiverseid": 443000,
+		"name": "Windgrace Acolyte",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/112.jpg?1524791092",
+		"type": "Creature — Cat Warrior",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68466,
+		"multiverseid": 452755,
+		"name": "Collar the Culprit",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/front/c/d/cdf305b7-d1f7-4770-9201-8f3fb6735cd9.jpg?1538878202",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67898,
+		"multiverseid": 447245,
+		"name": "Mind Rot",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/109.jpg?1531452070",
+		"type": "Sorcery",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 66733,
+		"multiverseid": 439715,
+		"name": "Sworn Guardian",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/rix/58.jpg?1524750762",
+		"type": "Creature — Merfolk Warrior",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 68767,
+		"multiverseid": 0,
+		"name": "Spiritual Guardian",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/mtga/11.jpg?1531792072",
+		"type": "Creature — Spirit",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67248,
+		"multiverseid": 442960,
+		"name": "Unwind",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/dom/72.jpg?1524790700",
+		"type": "Instant",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	},
+	{
+		"mtgaid": 67762,
+		"multiverseid": 447177,
+		"name": "Trusty Packbeast",
+		"imageUrl": "https://img.scryfall.com/cards/border_crop/en/m19/41.jpg?1531451146",
+		"type": "Creature — Beast",
+		"presence": 0.7,
+		"copies": 1,
+		"copiesAverage": 1
+	}
+]
