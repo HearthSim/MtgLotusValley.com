@@ -107,10 +107,13 @@ export default {
   components: {
     Card, Deck, DecksColorDistribution, HorizontalBar
   },
-  metaInfo: {
+  head: {
+    title: {
+      inner: 'Pauper analysis after first week of Holiday event'
+    },
     meta: [
-      { property: 'og:title', content: 'Pauper analysis after first week of Holiday event' },
-      { property: 'og:image', content: require('@/assets/pages-headers/RatColony.jpg') }
+      { p: 'og:title', c: 'Pauper analysis after first week of Holiday event' },
+      { p: 'og:image', c: 'https://www.mtglotusvalley.com/static/images/RatColony.jpg' }
     ]
   },
   data () {

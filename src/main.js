@@ -7,6 +7,7 @@ import router from '@/scripts/router'
 
 import VueAnalytics from 'vue-analytics'
 import VueDisqus from 'vue-disqus'
+import VueHead from 'vue-head'
 import VueLazyload from 'vue-lazyload'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
@@ -26,6 +27,7 @@ Vue.use(VueAnalytics, {
   // }
 })
 Vue.use(VueDisqus)
+Vue.use(VueHead)
 Vue.use(VueLazyload, {
   loading: require('@/assets/card.png'),
   error: require('@/assets/card.png'),

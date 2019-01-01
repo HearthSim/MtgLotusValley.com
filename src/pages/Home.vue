@@ -83,6 +83,15 @@ export default {
     this.requestDeckOfDay()
     this.requestDeckByColorsBasics()
   },
+  head: {
+    title: {
+      inner: 'Lotus Valley'
+    },
+    meta: [
+      { p: 'og:title', c: 'Lotus Valley' },
+      { p: 'og:image', c: require('@/assets/pages-headers/LeagueGuildmage.jpg') }
+    ]
+  },
   data () {
     return {
       deckOfDayName: '',

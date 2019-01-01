@@ -72,13 +72,6 @@ export default {
   components: {
     VueMarkdown
   },
-  // Usage with context the component
-  metaInfo: {
-    meta: [
-      { property: 'og:title', content: 'Announcing MTG Lotus Valley!' },
-      { property: 'og:image', content: require('@/assets/pages-headers/EmmaraSoulOfTheAccord.jpg') }
-    ]
-  },
   data () {
     return {
       lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.0.0/Lotus.Tracker.1.0.2.exe'
