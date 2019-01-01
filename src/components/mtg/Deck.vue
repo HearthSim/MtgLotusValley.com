@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class='deck'>
-      <v-layout column wrap>
+      <v-layout class="header" column wrap>
+        <v-tooltip bottom>
+          <v-icon class="export" @click="exportDeckToArena()" slot="activator">code</v-icon>
+          <span>Export deck to Magic Arena</span>
+        </v-tooltip>
         <router-link v-if="link === true" :to="deckLink">
           <span class='body-2 font-weight-bold'>{{ name }}</span>
         </router-link>
@@ -41,6 +45,16 @@
           :card='card' :largeName="largeName"/>
       </table>
     </div>
+    <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
+      <v-card>
+        <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
   </div>
 </template>
 
@@ -99,11 +113,13 @@ export default {
       planeswalkersQtd: 0,
       mainDeckQtd: 0,
       sideboardCards: [],
-      sideboardQtd: 0
+      sideboardQtd: 0,
+      deckExportDialogVisible: false
     }
   },
   mounted () {
     this.updateDeckCards()
+    this.updateDeckLink()
     this.updateSideboardCards()
   },
   methods: {
@@ -170,6 +186,10 @@ export default {
         })
       }
       this.deckLink = `/decks/${cards.join(';')}_${sideboard.join(';')}?loader=true`
+    },
+    exportDeckToArena: function () {
+      this.deckExportDialogVisible = true
+      DeckUtils.exportDeckToArena(this.cards, this.sideboard !== undefined ? this.sideboard : {})
     }
   },
   watch: {
@@ -182,8 +202,8 @@ export default {
       this.planeswalkers = []
       this.$nextTick(() => {
         this.updateDeckCards()
+        this.updateDeckLink()
       })
-      this.updateDeckLink()
     },
     sideboard: function () {
       this.sideboardCards = []
@@ -197,6 +217,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .header {
+    position: relative;
+    height: auto;
+  }
+  .export {
+    position: absolute;
+    left: calc(100% - 24px);
+  }
   .deck {
     font-size: 11pt;
     /* overflow-x: auto; breaks two column */

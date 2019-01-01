@@ -246,16 +246,6 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog class="btExport" v-model="deckExportDialogVisible" width="350">
-      <v-card>
-        <v-card-text class='subheading'>Deck copied to clipboard.</v-card-text>
-        <v-card-actions>
-          <v-spacer/>
-          <v-btn color="primary" flat @click="deckExportDialogVisible = false">OK</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-
     <v-dialog v-model="needLoginDialogVisible" width="350">
       <v-card>
         <v-card-text class='subheading'>User not logged.</v-card-text>

@@ -60,7 +60,7 @@
             <v-flex xs12 class="boxHeader">Deck of Day</v-flex>
             <v-layout class="boxContent" row wrap>
               <Deck class="mt-2 mb-2 m-auto" :cards="deckOfDayCards"
-                :name="deckOfDayName" :link="true"/>
+                :name="deckOfDayName" :details="deckOfDayDetails" :link="true"/>
             </v-layout>
           </v-layout>
         </v-flex>
@@ -95,6 +95,7 @@ export default {
   data () {
     return {
       deckOfDayName: '',
+      deckOfDayDetails: '',
       deckOfDayCards: {},
       decksByColorsBasics: {},
       latestNews: [
@@ -148,7 +149,8 @@ export default {
       this.$api.getDeckOfDay(this.getDaysAgo(1), 'Constructed')
         .then(res => {
           this.deckOfDayCards = res.data.cards
-          this.deckOfDayName = `${res.data.name} | ${res.data.wins}-${res.data.losses} (${res.data.winRate}%)`
+          this.deckOfDayName = res.data.name
+          this.deckOfDayDetails = `${res.data.wins}-${res.data.losses} (${res.data.winRate}%)`
         })
         .catch(error => {
           console.log(error)
