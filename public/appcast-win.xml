@@ -5,6 +5,26 @@
         <description>Most recent updates changes.</description>
         <language>en</language>
         <item>
+            <title>Arena Tracker 1.1.0</title>
+            <description>
+              <![CDATA[
+              <style type="text/css">* { font-family: Arial, Helvetica, sans-serif; }</style>
+              <ul>
+              <li>Add draft helper with LSV cards tier</li>
+              <li>Add show card mana overlay option</li>
+              <li>Add hide overlay when lose game focus option</li>
+              <li>Increase the maximum zoom levels</li>
+              <li>Avoid show overlay when tab out from game</li>
+              <li>Fix unauthorized message when renew user token</li>
+              <li>Fix card hover image outside screen</li>
+              </ul>
+              ]]>
+            </description>
+            <pubDate>Thu, 08 Jan 2019</pubDate>
+            <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.1.0/Lotus.Tracker.1.1.0.exe" 
+                    sparkle:version="1.1.0" length="25035" type="application/x-msdownload"/>
+        </item>
+        <item>
             <title>Arena Tracker 1.0.3</title>
             <description>
               <![CDATA[
@@ -12,9 +32,9 @@
               <ul>
               <li>Add dual monitor support</li>
               <li>Hide overlay after close the game</li>
-              <li>Fixe deck color when using multicolor cards</li>
-              <li>Fixe event result upload</li>
-              <li>Fixe match info when not logged</li>
+              <li>Fix deck color when using multicolor cards</li>
+              <li>Fix event result upload</li>
+              <li>Fix match info when not logged</li>
               <li>Other minor fixes and improvements</li>
               </ul>
               ]]>

@@ -290,7 +290,7 @@ export default {
       return parseFloat(percent.toFixed(0))
     },
     getFifthCopyChance: function (set) {
-      const totalRareMythicPlayset = set.unique['rare'] + set.unique['mythic']
+      const totalRareMythicPlayset = set.all['rare'] + set.all['mythic']
       const ownedRareMythicPlayset = set.playset['rare'] + set.playset['mythic']
       const percent = ownedRareMythicPlayset / totalRareMythicPlayset * 100
       return parseFloat(percent.toFixed(0))
