@@ -8,6 +8,13 @@
 
       <v-card v-if="!data.isHeader" class="mt-2 py-2">
         <v-layout row nowrap xs12>
+          <v-flex xs1>
+            <v-layout class="text-xs-center" row nowrap fill-height>
+              <v-layout class="text-valign-center" column>
+                <span :class="`${data.wins ? 'green' : 'red'}--text`">{{data.wins ? 'Wins' : 'Loss'}}</span>
+              </v-layout>
+            </v-layout>
+          </v-flex>
           <v-flex xs2 v-if="eventName">
             <v-layout class="text-valign-center" column fill-height>
               <span class="ml-2">{{data.eventPublicName}}</span>
@@ -41,7 +48,7 @@
               </v-layout>
             </v-layout>
           </v-flex>
-          <v-flex xs4>
+          <v-flex xs3>
             <v-layout class="text-xs-center" row nowrap fill-height>
               <v-layout class="text-valign-center" column>
                 <span>{{data.opponentName}}</span>
