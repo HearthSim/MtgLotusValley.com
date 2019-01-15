@@ -100,6 +100,13 @@ export default {
       decksByColorsBasics: {},
       latestNews: [
         {
+          cover: require('@/assets/pages-headers/ArchwayAngel.jpg'),
+          title: 'MTGA January update, duplicate protections is here!',
+          subtitle: 'The first update from 2019 brings Ravnica Allegiance Set, Duplicate protection and more.',
+          date: '2019-01-14 00:00',
+          link: '/january_2019_update'
+        },
+        {
           cover: require('@/assets/pages-headers/RatColony.jpg'),
           title: 'Pauper analysis after first week of Holiday event',
           subtitle: 'After one week of Pauper format in Holiday event, here some analysis of what was going.',
