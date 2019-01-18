@@ -35,7 +35,7 @@
                 <ul>
                   <li>
                     <span class="subheading font-weight-bold mt-3">Basic features</span><br/>
-                    <i class="caption">Tray-icon, Auto-Start with System, Auto-Update, Auto-Hide when game lose focus</i>
+                    <i class="caption">Tray-icon, Auto-Start with System, Auto-Update</i>
                   </li>
                   <li>
                     <span class="subheading font-weight-bold mt-3">Player data sync</span><br/>
@@ -54,6 +54,10 @@
                     <i class="caption">For events, it also means the event's wins/losses</i>
                   </li>
                   <li>
+                    <span class="subheading font-weight-bold mt-3">Player deck with sideboard</span><br/>
+                    <i class="caption">In Bo3 matches, show updated deck pos sideboarding</i>
+                  </li>
+                  <li>
                     <span class="subheading font-weight-bold mt-3">Opponent cards overlay</span><br/>
                     <i class="caption">Based on cards used</i>
                   </li>
@@ -64,7 +68,7 @@
                 </ul>
               </v-layout>
             </v-flex>
-            <v-flex xs12 sm6>
+            <v-flex class="pt-4" xs12 sm6>
               <a class="mt-2 ml-2" href="static/images/lotus_tracker_overlay.jpg" target="_blank">
                 <img src="static/images/lotus_tracker_overlay.jpg" style="width: 100%;"/>
               </a>
@@ -74,10 +78,6 @@
             <v-flex xs12 sm6>
               <v-layout class="mt-2_5" column nowrap>
                 <ul>
-                  <li>
-                    <span class="subheading font-weight-bold mt-3">Show card image</span><br/>
-                    <i class="caption">On mouse Hover</i>
-                  </li>
                   <li>
                     <span class="subheading font-weight-bold mt-3">Configurable zoom</span><br/>
                     <i class="caption">5 levels</i>
@@ -100,15 +100,52 @@
                     <i class="caption">Show/Hide deck cards with 0 copies on deck</i>
                   </li>
                   <li>
+                    <span class="subheading font-weight-bold mt-3">Hide when tabbing MTGA</span><br/>
+                    <i class="caption">Auto-Hide when game lose focus</i>
+                  </li>
+                </ul>
+              </v-layout>
+            </v-flex>
+            <v-flex class="pt-2" xs12 sm6>
+              <a href="static/images/lotus_tracker_preferences.jpg" target="_blank">
+                <img class="mt-2" src="static/images/lotus_tracker_preferences.jpg" style="width: 100%;"/>
+              </a>
+            </v-flex>
+          </v-layout>
+          <v-layout class="mt-4" row wrap>
+            <v-flex xs12 sm6>
+              <v-layout class="mt-2_5" column nowrap>
+                <ul>
+                  <li>
                     <span class="subheading font-weight-bold mt-3">Player draw statistics</span><br/>
                     <i class="caption">Percent chances to draw a land or card by remaining qtd</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Show card image</span><br/>
+                    <i class="caption">On mouse Hover</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Draft Helper</span><br/>
+                    <i class="caption">Show card tiers while drafting</i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">LSV Draft Tiers</span><br/>
+                    <i class="caption">Cards ranks and commentary by LSV from <a href="https://www.channelfireball.com/tag/limited-set-review/">ChannelFireball.com</a></i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">DraftSim Draft Tiers</span><br/>
+                    <i class="caption">Cards ranks by Dan from <a href="https://draftsim.com/">Draftsim.com</a></i>
+                  </li>
+                  <li>
+                    <span class="subheading font-weight-bold mt-3">Collection Info</span><br/>
+                    <i class="caption">Show card quantity in collection (x/4)</i>
                   </li>
                 </ul>
               </v-layout>
             </v-flex>
             <v-flex xs12 sm6>
-              <a href="static/images/lotus_tracker_preferences.jpg" target="_blank">
-                <img class="mt-2" src="static/images/lotus_tracker_preferences.jpg" style="width: 100%;"/>
+              <a href="static/images/lotus_tracker_draft.jpg" target="_blank">
+                <img class="mt-2" src="static/images/lotus_tracker_draft.jpg" style="width: 100%;"/>
               </a>
             </v-flex>
           </v-layout>
@@ -134,7 +171,7 @@ export default {
   },
   data () {
     return {
-      lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.1.0/Lotus.Tracker.1.1.0.zip'
+      lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.2.0/Lotus.Tracker.1.2.0.zip'
     }
   },
   created () {

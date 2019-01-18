@@ -5,6 +5,23 @@
         <description>Most recent updates changes.</description>
         <language>en</language>
         <item>
+            <title>Arena Tracker 1.2.0</title>
+            <description>
+              <![CDATA[
+              <style type="text/css">* { font-family: Arial, Helvetica, sans-serif; }</style>
+              <ul>
+              <li>Add Draftsim cards tier to Draft Helper</li>
+              <li>Fix overlay cards update after sideboarding in Bo3</li>
+              <li>Fix login stay on top flag</li>
+              <li>Fix login email regex to allow ends with dash</li>
+              </ul>
+              ]]>
+            </description>
+            <pubDate>Thu, 17 Jan 2019</pubDate>
+            <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.2.0/Lotus.Tracker.1.2.0.exe" 
+                    sparkle:version="1.2.0" length="25047" type="application/x-msdownload"/>
+        </item>
+        <item>
             <title>Arena Tracker 1.1.0</title>
             <description>
               <![CDATA[
