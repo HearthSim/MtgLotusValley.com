@@ -76,7 +76,7 @@
           </v-layout>
           <v-layout class="mt-3" row wrap>
             <v-flex xs12 sm6>
-              <v-layout class="mt-2_5" column nowrap>
+              <v-layout class="mt-4" column nowrap>
                 <ul>
                   <li>
                     <span class="subheading font-weight-bold mt-3">Configurable zoom</span><br/>
@@ -114,7 +114,7 @@
           </v-layout>
           <v-layout class="mt-4" row wrap>
             <v-flex xs12 sm6>
-              <v-layout class="mt-2_5" column nowrap>
+              <v-layout class="mt-4" column nowrap>
                 <ul>
                   <li>
                     <span class="subheading font-weight-bold mt-3">Player draw statistics</span><br/>
@@ -145,11 +145,16 @@
             </v-flex>
             <v-flex xs12 sm6>
               <a href="static/images/lotus_tracker_draft.jpg" target="_blank">
-                <img class="mt-2" src="static/images/lotus_tracker_draft.jpg" style="width: 100%;"/>
+                <img class="mt-2" src="static/images/lotus_tracker_draft.jpg" style="heigth: 100%;"/>
               </a>
             </v-flex>
           </v-layout>
           <v-layout class="mt-5" row nowrap>
+            <v-spacer/>
+            <span class="subheading">Checkout Lotus Valley features <a href="/mtglv">here</a></span>
+            <v-spacer/>
+          </v-layout>
+          <v-layout class="mt-3" row nowrap>
             <v-spacer/>
             <span class="subheading">Download now for <a :href="lotusTrackerWindows">Windows</a></span>
             <v-spacer/>
@@ -171,7 +176,7 @@ export default {
   },
   data () {
     return {
-      lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.2.1/Lotus.Tracker.1.2.1.zip'
+      lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.2.2/Lotus.Tracker.1.2.2.zip'
     }
   },
   created () {
