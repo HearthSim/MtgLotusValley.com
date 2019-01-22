@@ -385,7 +385,7 @@ export default {
     },
     requestUserEventsRuns: function () {
       this.isLoading = true
-      this.paginationEventsRuns.rowsPerPage = 4
+      this.paginationEventsRuns.rowsPerPage = 7
       const page = this.paginationEventsRuns.page
       const rowsPerPage = this.paginationEventsRuns.rowsPerPage
       this.$api.getUserEvents(this.currentEvent, page, rowsPerPage)

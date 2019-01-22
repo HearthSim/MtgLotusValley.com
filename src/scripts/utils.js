@@ -31,7 +31,8 @@ export default {
     { code: 'DAR', name: 'Dominaria' },
     { code: 'M19', name: 'Core Set 2019' },
     { code: 'GRN', name: 'Guilds of Ravnica' },
-    { code: 'MED', name: 'Mythic Edition' }
+    { code: 'MED', name: 'Mythic Edition' },
+    { code: 'RNA', name: 'Ravnica Allegiance' }
   ],
   guilds: [
     { colors: 'wu', colorsOrdered: 'uw', name: 'Azorius' },
