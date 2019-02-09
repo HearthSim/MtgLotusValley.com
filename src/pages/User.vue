@@ -83,40 +83,82 @@
 
           <v-layout class="box" row wrap>
             <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
-            <v-layout class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
-              <v-card class="setSummary mt-4 pb-2" v-for="set in userCollectionSummary" :key="set.code">
-                <v-layout column class="summaryTitle pt-1 mb-1">
-                  <router-link :to="`/user/collection?page=1&sets=${set.code}`">
-                    <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
-                  </router-link>
-                </v-layout>
-                <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
-                  <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
-                    slot="activator">
-                    <v-layout class="setRarityLine" row nowrap>
-                      <SetSymbol class="setSymbol ml-3" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
-                      <v-progress-linear class="ml-2" :color="rarity.color" height="5"
-                        :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
-                      <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
-                    </v-layout>
-                  </router-link>
-                  <v-layout column>
-                    <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}
-                      ({{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%)
-                    </span>
-                    <span>Playset: {{set.playset[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}
-                      ({{getSummaryPlaysetPercent(set, rarity.name.toLowerCase())}}%)
-                    </span>
-                    <span>All: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}
-                      ({{getSummaryTotalPercent(set, rarity.name.toLowerCase())}}%)
-                    </span>
+            <v-layout column wrap>
+              <v-layout row wrap>
+                <v-switch class="ml-3" v-model="collectionByPlayset" label="Show values by playset"/>
+              </v-layout>
+                <!-- collection by rarity and single -->
+              <v-layout v-if="!collectionByPlayset" class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
+                <v-card class="setSummary mt-4 pb-2" v-for="set in userCollectionSummary" :key="set.code">
+                  <v-layout column class="summaryTitle pt-1 mb-1">
+                    <router-link :to="`/user/collection?page=1&sets=${set.code}`">
+                      <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
+                    </router-link>
                   </v-layout>
-                </v-tooltip>
-                <v-tooltip right lazy>
-                  <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
-                  <span>Chance to open a 5th rare/mythic copy</span>
-                </v-tooltip>
-              </v-card>
+                  <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
+                    <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
+                      slot="activator">
+                      <v-layout class="setRarityLine" row nowrap>
+                        <SetSymbol class="setSymbol ml-3" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
+                        <v-progress-linear class="ml-2" :color="rarity.color" height="5"
+                          :value="set.unique[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
+                        <span class="summaryValue">{{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%</span>
+                      </v-layout>
+                    </router-link>
+                    <v-layout column>
+                      <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}
+                        ({{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%)
+                      </span>
+                      <span>Playset: {{set.playset[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}
+                        ({{getSummaryPlaysetPercent(set, rarity.name.toLowerCase())}}%)
+                      </span>
+                      <span>All: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}
+                        ({{getSummaryTotalPercent(set, rarity.name.toLowerCase())}}%)
+                      </span>
+                    </v-layout>
+                  </v-tooltip>
+                  <v-tooltip right lazy>
+                    <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
+                    <span>Chance to open a 5th rare/mythic copy</span>
+                  </v-tooltip>
+                </v-card>
+              </v-layout>
+                <!-- collection by rarity and playset -->
+              <v-layout v-if="collectionByPlayset" class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
+                <v-card class="setSummary mt-4 pb-2" v-for="set in userCollectionSummary" :key="set.code">
+                  <v-layout column class="summaryTitle pt-1 mb-1">
+                    <router-link :to="`/user/collection?page=1&sets=${set.code}`">
+                      <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
+                    </router-link>
+                  </v-layout>
+                  <v-tooltip v-for="rarity in rarities" :key="`${set.code}_${rarity.name.toLowerCase()}`" right lazy>
+                    <router-link :to="`/user/collection?page=1&sets=${set.code}&rarities=${rarity.name.toLowerCase()[0]}`"
+                      slot="activator">
+                      <v-layout class="setRarityLine" row nowrap>
+                        <SetSymbol class="setSymbol ml-3" :set="set.code" :rarity="rarity.name.toLowerCase()"/>
+                        <v-progress-linear class="ml-2" :color="rarity.color" height="5"
+                          :value="set.playset[rarity.name.toLowerCase()] / set.all[rarity.name.toLowerCase()] * 100"/>
+                        <span class="summaryValue">{{getSummaryPlaysetPercent(set, rarity.name.toLowerCase())}}%</span>
+                      </v-layout>
+                    </router-link>
+                    <v-layout column>
+                      <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}
+                        ({{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%)
+                      </span>
+                      <span>Playset: {{set.playset[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}
+                        ({{getSummaryPlaysetPercent(set, rarity.name.toLowerCase())}}%)
+                      </span>
+                      <span>All: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}
+                        ({{getSummaryTotalPercent(set, rarity.name.toLowerCase())}}%)
+                      </span>
+                    </v-layout>
+                  </v-tooltip>
+                  <v-tooltip right lazy>
+                    <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
+                    <span>Chance to open a 5th rare/mythic copy</span>
+                  </v-tooltip>
+                </v-card>
+              </v-layout>
             </v-layout>
           </v-layout>
           
@@ -236,7 +278,9 @@ export default {
       userEventsMatchesData: [],
       paginationEventsRuns: { page: 1 },
       userEventsRunsData: [],
-      totalEventsRunsPages: 1
+      totalEventsRunsPages: 1,
+      collectionByColors: false,
+      collectionByPlayset: false
     }
   },
   created () {
