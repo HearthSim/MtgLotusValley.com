@@ -1,7 +1,7 @@
 
 export default {
   colors: [
-    { code: 'w', name: 'White', hexValue: '#EEEEEE', hexHoverValue: '#DDDDDD' },
+    { code: 'w', name: 'White', hexValue: '#EEEEEE', hexHoverValue: '#CCCCCC' },
     { code: 'u', name: 'Blue', hexValue: '#2196F3', hexHoverValue: '#42A5F5' },
     { code: 'b', name: 'Black', hexValue: '#000000', hexHoverValue: '#111111' },
     { code: 'r', name: 'Red', hexValue: '#F44336', hexHoverValue: '#EF5350' },

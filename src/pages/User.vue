@@ -85,10 +85,11 @@
             <v-flex xs12 class="boxHeader">Collection Summary</v-flex>
             <v-layout column wrap>
               <v-layout row wrap>
-                <v-switch class="ml-3" v-model="collectionByPlayset" label="Show values by playset"/>
+                <v-switch class="ml-3" v-model="collectionByColors" label="Show collection summary by colors"/>
+                <v-switch class="ml-3" v-model="collectionByPlayset" label="Show collection values by playset"/>
               </v-layout>
                 <!-- collection by rarity and single -->
-              <v-layout v-if="!collectionByPlayset" class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
+              <v-layout v-if="!collectionByColors && !collectionByPlayset" class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
                 <v-card class="setSummary mt-4 pb-2" v-for="set in userCollectionSummary" :key="set.code">
                   <v-layout column class="summaryTitle pt-1 mb-1">
                     <router-link :to="`/user/collection?page=1&sets=${set.code}`">
@@ -124,7 +125,7 @@
                 </v-card>
               </v-layout>
                 <!-- collection by rarity and playset -->
-              <v-layout v-if="collectionByPlayset" class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
+              <v-layout v-if="!collectionByColors && collectionByPlayset" class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
                 <v-card class="setSummary mt-4 pb-2" v-for="set in userCollectionSummary" :key="set.code">
                   <v-layout column class="summaryTitle pt-1 mb-1">
                     <router-link :to="`/user/collection?page=1&sets=${set.code}`">
@@ -150,6 +151,82 @@
                       </span>
                       <span>All: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}
                         ({{getSummaryTotalPercent(set, rarity.name.toLowerCase())}}%)
+                      </span>
+                    </v-layout>
+                  </v-tooltip>
+                  <v-tooltip right lazy>
+                    <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
+                    <span>Chance to open a 5th rare/mythic copy</span>
+                  </v-tooltip>
+                </v-card>
+              </v-layout>
+                <!-- collection by colors and single -->
+              <v-layout v-if="collectionByColors && !collectionByPlayset" class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
+                <v-card class="setSummary mt-4 pb-2" v-for="set in userCollectionSummary" :key="set.code">
+                  <v-layout column class="summaryTitle pt-1 mb-1">
+                    <router-link :to="`/user/collection?page=1&sets=${set.code}`">
+                      <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
+                    </router-link>
+                  </v-layout>
+                  <v-tooltip v-for="color in colors" :key="`${set.code}_${color.code.toLowerCase()}`" right lazy>
+                    <router-link :to="`/user/collection?page=1&sets=${set.code}&colors=${color.code[0]}`"
+                      slot="activator">
+                      <v-layout class="setRarityLine" row nowrap>
+                        <span class="mana ml-2 mt-1">
+                          <img :src="require(`@/assets/mana/${color.code}.png`)"/>
+                        </span>
+                        <v-progress-linear class="ml-2" :color="color.hexHoverValue" height="5"
+                          :value="set.unique[color.code] / set.all[color.code] * 100"/>
+                        <span class="summaryValue">{{getSummaryUniquePercent(set, color.code)}}%</span>
+                      </v-layout>
+                    </router-link>
+                    <v-layout column>
+                      <span>Unique cards: {{set.unique[color.code]}} / {{set.all[color.code]}}
+                        ({{getSummaryUniquePercent(set, color.code)}}%)
+                      </span>
+                      <span>Playset: {{set.playset[color.code]}} / {{set.all[color.code]}}
+                        ({{getSummaryPlaysetPercent(set, color.code)}}%)
+                      </span>
+                      <span>All: {{set.owned[color.code]}} / {{set.all[color.code] * 4}}
+                        ({{getSummaryTotalPercent(set, color.code)}}%)
+                      </span>
+                    </v-layout>
+                  </v-tooltip>
+                  <v-tooltip right lazy>
+                    <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
+                    <span>Chance to open a 5th rare/mythic copy</span>
+                  </v-tooltip>
+                </v-card>
+              </v-layout>
+                <!-- collection by colors and playset -->
+              <v-layout v-if="collectionByColors && collectionByPlayset" class="boxContent collections mt-0 ml-0 mr-0 pb-2" row wrap>
+                <v-card class="setSummary mt-4 pb-2" v-for="set in userCollectionSummary" :key="set.code">
+                  <v-layout column class="summaryTitle pt-1 mb-1">
+                    <router-link :to="`/user/collection?page=1&sets=${set.code}`">
+                      <img class="setLogo" :src="require(`@/assets/sets/logos/${set.code}.png`)"/>
+                    </router-link>
+                  </v-layout>
+                  <v-tooltip v-for="color in colors" :key="`${set.code}_${color.code.toLowerCase()}`" right lazy>
+                    <router-link :to="`/user/collection?page=1&sets=${set.code}&colors=${color.code[0]}`"
+                      slot="activator">
+                      <v-layout class="setRarityLine" row nowrap>
+                        <span class="mana ml-2 mt-1">
+                          <img :src="require(`@/assets/mana/${color.code}.png`)"/>
+                        </span>
+                        <v-progress-linear class="ml-2" :color="color.hexHoverValue" height="5"
+                          :value="set.playset[color.code] / set.all[color.code] * 100"/>
+                        <span class="summaryValue">{{getSummaryPlaysetPercent(set, color.code)}}%</span>
+                      </v-layout>
+                    </router-link>
+                    <v-layout column>
+                      <span>Unique cards: {{set.unique[color.code]}} / {{set.all[color.code]}}
+                        ({{getSummaryUniquePercent(set, color.code)}}%)
+                      </span>
+                      <span>Playset: {{set.playset[color.code]}} / {{set.all[color.code]}}
+                        ({{getSummaryPlaysetPercent(set, color.code)}}%)
+                      </span>
+                      <span>All: {{set.owned[color.code]}} / {{set.all[color.code] * 4}}
+                        ({{getSummaryTotalPercent(set, color.code)}}%)
                       </span>
                     </v-layout>
                   </v-tooltip>
@@ -259,6 +336,7 @@ export default {
       userGems: 0,
       userVault: 0.0,
       userWildcards: {},
+      colors: Utils.colors,
       rarities: Utils.rarities,
       totalGames: 0,
       totalConstructed: 0,
