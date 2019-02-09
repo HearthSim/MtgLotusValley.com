@@ -101,9 +101,15 @@
                     </v-layout>
                   </router-link>
                   <v-layout column>
-                    <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
-                    <span>Playset: {{set.playset[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}</span>
-                    <span>All: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}</span>
+                    <span>Unique cards: {{set.unique[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}
+                      ({{getSummaryUniquePercent(set, rarity.name.toLowerCase())}}%)
+                    </span>
+                    <span>Playset: {{set.playset[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()]}}
+                      ({{getSummaryPlaysetPercent(set, rarity.name.toLowerCase())}}%)
+                    </span>
+                    <span>All: {{set.owned[rarity.name.toLowerCase()]}} / {{set.all[rarity.name.toLowerCase()] * 4}}
+                      ({{getSummaryTotalPercent(set, rarity.name.toLowerCase())}}%)
+                    </span>
                   </v-layout>
                 </v-tooltip>
                 <v-tooltip right lazy>
@@ -287,6 +293,14 @@ export default {
     },
     getSummaryUniquePercent: function (set, rarity) {
       const percent = set.unique[rarity] / set.all[rarity] * 100
+      return parseFloat(percent.toFixed(0))
+    },
+    getSummaryPlaysetPercent: function (set, rarity) {
+      const percent = set.playset[rarity] / set.all[rarity] * 100
+      return parseFloat(percent.toFixed(0))
+    },
+    getSummaryTotalPercent: function (set, rarity) {
+      const percent = set.owned[rarity] / (set.all[rarity] * 4) * 100
       return parseFloat(percent.toFixed(0))
     },
     getFifthCopyChance: function (set) {
