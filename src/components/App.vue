@@ -15,6 +15,11 @@
             <v-list-tile-title>List Loader</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile exact to="/privacypolicy">
+          <v-list-tile-content>
+            <v-list-tile-title>Privacy Policy</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
         <v-list-tile exact to="/lotustracker">
           <v-list-tile-content>
             <v-list-tile-title>Lotus Tracker</v-list-tile-title>
@@ -74,6 +79,29 @@
           </v-btn>
         </v-toolbar>
         <router-view/>
+        <div id="footer">
+          <v-layout row class="pt-4 pb-4">
+            <v-spacer/>
+            <v-spacer/>
+            <v-layout column>
+              <router-link v-for="menu in mainMenu" :key="menu.title" exact :to="menu.link">
+                <span class="mt-1">{{menu.title}}</span>
+              </router-link>
+            </v-layout>
+            <v-layout column>
+              <router-link v-for="menu in linksMenu" :key="menu.title" exact :to="menu.link">
+                <span class="mt-1">{{menu.title}}</span>
+              </router-link>
+            </v-layout>
+            <v-layout column>
+              <router-link to="/privacypolicy">
+                <span class="mt-1">Privacy Policy</span>
+              </router-link>
+            </v-layout>
+            <v-spacer/>
+            <v-spacer/>
+          </v-layout>
+        </div>
       </div>
       <!-- Loader dialog -->
       <v-dialog v-model="loadDeckDialog" max-width="350">
@@ -97,16 +125,15 @@
       <v-card>
         <v-layout row nowrap>
           <v-layout class="ml-2" column nowrap justify-center>
-            <span>We use Cookies for user authentication and may also be used by third party analytics tools.</span>
+            <span>We use Cookies for user authentication and may also be used by third party analytics tools. 
+              Be sure to agree with our Privacy Policy bebore use this website.</span>
           </v-layout>
           <v-spacer/>
-          <v-btn class="mr-2" flat color="primary" @click="acceptCookie">Sure</v-btn>
+          <v-btn class="mr-2" flat color="primary" @click="viewPrivacyPolicy">Privacy Policy</v-btn>
+          <v-btn class="mr-2" flat color="primary" @click="acceptCookie">Sure, I agree</v-btn>
         </v-layout>
       </v-card>
     </v-bottom-sheet>
-    <!-- <v-footer :fixed="false" app>
-      <span>&copy; 2017</span>
-    </v-footer> -->
   </v-app>
 </template>
 
@@ -157,12 +184,16 @@ export default {
     }
   },
   mounted () {
-    this.cookieMsg = localStorage.getItem('userAcceptsCookie', true)
+    this.cookieMsg = !(localStorage.getItem('userAcceptsCookieAndPP') || false)
   },
   methods: {
+    viewPrivacyPolicy: function () {
+      this.acceptCookie()
+      this.$router.replace(`/privacypolicy`)
+    },
     acceptCookie: function () {
       this.cookieMsg = false
-      localStorage.getItem('userAcceptsCookie', true)
+      localStorage.setItem('userAcceptsCookieAndPP', true)
     },
     onListLoadClick: function () {
       this.loadDeckText = ''
@@ -215,8 +246,15 @@ export default {
 #toolbar {
   z-index: 99999;
 }
-#body {
+#body, #footer {
   background: url('~@/assets/bg.jpg') repeat;
+}
+#footer {
+    color: #fff;
+}
+#footer a {
+    color: #ddd;
+    text-decoration: none;
 }
 #menu {
   background: url('~@/assets/bg_header.jpg') no-repeat;

@@ -176,7 +176,7 @@ export default {
   },
   data () {
     return {
-      lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.2.2/Lotus.Tracker.1.2.2.zip'
+      lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.2.3/Lotus.Tracker.1.2.3.zip'
     }
   },
   created () {

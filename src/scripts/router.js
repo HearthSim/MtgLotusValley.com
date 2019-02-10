@@ -10,6 +10,7 @@ import PrivateDeck from '@/pages/PrivateDeck'
 import PublicDeckList from '@/pages/PublicDeckList'
 import PublicDeck from '@/pages/PublicDeck'
 import LotusTracker from '@/pages/LotusTracker'
+import PrivacyPolicy from '@/pages/PrivacyPolicy'
 
 import NewsMtgLotusValley from '@/pages/news/1MtgLotusValley'
 import NewsMtgLVDecks from '@/pages/news/2MtgLVDecks'
@@ -99,6 +100,11 @@ const router = new Router({
       path: '/lotustracker',
       name: 'LotusTracker',
       component: LotusTracker
+    },
+    {
+      path: '/privacypolicy',
+      name: 'PrivacyPolicy',
+      component: PrivacyPolicy
     },
     {
       path: '/mtglv',

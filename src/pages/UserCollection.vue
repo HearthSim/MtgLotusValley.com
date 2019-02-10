@@ -13,7 +13,7 @@
             <div>
               <v-layout column wrap>
                 <QueryFilter class="filterQuery m-auto" v-model="searchQuery"
-                  v-on:onQuery="updateFilters()" title="Name or Type"/>
+                  v-on:onQuery="updateFilters()" title="Name, Text or Type"/>
                 <RarityFilter class="filterRarity pl-2 pr-2" v-model="activeRarities"/>
               </v-layout>
             </div>
