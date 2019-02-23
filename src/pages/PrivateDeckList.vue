@@ -144,7 +144,7 @@ export default {
       totalItems: 0,
       selectedDecks: [],
       currentDecks: [],
-      activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,g,r,u,w',
+      activeColors: this.$route.query.colors !== undefined ? this.$route.query.colors : 'b,g,r,u,w,m',
       containsCards: this.$route.query.cards !== undefined ? this.$route.query.cards : '',
       deckFormat: this.$route.query.format !== undefined ? this.$route.query.format : 'Constructed',
       searchQuery: this.$route.query.query !== undefined ? this.$route.query.query : '',
@@ -234,7 +234,7 @@ export default {
     height: 110px;
   }
   .filter {
-    min-width: 200px;
+    min-width: 210px;
   }
   .wildcards {
     justify-content: space-between;

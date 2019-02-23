@@ -165,7 +165,7 @@ export default {
         })
     },
     clearFilters: function () {
-      this.activeColors = 'b,g,r,u,w'
+      this.activeColors = 'b,g,r,u,w,m'
       this.deckFormat = 'Constructed'
       this.searchQuery = ''
       this.containsCards = ''

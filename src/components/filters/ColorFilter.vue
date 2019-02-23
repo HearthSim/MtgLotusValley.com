@@ -31,7 +31,7 @@ export default {
   data () {
     return {
       activeColors: [],
-      colors: this.simple ? Utils.colors.filter(c => c.code !== 'c' && c.code !== 'm') : Utils.colors
+      colors: this.simple ? Utils.colors.filter(c => c.code !== 'c') : Utils.colors
     }
   },
   mounted () {
