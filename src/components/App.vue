@@ -89,9 +89,9 @@
               </router-link>
             </v-layout>
             <v-layout column>
-              <router-link v-for="menu in linksMenu" :key="menu.title" exact :to="menu.link">
+              <a v-for="menu in linksMenu" :key="menu.title" :href="menu.link" target="_blank">
                 <span class="mt-1">{{menu.title}}</span>
-              </router-link>
+              </a>
             </v-layout>
             <v-layout column>
               <router-link to="/privacypolicy">
@@ -121,7 +121,7 @@
         </v-card>
       </v-dialog>
     </v-content>
-    <v-bottom-sheet v-model="cookieMsg" inset hide-overlay persistent>
+    <v-bottom-sheet v-model="cookieMsg" inset persistent>
       <v-card>
         <v-layout row nowrap>
           <v-layout class="ml-2" column nowrap justify-center>
@@ -173,7 +173,7 @@ export default {
         {
           title: 'Twitter',
           icon: require('@/assets/twitter.png'),
-          link: 'https://twitter.com/MtgLotusValley'
+          link: 'https://twitter.com/LotusTracker'
         },
         {
           title: 'Donate',
