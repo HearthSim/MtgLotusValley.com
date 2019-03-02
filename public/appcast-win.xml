@@ -5,6 +5,26 @@
         <description>Most recent updates changes.</description>
         <language>en</language>
         <item>
+            <title>Arena Tracker 1.2.4</title>
+            <description>
+              <![CDATA[
+              <style type="text/css">* { font-family: Arial, Helvetica, sans-serif; }</style>
+              <ul>
+              <li>Add button for quick switch draft ratings</li>
+              <li>Add hints for LSV rating and Draftsim rating options</li>
+              <li>Add option to choose to show deck after draft</li>
+              <li>Avoid player deck overlay hides before opponent deck overlay</li>
+              <li>Update draft cards sort</li>
+              <li>Fix overlay cards update after sideboarding</li>
+              <li>Fix overlay hiding itself after get focus</li>
+              </ul>
+              ]]>
+            </description>
+            <pubDate>Sat, 02 Mar 2019</pubDate>
+            <enclosure url="https://github.com/edipo2s/LotusTracker/releases/download/v1.2.4/Lotus.Tracker.1.2.4.exe"
+                    sparkle:version="1.2.4" length="25074" type="application/x-msdownload"/>
+        </item>
+        <item>
             <title>Arena Tracker 1.2.3</title>
             <description>
               <![CDATA[
