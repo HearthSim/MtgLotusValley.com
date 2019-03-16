@@ -15,18 +15,18 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.8.0",
     "date-diff": "^0.2.1",
     "keyrune": "^3.3.3",
     "mana-font": "^1.4.1",
-    "vue": "^2.6.6",
-    "vue-analytics": "^5.16.2",
+    "vue": "^2.6.9",
+    "vue-analytics": "^5.16.4",
     "vue-disqus": "^3.0.5",
     "vue-head": "^2.1.1",
     "vue-markdown": "^2.2.4",
     "vue-meta": "^1.5.8",
     "vue-router": "^3.0.2",
-    "vuetify": "^1.5.1"
+    "vuetify": "^1.5.6"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -81,10 +81,11 @@
     "vue-lazyload": "^1.2.6",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.6.6",
+    "vue-template-compiler": "^2.6.9",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.9.1",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^2.11.2",
     "webpack-merge": "^4.2.1"
   },
   "engines": {

@@ -2,9 +2,13 @@
   <v-layout class="mb-3" column>
     <div class="mt-2_5 ml-2_5 mr-2_5">
       <v-layout class="header header-bg" row nowrap>
-        <v-btn class="download" round color="deep-orange" :href="lotusTrackerWindows">
+        <v-btn class="download-windows" round color="deep-orange" :href="lotusTrackerWindows">
           <v-icon color="white">get_app</v-icon>
-          <span class="white--text font-weight-bold">Download</span>
+          <span class="white--text font-weight-bold">Download for Win</span>
+        </v-btn>
+        <v-btn class="download-osx" round color="deep-orange" :href="lotusTrackerOSX">
+          <v-icon color="white">get_app</v-icon>
+          <span class="white--text font-weight-bold">Download for Mac</span>
         </v-btn>
         <span class="date headline white--text font-weight-bold">
           {{ new Date('2018-12-15 00:00').toLocaleString().split(' ')[0].replace(',', '') }}
@@ -176,7 +180,8 @@ export default {
   },
   data () {
     return {
-      lotusTrackerWindows: 'https://github.com/edipo2s/LotusTracker/releases/download/v1.2.4/Lotus.Tracker.1.2.4.zip'
+      lotusTrackerWindows: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.2.4/Lotus.Tracker.1.2.4.zip',
+      lotusTrackerOSX: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.2.4/LotusTracker_1.2.4.dmg'
     }
   },
   created () {
@@ -197,9 +202,14 @@ export default {
     left: calc(100% - 145px);
     top: calc(100% - 40px);
   }
-  .download {
+  .download-windows {
     position: absolute;
-    left: calc(100% - 160px);
+    left: calc(100% - 240px);
     top: 8px;
+  }
+  .download-osx {
+    position: absolute;
+    left: calc(100% - 240px);
+    top: 60px;
   }
 </style>
