@@ -10,14 +10,14 @@
           <span class="title">Privacy Policy</span>
           <span class="body-1 mt-3">
             This website and Lotus Tracker are complementary tools created by Édipo Souza and as an open source project 
-            that can also receive updates and fixes by community. This service and tool are provided at no cost is intended 
-            for use as is.
+            they can also receive updates and fixes by community. This service and tool are provided at no cost and is 
+            intended for use as it is.
           </span>
           <span class="body-1 mt-2">
             To make reading easier, when we need to refer both, {{website}} and Lotus Tracker in this document, 
             the word Lotus project will be used.
 
-            This document can be updated as we provide new features and website or Lotus Tracker. Users will be notified 
+            This document can be updated as we provide new features on website or Lotus Tracker. Users will be notified 
             when a updated version comes online.
           </span>
           <span class="body-1 mt-2">
@@ -53,9 +53,9 @@
             </li>
           </ul>
           <span class="title mt-4">Security</span>
-          <span class="body-1 mt-3">Users private data will never be shared or sold to any third parties.</span>
+          <span class="body-1 mt-3">Users private data will not be publicly shared at any time, but may be reviewed by partners.</span>
           <span class="title mt-4">Shared Data</span>
-          <span class="body-1 mt-3">The only data that can be shared by Lotus project is Anonymous data, in other words, 
+          <span class="body-1 mt-3">The only data that can be publicly shared by Lotus project is Anonymous data, in other words, 
                 just matches info without identify the players. User are still be able to share his decks by publishing it, 
                 so this way, they will be available to anyone see it on {{website}}.</span>
           <span class="title mt-4">Storage</span>
