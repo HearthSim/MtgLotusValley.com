@@ -125,10 +125,11 @@
                       </span>
                     </v-layout>
                   </v-tooltip>
-                  <v-tooltip right lazy>
+                  <v-tooltip v-if="set.code !== 'ALL'" right lazy>
                     <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
                     <span>Chance to open a 5th rare/mythic copy</span>
                   </v-tooltip>
+                  <span v-if="set.code === 'ALL'">All sets summary</span>
                 </v-card>
               </v-layout>
                 <!-- collection by colors -->
@@ -165,10 +166,11 @@
                       </span>
                     </v-layout>
                   </v-tooltip>
-                  <v-tooltip right lazy>
+                  <v-tooltip v-if="set.code !== 'ALL'" right lazy>
                     <span class="caption" slot="activator">5th rare/mythic chance: {{getFifthCopyChance(set)}}%</span>
                     <span>Chance to open a 5th rare/mythic copy</span>
                   </v-tooltip>
+                  <span v-if="set.code === 'ALL'">All sets summary</span>
                 </v-card>
               </v-layout>
             </v-layout>
@@ -343,11 +345,38 @@ export default {
     requestUserCollectionSummary: function () {
       this.$api.getUserCollection(true)
         .then(res => {
-          this.userCollectionSummary = res.data.filter(set => set.code !== 'ANA' && set.code !== 'MED')
+          const setsSummary = res.data.filter(set => set.code !== 'ANA' && set.code !== 'MED')
+          const collectionSummary = {
+            code: 'ALL',
+            all: this.getStatsSummaryFromCollection(setsSummary, 'all'),
+            owned: this.getStatsSummaryFromCollection(setsSummary, 'owned'),
+            playset: this.getStatsSummaryFromCollection(setsSummary, 'playset'),
+            unique: this.getStatsSummaryFromCollection(setsSummary, 'unique')
+          }
+          setsSummary.unshift(collectionSummary)
+          this.userCollectionSummary = setsSummary
         })
         .catch(error => {
           console.log(error)
         })
+    },
+    getStatsSummaryFromCollection: function (sets, stats) {
+      const summary = {}
+      sets.forEach(set => {
+        const setStats = set[stats]
+        if (setStats !== undefined) {
+          Object.keys(setStats).forEach(attr => {
+            if (summary[attr] === undefined) {
+              summary[attr] = 0
+            }
+            summary[attr] += setStats[attr]
+          })
+        } else {
+          console.log(`${stats} not found on`)
+          console.log(set)
+        }
+      })
+      return summary
     },
     onCollectionColorChanged: function (newValue) {
       localStorage.setItem('collectionViewColor', newValue)
@@ -449,7 +478,7 @@ export default {
       this.isLoading = true
       this.paginationEvents.rowsPerPage = 10
       const { sortBy, descending, page, rowsPerPage } = this.paginationEvents
-      this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending, this.currentEvent)
+      this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending, this.currentEvent) //this.currentEventName
         .then(res => {
           this.isLoading = false
           this.userEventsMatchesData = []
