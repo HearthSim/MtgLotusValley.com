@@ -307,6 +307,7 @@ export default {
   background: url('~@/assets/bg_box.jpg') repeat;
   height: 36px;
   width: 100%;
+  padding: 0px 12px !important;
   flex-wrap: nowrap;
 }
 

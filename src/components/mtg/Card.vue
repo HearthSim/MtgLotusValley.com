@@ -11,7 +11,8 @@
         {{ qtd }}
       </v-card>
     </div>
-    <v-tooltip v-if="asText" :class="`textNoWrap ${largeName ? 'textNameLarge' : 'textNameNormal'}`" left lazy>
+    <v-tooltip v-if="asText" :class="`textNoWrap ${largeName ? 'textNameLarge' : 'textNameNormal'}`"
+      left lazy nudge-right="-5">
       <a class='body-1' target="_blank" :href="cardLink()" slot="activator">
         {{ name }}
       </a>
