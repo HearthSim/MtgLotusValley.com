@@ -173,6 +173,9 @@ export default {
       this.sideboardQtd = DeckUtils.getGroupCardsQtd(this.sideboardCards)
     },
     updateDeckLink: function () {
+      if (this.cards == undefined) {
+        return
+      }
       const cards = []
       Object.keys(this.cards).forEach(mtgaId => {
         const card = this.cards[mtgaId]

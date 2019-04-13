@@ -14,7 +14,7 @@
             </v-flex>
             <v-spacer/>
             <v-flex>
-              <div id="mana" class="mr-1">
+              <div v-if="deck.colors !== 'default'" id="mana" class="mr-1">
                 <img v-for="color in deck.colors.split('')" :key="color"
                   :src="require(`@/assets/mana/${color}.png`)"/>
               </div>
@@ -69,7 +69,12 @@ export default {
     getDecks: function () {
       this.$api.getPublicDecks(1, 15, undefined, undefined, 'Constructed')
         .then(res => {
-          this.currentDecks = res.data
+          this.currentDecks = res.data.map(deck => {
+            if (deck.colors === "") {
+              deck.colors = "default"
+            }
+            return deck
+          })
           this.decksLoaded = true
         })
         .catch(error => {
