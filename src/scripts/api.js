@@ -287,14 +287,14 @@ export default {
       }
     })
   },
-  getUserDeckMatches (id, page, pageSize, sortBy, descending, eventId, casual) {
+  getUserDeckMatches (id, page, pageSize, sortBy, descending, event, casual) {
     return axios.get('/users/matches', {
       headers: {
         Authorization: 'required'
       },
       params: {
         deckId: id,
-        eventId: eventId,
+        eventName: event,
         eventCasual: casual,
         pageNumber: page,
         pageSize: pageSize,

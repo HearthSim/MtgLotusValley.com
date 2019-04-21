@@ -478,7 +478,7 @@ export default {
       this.isLoading = true
       this.paginationEvents.rowsPerPage = 10
       const { sortBy, descending, page, rowsPerPage } = this.paginationEvents
-      this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending, this.currentEvent) //this.currentEventName
+      this.$api.getUserDeckMatches(this.deckId, page, rowsPerPage, sortBy, descending, this.currentEventName)
         .then(res => {
           this.isLoading = false
           this.userEventsMatchesData = []
@@ -506,7 +506,7 @@ export default {
       this.paginationEventsRuns.rowsPerPage = 7
       const page = this.paginationEventsRuns.page
       const rowsPerPage = this.paginationEventsRuns.rowsPerPage
-      this.$api.getUserEvents(this.currentEvent, page, rowsPerPage)
+      this.$api.getUserEvents(this.currentEventName, page, rowsPerPage)
         .then(res => {
           this.isLoading = false
           this.userEventsRunsData = res.data
