@@ -107,7 +107,7 @@ export default {
       activeRarities: this.$route.query.rarities !== undefined ? this.$route.query.rarities : '',
       activeTypes: this.$route.query.types !== undefined ? this.$route.query.types : '',
       activeSets: this.$route.query.sets !== undefined ? this.$route.query.sets : '',
-      onlyOwnedCards: this.$route.query.onlyOwnedCards !== undefined ? this.$route.query.onlyOwnedCards : false,
+      onlyOwnedCards: this.$route.query.onlyOwnedCards !== undefined ? this.$route.query.onlyOwnedCards === 'true' : false,
       searchQuery: this.$route.query.query,
       currentPageCards: [],
       isLoading: false,

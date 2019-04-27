@@ -173,7 +173,7 @@ export default {
       this.sideboardQtd = DeckUtils.getGroupCardsQtd(this.sideboardCards)
     },
     updateDeckLink: function () {
-      if (this.cards == undefined) {
+      if (this.cards === undefined) {
         return
       }
       const cards = []

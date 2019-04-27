@@ -1,4 +1,6 @@
 
+import Utils from '@/scripts/utils'
+
 const isProduction = process.env.NODE_ENV === 'production'
 let isRefreshingToken = false
 let refreshSubscribers = []
@@ -179,7 +181,7 @@ export default {
       colors: colors === '' ? 'b,c,g,m,r,u,w' : colors,
       rarities: rarities === '' ? 'c,u,r,m' : rarities,
       types: types === '' ? 'a,c,e,i,l,p,s' : types,
-      sets: sets === '' ? 'ANA,XLN,RIX,DAR,M19,GRN,MED' : sets,
+      sets: sets === '' ? Utils.sets.map(set => set.code).join() : sets,
       pageNumber: page,
       pageSize: pageSize,
       fields: fields !== undefined ? fields : 'name,mtgaid,multiverseid,imageUrl,imageUrlTransformed'
