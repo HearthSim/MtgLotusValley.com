@@ -1,10 +1,10 @@
   <template>
     <v-layout row wrap>
       <v-flex xs12>
-        <Events/>
+        <!-- <Events/> -->
       </v-flex>
       <v-flex xs12>
-        <v-layout class="box mt-0" row wrap>
+        <v-layout class="box" row wrap>
           <v-flex xs12 class="boxHeader">Latest Constructed Decks</v-flex>
           <v-layout class="boxContent" row wrap>
             <LatestDecks />
