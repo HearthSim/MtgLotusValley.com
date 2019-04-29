@@ -203,6 +203,18 @@ export default {
       this.isLoading = true
       this.showError = false
       try {
+        const isJson = ((this.loadDeckText || '').match(/\{(\n\s+.*)+\n*\}/g))
+        if (isJson) {
+          const json = JSON.parse(this.loadDeckText)
+          const cards = []
+          for (const mtgaid in json) {
+            cards.push(`${json[mtgaid]}:${mtgaid}`)
+          }
+          this.isLoading = false
+          this.loadDeckDialog = false
+          this.showDeck(cards.join(';'), [])
+          return
+        }
         const deckCards = DeckUtils.parseDeckText(this.loadDeckText)
         this.$api.convertNamesToCards(deckCards.cards, deckCards.sideboard)
           .then(res => {
@@ -210,12 +222,7 @@ export default {
             this.loadDeckDialog = false
             const cards = res.data.cards.join(';')
             const sideboard = res.data.sideboard.join(';')
-            if (this.$route.path.includes('/decks/')) {
-              this.$router.replace(`/decks/${cards}_${sideboard}?loader=true`)
-              location.reload()
-            } else {
-              this.$router.replace(`/decks/${cards}_${sideboard}?loader=true`)
-            }
+            this.showDeck(cards, sideboard)
           })
           .catch(error => {
             console.log(error)
@@ -228,6 +235,14 @@ export default {
         this.isLoading = false
         this.errorMsg = 'Invalid deck list'
         this.showError = true
+      }
+    },
+    showDeck: function(cards, sideboard) {
+      if (this.$route.path.includes('/decks/')) {
+        this.$router.replace(`/decks/${cards}_${sideboard}?loader=true`)
+        location.reload()
+      } else {
+        this.$router.replace(`/decks/${cards}_${sideboard}?loader=true`)
       }
     }
   }
