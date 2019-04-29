@@ -137,10 +137,6 @@
                     <i class="caption">Cards ranks and commentary by LSV from <a href="https://www.channelfireball.com/tag/limited-set-review/">ChannelFireball.com</a></i>
                   </li>
                   <li>
-                    <span class="subheading font-weight-bold mt-3">DraftSim Draft Tiers</span><br/>
-                    <i class="caption">Cards ranks by Dan from <a href="https://draftsim.com/">Draftsim.com</a></i>
-                  </li>
-                  <li>
                     <span class="subheading font-weight-bold mt-3">Collection Info</span><br/>
                     <i class="caption">Show card quantity in collection (x/4)</i>
                   </li>
@@ -180,8 +176,8 @@ export default {
   },
   data () {
     return {
-      lotusTrackerWindows: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.2.6/Lotus.Tracker.1.2.6.zip',
-      lotusTrackerOSX: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.2.6/LotusTracker_1.2.6.dmg'
+      lotusTrackerWindows: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.3.0/Lotus.Tracker.1.3.0.zip',
+      lotusTrackerOSX: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.3.0/LotusTracker_1.3.0.dmg'
     }
   },
   created () {
