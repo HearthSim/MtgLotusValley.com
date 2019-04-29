@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home'
 import User from '@/pages/User'
-import Meta from '@/pages/Meta'
+//import Meta from '@/pages/Meta'
 import DeckBuilder from '@/pages/DeckBuilder'
 import UserCollection from '@/pages/UserCollection'
 import PrivateDeckList from '@/pages/PrivateDeckList'
@@ -28,11 +28,11 @@ const router = new Router({
       name: 'Home',
       component: Home
     },
-    {
-      path: '/meta',
-      name: 'Meta',
-      component: Meta
-    },
+    // {
+    //   path: '/meta',
+    //   name: 'Meta',
+    //   component: Meta
+    // },
     {
       path: '/user',
       name: 'User',

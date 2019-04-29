@@ -161,8 +161,8 @@ export default {
       mainMenu: [
         { title: 'Home', link: '/home' },
         { title: 'Decks', link: '/decks' },
-        { title: 'Deck Builder', link: '/decks/builder' },
-        { title: 'Meta', link: '/meta' }
+        { title: 'Deck Builder', link: '/decks/builder' }//,
+        // { title: 'Meta', link: '/meta' }
       ],
       linksMenu: [
         {
