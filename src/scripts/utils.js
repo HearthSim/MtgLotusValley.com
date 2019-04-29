@@ -32,7 +32,8 @@ export default {
     { code: 'M19', name: 'Core Set 2019' },
     { code: 'GRN', name: 'Guilds of Ravnica' },
     { code: 'MED', name: 'Mythic Edition' },
-    { code: 'RNA', name: 'Ravnica Allegiance' }
+    { code: 'RNA', name: 'Ravnica Allegiance' },
+    { code: 'WAR', name: 'War of Spark' }
   ],
   guilds: [
     { colors: 'wu', colorsOrdered: 'uw', name: 'Azorius' },
