@@ -100,6 +100,13 @@ export default {
       decksByColorsBasics: {},
       latestNews: [
         {
+          cover: require('@/assets/pages-headers/SparkDouble.jpg'),
+          title: 'Lotus Valley is joining forces with HearthSim!',
+          subtitle: 'Working together we can do more for all MTGA players.',
+          date: '2019-05-02 00:00',
+          link: '/hearthsim'
+        },
+        {
           cover: require('@/assets/pages-headers/ArchwayAngel.jpg'),
           title: 'MTGA January update, duplicate protections is here!',
           subtitle: 'The first update from 2019 brings Ravnica Allegiance Set, Duplicate protection and more.',

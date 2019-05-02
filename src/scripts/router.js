@@ -17,6 +17,7 @@ import NewsMtgLVDecks from '@/pages/news/2MtgLVDecks'
 import NewsHoliday2018 from '@/pages/news/3Holiday2018'
 import NewsHoliday2018Analysis from '@/pages/news/4Holiday2018Analysis'
 import January2019Update from '@/pages/news/5January2019Update'
+import HearthSim from '@/pages/news/6HearthSim'
 
 Vue.use(Router)
 
@@ -130,6 +131,11 @@ const router = new Router({
       path: '/january_2019_update',
       name: 'January2019Update',
       component: January2019Update
+    },
+    {
+      path: '/hearthsim',
+      name: 'HearthSim',
+      component: HearthSim
     },
     {
       path: '*',
