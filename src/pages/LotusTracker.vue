@@ -176,8 +176,8 @@ export default {
   },
   data () {
     return {
-      lotusTrackerWindows: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.3.1/Lotus.Tracker.1.3.1.zip',
-      lotusTrackerOSX: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.3.1/LotusTracker_1.3.1.dmg'
+      lotusTrackerWindows: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.4.0/Lotus.Tracker.1.4.0.zip',
+      lotusTrackerOSX: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.4.0/LotusTracker_1.4.0.dmg'
     }
   },
   created () {

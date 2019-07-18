@@ -13,7 +13,13 @@ export default {
       return this.rarity.toLowerCase()
     },
     setLowerCase: function () {
-      return this.set === 'DAR' ? 'dom' : this.set.toLowerCase()
+      if (this.set.toLowerCase() === 'all') {
+        return 'bcore'
+      }
+      if (this.set.toLowerCase() === 'dar') {
+        return 'dom'
+      }
+      return this.set.toLowerCase()
     },
     setTitle: function () {
       const setCode = this.set
@@ -42,6 +48,6 @@ export default {
 
 <style>
 .ss {
-  transform: translateY(-3px);
+  transform: translateY(-1px);
 }
 </style>

@@ -540,6 +540,7 @@ export default {
   }
   .setSymbol {
     transform: translateY(5px);
+    font-size: 18px;
   }
   .setRarityLine {
     height: 30px;
