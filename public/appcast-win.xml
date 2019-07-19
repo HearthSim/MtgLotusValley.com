@@ -5,6 +5,25 @@
         <description>Most recent updates changes.</description>
         <language>en</language>
         <item>
+            <title>Arena Tracker 1.4.2</title>
+            <description>
+              <![CDATA[
+              <style type="text/css">* { font-family: Arial, Helvetica, sans-serif; }</style>
+              <ul>
+              <li>Store credentials safetly</li>
+              <li>Upload match to untapped.gg</li>
+              <li>App signed to avoid AV false positive warnings</li>
+              <li>Fix deck load in Practice and DirectChallenger mode</li>
+              <li>Avoid upload game with invalid uploadToken</li>
+              <li>Improve statistics tracking</li>
+              </ul>
+              ]]>
+            </description>
+            <pubDate>Thu, 19 Jul 2019</pubDate>
+            <enclosure url="https://github.com/HearthSim/LotusTracker/releases/download/v1.4.2/Lotus.Tracker.1.4.2.exe"
+                    sparkle:version="1.4.2" length="29532" type="application/x-msdownload"/>
+        </item>
+        <item>
             <title>Arena Tracker 1.4.1</title>
             <description>
               <![CDATA[
