@@ -343,9 +343,10 @@ export default {
         })
     },
     requestUserCollectionSummary: function () {
+      const fullSets = Utils.sets.filter(s => s.code !== 'ANA' && s.code !== 'MED').map(s => s.code);
       this.$api.getUserCollection(true)
         .then(res => {
-          const setsSummary = res.data.filter(set => set.code !== 'ANA' && set.code !== 'MED')
+          const setsSummary = res.data.filter(set => fullSets.includes(set.code))
           const collectionSummary = {
             code: 'ALL',
             all: this.getStatsSummaryFromCollection(setsSummary, 'all'),

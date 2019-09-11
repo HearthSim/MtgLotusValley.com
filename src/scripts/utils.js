@@ -30,11 +30,11 @@ export default {
     { code: 'RIX', name: 'Rivals of Ixalan' },
     { code: 'DAR', name: 'Dominaria' },
     { code: 'M19', name: 'Core Set 2019' },
-    { code: 'M20', name: 'Core Set 2020' },
     { code: 'GRN', name: 'Guilds of Ravnica' },
     { code: 'MED', name: 'Mythic Edition' },
     { code: 'RNA', name: 'Ravnica Allegiance' },
-    { code: 'WAR', name: 'War of Spark' }
+    { code: 'WAR', name: 'War of Spark' },
+    { code: 'M20', name: 'Core Set 2020' }
   ],
   guilds: [
     { colors: 'wu', colorsOrdered: 'uw', name: 'Azorius' },
