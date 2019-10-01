@@ -17,7 +17,7 @@
     "axios": "^0.18.1",
     "chart.js": "^2.8.0",
     "date-diff": "^0.2.1",
-    "keyrune": "^3.4.3",
+    "keyrune": "^3.5.0",
     "mana-font": "^1.4.1",
     "vue": "^2.6.10",
     "vue-analytics": "^5.17.0",

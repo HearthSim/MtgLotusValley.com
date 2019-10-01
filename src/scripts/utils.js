@@ -34,7 +34,8 @@ export default {
     { code: 'MED', name: 'Mythic Edition' },
     { code: 'RNA', name: 'Ravnica Allegiance' },
     { code: 'WAR', name: 'War of Spark' },
-    { code: 'M20', name: 'Core Set 2020' }
+    { code: 'M20', name: 'Core Set 2020' },
+    { code: 'ELD', name: 'Throne of Eldraine' }
   ],
   guilds: [
     { colors: 'wu', colorsOrdered: 'uw', name: 'Azorius' },
