@@ -137,15 +137,17 @@ export default {
     updateDeckCards: function () {
       this.cardsGrouped = []
       if (this.cards !== undefined) {
+        console.log(this.cards);
         this.cardsGrouped = this.groupCards(this.cards)
       }
       this.lands = this.cardsGrouped.filter(card => {
         return card.type.includes('Land') && !card.type.includes('Creature')
       })
       this.creatures = this.cardsGrouped.filter(card => card.type.includes('Creature'))
-      this.spells = this.cardsGrouped.filter(card => {
-        return card.type.includes('Instant') || card.type.includes('Sorcery')
-      })
+      this.spells = this.cardsGrouped.filter(card => !card.type.includes('Adventure'))
+        .filter(card => {
+          return card.type.includes('Instant') || card.type.includes('Sorcery')
+        })
       this.enchantments = this.cardsGrouped.filter(card => {
         return card.type.includes('Enchantment') && !card.type.includes('Creature')
       })
