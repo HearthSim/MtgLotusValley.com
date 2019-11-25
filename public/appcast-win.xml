@@ -5,6 +5,20 @@
         <description>Most recent updates changes.</description>
         <language>en</language>
         <item>
+            <title>Arena Tracker 1.4.7</title>
+            <description>
+              <![CDATA[
+              <style type="text/css">* { font-family: Arial, Helvetica, sans-serif; }</style>
+              <ul>
+              <li>Update with MTGA update 1952.745934</li>
+              </ul>
+              ]]>
+            </description>
+            <pubDate>Tue, 25 Nov 2019</pubDate>
+            <enclosure url="https://github.com/HearthSim/LotusTracker/releases/download/v1.4.7/Lotus.Tracker.1.4.7.exe"
+                    sparkle:version="1.4.7" length="29573" type="application/x-msdownload"/>
+        </item>
+        <item>
             <title>Arena Tracker 1.4.6</title>
             <description>
               <![CDATA[

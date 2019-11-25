@@ -6,10 +6,6 @@
           <v-icon color="white">get_app</v-icon>
           <span class="white--text font-weight-bold">Download for Win</span>
         </v-btn>
-        <v-btn class="download-osx" round color="deep-orange" :href="lotusTrackerOSX">
-          <v-icon color="white">get_app</v-icon>
-          <span class="white--text font-weight-bold">Download for Mac</span>
-        </v-btn>
         <span class="date headline white--text font-weight-bold">
           {{ new Date('2018-12-15 00:00').toLocaleString().split(' ')[0].replace(',', '') }}
         </span>
@@ -176,8 +172,7 @@ export default {
   },
   data () {
     return {
-      lotusTrackerWindows: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.4.6/Lotus.Tracker.1.4.6.zip',
-      lotusTrackerOSX: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.4.6/LotusTracker_1.4.6.dmg'
+      lotusTrackerWindows: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.4.7/Lotus.Tracker.1.4.7.zip'
     }
   },
   created () {
