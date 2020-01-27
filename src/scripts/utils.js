@@ -35,7 +35,8 @@ export default {
     { code: 'RNA', name: 'Ravnica Allegiance' },
     { code: 'WAR', name: 'War of Spark' },
     { code: 'M20', name: 'Core Set 2020' },
-    { code: 'ELD', name: 'Throne of Eldraine' }
+    { code: 'ELD', name: 'Throne of Eldraine' },
+    { code: 'THB', name: 'Theros Beyond Death' }
   ],
   guilds: [
     { colors: 'wu', colorsOrdered: 'uw', name: 'Azorius' },
