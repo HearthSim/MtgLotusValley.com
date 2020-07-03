@@ -172,7 +172,7 @@ export default {
   },
   data () {
     return {
-      lotusTrackerWindows: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.4.7/Lotus.Tracker.1.4.7.zip'
+      lotusTrackerWindows: 'https://github.com/MtgLotusValley/LotusTracker/releases/download/v1.4.8/Lotus.Tracker.1.4.8.zip'
     }
   },
   created () {

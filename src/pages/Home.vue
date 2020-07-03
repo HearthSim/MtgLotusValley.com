@@ -100,6 +100,13 @@ export default {
       decksByColorsBasics: {},
       latestNews: [
         {
+          cover: require('@/assets/pages-headers/HealersHawk.jpg'),
+          title: 'Lotus Tracker being discontinued on July, 2020',
+          subtitle: 'Thank you to all Lotus Tracker users.',
+          date: '2020-06-30 00:00',
+          link: '/goodbye'
+        },
+        {
           cover: require('@/assets/pages-headers/SparkDouble.jpg'),
           title: 'Lotus Valley is joining forces with HearthSim!',
           subtitle: 'Working together we can do more for all MTGA players.',

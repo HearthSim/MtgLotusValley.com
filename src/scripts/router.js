@@ -18,6 +18,7 @@ import NewsHoliday2018 from '@/pages/news/3Holiday2018'
 import NewsHoliday2018Analysis from '@/pages/news/4Holiday2018Analysis'
 import January2019Update from '@/pages/news/5January2019Update'
 import HearthSim from '@/pages/news/6HearthSim'
+import Depreciated from '@/pages/news/7Depreciated'
 
 Vue.use(Router)
 
@@ -138,6 +139,11 @@ const router = new Router({
       component: HearthSim
     },
     {
+      path: '/goodbye',
+      name: 'Depreciated',
+      component: Depreciated
+    },
+    {
       path: '*',
       redirect: '/'
     }
@@ -145,7 +151,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = 'Black Lotus Valley'
+  document.title = 'Mtg Lotus Valley'
   const currentUserId = localStorage.getItem('localId')
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   if (requiresAuth && !currentUserId) {
