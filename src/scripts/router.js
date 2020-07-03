@@ -101,7 +101,7 @@ const router = new Router({
     {
       path: '/lotustracker',
       name: 'LotusTracker',
-      component: LotusTracker
+      redirect: '/goodbye'
     },
     {
       path: '/privacypolicy',
