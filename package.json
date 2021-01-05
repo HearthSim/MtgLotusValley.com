@@ -14,7 +14,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "chart.js": "^2.8.0",
     "date-diff": "^0.2.1",
     "keyrune": "^3.6.3",
